@@ -1,0 +1,20 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:Student a sh:NodeShape ;
+         sh:targetNode :ben ;
+         sh:property [
+                         sh:path :enrolledIn ;
+                         sh:minCount 1 ;
+                         sh:class :Course ;
+                     ] .
+
+:Teacher a sh:NodeShape ;
+         sh:targetNode :ben ;
+         sh:property [
+                         sh:path :teaches;
+                         sh:minCount 1 ;
+                     ] ;
+         sh:not [
+                    sh:node :Student;
+                ] .

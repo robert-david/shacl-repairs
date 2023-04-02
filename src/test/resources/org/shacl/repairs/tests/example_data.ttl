@@ -1,0 +1,4 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:ben :enrolledIn :C1 .

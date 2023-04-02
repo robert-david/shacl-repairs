@@ -1,0 +1,15 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:UnemployedShape a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:property [
+        sh:path :worksFor ;
+        sh:not [
+            sh:node :OrganizationShape ;
+        ]
+    ] .
+
+:OrganizationShape a sh:NodeShape ;
+    sh:targetNode :company1 ;
+    sh:class :Organization .

@@ -1,0 +1,18 @@
+clingo version 5.5.2
+Reading from ...s/test_class_08/test_class_08_rules.pl
+Solving...
+Answer: 1
+actualTarget("_ann",_personShape) add(_worksFor("_ann","1648")) add(_organization("1648"))
+Optimization: 0 2
+Answer: 2
+actualTarget("_ann",_personShape) add(_worksFor("_ann","1648")) add(_person("1648"))
+Optimization: 0 2
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+  Optimal    : 2
+Optimization : 0 2
+Calls        : 1
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s

@@ -1,0 +1,18 @@
+clingo version 5.5.2
+Reading from ...e/test_value_05/test_value_05_rules.pl
+Solving...
+Answer: 1
+actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1204")) add(_name("_ann","Ann"))
+Optimization: 0 3 1
+Answer: 2
+actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1206")) add(_name("_ann","Ann"))
+Optimization: 0 3 1
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+  Optimal    : 2
+Optimization : 0 3 1
+Calls        : 1
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s

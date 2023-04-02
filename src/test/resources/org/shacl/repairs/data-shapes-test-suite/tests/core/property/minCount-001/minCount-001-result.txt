@@ -1,0 +1,18 @@
+clingo version 5.5.2
+Reading from ...rty/minCount-001/minCount-001-rules.pl
+Solving...
+Answer: 1
+actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3191")) add(xsd_string("3191"))
+Optimization: 0 2
+Answer: 2
+actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3195")) add(xsd_string("3195"))
+Optimization: 0 2
+OPTIMUM FOUND
+
+Models       : 6
+  Optimum    : yes
+  Optimal    : 2
+Optimization : 0 2
+Calls        : 1
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s

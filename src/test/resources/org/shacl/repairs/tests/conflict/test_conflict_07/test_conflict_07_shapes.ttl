@@ -1,0 +1,20 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:PersonShapeA a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:property [
+        sh:path :worksFor ;
+        sh:minCount 2 ;
+        sh:class :Organization ;
+    ] .
+
+:PersonShapeB a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:not [
+        sh:property [
+            sh:path :worksFor ;
+            sh:minCount 2 ; # sh:maxCount 1
+            sh:class :Organization ;
+        ]
+    ] .

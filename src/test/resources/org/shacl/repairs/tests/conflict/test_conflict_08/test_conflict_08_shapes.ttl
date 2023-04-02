@@ -1,0 +1,22 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:Vegetarian a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:not [
+        sh:property [
+            sh:path :eats ;
+            sh:minCount 1 ;
+            sh:node :Meat ;
+        ]
+    ] .
+
+:Meat a sh:NodeShape ;
+    sh:targetNode :steak ;
+    sh:not [
+        sh:property [
+            sh:path :consistsOf ;
+            sh:minCount 1 ;
+            sh:class :Plant ;
+        ]
+    ] .

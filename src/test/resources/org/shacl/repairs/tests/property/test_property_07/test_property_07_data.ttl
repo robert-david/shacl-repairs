@@ -1,0 +1,7 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:ann :worksFor :company1 .
+:ann :worksFor :company2 .
+:company1 a :Organization .
+:company2 a :Organization .

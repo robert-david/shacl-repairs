@@ -1,0 +1,21 @@
+clingo version 5.5.2
+Reading from ...s/core/property/or-001/or-001-rules.pl
+Solving...
+Answer: 1
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) add(ex_Address("true"))
+Optimization: 0 1
+Answer: 2
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) add(xsd_string("true"))
+Optimization: 0 1
+Answer: 3
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","true"))
+Optimization: 0 1
+OPTIMUM FOUND
+
+Models       : 8
+  Optimum    : yes
+  Optimal    : 3
+Optimization : 0 1
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s

@@ -1,0 +1,14 @@
+clingo version 5.5.2
+Reading from ..._conflict_04/test_conflict_04_rules.pl
+Solving...
+Answer: 1
+actualTarget("_ann",_notPersonShape) skipTarget("_ann",_personShape) add(_worksFor("_ann","1648"))
+Optimization: 1 1
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+Optimization : 1 1
+Calls        : 1
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s

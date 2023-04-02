@@ -1,0 +1,14 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:PersonShape a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:property [
+        sh:path :name ;
+        sh:minCount 1 ;
+        sh:or ([
+            sh:hasValue "ANN" ;
+        ][
+            sh:hasValue "Ann" ;
+        ])
+    ] .

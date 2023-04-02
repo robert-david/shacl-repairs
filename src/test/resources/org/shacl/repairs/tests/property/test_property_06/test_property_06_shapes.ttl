@@ -1,0 +1,19 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:EmployeeShape a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:property [
+        sh:path :worksFor ;
+        sh:minCount 1 ;
+        sh:class :Organization ;
+    ] ;
+    sh:not [
+        sh:property [
+            sh:path :worksFor ;
+            sh:minCount 1 ;
+            sh:not [
+                sh:class :Organization ;
+            ]
+        ]
+    ] .
