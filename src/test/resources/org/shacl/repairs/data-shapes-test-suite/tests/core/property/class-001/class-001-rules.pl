@@ -23,40 +23,40 @@ rdfs_Resource("ex_ValidResource1") .
 ex_testProperty("ex_ValidResource1","ex_SubClassInstance") .
 ex_testProperty("ex_ValidResource1","ex_SuperClassInstance") .
 rdfs_Resource("ex_ValidResource2") .
-ex_testProperty("ex_ValidResource2","node1g835dclmx180") .
-ex_SubClass("node1g835dclmx180") .
-ex_testProperty("ex_ValidResource2","node1g835dclmx181") .
-ex_SuperClass("node1g835dclmx181") .
+ex_testProperty("ex_ValidResource2","node1h0oc2cvkx983") .
+ex_SubClass("node1h0oc2cvkx983") .
+ex_testProperty("ex_ValidResource2","node1h0oc2cvkx984") .
+ex_SuperClass("node1h0oc2cvkx984") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx182") .
-rdf_first("node1g835dclmx182","http://repairs.shacl.org/class_001") .
-rdf_rest("node1g835dclmx182","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1h0oc2cvkx985") .
+rdf_first("node1h0oc2cvkx985","http://repairs.shacl.org/class_001") .
+rdf_rest("node1h0oc2cvkx985","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_001") .
 rdfs_label("http://repairs.shacl.org/class_001","Test of sh:class at property shape 001") .
 xsd_string("Test of sh:class at property shape 001") .
-mf_action("http://repairs.shacl.org/class_001","node1g835dclmx183") .
-sht_dataGraph("node1g835dclmx183","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx183","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_001","node1g835dclmx184") .
-sh_ValidationReport("node1g835dclmx184") .
-sh_conforms("node1g835dclmx184","false") .
+mf_action("http://repairs.shacl.org/class_001","node1h0oc2cvkx986") .
+sht_dataGraph("node1h0oc2cvkx986","http://repairs.shacl.org") .
+sht_shapesGraph("node1h0oc2cvkx986","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_001","node1h0oc2cvkx987") .
+sh_ValidationReport("node1h0oc2cvkx987") .
+sh_conforms("node1h0oc2cvkx987","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx184","node1g835dclmx185") .
-sh_ValidationResult("node1g835dclmx185") .
-sh_focusNode("node1g835dclmx185","ex_InvalidResource1") .
-sh_resultPath("node1g835dclmx185","ex_testProperty") .
-sh_resultSeverity("node1g835dclmx185","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx185","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx185","ex_TestShape_testProperty") .
-sh_value("node1g835dclmx185","ex_InvalidResource1") .
-sh_result("node1g835dclmx184","node1g835dclmx186") .
-sh_ValidationResult("node1g835dclmx186") .
-sh_focusNode("node1g835dclmx186","ex_InvalidResource1") .
-sh_resultPath("node1g835dclmx186","ex_testProperty") .
-sh_resultSeverity("node1g835dclmx186","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx186","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx186","ex_TestShape_testProperty") .
-sh_value("node1g835dclmx186","A string") .
+sh_result("node1h0oc2cvkx987","node1h0oc2cvkx988") .
+sh_ValidationResult("node1h0oc2cvkx988") .
+sh_focusNode("node1h0oc2cvkx988","ex_InvalidResource1") .
+sh_resultPath("node1h0oc2cvkx988","ex_testProperty") .
+sh_resultSeverity("node1h0oc2cvkx988","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx988","sh_ClassConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx988","ex_TestShape_testProperty") .
+sh_value("node1h0oc2cvkx988","ex_InvalidResource1") .
+sh_result("node1h0oc2cvkx987","node1h0oc2cvkx989") .
+sh_ValidationResult("node1h0oc2cvkx989") .
+sh_focusNode("node1h0oc2cvkx989","ex_InvalidResource1") .
+sh_resultPath("node1h0oc2cvkx989","ex_testProperty") .
+sh_resultSeverity("node1h0oc2cvkx989","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx989","sh_ClassConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx989","ex_TestShape_testProperty") .
+sh_value("node1h0oc2cvkx989","A string") .
 mf_status("http://repairs.shacl.org/class_001","sht_approved") .
 
 % Shape Targets
@@ -79,6 +79,7 @@ ex_TestShape_("ex_ValidResource1","t*"):-actualTarget("ex_ValidResource1",ex_Tes
 
 ex_testProperty_(X,Y,"t*"):-ex_testProperty(X,Y) .
 ex_testProperty_(X,Y,"t*"):-ex_testProperty_(X,Y,"t") .
+ex_TestShape_testProperty_st_(X,Y,"t*"):-ex_TestShape_testProperty_(X,_),ex_testProperty_(X,Y,"t*") .
 ex_SuperClass_(X,"t*"):-ex_SuperClass(X) .
 ex_SuperClass_(X,"t*"):-ex_SuperClass_(X,"t") .
 
@@ -90,8 +91,9 @@ ex_TestShape_testProperty_(X,"f"):-ex_TestShape_(X,"f") .
 % sh:minCount 0 for ex_TestShape_testProperty
 s0_(X,"t*"):-ex_TestShape_testProperty_(X,"t*") .
 choose(s0,X,ex_testProperty,0):-s0_(X,"t*") .
-(C-0) {ex_testProperty_(X,Y,"f"):ex_testProperty(X,Y);s1_(Y,"f"):ex_testProperty_(X,Y,"t*"),not ex_testProperty_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_testProperty_(X,Y,"t*")}=C,C>0 .
-0 {s1_(Y,"t*"):ex_testProperty_(X,Y,"t**")} 0:-s0_(X,"t*") .
+(C-0) {ex_TestShape_testProperty_st_(X,Y,"f"):ex_TestShape_testProperty_st_(X,Y,"t*");s1_(Y,"f"):ex_TestShape_testProperty_st_(X,Y,"t*"),not ex_TestShape_testProperty_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_TestShape_testProperty_st_(X,Y,"t*")}=C,C>0 .
+ex_testProperty_(X,Y,"f"):-s0_(X,"f"),ex_testProperty_(X,Y,"t*"),ex_TestShape_testProperty_st_(X,Y,"f") .
+0 {s1_(Y,"t*"):ex_TestShape_testProperty_st_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
 ex_SuperClass_(X,"t"):-s1_(X,"t*") .
 ex_SuperClass_(X,"f"):-s1_(X,"f") .
@@ -102,8 +104,9 @@ s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 ex_testProperty_(X,@new(s3,X,ex_testProperty,1..1),"t"):-choose(s3,X,ex_testProperty,1) .
 choose(s3,X,ex_testProperty,1);choose(s3,X,ex_testProperty,0):-s3_(X,"t*") .
-(C-0) {ex_testProperty_(X,Y,"f"):ex_testProperty(X,Y);s4_(Y,"f"):ex_testProperty_(X,Y,"t*"),not ex_testProperty_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_testProperty_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):ex_testProperty_(X,Y,"t**")} 1:-s3_(X,"t*") .
+(C-0) {ex_TestShape_testProperty_st_(X,Y,"f"):ex_TestShape_testProperty_st_(X,Y,"t*");s4_(Y,"f"):ex_TestShape_testProperty_st_(X,Y,"t*"),not ex_TestShape_testProperty_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_TestShape_testProperty_st_(X,Y,"t*")}=C,C>0 .
+ex_testProperty_(X,Y,"f"):-s3_(X,"f"),ex_testProperty_(X,Y,"t*"),ex_TestShape_testProperty_st_(X,Y,"f") .
+1 {s4_(Y,"t*"):ex_TestShape_testProperty_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
@@ -115,6 +118,7 @@ s0_(X,"f");s2_(X,"f"):-ex_TestShape_testProperty_(X,"f") .
 % Interpretation Rules
 
 ex_testProperty_(X,Y,"t**"):-ex_testProperty_(X,Y,"t*"),not ex_testProperty_(X,Y,"f") .
+ex_TestShape_testProperty_st_(X,Y,"t**"):-ex_testProperty_(X,Y,"t**"),ex_TestShape_testProperty_st_(X,Y,"t*"),not ex_TestShape_testProperty_st_(X,Y,"f") .
 ex_SuperClass_(X,"t**"):-ex_SuperClass_(X,"t*"),not ex_SuperClass_(X,"f") .
 
 % Program Constraints

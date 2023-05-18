@@ -1,0 +1,18 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+#@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+
+:FunctionalStateStrategy
+    a sh:RepairStrategy ;
+    sh:repair [
+        sh:path :hasStates ;
+        sh:action sh:delete ;
+        sh:preserveOrder (
+            :stateViolated :stateFulfilled :statePending
+        )
+    ] ;
+    sh:repair [
+        sh:path :hasStates ;
+        sh:action sh:add ;
+        sh:value :statePending
+    ] .

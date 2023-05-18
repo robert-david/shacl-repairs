@@ -16,8 +16,8 @@ sh_targetNode("ex_TestShape","ex_InvalidResource1") .
 sh_targetNode("ex_TestShape","ex_ValidResource1") .
 sh_targetNode("ex_TestShape","ex_ValidResource2") .
 sh_path("ex_TestShape_property","ex_property") .
-sh_not("ex_TestShape_property","node1g835dclmx305") .
-sh_datatype("node1g835dclmx305","xsd_integer") .
+sh_not("ex_TestShape_property","node1h0oc2cvkx1143") .
+sh_datatype("node1h0oc2cvkx1143","xsd_integer") .
 rdfs_Resource("ex_ValidResource1") .
 rdfs_label("ex_ValidResource1","Valid resource1") .
 xsd_string("Valid resource1") .
@@ -29,27 +29,27 @@ xsd_string("String") .
 rdfs_label("ex_ValidResource2","Valid resource2") .
 xsd_string("Valid resource2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx306") .
-rdf_first("node1g835dclmx306","http://repairs.shacl.org/not_001") .
-rdf_rest("node1g835dclmx306","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1h0oc2cvkx1144") .
+rdf_first("node1h0oc2cvkx1144","http://repairs.shacl.org/not_001") .
+rdf_rest("node1h0oc2cvkx1144","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/not_001") .
 rdfs_label("http://repairs.shacl.org/not_001","Test of sh:not at property shape 001") .
 xsd_string("Test of sh:not at property shape 001") .
-mf_action("http://repairs.shacl.org/not_001","node1g835dclmx307") .
-sht_dataGraph("node1g835dclmx307","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx307","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/not_001","node1g835dclmx308") .
-sh_ValidationReport("node1g835dclmx308") .
-sh_conforms("node1g835dclmx308","false") .
+mf_action("http://repairs.shacl.org/not_001","node1h0oc2cvkx1145") .
+sht_dataGraph("node1h0oc2cvkx1145","http://repairs.shacl.org") .
+sht_shapesGraph("node1h0oc2cvkx1145","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/not_001","node1h0oc2cvkx1146") .
+sh_ValidationReport("node1h0oc2cvkx1146") .
+sh_conforms("node1h0oc2cvkx1146","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx308","node1g835dclmx309") .
-sh_ValidationResult("node1g835dclmx309") .
-sh_focusNode("node1g835dclmx309","ex_InvalidResource1") .
-sh_resultPath("node1g835dclmx309","ex_property") .
-sh_resultSeverity("node1g835dclmx309","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx309","sh_NotConstraintComponent") .
-sh_sourceShape("node1g835dclmx309","ex_TestShape_property") .
-sh_value("node1g835dclmx309","42") .
+sh_result("node1h0oc2cvkx1146","node1h0oc2cvkx1147") .
+sh_ValidationResult("node1h0oc2cvkx1147") .
+sh_focusNode("node1h0oc2cvkx1147","ex_InvalidResource1") .
+sh_resultPath("node1h0oc2cvkx1147","ex_property") .
+sh_resultSeverity("node1h0oc2cvkx1147","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx1147","sh_NotConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx1147","ex_TestShape_property") .
+sh_value("node1h0oc2cvkx1147","42") .
 mf_status("http://repairs.shacl.org/not_001","sht_approved") .
 
 % Shape Targets
@@ -72,6 +72,7 @@ ex_TestShape_("ex_ValidResource1","t*"):-actualTarget("ex_ValidResource1",ex_Tes
 
 ex_property_(X,Y,"t*"):-ex_property(X,Y) .
 ex_property_(X,Y,"t*"):-ex_property_(X,Y,"t") .
+ex_TestShape_property_st_(X,Y,"t*"):-ex_TestShape_property_(X,_),ex_property_(X,Y,"t*") .
 xsd_integer_(X,"t*"):-xsd_integer(X) .
 xsd_integer_(X,"t*"):-xsd_integer_(X,"t") .
 
@@ -83,13 +84,14 @@ ex_TestShape_property_(X,"f"):-ex_TestShape_(X,"f") .
 % sh:minCount 0 for ex_TestShape_property
 s0_(X,"t*"):-ex_TestShape_property_(X,"t*") .
 choose(s0,X,ex_property,0):-s0_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property(X,Y);s1_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-0 {s1_(Y,"t*"):ex_property_(X,Y,"t**")} 0:-s0_(X,"t*") .
+(C-0) {ex_TestShape_property_st_(X,Y,"f"):ex_TestShape_property_st_(X,Y,"t*");s1_(Y,"f"):ex_TestShape_property_st_(X,Y,"t*"),not ex_TestShape_property_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_TestShape_property_st_(X,Y,"t*")}=C,C>0 .
+ex_property_(X,Y,"f"):-s0_(X,"f"),ex_property_(X,Y,"t*"),ex_TestShape_property_st_(X,Y,"f") .
+0 {s1_(Y,"t*"):ex_TestShape_property_st_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
-node1g835dclmx310_(X,"f"):-s1_(X,"t*") .
-node1g835dclmx310_(X,"t*"):-s1_(X,"f") .
-xsd_integer_(X,"t"):-node1g835dclmx310_(X,"t*") .
-xsd_integer_(X,"f"):-node1g835dclmx310_(X,"f") .
+node1h0oc2cvkx1148_(X,"f"):-s1_(X,"t*") .
+node1h0oc2cvkx1148_(X,"t*"):-s1_(X,"f") .
+xsd_integer_(X,"t"):-node1h0oc2cvkx1148_(X,"t*") .
+xsd_integer_(X,"f"):-node1h0oc2cvkx1148_(X,"f") .
 
 % universal for ex_TestShape_property
 s2_(X,"t*"):-ex_TestShape_property_(X,"t*") .
@@ -97,19 +99,21 @@ s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 ex_property_(X,@new(s3,X,ex_property,1..1),"t"):-choose(s3,X,ex_property,1) .
 choose(s3,X,ex_property,1);choose(s3,X,ex_property,0):-s3_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property(X,Y);s4_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):ex_property_(X,Y,"t**")} 1:-s3_(X,"t*") .
+(C-0) {ex_TestShape_property_st_(X,Y,"f"):ex_TestShape_property_st_(X,Y,"t*");s4_(Y,"f"):ex_TestShape_property_st_(X,Y,"t*"),not ex_TestShape_property_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_TestShape_property_st_(X,Y,"t*")}=C,C>0 .
+ex_property_(X,Y,"f"):-s3_(X,"f"),ex_property_(X,Y,"t*"),ex_TestShape_property_st_(X,Y,"f") .
+1 {s4_(Y,"t*"):ex_TestShape_property_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
-node1g835dclmx310_(X,"f"):-s5_(X,"t*") .
-node1g835dclmx310_(X,"t*"):-s5_(X,"f") .
+node1h0oc2cvkx1148_(X,"f"):-s5_(X,"t*") .
+node1h0oc2cvkx1148_(X,"t*"):-s5_(X,"f") .
 
 s0_(X,"f");s2_(X,"f"):-ex_TestShape_property_(X,"f") .
 
 % Interpretation Rules
 
 ex_property_(X,Y,"t**"):-ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f") .
+ex_TestShape_property_st_(X,Y,"t**"):-ex_property_(X,Y,"t**"),ex_TestShape_property_st_(X,Y,"t*"),not ex_TestShape_property_st_(X,Y,"f") .
 xsd_integer_(X,"t**"):-xsd_integer_(X,"t*"),not xsd_integer_(X,"f") .
 
 % Program Constraints

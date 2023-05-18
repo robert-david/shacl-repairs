@@ -21,10 +21,10 @@ _person_(X,"t*"):-_person_(X,"t") .
 
 % Repair Rules
 
-node1g838e3u1x14_(X,"f"):-_personShape_(X,"t*") .
-node1g838e3u1x14_(X,"t*"):-_personShape_(X,"f") .
-_person_(X,"t"):-node1g838e3u1x14_(X,"t*") .
-_person_(X,"f"):-node1g838e3u1x14_(X,"f") .
+node1h0oc2cvkx403_(X,"f"):-_personShape_(X,"t*") .
+node1h0oc2cvkx403_(X,"t*"):-_personShape_(X,"f") .
+_person_(X,"t"):-node1h0oc2cvkx403_(X,"t*") .
+_person_(X,"f"):-node1h0oc2cvkx403_(X,"f") .
 
 % Interpretation Rules
 

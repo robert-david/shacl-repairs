@@ -9,33 +9,33 @@ sh_NodeShape("ex_TestClass") .
 rdfs_label("ex_TestClass","Test class") .
 xsd_string("Test class") .
 rdfs_Resource(X):-ex_TestClass(X) .
-sh_node("ex_TestClass","node1g835dclmx6") .
-sh_class("node1g835dclmx6","ex_OtherClass") .
+sh_node("ex_TestClass","node1h0oc2cvkx773") .
+sh_class("node1h0oc2cvkx773","ex_OtherClass") .
 ex_OtherClass("ex_ValidInstance") .
 ex_TestClass("ex_ValidInstance") .
 rdfs_label("ex_ValidInstance","Valid instance") .
 xsd_string("Valid instance") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx7") .
-rdf_first("node1g835dclmx7","http://repairs.shacl.org/node_001") .
-rdf_rest("node1g835dclmx7","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1h0oc2cvkx774") .
+rdf_first("node1h0oc2cvkx774","http://repairs.shacl.org/node_001") .
+rdf_rest("node1h0oc2cvkx774","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/node_001") .
 rdfs_label("http://repairs.shacl.org/node_001","Test of sh:node at node shape 001") .
 xsd_string("Test of sh:node at node shape 001") .
-mf_action("http://repairs.shacl.org/node_001","node1g835dclmx8") .
-sht_dataGraph("node1g835dclmx8","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx8","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/node_001","node1g835dclmx9") .
-sh_ValidationReport("node1g835dclmx9") .
-sh_conforms("node1g835dclmx9","false") .
+mf_action("http://repairs.shacl.org/node_001","node1h0oc2cvkx775") .
+sht_dataGraph("node1h0oc2cvkx775","http://repairs.shacl.org") .
+sht_shapesGraph("node1h0oc2cvkx775","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/node_001","node1h0oc2cvkx776") .
+sh_ValidationReport("node1h0oc2cvkx776") .
+sh_conforms("node1h0oc2cvkx776","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx9","node1g835dclmx10") .
-sh_ValidationResult("node1g835dclmx10") .
-sh_focusNode("node1g835dclmx10","ex_InvalidInstance") .
-sh_resultSeverity("node1g835dclmx10","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx10","sh_NodeConstraintComponent") .
-sh_sourceShape("node1g835dclmx10","ex_TestClass") .
-sh_value("node1g835dclmx10","ex_InvalidInstance") .
+sh_result("node1h0oc2cvkx776","node1h0oc2cvkx777") .
+sh_ValidationResult("node1h0oc2cvkx777") .
+sh_focusNode("node1h0oc2cvkx777","ex_InvalidInstance") .
+sh_resultSeverity("node1h0oc2cvkx777","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx777","sh_NodeConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx777","ex_TestClass") .
+sh_value("node1h0oc2cvkx777","ex_InvalidInstance") .
 mf_status("http://repairs.shacl.org/node_001","sht_approved") .
 
 % Shape Targets

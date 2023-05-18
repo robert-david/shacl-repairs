@@ -1,24 +1,24 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ...tests/core/node/or-001/or-001-rules.pl
 Solving...
 Answer: 1
-actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3000")) add(ex_width("ex_InvalidRectangle1","3186"))
+actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_width("ex_InvalidRectangle1","3140")) add(ex_area("ex_InvalidRectangle2","3052"))
 Optimization: 0 2
 Answer: 2
-actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3000")) add(ex_width("ex_InvalidRectangle1","3186"))
+actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_width("ex_InvalidRectangle1","3140")) add(ex_area("ex_InvalidRectangle2","3052"))
 Optimization: 0 2
 Answer: 3
-actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3000")) add(ex_area("ex_InvalidRectangle1","2999"))
+actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3052")) add(ex_area("ex_InvalidRectangle1","3051"))
 Optimization: 0 2
 Answer: 4
-actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3000")) add(ex_area("ex_InvalidRectangle1","2999"))
+actualTarget("ex_InvalidRectangle2",ex_RectangleWithArea) actualTarget("ex_InvalidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle3",ex_RectangleWithArea) actualTarget("ex_ValidRectangle1",ex_RectangleWithArea) actualTarget("ex_ValidRectangle2",ex_RectangleWithArea) add(ex_area("ex_InvalidRectangle2","3052")) add(ex_area("ex_InvalidRectangle1","3051"))
 Optimization: 0 2
 OPTIMUM FOUND
 
-Models       : 11
+Models       : 14
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 2
 Calls        : 1
-Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.011s
+Time         : 0.021s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.021s

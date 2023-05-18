@@ -41,7 +41,7 @@ public class PropertyRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_property_02_rules.pl");
 
-        assertTrue(result.contains("Models       : 3"));
+        assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
 
         r.writeResult(testPath + "/test_property_02_result.txt", result);
@@ -60,12 +60,12 @@ public class PropertyRepairTestSuite {
 
         assertTrue(result.contains("Models       : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1648\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1649\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1650\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1648\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1649\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1650\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1656\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1657\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1658\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1656\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1657\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1658\"))") == 1);
 
         r.writeResult(testPath + "/test_property_03_result.txt", result);
     }
@@ -81,7 +81,7 @@ public class PropertyRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_property_04_rules.pl");
 
-        assertTrue(result.contains("Models       : 9"));
+        assertTrue(result.contains("Models       : 8"));
         assertTrue(result.contains("Optimal    : 6"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 6);
 
@@ -102,10 +102,10 @@ public class PropertyRepairTestSuite {
         assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShapeA)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShapeB)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1654\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1655\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1654\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1655\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1701\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1702\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1701\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1702\"))") == 1);
 
         r.writeResult(testPath + "/test_property_05_result.txt", result);
     }
@@ -121,7 +121,7 @@ public class PropertyRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_property_06_rules.pl");
 
-        assertTrue(result.contains("Models       : 11+"));
+        assertTrue(result.contains("Models       : 14"));
         assertTrue(result.contains("Optimal    : 10"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_employeeShape)") == 10);
         assertTrue(StringUtils.countMatches(result,"del(_worksFor(\"_ann\",\"_company1\"))") == 2);
@@ -143,7 +143,7 @@ public class PropertyRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_property_07_rules.pl");
 
-        assertTrue(result.contains("Models       : 5"));
+        assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 3);
         assertTrue(StringUtils.countMatches(result,"del(_organization(\"_company1\"))") == 1);
@@ -166,9 +166,9 @@ public class PropertyRepairTestSuite {
 
         assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_firstName(\"_ann\",\"") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_firstName(\"_ann\",\"1732\"") == 1);
         assertTrue(StringUtils.countMatches(result,"add(_givenName(\"_ann\",\"Ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_givenName(\"_ann\",\"") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(_givenName(\"_ann\",\"1732\"") == 1);
 
         r.writeResult(testPath + "/test_property_08_result.txt", result);
     }

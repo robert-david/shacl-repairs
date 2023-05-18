@@ -22,45 +22,49 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _worksFor_(X,Y,"t*"):-_worksFor(X,Y) .
 _worksFor_(X,Y,"t*"):-_worksFor_(X,Y,"t") .
+node1h0oc2cvkx123_st_(X,Y,"t*"):-node1h0oc2cvkx123_(X,_),_worksFor_(X,Y,"t*") .
 _organization_(X,"t*"):-_organization(X) .
 _organization_(X,"t*"):-_organization_(X,"t") .
 
 % Repair Rules
 
-node1g832o9j6x85_(X,"f"):-_personShape_(X,"t*") .
-node1g832o9j6x85_(X,"t*"):-_personShape_(X,"f") .
-node1g832o9j6x86_(X,"t*"):-node1g832o9j6x85_(X,"t*") .
-node1g832o9j6x86_(X,"f"):-node1g832o9j6x85_(X,"f") .
+node1h0oc2cvkx122_(X,"f"):-_personShape_(X,"t*") .
+node1h0oc2cvkx122_(X,"t*"):-_personShape_(X,"f") .
+node1h0oc2cvkx123_(X,"t*"):-node1h0oc2cvkx122_(X,"t*") .
+node1h0oc2cvkx123_(X,"f"):-node1h0oc2cvkx122_(X,"f") .
 
-% sh:minCount 1 for node1g832o9j6x86
-s0_(X,"t*"):-node1g832o9j6x86_(X,"t*") .
+% sh:minCount 1 for node1h0oc2cvkx123
+s0_(X,"t*"):-node1h0oc2cvkx123_(X,"t*") .
 _worksFor_(X,@new(s0,X,_worksFor,1..1),"t"):-choose(s0,X,_worksFor,1) .
 choose(s0,X,_worksFor,1);choose(s0,X,_worksFor,0):-s0_(X,"t*") .
-(C-0) {_worksFor_(X,Y,"f"):_worksFor(X,Y);s1_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
-1 {s1_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s0_(X,"t*") .
+(C-0) {node1h0oc2cvkx123_st_(X,Y,"f"):node1h0oc2cvkx123_st_(X,Y,"t*");s1_(Y,"f"):node1h0oc2cvkx123_st_(X,Y,"t*"),not node1h0oc2cvkx123_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:node1h0oc2cvkx123_st_(X,Y,"t*")}=C,C>0 .
+_worksFor_(X,Y,"f"):-s0_(X,"f"),_worksFor_(X,Y,"t*"),node1h0oc2cvkx123_st_(X,Y,"f") .
+1 {s1_(Y,"t*"):node1h0oc2cvkx123_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
 
 _organization_(X,"t"):-s1_(X,"t*") .
 _organization_(X,"f"):-s1_(X,"f") .
 
-% universal for node1g832o9j6x86
-s2_(X,"t*"):-node1g832o9j6x86_(X,"t*") .
+% universal for node1h0oc2cvkx123
+s2_(X,"t*"):-node1h0oc2cvkx123_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 _worksFor_(X,@new(s3,X,_worksFor,1..1),"t"):-choose(s3,X,_worksFor,1) .
 choose(s3,X,_worksFor,1);choose(s3,X,_worksFor,0):-s3_(X,"t*") .
-(C-0) {_worksFor_(X,Y,"f"):_worksFor(X,Y);s4_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s3_(X,"t*") .
+(C-0) {node1h0oc2cvkx123_st_(X,Y,"f"):node1h0oc2cvkx123_st_(X,Y,"t*");s4_(Y,"f"):node1h0oc2cvkx123_st_(X,Y,"t*"),not node1h0oc2cvkx123_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:node1h0oc2cvkx123_st_(X,Y,"t*")}=C,C>0 .
+_worksFor_(X,Y,"f"):-s3_(X,"f"),_worksFor_(X,Y,"t*"),node1h0oc2cvkx123_st_(X,Y,"f") .
+1 {s4_(Y,"t*"):node1h0oc2cvkx123_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 _organization_(X,"t"):-s5_(X,"t*") .
 _organization_(X,"f"):-s5_(X,"f") .
 
-s0_(X,"f");s2_(X,"f"):-node1g832o9j6x86_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1h0oc2cvkx123_(X,"f") .
 
 % Interpretation Rules
 
 _worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
+node1h0oc2cvkx123_st_(X,Y,"t**"):-_worksFor_(X,Y,"t**"),node1h0oc2cvkx123_st_(X,Y,"t*"),not node1h0oc2cvkx123_st_(X,Y,"f") .
 _organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
 
 % Program Constraints

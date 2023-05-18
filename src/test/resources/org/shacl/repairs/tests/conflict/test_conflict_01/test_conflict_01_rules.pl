@@ -25,10 +25,10 @@ s0_(X,"t*"):-_personShape_(X,"t*") .
 _person_(X,"t"):-s0_(X,"t*") .
 _person_(X,"f"):-s0_(X,"f") .
 s1_(X,"t*"):-_personShape_(X,"t*") .
-node1g832rje0x2_(X,"f"):-s1_(X,"t*") .
-node1g832rje0x2_(X,"t*"):-s1_(X,"f") .
-_person_(X,"t"):-node1g832rje0x2_(X,"t*") .
-_person_(X,"f"):-node1g832rje0x2_(X,"f") .
+node1h0oc2cvkx296_(X,"f"):-s1_(X,"t*") .
+node1h0oc2cvkx296_(X,"t*"):-s1_(X,"f") .
+_person_(X,"t"):-node1h0oc2cvkx296_(X,"t*") .
+_person_(X,"f"):-node1h0oc2cvkx296_(X,"f") .
 s0_(X,"f");s1_(X,"f"):-_personShape_(X,"f") .
 
 % Interpretation Rules

@@ -1,4 +1,4 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ..._property_09/test_property_09_rules.pl
 Solving...
 Answer: 1
@@ -14,5 +14,5 @@ Models       : 4
   Optimal    : 2
 Optimization : 0 2
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s

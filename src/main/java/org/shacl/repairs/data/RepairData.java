@@ -34,6 +34,8 @@ public class RepairData {
 
     private final List<String> shapeTargetRules = new ArrayList<>();
 
+    private final List<String> repairStrategyRules = new ArrayList<>();
+
     public List<String> getRepairTargetRules() {
         return repairTargetRules;
     }
@@ -60,5 +62,9 @@ public class RepairData {
 
     public List<String> getShapeTargetRules() {
         return shapeTargetRules;
+    }
+
+    public List<String> getRepairStrategyRules() {
+        return repairStrategyRules;
     }
 }

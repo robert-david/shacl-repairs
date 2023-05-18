@@ -1,0 +1,15 @@
+@prefix : <http://ontologies.atb-bremen.de/smashHitCore#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# CR-2: A contract or clause cannot be at the same time pending, violated, or fulfilled.
+
+:MutuallyExclusive a sh:NodeShape ;
+    sh:targetClass :Obligation ;
+    sh:property [
+        sh:path :hasStates ;
+        sh:in ( :stateViolated :statePending :stateFulfilled);
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] .

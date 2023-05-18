@@ -25,23 +25,23 @@ _organization_(X,"t*"):-_organization_(X,"t") .
 
 % Repair Rules
 
-node1g832rje0x86_(X,"f"):-_notPersonShape_(X,"t*") .
-node1g832rje0x86_(X,"t*"):-_notPersonShape_(X,"f") .
-s0_(X,"t*"):-node1g832rje0x86_(X,"t*") .
+node1h0oc2cvkx391_(X,"f"):-_notPersonShape_(X,"t*") .
+node1h0oc2cvkx391_(X,"t*"):-_notPersonShape_(X,"f") .
+s0_(X,"t*"):-node1h0oc2cvkx391_(X,"t*") .
 _person_(X,"t"):-s0_(X,"t*") .
 _person_(X,"f"):-s0_(X,"f") .
-s1_(X,"t*"):-node1g832rje0x86_(X,"t*") .
-node1g832rje0x85_(X,"f"):-s1_(X,"t*") .
-node1g832rje0x85_(X,"t*"):-s1_(X,"f") .
-_organization_(X,"t"):-node1g832rje0x85_(X,"t*") .
-_organization_(X,"f"):-node1g832rje0x85_(X,"f") .
-s0_(X,"f");s1_(X,"f"):-node1g832rje0x86_(X,"f") .
+s1_(X,"t*"):-node1h0oc2cvkx391_(X,"t*") .
+node1h0oc2cvkx390_(X,"f"):-s1_(X,"t*") .
+node1h0oc2cvkx390_(X,"t*"):-s1_(X,"f") .
+_organization_(X,"t"):-node1h0oc2cvkx390_(X,"t*") .
+_organization_(X,"f"):-node1h0oc2cvkx390_(X,"f") .
+s0_(X,"f");s1_(X,"f"):-node1h0oc2cvkx391_(X,"f") .
 s2_(X,"t*"):-_personShape_(X,"t*") .
 _person_(X,"t"):-s2_(X,"t*") .
 _person_(X,"f"):-s2_(X,"f") .
 s3_(X,"t*"):-_personShape_(X,"t*") .
-node1g832rje0x85_(X,"f"):-s3_(X,"t*") .
-node1g832rje0x85_(X,"t*"):-s3_(X,"f") .
+node1h0oc2cvkx390_(X,"f"):-s3_(X,"t*") .
+node1h0oc2cvkx390_(X,"t*"):-s3_(X,"f") .
 s2_(X,"f");s3_(X,"f"):-_personShape_(X,"f") .
 
 % Interpretation Rules

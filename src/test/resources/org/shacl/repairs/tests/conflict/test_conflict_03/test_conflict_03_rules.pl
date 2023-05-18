@@ -23,10 +23,10 @@ _person_(X,"t*"):-_person_(X,"t") .
 
 % Repair Rules
 
-node1g832rje0x24_(X,"f"):-_notPersonShape_(X,"t*") .
-node1g832rje0x24_(X,"t*"):-_notPersonShape_(X,"f") .
-_person_(X,"t"):-node1g832rje0x24_(X,"t*") .
-_person_(X,"f"):-node1g832rje0x24_(X,"f") .
+node1h0oc2cvkx313_(X,"f"):-_notPersonShape_(X,"t*") .
+node1h0oc2cvkx313_(X,"t*"):-_notPersonShape_(X,"f") .
+_person_(X,"t"):-node1h0oc2cvkx313_(X,"t*") .
+_person_(X,"f"):-node1h0oc2cvkx313_(X,"f") .
 _person_(X,"t"):-_personShape_(X,"t*") .
 _person_(X,"f"):-_personShape_(X,"f") .
 

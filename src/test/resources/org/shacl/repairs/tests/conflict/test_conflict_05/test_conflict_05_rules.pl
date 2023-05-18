@@ -8,7 +8,7 @@ targetNode("_ann",_personShape) .
 
 % Constants
 
-const("http://org.shacl.repairs.tests/notAnn") .
+const("_notAnn") .
 
 % Repair Targets
 

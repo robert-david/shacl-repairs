@@ -22,57 +22,92 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _name_(X,Y,"t*"):-_name(X,Y) .
 _name_(X,Y,"t*"):-_name_(X,Y,"t") .
+node1h0oc2cvkx550_st_(X,Y,"t*"):-node1h0oc2cvkx550_(X,_),_name_(X,Y,"t*") .
 
 % Repair Rules
 
-node1g832fjsax72_(X,"t*"):-_personShape_(X,"t*") .
+s0_(X,"t*"):-_personShape_(X,"t*") .
+node1h0oc2cvkx550_(X,"t*"):-s0_(X,"t*") .
+node1h0oc2cvkx550_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 1 for node1g832fjsax72
-s0_(X,"t*"):-node1g832fjsax72_(X,"t*") .
-_name_(X,@new(s0,X,_name,1..1),"t"):-choose(s0,X,_name,1) .
-choose(s0,X,_name,1);choose(s0,X,_name,0):-s0_(X,"t*") .
-(C-0) {_name_(X,Y,"f"):_name(X,Y);s1_(Y,"f"):_name_(X,Y,"t*"),not _name_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:_name_(X,Y,"t*")}=C,C>0 .
-0 {_name_(X,Y,"t"):const(Y)} 2:-s0_(X,"t*") .
-1 {s1_(Y,"t*"):_name_(X,Y,"t**")} 2:-s0_(X,"t*") .
+% sh:minCount 0 for node1h0oc2cvkx550
+s1_(X,"t*"):-node1h0oc2cvkx550_(X,"t*") .
+choose(s1,X,_name,0):-s1_(X,"t*") .
+0 {_name_(X,Y,"t"):const(Y)} 2:-s1_(X,"t*") .
+(C-0) {node1h0oc2cvkx550_st_(X,Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*");s2_(Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*"),not node1h0oc2cvkx550_st_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:node1h0oc2cvkx550_st_(X,Y,"t*")}=C,C>0 .
+_name_(X,Y,"f"):-s1_(X,"f"),_name_(X,Y,"t*"),node1h0oc2cvkx550_st_(X,Y,"f") .
+0 {s2_(Y,"t*"):node1h0oc2cvkx550_st_(X,Y,"t**")} 2:-s1_(X,"t*") .
 
-s2_(X,"f"):-s1_(X,"f") .
-s3_(X,"f"):-s1_(X,"f") .
-s2_(X,"t*");s3_(X,"t*"):-s1_(X,"t*") .
+s3_(X,"f"):-s2_(X,"f") .
+s4_(X,"f"):-s2_(X,"f") .
+s3_(X,"t*");s4_(X,"t*"):-s2_(X,"t*") .
 
-% universal for node1g832fjsax72
-s4_(X,"t*"):-node1g832fjsax72_(X,"t*") .
-s5_(X,"f"):-s4_(X,"t*") .
-s5_(X,"t*"):-s4_(X,"f") .
-_name_(X,@new(s5,X,_name,1..1),"t"):-choose(s5,X,_name,1) .
-choose(s5,X,_name,1);choose(s5,X,_name,0):-s5_(X,"t*") .
-(C-0) {_name_(X,Y,"f"):_name(X,Y);s6_(Y,"f"):_name_(X,Y,"t*"),not _name_(X,Y,"f")} (C-0):-s5_(X,"f"),#count {Y:_name_(X,Y,"t*")}=C,C>0 .
-0 {_name_(X,Y,"t"):const(Y)} 2:-s5_(X,"t*") .
-1 {s6_(Y,"t*"):_name_(X,Y,"t**")} 2:-s5_(X,"t*") .
-s7_(X,"f"):-s6_(X,"t*") .
-s7_(X,"t*"):-s6_(X,"f") .
+% universal for node1h0oc2cvkx550
+s5_(X,"t*"):-node1h0oc2cvkx550_(X,"t*") .
+s6_(X,"f"):-s5_(X,"t*") .
+s6_(X,"t*"):-s5_(X,"f") .
+_name_(X,@new(s6,X,_name,1..1),"t"):-choose(s6,X,_name,1) .
+choose(s6,X,_name,1);choose(s6,X,_name,0):-s6_(X,"t*") .
+0 {_name_(X,Y,"t"):const(Y)} 2:-s6_(X,"t*") .
+(C-0) {node1h0oc2cvkx550_st_(X,Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*");s7_(Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*"),not node1h0oc2cvkx550_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:node1h0oc2cvkx550_st_(X,Y,"t*")}=C,C>0 .
+_name_(X,Y,"f"):-s6_(X,"f"),_name_(X,Y,"t*"),node1h0oc2cvkx550_st_(X,Y,"f") .
+1 {s7_(Y,"t*"):node1h0oc2cvkx550_st_(X,Y,"t**")} 2:-s6_(X,"t*") .
+s8_(X,"f"):-s7_(X,"t*") .
+s8_(X,"t*"):-s7_(X,"f") .
 
-s8_(X,"f"):-s7_(X,"f") .
-s9_(X,"f"):-s7_(X,"f") .
-s8_(X,"t*");s9_(X,"t*"):-s7_(X,"t*") .
+s9_(X,"f"):-s8_(X,"f") .
+s10_(X,"f"):-s8_(X,"f") .
+s9_(X,"t*");s10_(X,"t*"):-s8_(X,"t*") .
 
-s0_(X,"f");s4_(X,"f"):-node1g832fjsax72_(X,"f") .
-node1g832fjsax72_(X,"f"):-_personShape_(X,"f") .
+s1_(X,"f");s5_(X,"f"):-node1h0oc2cvkx550_(X,"f") .
+s11_(X,"t*"):-_personShape_(X,"t*") .
+node1h0oc2cvkx550_(X,"t*"):-s11_(X,"t*") .
+node1h0oc2cvkx550_(X,"f"):-s11_(X,"f") .
+
+% sh:minCount 1 for node1h0oc2cvkx550
+s12_(X,"t*"):-node1h0oc2cvkx550_(X,"t*") .
+_name_(X,@new(s12,X,_name,1..1),"t"):-choose(s12,X,_name,1) .
+choose(s12,X,_name,1);choose(s12,X,_name,0):-s12_(X,"t*") .
+0 {_name_(X,Y,"t"):const(Y)} 2:-s12_(X,"t*") .
+(C-0) {node1h0oc2cvkx550_st_(X,Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*");s13_(Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*"),not node1h0oc2cvkx550_st_(X,Y,"f")} (C-0):-s12_(X,"f"),#count {Y:node1h0oc2cvkx550_st_(X,Y,"t*")}=C,C>0 .
+_name_(X,Y,"f"):-s12_(X,"f"),_name_(X,Y,"t*"),node1h0oc2cvkx550_st_(X,Y,"f") .
+1 {s13_(Y,"t*"):node1h0oc2cvkx550_st_(X,Y,"t**")} 2:-s12_(X,"t*") .
+
+
+s14_(X,"t*"):-node1h0oc2cvkx550_(X,"t*") .
+s15_(X,"f"):-s14_(X,"t*") .
+s15_(X,"t*"):-s14_(X,"f") .
+_name_(X,@new(s15,X,_name,1..1),"t"):-choose(s15,X,_name,1) .
+choose(s15,X,_name,1);choose(s15,X,_name,0):-s15_(X,"t*") .
+0 {_name_(X,Y,"t"):const(Y)} 2:-s15_(X,"t*") .
+(C-0) {node1h0oc2cvkx550_st_(X,Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*");s16_(Y,"f"):node1h0oc2cvkx550_st_(X,Y,"t*"),not node1h0oc2cvkx550_st_(X,Y,"f")} (C-0):-s15_(X,"f"),#count {Y:node1h0oc2cvkx550_st_(X,Y,"t*")}=C,C>0 .
+_name_(X,Y,"f"):-s15_(X,"f"),_name_(X,Y,"t*"),node1h0oc2cvkx550_st_(X,Y,"f") .
+1 {s16_(Y,"t*"):node1h0oc2cvkx550_st_(X,Y,"t**")} 2:-s15_(X,"t*") .
+s17_(X,"f"):-s16_(X,"t*") .
+s17_(X,"t*"):-s16_(X,"f") .
+
+
+s12_(X,"f");s14_(X,"f"):-node1h0oc2cvkx550_(X,"f") .
+s0_(X,"f");s11_(X,"f"):-_personShape_(X,"f") .
 
 % Interpretation Rules
 
 _name_(X,Y,"t**"):-_name_(X,Y,"t*"),not _name_(X,Y,"f") .
+node1h0oc2cvkx550_st_(X,Y,"t**"):-_name_(X,Y,"t**"),node1h0oc2cvkx550_st_(X,Y,"t*"),not node1h0oc2cvkx550_st_(X,Y,"f") .
 
 % Program Constraints
 
 :-_name_(X,Y,"t"),_name_(X,Y,"f") .
-:-s2_(X,"t*"),X!="Ann" .
-:-s2_(X,"f"),X="Ann" .
-:-s3_(X,"t*"),X!="ann" .
-:-s3_(X,"f"),X="ann" .
-:-s8_(X,"t*"),X!="Ann" .
-:-s8_(X,"f"),X="Ann" .
-:-s9_(X,"t*"),X!="ann" .
-:-s9_(X,"f"),X="ann" .
+:-s3_(X,"t*"),X!="Ann" .
+:-s3_(X,"f"),X="Ann" .
+:-s4_(X,"t*"),X!="ann" .
+:-s4_(X,"f"),X="ann" .
+:-s9_(X,"t*"),X!="Ann" .
+:-s9_(X,"f"),X="Ann" .
+:-s10_(X,"t*"),X!="ann" .
+:-s10_(X,"f"),X="ann" .
+:-s13_(X,"f") .
+:-s17_(X,"f") .
 
 % Change Set Rules
 

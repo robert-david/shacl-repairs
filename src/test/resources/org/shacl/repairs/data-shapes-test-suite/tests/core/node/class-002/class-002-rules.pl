@@ -9,44 +9,44 @@ sh_targetNode("ex_TestShape","ex_NamedInstance") .
 sh_targetNode("ex_TestShape","String") .
 xsd_string("String") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx129") .
-rdf_first("node1g835dclmx129","http://repairs.shacl.org/class_002") .
-rdf_rest("node1g835dclmx129","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1h0oc2cvkx918") .
+rdf_first("node1h0oc2cvkx918","http://repairs.shacl.org/class_002") .
+rdf_rest("node1h0oc2cvkx918","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_002") .
 rdfs_label("http://repairs.shacl.org/class_002","Test of sh:class at node shape 002") .
 xsd_string("Test of sh:class at node shape 002") .
-mf_action("http://repairs.shacl.org/class_002","node1g835dclmx130") .
-sht_dataGraph("node1g835dclmx130","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx130","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_002","node1g835dclmx131") .
-sh_ValidationReport("node1g835dclmx131") .
-sh_conforms("node1g835dclmx131","false") .
+mf_action("http://repairs.shacl.org/class_002","node1h0oc2cvkx919") .
+sht_dataGraph("node1h0oc2cvkx919","http://repairs.shacl.org") .
+sht_shapesGraph("node1h0oc2cvkx919","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_002","node1h0oc2cvkx920") .
+sh_ValidationReport("node1h0oc2cvkx920") .
+sh_conforms("node1h0oc2cvkx920","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx131","node1g835dclmx132") .
-sh_ValidationResult("node1g835dclmx132") .
-sh_focusNode("node1g835dclmx132","String") .
-sh_resultSeverity("node1g835dclmx132","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx132","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx132","ex_TestShape") .
-sh_value("node1g835dclmx132","String") .
-sh_result("node1g835dclmx131","node1g835dclmx133") .
-sh_ValidationResult("node1g835dclmx133") .
-sh_focusNode("node1g835dclmx133","b9751") .
-sh_resultSeverity("node1g835dclmx133","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx133","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx133","ex_TestShape") .
-sh_value("node1g835dclmx133","b9751") .
+sh_result("node1h0oc2cvkx920","node1h0oc2cvkx921") .
+sh_ValidationResult("node1h0oc2cvkx921") .
+sh_focusNode("node1h0oc2cvkx921","String") .
+sh_resultSeverity("node1h0oc2cvkx921","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx921","sh_ClassConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx921","ex_TestShape") .
+sh_value("node1h0oc2cvkx921","String") .
+sh_result("node1h0oc2cvkx920","node1h0oc2cvkx922") .
+sh_ValidationResult("node1h0oc2cvkx922") .
+sh_focusNode("node1h0oc2cvkx922","b9751") .
+sh_resultSeverity("node1h0oc2cvkx922","sh_Violation") .
+sh_sourceConstraintComponent("node1h0oc2cvkx922","sh_ClassConstraintComponent") .
+sh_sourceShape("node1h0oc2cvkx922","ex_TestShape") .
+sh_value("node1h0oc2cvkx922","b9751") .
 mf_status("http://repairs.shacl.org/class_002","sht_approved") .
 ex_BNodeClass("b9751") .
-ex_BNodeClass("node1g835dclmx134") .
-ex_TestClass("node1g835dclmx134") .
+ex_BNodeClass("node1h0oc2cvkx923") .
+ex_TestClass("node1h0oc2cvkx923") .
 
 % Shape Targets
 
 targetNode("ex_NamedInstance",ex_TestShape) .
 targetNode("b9751",ex_TestShape) .
-targetNode("node1g835dclmx134",ex_TestShape) .
 targetNode("String",ex_TestShape) .
+targetNode("node1h0oc2cvkx923",ex_TestShape) .
 
 % Constants
 
@@ -56,8 +56,8 @@ targetNode("String",ex_TestShape) .
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
 ex_TestShape_("ex_NamedInstance","t*"):-actualTarget("ex_NamedInstance",ex_TestShape) .
 ex_TestShape_("b9751","t*"):-actualTarget("b9751",ex_TestShape) .
-ex_TestShape_("node1g835dclmx134","t*"):-actualTarget("node1g835dclmx134",ex_TestShape) .
 ex_TestShape_("String","t*"):-actualTarget("String",ex_TestShape) .
+ex_TestShape_("node1h0oc2cvkx923","t*"):-actualTarget("node1h0oc2cvkx923",ex_TestShape) .
 
 % Annotation Rules
 
@@ -66,8 +66,13 @@ ex_TestClass_(X,"t*"):-ex_TestClass_(X,"t") .
 
 % Repair Rules
 
-ex_TestClass_(X,"t"):-ex_TestShape_(X,"t*") .
-ex_TestClass_(X,"f"):-ex_TestShape_(X,"f") .
+s0_(X,"t*"):-ex_TestShape_(X,"t*") .
+ex_TestClass_(X,"t"):-s0_(X,"t*") .
+ex_TestClass_(X,"f"):-s0_(X,"f") .
+s1_(X,"t*"):-ex_TestShape_(X,"t*") .
+ex_TestClass_(X,"t"):-s1_(X,"t*") .
+ex_TestClass_(X,"f"):-s1_(X,"f") .
+s0_(X,"f");s1_(X,"f"):-ex_TestShape_(X,"f") .
 
 % Interpretation Rules
 

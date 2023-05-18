@@ -1,0 +1,28 @@
+@prefix : <http://ontologies.atb-bremen.de/smashHitCore#> .
+@prefix fibo-fnd-agr-ctr: <https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+:contb2b_bfcff2dc-2ed3-11ed-be7d-3f8589292a29 a fibo-fnd-agr-ctr:Contract;
+    :contractType :Written;
+    :forPurpose "data sharing between Tim and Alice";
+    :hasContractCategory :categoryBusinessToBusiness;
+    :hasContractStatus :statusExpired;
+#    :hasContractStatus :statusViolated;
+    :hasEndDate "2022-09-07 17:14:32.687000+00:00"^^xsd:dateTime;
+    fibo-fnd-agr-ctr:hasEffectiveDate "2022-09-07 17:14:32.687000+00:00"^^xsd:dateTime;
+    fibo-fnd-agr-ctr:hasExecutionDate "2022-09-07 17:14:32.687000+00:00"^^xsd:dateTime .
+
+:ob_9e2bb1ce-2ed4-11ed-be7d-3f8589292a29 a :Obligation;
+    :contractorID ":c_729c70aa-2ed1-11ed-be7d-3f8589292a29";
+    :fulfillmentDate "2022-09-07"^^xsd:dateTime;
+    :hasEndDate "2023-09-07"^^xsd:dateTime;
+    :hasStates :stateViolated;
+#    :hasStates :statePending;
+    dct:description "HaYRkfbFhvn5eerbqV6lnDckfnBQIRnACZDsYloyjteATU1bsOxH0MaJuI9K+fid/yoMOmCjBvdgQDQ2t2P5wg==";
+    fibo-fnd-agr-ctr:hasExecutionDate "2022-09-07"^^xsd:dateTime .
+
+:contb2b_bfcff2dc-2ed3-11ed-be7d-3f8589292a29 :hasTerms :term1 .
+:term1 :hasObligations :ob_9e2bb1ce-2ed4-11ed-be7d-3f8589292a29 .
+#:term1 :hasObligations :ob_9e2bb1ce-2ed4-11ed-be7d-3f8589292a30 .
+#:ob_9e2bb1ce-2ed4-11ed-be7d-3f8589292a30 :hasStates :stateViolated .

@@ -7,8 +7,8 @@ import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.BasicParserSettings;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
-import org.shacl.repairs.data.SHACLData;
 import org.shacl.repairs.data.RepairData;
+import org.shacl.repairs.data.SHACLData;
 
 import java.io.*;
 import java.util.HashSet;
@@ -18,8 +18,17 @@ public class RepairProgram {
 
     public void createRepairProgram(String dataFile, String shapesFile, String rulesFile) throws IOException {
 
+        createRepairProgram(dataFile, shapesFile, rulesFile, null);
+    }
+
+    public void createRepairProgram(String dataFile, String shapesFile, String rulesFile, String repairStrategiesFile) throws IOException {
+
         SHACLData.init();
         RepairData.init();
+
+        if (repairStrategiesFile != null) {
+            createRepairStrategyRules(repairStrategiesFile);
+        }
 
         try(InputStream inputStream = new FileInputStream(shapesFile)) {
             Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
@@ -47,6 +56,29 @@ public class RepairProgram {
             rdfParser.parse(inputStream, SHACLData.getBaseURI());
         }
 
+        if (repairStrategiesFile != null) {
+            try (InputStream inputStream = new FileInputStream(repairStrategiesFile)) {
+                Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
+            }
+
+            rdfParser = Rio.createParser(RDFFormat.TURTLE);
+            rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
+
+            Model repairStrategiesModel;
+            try (InputStream inputStream = new FileInputStream(repairStrategiesFile)) {
+
+                repairStrategiesModel = new LinkedHashModel();
+                rdfParser.setRDFHandler(new StatementCollector(repairStrategiesModel));
+                rdfParser.parse(inputStream, SHACLData.getBaseURI());
+            }
+
+            RepairStrategyParser.createRepairStrategyRules(repairStrategiesModel, RepairData.get());
+        }
+
+        try (InputStream inputStream = new FileInputStream(shapesFile)) {
+            Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
+        }
+
         ShapesParser.collectConstants(shapesModel, SHACLData.get());
         GraphParser.createGraphFacts(dataModel, SHACLData.get());
 
@@ -54,6 +86,29 @@ public class RepairProgram {
         ShapesParser.createTargetRules(SHACLData.get(), RepairData.get());
 
         writeRules(rulesFile);
+    }
+
+    private void createRepairStrategyRules(String path) throws IOException {
+
+        try(InputStream inputStream = new FileInputStream(path)) {
+            Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
+        }
+
+        RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
+        rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
+
+        Model dataModel;
+        try (InputStream inputStream = new FileInputStream(path)) {
+
+            dataModel = new LinkedHashModel();
+            rdfParser.setRDFHandler(new StatementCollector(dataModel));
+            rdfParser.parse(inputStream, SHACLData.getBaseURI());
+        }
+
+        RepairStrategyParser.
+                createRepairStrategyRules(
+                        dataModel,
+                        RepairData.get());
     }
 
     public void writeRules(String rules) throws IOException {
@@ -110,6 +165,13 @@ public class RepairProgram {
             writer.write("\n% Change Set Rules\n\n");
             for (String changeSetRule : RepairData.get().getChangeSetRules()) {
                 addLine(changeSetRule, lines, writer);
+            }
+
+            if (RepairData.get().getRepairStrategyRules().size() > 0) {
+                writer.write("\n% Repair Strategy Rules\n\n");
+                for (String changeSetRule : RepairData.get().getRepairStrategyRules()) {
+                    addLine(changeSetRule, lines, writer);
+                }
             }
 
             writer.write("\n% Program Functions\n\n");
