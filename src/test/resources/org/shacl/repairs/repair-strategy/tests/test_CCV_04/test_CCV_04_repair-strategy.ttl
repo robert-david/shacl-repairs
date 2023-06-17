@@ -3,16 +3,16 @@
 @prefix : <http://org.shacl.repairs.tests/> .
 
 :FunctionalStateStrategy
-    a sh:RepairStrategy ;
+    a sh:RepairStrategy;
     sh:repair [
-        sh:path :hasStates ;
-        sh:action sh:delete ;
+        sh:path :hasState;
+        sh:action sh:delete;
         sh:preserveOrder (
-            :stateViolated :stateFulfilled :statePending
+            :ViolatedState :FulfilledState :PendingState
         )
-    ] ;
+    ];
     sh:repair [
-        sh:path :hasStates ;
-        sh:action sh:add ;
-        sh:value :statePending
+        sh:path :hasState;
+        sh:action sh:add;
+        sh:value :PendingState
     ] .
