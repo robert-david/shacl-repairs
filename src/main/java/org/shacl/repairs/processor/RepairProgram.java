@@ -34,7 +34,7 @@ public class RepairProgram {
             Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
         }
 
-        RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
+        RDFParser rdfParser = Rio.createParser(Rio.getParserFormatForFileName(dataFile).orElse(RDFFormat.TURTLE));
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         Model dataModel;

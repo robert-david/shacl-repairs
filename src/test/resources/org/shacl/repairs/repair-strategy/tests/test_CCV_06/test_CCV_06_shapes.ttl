@@ -1,0 +1,48 @@
+@prefix : <http://ontologies.atb-bremen.de/smashHitCore#> .
+@prefix fibo-fnd-agr-ctr: <https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# CR-1: A Contract needs to have exactly one state.
+# CR-1: An Obligation needs to have exactly one state.
+# CR-2: A Contract cannot be at the same time pending, fulfilled and violated.
+# CR-2: An Obligation cannot be at the same time pending, fulfilled and violated.
+# CR-3: A Contract is violated if at least one associated Obligation is violated.
+
+:ContractStatusShape a sh:NodeShape;
+    sh:targetClass fibo-fnd-agr-ctr:Contract;
+    sh:property [
+        sh:path :hasContractStatus;
+        sh:in ( :statusCreated :statusPending :statusFulfilled :statusViolated );
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] .
+
+:ObligationStateShape a sh:NodeShape;
+    sh:targetClass :Obligation;
+    sh:targetObjectsOf :hasObligations;
+    sh:property [
+        sh:path :hasState;
+        sh:in ( :CreatedState :PendingState :FulfilledState :ViolatedState );
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] .
+
+:ContractViolationShape a sh:NodeShape;
+    sh:targetClass fibo-fnd-agr-ctr:Contract;
+    sh:or (
+        [
+            sh:not [
+                sh:property [
+                    sh:path (:hasObligations :hasState);
+                    sh:hasValue :ViolatedState;
+                ]
+            ]
+        ]
+        [
+            sh:property [
+                sh:path :hasContractStatus;
+                sh:hasValue :statusViolated;
+            ]
+        ]
+    ) .

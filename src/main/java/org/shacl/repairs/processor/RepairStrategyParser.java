@@ -138,8 +138,8 @@ public class RepairStrategyParser {
                         if (repair.value != null) {
 
                             repairData.getRepairStrategyRules().add(
-                                    ":-add(" + ns(rss_nss, repair.path) + "(X,Y))," +
-                                            "not add(" + ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.value) + "\")) .\n"
+                                    "#maximize { 1@0,X: add(" +
+                                    ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.value) + "\")) } .\n"
                             );
 
                         } else {
