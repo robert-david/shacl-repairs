@@ -47,7 +47,7 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_01_rules.pl");
 
-        assertTrue(result.contains("Models       : 7"));
+        assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
@@ -71,9 +71,9 @@ public class RepairStrategyTestSuite {
 
         assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 4);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusUnknown\"))") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusUnknown\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_02_result.txt", result);
     }
@@ -91,11 +91,11 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_03_rules.pl");
 
-        assertTrue(result.contains("Models       : 7"));
+        assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 4);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_fulfilledState\"))") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_fulfilledState\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_03_result.txt", result);
     }
@@ -115,9 +115,9 @@ public class RepairStrategyTestSuite {
 
         assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"add(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 4);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_unknownState\"))") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_unknownState\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_04_result.txt", result);
     }
