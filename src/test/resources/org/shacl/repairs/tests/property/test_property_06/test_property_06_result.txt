@@ -1,42 +1,18 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ..._property_06/test_property_06_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
-Optimization: 0 2
-Answer: 2
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
-Optimization: 0 2
-Answer: 3
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 4
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 5
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 6
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 7
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 8
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 9
 actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company1")) add(_organization("_company2"))
-Optimization: 0 2
-Answer: 10
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company1")) add(_organization("_company2"))
-Optimization: 0 2
+
+actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
+
+actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
+
 OPTIMUM FOUND
 
-Models       : 11+
+Models       : 12
   Optimum    : yes
   Optimal    : 10
 Optimization : 0 2
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s

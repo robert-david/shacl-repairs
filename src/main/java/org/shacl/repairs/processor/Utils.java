@@ -18,7 +18,7 @@ public class Utils {
             if (id.contains(n.getName())) {
                 id = id.replaceAll(n.getName(), "");
                 if (n.getPrefix().equals("")) {
-                    id = id.replace(id.charAt(0), ("" + id.charAt(0)).toLowerCase().charAt(0));
+                    id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).toLowerCase().charAt(0));
                 }
                 id = n.getPrefix() + "_" + id;
             }

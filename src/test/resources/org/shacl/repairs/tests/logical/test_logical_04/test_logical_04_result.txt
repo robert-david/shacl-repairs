@@ -1,0 +1,16 @@
+clingo version 5.6.2
+Reading from ...st_logical_04/test_logical_04_rules.pl
+Solving...
+actualTarget("_ann",_personShape) del(_student("_ann"))
+
+actualTarget("_ann",_personShape) add(_teacher("_ann"))
+
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+  Optimal    : 2
+Optimization : 0 1
+Calls        : 1
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s

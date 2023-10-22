@@ -1,18 +1,16 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ...e/test_value_01/test_value_01_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_personShape) add(_name("_ann","1206")) add(_name("_ann","Ann"))
-Optimization: 0 2 1
-Answer: 2
-actualTarget("_ann",_personShape) add(_name("_ann","1204")) add(_name("_ann","Ann"))
-Optimization: 0 2 1
+actualTarget("_ann",_personShape) add(_name("_ann","1205")) add(_name("_ann","Ann"))
+
+actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann"))
+
 OPTIMUM FOUND
 
-Models       : 4
+Models       : 10
   Optimum    : yes
-  Optimal    : 2
+  Optimal    : 8
 Optimization : 0 2 1
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.013s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.013s

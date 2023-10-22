@@ -1,0 +1,16 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+:PersonShape a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:not [
+        sh:xone (
+            [
+                sh:class :Student
+            ]
+            [
+                sh:class :Teacher
+            ]
+        ) ;
+    ] .

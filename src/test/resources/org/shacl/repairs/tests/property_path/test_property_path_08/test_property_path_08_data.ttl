@@ -1,0 +1,9 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+#:ben :enrolledIn :bn1 .
+#:ben :enrolledIn :bn2 .
+
+#:bn1 :hasId "Math 1" .
+#:bn2 :hasId "Math 2" .

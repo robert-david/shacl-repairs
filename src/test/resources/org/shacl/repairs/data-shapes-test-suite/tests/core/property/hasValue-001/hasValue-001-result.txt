@@ -1,21 +1,14 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ...rty/hasValue-001/hasValue-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_InvalidMalePerson",ex_PersonShape) actualTarget("ex_ValidMalePerson1",ex_PersonShape) actualTarget("ex_ValidMalePerson2",ex_PersonShape) add(ex_gender("ex_InvalidMalePerson","male"))
-Optimization: 0 1 1
-Answer: 2
-actualTarget("ex_InvalidMalePerson",ex_PersonShape) actualTarget("ex_ValidMalePerson1",ex_PersonShape) actualTarget("ex_ValidMalePerson2",ex_PersonShape) add(ex_gender("ex_InvalidMalePerson","male"))
-Optimization: 0 1 1
-Answer: 3
-actualTarget("ex_InvalidMalePerson",ex_PersonShape) actualTarget("ex_ValidMalePerson1",ex_PersonShape) actualTarget("ex_ValidMalePerson2",ex_PersonShape) add(ex_gender("ex_InvalidMalePerson","male"))
-Optimization: 0 1 1
+
 OPTIMUM FOUND
 
-Models       : 7
+Models       : 13
   Optimum    : yes
-  Optimal    : 3
+  Optimal    : 9
 Optimization : 0 1 1
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.011s

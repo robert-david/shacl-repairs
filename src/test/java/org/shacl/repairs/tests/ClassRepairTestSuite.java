@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -16,7 +17,7 @@ public class ClassRepairTestSuite {
     @Test
     public void test_class_01() throws IOException {
 
-        String testPath = PathConfig.path + "/tests/class/test_class_01";
+        String testPath = path + "/tests/class/test_class_01";
         r.createRepairProgram(
                 testPath + "/test_class_01_data.ttl",
                 testPath + "/test_class_01_shapes.ttl",
@@ -59,10 +60,10 @@ public class ClassRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_class_03_rules.pl");
 
-        assertTrue(result.contains("Models       : 2"));
+        assertTrue(result.contains("Models       : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1648\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1648\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1656\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1656\"))") == 1);
 
         r.writeResult(testPath + "/test_class_03_result.txt", result);
     }
@@ -78,10 +79,10 @@ public class ClassRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_class_04_rules.pl");
 
-        assertTrue(result.contains("Models       : 2"));
+        assertTrue(result.contains("Models       : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_organization(\"_company1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1648\"))") == 1);
+        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_04_result.txt", result);
     }
@@ -116,12 +117,12 @@ public class ClassRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_class_06_rules.pl");
 
-        assertTrue(result.contains("Models       : 2"));
+        assertTrue(result.contains("Models       : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1648\"))") == 1);
+        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
         assertTrue(StringUtils.countMatches(result,"add(_person(\"_company1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"1648\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1648\"))") == 1);
+        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(_organization\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_06_result.txt", result);
     }
@@ -157,12 +158,12 @@ public class ClassRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_class_08_rules.pl");
 
-        assertTrue(result.contains("Models       : 3"));
+        assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 2"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1648\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"1648\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"1648\"))") == 1);
+        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(_organization\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_08_result.txt", result);
     }

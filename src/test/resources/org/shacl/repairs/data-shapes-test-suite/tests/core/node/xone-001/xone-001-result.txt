@@ -1,0 +1,18 @@
+clingo version 5.6.2
+Reading from ...s/core/node/xone-001/xone-001-rules.pl
+Solving...
+actualTarget("ex_Carla",ex_XoneConstraintExampleShape) actualTarget("ex_Bob",ex_XoneConstraintExampleShape) actualTarget("ex_Dory",ex_XoneConstraintExampleShape) del(ex_firstName("ex_Dory","Dory"))
+
+actualTarget("ex_Carla",ex_XoneConstraintExampleShape) actualTarget("ex_Bob",ex_XoneConstraintExampleShape) actualTarget("ex_Dory",ex_XoneConstraintExampleShape) del(ex_lastName("ex_Dory","Dunce"))
+
+actualTarget("ex_Carla",ex_XoneConstraintExampleShape) actualTarget("ex_Bob",ex_XoneConstraintExampleShape) actualTarget("ex_Dory",ex_XoneConstraintExampleShape) del(ex_fullName("ex_Dory","Dory Dunce"))
+
+OPTIMUM FOUND
+
+Models       : 14
+  Optimum    : yes
+  Optimal    : 6
+Optimization : 0 1
+Calls        : 1
+Time         : 0.047s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.046s

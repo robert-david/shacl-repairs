@@ -14,7 +14,7 @@ public class Main {
             System.out.println("The program will read dataFile.ttl and shapesFile.ttl, transform the RDF into ASP and write the results to clingoFile.ttl");
 
         } else if (args.length != 4) {
-                System.out.println("The number of porvided arguments is " + (args.length-1) + ", but should be 3");
+                System.out.println("The number of provided arguments is " + (args.length-1) + ", but should be 3");
         } else {
 
             String dataFile = args[1];

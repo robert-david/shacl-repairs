@@ -1,9 +1,12 @@
 package org.shacl.repairs.tests;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.shacl.repairs.processor.RepairProgram;
 
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Example {
 
@@ -15,9 +18,12 @@ public class Example {
         String shapesFile = testPath + "example_shapes.ttl";
         String clingoFile = testPath + "example_rules.pl";
 
-        new RepairProgram().createRepairProgram(
+        RepairTestRunner r = new RepairTestRunner();
+        r.createRepairProgram(
                 datafile,
                 shapesFile,
                 clingoFile);
+        String result = r.runProgram(testPath + "/example_rules.pl");
+        r.writeResult(testPath + "/example_result.txt", result);
     }
 }

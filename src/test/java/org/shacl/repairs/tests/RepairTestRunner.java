@@ -3,6 +3,8 @@ package org.shacl.repairs.tests;
 import org.shacl.repairs.processor.RepairProgram;
 
 import java.io.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class RepairTestRunner extends RepairProgram {
 
@@ -12,19 +14,41 @@ public class RepairTestRunner extends RepairProgram {
     public String runProgram(String rulesFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"/usr/local/bin/clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10"};
+        String[] commands = {"/usr/local/bin/clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "100"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(proc.getInputStream()));
 
+        Set<String> reduced = new LinkedHashSet();
+
         String s;
         String result = "";
         while ((s = stdInput.readLine()) != null) {
-            result += s;
-            result += System.lineSeparator();
-            System.out.println(s);
+            if (!s.startsWith("Answer: ") && !s.startsWith("Optimization: ")) {
+                reduced.add(s);
+            }
         }
+
+        int c = 1;
+        boolean solutions = false;
+        for (String s1 : reduced) {
+
+            if (s1.equals("OPTIMUM FOUND")) {
+                solutions = false;
+            }
+
+            result += s1;
+                result += System.lineSeparator();
+                if (solutions) {
+                    result += System.lineSeparator();
+                }
+
+            if (s1.equals("Solving...")) {
+                solutions = true;
+            }
+        }
+
         return result;
     }
 

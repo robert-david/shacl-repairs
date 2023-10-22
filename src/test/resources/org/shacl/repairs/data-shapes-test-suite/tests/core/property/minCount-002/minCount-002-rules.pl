@@ -2,27 +2,27 @@
 % Graph Data
 
 sh_NodeShape("ex_TestShape") .
-sh_property("ex_TestShape","node1g835dclmx339") .
-sh_path("node1g835dclmx339","ex_property") .
-sh_minCount("node1g835dclmx339","0") .
+sh_property("ex_TestShape","node1hdcdgs0ox1670") .
+sh_path("node1hdcdgs0ox1670","ex_property") .
+sh_minCount("node1hdcdgs0ox1670","0") .
 xsd_integer("0") .
-sh_name("node1g835dclmx339","property") .
+sh_name("node1hdcdgs0ox1670","property") .
 xsd_string("property") .
 sh_targetNode("ex_TestShape","ex_ValidResource1") .
 rdfs_Resource("ex_ValidResource1") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx340") .
-rdf_first("node1g835dclmx340","http://repairs.shacl.org/minCount_002") .
-rdf_rest("node1g835dclmx340","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1671") .
+rdf_first("node1hdcdgs0ox1671","http://repairs.shacl.org/minCount_002") .
+rdf_rest("node1hdcdgs0ox1671","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/minCount_002") .
 rdfs_label("http://repairs.shacl.org/minCount_002","Test of sh:minCount at property shape 001") .
 xsd_string("Test of sh:minCount at property shape 001") .
-mf_action("http://repairs.shacl.org/minCount_002","node1g835dclmx341") .
-sht_dataGraph("node1g835dclmx341","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx341","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/minCount_002","node1g835dclmx342") .
-sh_ValidationReport("node1g835dclmx342") .
-sh_conforms("node1g835dclmx342","true") .
+mf_action("http://repairs.shacl.org/minCount_002","node1hdcdgs0ox1672") .
+sht_dataGraph("node1hdcdgs0ox1672","http://repairs.shacl.org") .
+sht_shapesGraph("node1hdcdgs0ox1672","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/minCount_002","node1hdcdgs0ox1673") .
+sh_ValidationReport("node1hdcdgs0ox1673") .
+sh_conforms("node1hdcdgs0ox1673","true") .
 xsd_boolean("true") .
 mf_status("http://repairs.shacl.org/minCount_002","sht_approved") .
 
@@ -45,29 +45,31 @@ ex_property_(X,Y,"t*"):-ex_property_(X,Y,"t") .
 
 % Repair Rules
 
-node1g835dclmx343_(X,"t*"):-ex_TestShape_(X,"t*") .
-node1g835dclmx343_(X,"f"):-ex_TestShape_(X,"f") .
+node1hdcdgs0ox1674_(X,"t*"):-ex_TestShape_(X,"t*") .
+node1hdcdgs0ox1674_(X,"f"):-ex_TestShape_(X,"f") .
 
-% sh:minCount 0 for node1g835dclmx343
-s0_(X,"t*"):-node1g835dclmx343_(X,"t*") .
+% sh:minCount 0 for node1hdcdgs0ox1674
+s0_(X,"t*"):-node1hdcdgs0ox1674_(X,"t*") .
 choose(s0,X,ex_property,0):-s0_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property(X,Y);s1_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s1_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+ex_property_(X,Y,"f"):-s0_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 0 {s1_(Y,"t*"):ex_property_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
 
-% universal for node1g835dclmx343
-s2_(X,"t*"):-node1g835dclmx343_(X,"t*") .
+% universal for node1hdcdgs0ox1674
+s2_(X,"t*"):-node1hdcdgs0ox1674_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 ex_property_(X,@new(s3,X,ex_property,1..1),"t"):-choose(s3,X,ex_property,1) .
 choose(s3,X,ex_property,1);choose(s3,X,ex_property,0):-s3_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property(X,Y);s4_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s4_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+ex_property_(X,Y,"f"):-s3_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 1 {s4_(Y,"t*"):ex_property_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-node1g835dclmx343_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1hdcdgs0ox1674_(X,"f") .
 
 % Interpretation Rules
 
@@ -83,7 +85,7 @@ ex_property_(X,Y,"t**"):-ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f") .
 
 add(ex_property(X,Y)):-ex_property_(X,Y,"t**"),not ex_property(X,Y) .
 del(ex_property(X,Y)):-ex_property_(X,Y,"f"),ex_property(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

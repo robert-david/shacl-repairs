@@ -11,6 +11,8 @@ import org.shacl.repairs.data.SHACLData;
 import org.shacl.repairs.data.RepairData;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +23,7 @@ public class RepairProgram {
         SHACLData.init();
         RepairData.init();
 
-        try(InputStream inputStream = new FileInputStream(shapesFile)) {
+        try(InputStream inputStream = Files.newInputStream(Paths.get(shapesFile))) {
             Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
         }
 
@@ -29,7 +31,7 @@ public class RepairProgram {
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         Model dataModel;
-        try (InputStream inputStream = new FileInputStream(dataFile)) {
+        try (InputStream inputStream = Files.newInputStream(Paths.get(dataFile))) {
 
             dataModel = new LinkedHashModel();
             rdfParser.setRDFHandler(new StatementCollector(dataModel));
@@ -40,7 +42,7 @@ public class RepairProgram {
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         Model shapesModel;
-        try (InputStream inputStream = new FileInputStream(shapesFile)) {
+        try (InputStream inputStream = Files.newInputStream(Paths.get(shapesFile))) {
 
             shapesModel = new LinkedHashModel();
             rdfParser.setRDFHandler(new StatementCollector(shapesModel));

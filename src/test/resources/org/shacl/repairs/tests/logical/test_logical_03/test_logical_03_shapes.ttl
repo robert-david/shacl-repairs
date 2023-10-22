@@ -1,0 +1,24 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+:PersonShape a sh:NodeShape ;
+    sh:targetNode :ann ;
+    sh:xone (
+        [
+            sh:property [
+                sh:path :name ;
+                sh:minCount 1 ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path :firstName ;
+                sh:minCount 1 ;
+            ] ;
+            sh:property [
+                sh:path :lastName ;
+                sh:minCount 1 ;
+            ] ;
+        ]
+    ) .

@@ -25,27 +25,27 @@ ex_address("ex_Reto","ex_RetosAddress") .
 ex_postalCode("ex_RetosAddress","5678") .
 xsd_integer("5678") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx476") .
-rdf_first("node1g835dclmx476","http://repairs.shacl.org/node_002") .
-rdf_rest("node1g835dclmx476","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1807") .
+rdf_first("node1hdcdgs0ox1807","http://repairs.shacl.org/node_002") .
+rdf_rest("node1hdcdgs0ox1807","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/node_002") .
 rdfs_label("http://repairs.shacl.org/node_002","Test of sh:node at property shape 002") .
 xsd_string("Test of sh:node at property shape 002") .
-mf_action("http://repairs.shacl.org/node_002","node1g835dclmx477") .
-sht_dataGraph("node1g835dclmx477","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx477","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/node_002","node1g835dclmx478") .
-sh_ValidationReport("node1g835dclmx478") .
-sh_conforms("node1g835dclmx478","false") .
+mf_action("http://repairs.shacl.org/node_002","node1hdcdgs0ox1808") .
+sht_dataGraph("node1hdcdgs0ox1808","http://repairs.shacl.org") .
+sht_shapesGraph("node1hdcdgs0ox1808","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/node_002","node1hdcdgs0ox1809") .
+sh_ValidationReport("node1hdcdgs0ox1809") .
+sh_conforms("node1hdcdgs0ox1809","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx478","node1g835dclmx479") .
-sh_ValidationResult("node1g835dclmx479") .
-sh_focusNode("node1g835dclmx479","ex_Reto") .
-sh_resultPath("node1g835dclmx479","ex_address") .
-sh_resultSeverity("node1g835dclmx479","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx479","sh_NodeConstraintComponent") .
-sh_sourceShape("node1g835dclmx479","ex_PersonShape_address") .
-sh_value("node1g835dclmx479","ex_RetosAddress") .
+sh_result("node1hdcdgs0ox1809","node1hdcdgs0ox1810") .
+sh_ValidationResult("node1hdcdgs0ox1810") .
+sh_focusNode("node1hdcdgs0ox1810","ex_Reto") .
+sh_resultPath("node1hdcdgs0ox1810","ex_address") .
+sh_resultSeverity("node1hdcdgs0ox1810","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox1810","sh_NodeConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox1810","ex_PersonShape_address") .
+sh_value("node1hdcdgs0ox1810","ex_RetosAddress") .
 mf_status("http://repairs.shacl.org/node_002","sht_approved") .
 
 % Shape Targets
@@ -73,107 +73,142 @@ xsd_string_(X,"t*"):-xsd_string_(X,"t") .
 
 % Repair Rules
 
-ex_PersonShape_address_(X,"t*"):-ex_PersonShape_(X,"t*") .
+s0_(X,"t*"):-ex_PersonShape_(X,"t*") .
+ex_PersonShape_address_(X,"t*"):-s0_(X,"t*") .
+ex_PersonShape_address_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 1 for ex_PersonShape_address
-s0_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
-ex_address_(X,@new(s0,X,ex_address,1..1),"t"):-choose(s0,X,ex_address,1) .
-choose(s0,X,ex_address,1);choose(s0,X,ex_address,0):-s0_(X,"t*") .
-(C-0) {ex_address_(X,Y,"f"):ex_address(X,Y);s1_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
-1 {s1_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s0_(X,"t*") .
+% sh:minCount 0 for ex_PersonShape_address
+s1_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
+choose(s1,X,ex_address,0):-s1_(X,"t*") .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s2_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s1_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
+0 {s2_(Y,"t*"):ex_address_(X,Y,"t**")} 0:-s1_(X,"t*") .
 
-ex_AddressShape_postalCode_(X,"t*"):-s1_(X,"t*") .
-ex_AddressShape_postalCode_(X,"f"):-s1_(X,"f") .
-
-% sh:minCount 0 for ex_AddressShape_postalCode
-s2_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-choose(s2,X,ex_postalCode,0):-s2_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s3_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s2_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-0 {s3_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s2_(X,"t*") .
-
-xsd_string_(X,"t"):-s3_(X,"t*") .
-xsd_string_(X,"f"):-s3_(X,"f") .
+ex_AddressShape_postalCode_(X,"t*"):-s2_(X,"t*") .
+ex_AddressShape_postalCode_(X,"f"):-s2_(X,"f") .
 
 % sh:maxCount 1 for ex_AddressShape_postalCode
-s4_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-s5_(X,"f"):-s4_(X,"t*") .
-s5_(X,"t*"):-s4_(X,"f") .
-ex_postalCode_(X,@new(s5,X,ex_postalCode,1..1),"t"):-choose(s5,X,ex_postalCode,1) .
-ex_postalCode_(X,@new(s5,X,ex_postalCode,1..2),"t"):-choose(s5,X,ex_postalCode,2) .
-choose(s5,X,ex_postalCode,2);choose(s5,X,ex_postalCode,1);choose(s5,X,ex_postalCode,0):-s5_(X,"t*") .
-(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s6_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s5_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
-2 {s6_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s5_(X,"t*") .
+s3_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+s4_(X,"f"):-s3_(X,"t*") .
+s4_(X,"t*"):-s3_(X,"f") .
+ex_postalCode_(X,@new(s4,X,ex_postalCode,1..1),"t"):-choose(s4,X,ex_postalCode,1) .
+ex_postalCode_(X,@new(s4,X,ex_postalCode,1..2),"t"):-choose(s4,X,ex_postalCode,2) .
+choose(s4,X,ex_postalCode,2);choose(s4,X,ex_postalCode,1);choose(s4,X,ex_postalCode,0):-s4_(X,"t*") .
+(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s5_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s4_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
+ex_postalCode_(X,Y,"f"):-s4_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+2 {s5_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s4_(X,"t*") .
 
-xsd_string_(X,"t"):-s6_(X,"t*") .
-xsd_string_(X,"f"):-s6_(X,"f") .
+xsd_string_(X,"t"):-s5_(X,"t*") .
+xsd_string_(X,"f"):-s5_(X,"f") .
+
+% sh:minCount 0 for ex_AddressShape_postalCode
+s6_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+choose(s6,X,ex_postalCode,0):-s6_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s7_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s6_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+0 {s7_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s6_(X,"t*") .
+
+xsd_string_(X,"t"):-s7_(X,"t*") .
+xsd_string_(X,"f"):-s7_(X,"f") .
 
 % universal for ex_AddressShape_postalCode
-s7_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-s8_(X,"f"):-s7_(X,"t*") .
-s8_(X,"t*"):-s7_(X,"f") .
-ex_postalCode_(X,@new(s8,X,ex_postalCode,1..1),"t"):-choose(s8,X,ex_postalCode,1) .
-choose(s8,X,ex_postalCode,1);choose(s8,X,ex_postalCode,0):-s8_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s9_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s9_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s8_(X,"t*") .
-s10_(X,"f"):-s9_(X,"t*") .
-s10_(X,"t*"):-s9_(X,"f") .
+s8_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+s9_(X,"f"):-s8_(X,"t*") .
+s9_(X,"t*"):-s8_(X,"f") .
+ex_postalCode_(X,@new(s9,X,ex_postalCode,1..1),"t"):-choose(s9,X,ex_postalCode,1) .
+choose(s9,X,ex_postalCode,1);choose(s9,X,ex_postalCode,0):-s9_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s10_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s9_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s9_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s10_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s9_(X,"t*") .
+s11_(X,"f"):-s10_(X,"t*") .
+s11_(X,"t*"):-s10_(X,"f") .
 
-xsd_string_(X,"t"):-s10_(X,"t*") .
-xsd_string_(X,"f"):-s10_(X,"f") .
+xsd_string_(X,"t"):-s11_(X,"t*") .
+xsd_string_(X,"f"):-s11_(X,"f") .
 
-s2_(X,"f");s4_(X,"f");s7_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
+s3_(X,"f");s6_(X,"f");s8_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
 
 % universal for ex_PersonShape_address
-s11_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
-s12_(X,"f"):-s11_(X,"t*") .
-s12_(X,"t*"):-s11_(X,"f") .
-ex_address_(X,@new(s12,X,ex_address,1..1),"t"):-choose(s12,X,ex_address,1) .
-choose(s12,X,ex_address,1);choose(s12,X,ex_address,0):-s12_(X,"t*") .
-(C-0) {ex_address_(X,Y,"f"):ex_address(X,Y);s13_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s12_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
-1 {s13_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s12_(X,"t*") .
-s14_(X,"f"):-s13_(X,"t*") .
-s14_(X,"t*"):-s13_(X,"f") .
+s12_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
+s13_(X,"f"):-s12_(X,"t*") .
+s13_(X,"t*"):-s12_(X,"f") .
+ex_address_(X,@new(s13,X,ex_address,1..1),"t"):-choose(s13,X,ex_address,1) .
+choose(s13,X,ex_address,1);choose(s13,X,ex_address,0):-s13_(X,"t*") .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s14_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s13_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s13_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
+1 {s14_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s13_(X,"t*") .
+s15_(X,"f"):-s14_(X,"t*") .
+s15_(X,"t*"):-s14_(X,"f") .
 
-ex_AddressShape_postalCode_(X,"t*"):-s14_(X,"t*") .
-ex_AddressShape_postalCode_(X,"f"):-s14_(X,"f") .
+ex_AddressShape_postalCode_(X,"t*"):-s15_(X,"t*") .
+ex_AddressShape_postalCode_(X,"f"):-s15_(X,"f") .
 
-s15_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-s16_(X,"f"):-s15_(X,"t*") .
-s16_(X,"t*"):-s15_(X,"f") .
-ex_postalCode_(X,@new(s16,X,ex_postalCode,1..1),"t"):-choose(s16,X,ex_postalCode,1) .
-ex_postalCode_(X,@new(s16,X,ex_postalCode,1..2),"t"):-choose(s16,X,ex_postalCode,2) .
-choose(s16,X,ex_postalCode,2);choose(s16,X,ex_postalCode,1);choose(s16,X,ex_postalCode,0):-s16_(X,"t*") .
-(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s17_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s16_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
-2 {s17_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s16_(X,"t*") .
+s16_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+s17_(X,"f"):-s16_(X,"t*") .
+s17_(X,"t*"):-s16_(X,"f") .
+ex_postalCode_(X,@new(s17,X,ex_postalCode,1..1),"t"):-choose(s17,X,ex_postalCode,1) .
+ex_postalCode_(X,@new(s17,X,ex_postalCode,1..2),"t"):-choose(s17,X,ex_postalCode,2) .
+choose(s17,X,ex_postalCode,2);choose(s17,X,ex_postalCode,1);choose(s17,X,ex_postalCode,0):-s17_(X,"t*") .
+(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s18_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s17_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
+ex_postalCode_(X,Y,"f"):-s17_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+2 {s18_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s17_(X,"t*") .
 
-xsd_string_(X,"t"):-s17_(X,"t*") .
-xsd_string_(X,"f"):-s17_(X,"f") .
+xsd_string_(X,"t"):-s18_(X,"t*") .
+xsd_string_(X,"f"):-s18_(X,"f") .
 
-s18_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-choose(s18,X,ex_postalCode,0):-s18_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s19_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s18_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-0 {s19_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s18_(X,"t*") .
+s19_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+choose(s19,X,ex_postalCode,0):-s19_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s20_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s19_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s19_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+0 {s20_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s19_(X,"t*") .
 
-xsd_string_(X,"t"):-s19_(X,"t*") .
-xsd_string_(X,"f"):-s19_(X,"f") .
+xsd_string_(X,"t"):-s20_(X,"t*") .
+xsd_string_(X,"f"):-s20_(X,"f") .
 
-s20_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-s21_(X,"f"):-s20_(X,"t*") .
-s21_(X,"t*"):-s20_(X,"f") .
-ex_postalCode_(X,@new(s21,X,ex_postalCode,1..1),"t"):-choose(s21,X,ex_postalCode,1) .
-choose(s21,X,ex_postalCode,1);choose(s21,X,ex_postalCode,0):-s21_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s22_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s21_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s22_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s21_(X,"t*") .
-s23_(X,"f"):-s22_(X,"t*") .
-s23_(X,"t*"):-s22_(X,"f") .
+s21_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+s22_(X,"f"):-s21_(X,"t*") .
+s22_(X,"t*"):-s21_(X,"f") .
+ex_postalCode_(X,@new(s22,X,ex_postalCode,1..1),"t"):-choose(s22,X,ex_postalCode,1) .
+choose(s22,X,ex_postalCode,1);choose(s22,X,ex_postalCode,0):-s22_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s23_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s22_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s22_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s23_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s22_(X,"t*") .
+s24_(X,"f"):-s23_(X,"t*") .
+s24_(X,"t*"):-s23_(X,"f") .
 
-xsd_string_(X,"t"):-s23_(X,"t*") .
-xsd_string_(X,"f"):-s23_(X,"f") .
+xsd_string_(X,"t"):-s24_(X,"t*") .
+xsd_string_(X,"f"):-s24_(X,"f") .
 
-s15_(X,"f");s18_(X,"f");s20_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
+s16_(X,"f");s19_(X,"f");s21_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
 
-s0_(X,"f");s11_(X,"f"):-ex_PersonShape_address_(X,"f") .
-ex_PersonShape_address_(X,"f"):-ex_PersonShape_(X,"f") .
+s1_(X,"f");s12_(X,"f"):-ex_PersonShape_address_(X,"f") .
+s25_(X,"t*"):-ex_PersonShape_(X,"t*") .
+ex_PersonShape_address_(X,"t*"):-s25_(X,"t*") .
+ex_PersonShape_address_(X,"f"):-s25_(X,"f") .
+
+% sh:minCount 1 for ex_PersonShape_address
+s26_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
+ex_address_(X,@new(s26,X,ex_address,1..1),"t"):-choose(s26,X,ex_address,1) .
+choose(s26,X,ex_address,1);choose(s26,X,ex_address,0):-s26_(X,"t*") .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s27_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s26_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s26_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
+1 {s27_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s26_(X,"t*") .
+
+
+s28_(X,"t*"):-ex_PersonShape_address_(X,"t*") .
+s29_(X,"f"):-s28_(X,"t*") .
+s29_(X,"t*"):-s28_(X,"f") .
+ex_address_(X,@new(s29,X,ex_address,1..1),"t"):-choose(s29,X,ex_address,1) .
+choose(s29,X,ex_address,1);choose(s29,X,ex_address,0):-s29_(X,"t*") .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s30_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s29_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s29_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
+1 {s30_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s29_(X,"t*") .
+s31_(X,"f"):-s30_(X,"t*") .
+s31_(X,"t*"):-s30_(X,"f") .
+
+
+s26_(X,"f");s28_(X,"f"):-ex_PersonShape_address_(X,"f") .
+s0_(X,"f");s25_(X,"f"):-ex_PersonShape_(X,"f") .
 
 % Interpretation Rules
 
@@ -186,6 +221,8 @@ xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 :-ex_address_(X,Y,"t"),ex_address_(X,Y,"f") .
 :-ex_postalCode_(X,Y,"t"),ex_postalCode_(X,Y,"f") .
 :-xsd_string_(X,"t"),xsd_string_(X,"f") .
+:-s27_(X,"f") .
+:-s31_(X,"f") .
 
 % Change Set Rules
 
@@ -195,7 +232,7 @@ add(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"t**"),not ex_postalCode(X,Y) .
 del(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"f"),ex_postalCode(X,Y) .
 add(xsd_string(X)):-xsd_string_(X,"t**"),not xsd_string(X) .
 del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

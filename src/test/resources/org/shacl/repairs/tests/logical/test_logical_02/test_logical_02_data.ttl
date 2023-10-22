@@ -1,0 +1,5 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:ann a :Student .
+:ann a :Teacher .

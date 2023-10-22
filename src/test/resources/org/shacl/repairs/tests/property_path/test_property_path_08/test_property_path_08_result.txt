@@ -1,0 +1,13 @@
+clingo version 5.6.2
+Reading from ...path_08/test_property_path_08_rules.pl
+Solving...
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3509")) add(_p1("3509","2439")) add(_hasId("2439","2541")) add(_hasId("2439","2542"))
+
+OPTIMUM FOUND
+
+Models       : 3
+  Optimum    : yes
+Optimization : 0 4
+Calls        : 1
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.012s

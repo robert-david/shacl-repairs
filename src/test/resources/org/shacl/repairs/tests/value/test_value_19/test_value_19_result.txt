@@ -1,0 +1,16 @@
+clingo version 5.6.2
+Reading from ...e/test_value_19/test_value_19_rules.pl
+Solving...
+actualTarget("_ann",_personShape) del(_name("_ann","Ben")) add(_name("_ann","Ann"))
+
+actualTarget("_ann",_personShape) del(_name("_ann","Ben")) add(_name("_ann","ANN"))
+
+OPTIMUM FOUND
+
+Models       : 6
+  Optimum    : yes
+  Optimal    : 4
+Optimization : 0 2 1
+Calls        : 1
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s

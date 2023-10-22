@@ -1,15 +1,12 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from ..._property_07/test_property_07_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_personShape) del(_organization("_company2"))
-Optimization: 0 1
-Answer: 2
-actualTarget("_ann",_personShape) del(_organization("_company1"))
-Optimization: 0 1
-Answer: 3
 actualTarget("_ann",_personShape) add(_worksFor("_ann","1651"))
-Optimization: 0 1
+
+actualTarget("_ann",_personShape) del(_organization("_company2"))
+
+actualTarget("_ann",_personShape) del(_organization("_company1"))
+
 OPTIMUM FOUND
 
 Models       : 5
@@ -17,5 +14,5 @@ Models       : 5
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.005s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s

@@ -1,0 +1,18 @@
+clingo version 5.6.2
+Reading from ...-inverse-001/path-inverse-001-rules.pl
+Solving...
+actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_InvalidResource2",ex_TestShape) del(ex_child("ex_Parent3","ex_InvalidResource2")) add(ex_child("3029","ex_InvalidResource1"))
+
+actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_InvalidResource2",ex_TestShape) del(ex_child("ex_Parent2","ex_InvalidResource2")) add(ex_child("3029","ex_InvalidResource1"))
+
+actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_InvalidResource2",ex_TestShape) del(ex_child("ex_Parent1","ex_InvalidResource2")) add(ex_child("3029","ex_InvalidResource1"))
+
+OPTIMUM FOUND
+
+Models       : 11
+  Optimum    : yes
+  Optimal    : 3
+Optimization : 0 2
+Calls        : 1
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.012s

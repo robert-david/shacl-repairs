@@ -1,0 +1,8 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+:ben :enrolledIn :c1 .
+:ben :enrolledIn :c2 .
+:study1 :hasLecture :c1 .
+:study2 :hasLecture :c2 .

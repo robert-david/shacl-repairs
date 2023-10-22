@@ -10,18 +10,18 @@ sh_targetNode("ex_AddressShape","ex_InvalidResource2") .
 sh_targetNode("ex_AddressShape","ex_InvalidResource3") .
 sh_targetNode("ex_AddressShape","ex_ValidResource1") .
 sh_path("ex_AddressShape_address","ex_address") .
-sh_and("ex_AddressShape_address","node1g835dclmx501") .
-rdf_first("node1g835dclmx501","node1g835dclmx502") .
-sh_property("node1g835dclmx502","node1g835dclmx503") .
-sh_path("node1g835dclmx503","ex_suburb") .
-sh_minCount("node1g835dclmx503","1") .
+sh_and("ex_AddressShape_address","node1hdcdgs0ox1832") .
+rdf_first("node1hdcdgs0ox1832","node1hdcdgs0ox1833") .
+sh_property("node1hdcdgs0ox1833","node1hdcdgs0ox1834") .
+sh_path("node1hdcdgs0ox1834","ex_suburb") .
+sh_minCount("node1hdcdgs0ox1834","1") .
 xsd_integer("1") .
-rdf_rest("node1g835dclmx501","node1g835dclmx504") .
-rdf_first("node1g835dclmx504","node1g835dclmx505") .
-sh_property("node1g835dclmx505","node1g835dclmx506") .
-sh_path("node1g835dclmx506","ex_postalCode") .
-sh_minCount("node1g835dclmx506","1") .
-rdf_rest("node1g835dclmx504","rdf_nil") .
+rdf_rest("node1hdcdgs0ox1832","node1hdcdgs0ox1835") .
+rdf_first("node1hdcdgs0ox1835","node1hdcdgs0ox1836") .
+sh_property("node1hdcdgs0ox1836","node1hdcdgs0ox1837") .
+sh_path("node1hdcdgs0ox1837","ex_postalCode") .
+sh_minCount("node1hdcdgs0ox1837","1") .
+rdf_rest("node1hdcdgs0ox1835","rdf_nil") .
 rdfs_Resource("ex_InvalidResource1") .
 ex_address("ex_InvalidResource1","b61065") .
 rdfs_Resource("ex_InvalidResource2") .
@@ -29,48 +29,48 @@ ex_address("ex_InvalidResource2","b31477") .
 rdfs_Resource("ex_InvalidResource3") .
 ex_address("ex_InvalidResource3","b94057") .
 rdfs_Resource("ex_ValidResource1") .
-ex_address("ex_ValidResource1","node1g835dclmx507") .
-ex_postalCode("node1g835dclmx507","4879") .
+ex_address("ex_ValidResource1","node1hdcdgs0ox1838") .
+ex_postalCode("node1hdcdgs0ox1838","4879") .
 xsd_integer("4879") .
-ex_suburb("node1g835dclmx507","ex_KewarraBeach") .
+ex_suburb("node1hdcdgs0ox1838","ex_KewarraBeach") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx508") .
-rdf_first("node1g835dclmx508","http://repairs.shacl.org/and_001") .
-rdf_rest("node1g835dclmx508","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1839") .
+rdf_first("node1hdcdgs0ox1839","http://repairs.shacl.org/and_001") .
+rdf_rest("node1hdcdgs0ox1839","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/and_001") .
 rdfs_label("http://repairs.shacl.org/and_001","Test of sh:and at property shape 001") .
 xsd_string("Test of sh:and at property shape 001") .
-mf_action("http://repairs.shacl.org/and_001","node1g835dclmx509") .
-sht_dataGraph("node1g835dclmx509","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx509","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/and_001","node1g835dclmx510") .
-sh_ValidationReport("node1g835dclmx510") .
-sh_conforms("node1g835dclmx510","false") .
+mf_action("http://repairs.shacl.org/and_001","node1hdcdgs0ox1840") .
+sht_dataGraph("node1hdcdgs0ox1840","http://repairs.shacl.org") .
+sht_shapesGraph("node1hdcdgs0ox1840","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/and_001","node1hdcdgs0ox1841") .
+sh_ValidationReport("node1hdcdgs0ox1841") .
+sh_conforms("node1hdcdgs0ox1841","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx510","node1g835dclmx511") .
-sh_ValidationResult("node1g835dclmx511") .
-sh_focusNode("node1g835dclmx511","ex_InvalidResource1") .
-sh_resultPath("node1g835dclmx511","ex_address") .
-sh_resultSeverity("node1g835dclmx511","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx511","sh_AndConstraintComponent") .
-sh_sourceShape("node1g835dclmx511","ex_AddressShape_address") .
-sh_value("node1g835dclmx511","b61065") .
-sh_result("node1g835dclmx510","node1g835dclmx512") .
-sh_ValidationResult("node1g835dclmx512") .
-sh_focusNode("node1g835dclmx512","ex_InvalidResource2") .
-sh_resultPath("node1g835dclmx512","ex_address") .
-sh_resultSeverity("node1g835dclmx512","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx512","sh_AndConstraintComponent") .
-sh_sourceShape("node1g835dclmx512","ex_AddressShape_address") .
-sh_value("node1g835dclmx512","b31477") .
-sh_result("node1g835dclmx510","node1g835dclmx513") .
-sh_ValidationResult("node1g835dclmx513") .
-sh_focusNode("node1g835dclmx513","ex_InvalidResource3") .
-sh_resultPath("node1g835dclmx513","ex_address") .
-sh_resultSeverity("node1g835dclmx513","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx513","sh_AndConstraintComponent") .
-sh_sourceShape("node1g835dclmx513","ex_AddressShape_address") .
-sh_value("node1g835dclmx513","b94057") .
+sh_result("node1hdcdgs0ox1841","node1hdcdgs0ox1842") .
+sh_ValidationResult("node1hdcdgs0ox1842") .
+sh_focusNode("node1hdcdgs0ox1842","ex_InvalidResource1") .
+sh_resultPath("node1hdcdgs0ox1842","ex_address") .
+sh_resultSeverity("node1hdcdgs0ox1842","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox1842","sh_AndConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox1842","ex_AddressShape_address") .
+sh_value("node1hdcdgs0ox1842","b61065") .
+sh_result("node1hdcdgs0ox1841","node1hdcdgs0ox1843") .
+sh_ValidationResult("node1hdcdgs0ox1843") .
+sh_focusNode("node1hdcdgs0ox1843","ex_InvalidResource2") .
+sh_resultPath("node1hdcdgs0ox1843","ex_address") .
+sh_resultSeverity("node1hdcdgs0ox1843","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox1843","sh_AndConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox1843","ex_AddressShape_address") .
+sh_value("node1hdcdgs0ox1843","b31477") .
+sh_result("node1hdcdgs0ox1841","node1hdcdgs0ox1844") .
+sh_ValidationResult("node1hdcdgs0ox1844") .
+sh_focusNode("node1hdcdgs0ox1844","ex_InvalidResource3") .
+sh_resultPath("node1hdcdgs0ox1844","ex_address") .
+sh_resultSeverity("node1hdcdgs0ox1844","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox1844","sh_AndConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox1844","ex_AddressShape_address") .
+sh_value("node1hdcdgs0ox1844","b94057") .
 mf_status("http://repairs.shacl.org/and_001","sht_approved") .
 ex_suburb("b31477","ex_KewarraBeach") .
 ex_postalCode("b61065","4879") .
@@ -97,10 +97,10 @@ ex_AddressShape_("ex_InvalidResource2","t*"):-actualTarget("ex_InvalidResource2"
 
 ex_address_(X,Y,"t*"):-ex_address(X,Y) .
 ex_address_(X,Y,"t*"):-ex_address_(X,Y,"t") .
-ex_postalCode_(X,Y,"t*"):-ex_postalCode(X,Y) .
-ex_postalCode_(X,Y,"t*"):-ex_postalCode_(X,Y,"t") .
 ex_suburb_(X,Y,"t*"):-ex_suburb(X,Y) .
 ex_suburb_(X,Y,"t*"):-ex_suburb_(X,Y,"t") .
+ex_postalCode_(X,Y,"t*"):-ex_postalCode(X,Y) .
+ex_postalCode_(X,Y,"t*"):-ex_postalCode_(X,Y,"t") .
 
 % Repair Rules
 
@@ -110,59 +110,64 @@ ex_AddressShape_address_(X,"f"):-ex_AddressShape_(X,"f") .
 % sh:minCount 0 for ex_AddressShape_address
 s0_(X,"t*"):-ex_AddressShape_address_(X,"t*") .
 choose(s0,X,ex_address,0):-s0_(X,"t*") .
-(C-0) {ex_address_(X,Y,"f"):ex_address(X,Y);s1_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s1_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s0_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
 0 {s1_(Y,"t*"):ex_address_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
 s2_(X,"t*"):-s1_(X,"t*") .
-node1g835dclmx519_(X,"t*"):-s2_(X,"t*") .
-node1g835dclmx519_(X,"f"):-s2_(X,"f") .
+node1hdcdgs0ox1847_(X,"t*"):-s2_(X,"t*") .
+node1hdcdgs0ox1847_(X,"f"):-s2_(X,"f") .
 
-% sh:minCount 1 for node1g835dclmx519
-s3_(X,"t*"):-node1g835dclmx519_(X,"t*") .
-ex_postalCode_(X,@new(s3,X,ex_postalCode,1..1),"t"):-choose(s3,X,ex_postalCode,1) .
-choose(s3,X,ex_postalCode,1);choose(s3,X,ex_postalCode,0):-s3_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s4_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s3_(X,"t*") .
+% sh:minCount 1 for node1hdcdgs0ox1847
+s3_(X,"t*"):-node1hdcdgs0ox1847_(X,"t*") .
+ex_suburb_(X,@new(s3,X,ex_suburb,1..1),"t"):-choose(s3,X,ex_suburb,1) .
+choose(s3,X,ex_suburb,1);choose(s3,X,ex_suburb,0):-s3_(X,"t*") .
+(C-0) {ex_suburb_(X,Y,"f"):ex_suburb_(X,Y,"t*");s4_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
+ex_suburb_(X,Y,"f"):-s3_(X,"f"),ex_suburb_(X,Y,"t*"),ex_suburb_(X,Y,"f") .
+1 {s4_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s3_(X,"t*") .
 
 
-% universal for node1g835dclmx519
-s5_(X,"t*"):-node1g835dclmx519_(X,"t*") .
+% universal for node1hdcdgs0ox1847
+s5_(X,"t*"):-node1hdcdgs0ox1847_(X,"t*") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
-ex_postalCode_(X,@new(s6,X,ex_postalCode,1..1),"t"):-choose(s6,X,ex_postalCode,1) .
-choose(s6,X,ex_postalCode,1);choose(s6,X,ex_postalCode,0):-s6_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s7_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s7_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s6_(X,"t*") .
+ex_suburb_(X,@new(s6,X,ex_suburb,1..1),"t"):-choose(s6,X,ex_suburb,1) .
+choose(s6,X,ex_suburb,1);choose(s6,X,ex_suburb,0):-s6_(X,"t*") .
+(C-0) {ex_suburb_(X,Y,"f"):ex_suburb_(X,Y,"t*");s7_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
+ex_suburb_(X,Y,"f"):-s6_(X,"f"),ex_suburb_(X,Y,"t*"),ex_suburb_(X,Y,"f") .
+1 {s7_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s6_(X,"t*") .
 s8_(X,"f"):-s7_(X,"t*") .
 s8_(X,"t*"):-s7_(X,"f") .
 
 
-s3_(X,"f");s5_(X,"f"):-node1g835dclmx519_(X,"f") .
+s3_(X,"f");s5_(X,"f"):-node1hdcdgs0ox1847_(X,"f") .
 s9_(X,"t*"):-s1_(X,"t*") .
-node1g835dclmx516_(X,"t*"):-s9_(X,"t*") .
-node1g835dclmx516_(X,"f"):-s9_(X,"f") .
+node1hdcdgs0ox1850_(X,"t*"):-s9_(X,"t*") .
+node1hdcdgs0ox1850_(X,"f"):-s9_(X,"f") .
 
-% sh:minCount 1 for node1g835dclmx516
-s10_(X,"t*"):-node1g835dclmx516_(X,"t*") .
-ex_suburb_(X,@new(s10,X,ex_suburb,1..1),"t"):-choose(s10,X,ex_suburb,1) .
-choose(s10,X,ex_suburb,1);choose(s10,X,ex_suburb,0):-s10_(X,"t*") .
-(C-0) {ex_suburb_(X,Y,"f"):ex_suburb(X,Y);s11_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s10_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
-1 {s11_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s10_(X,"t*") .
+% sh:minCount 1 for node1hdcdgs0ox1850
+s10_(X,"t*"):-node1hdcdgs0ox1850_(X,"t*") .
+ex_postalCode_(X,@new(s10,X,ex_postalCode,1..1),"t"):-choose(s10,X,ex_postalCode,1) .
+choose(s10,X,ex_postalCode,1);choose(s10,X,ex_postalCode,0):-s10_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s11_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s10_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s10_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s11_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s10_(X,"t*") .
 
 
-% universal for node1g835dclmx516
-s12_(X,"t*"):-node1g835dclmx516_(X,"t*") .
+% universal for node1hdcdgs0ox1850
+s12_(X,"t*"):-node1hdcdgs0ox1850_(X,"t*") .
 s13_(X,"f"):-s12_(X,"t*") .
 s13_(X,"t*"):-s12_(X,"f") .
-ex_suburb_(X,@new(s13,X,ex_suburb,1..1),"t"):-choose(s13,X,ex_suburb,1) .
-choose(s13,X,ex_suburb,1);choose(s13,X,ex_suburb,0):-s13_(X,"t*") .
-(C-0) {ex_suburb_(X,Y,"f"):ex_suburb(X,Y);s14_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s13_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
-1 {s14_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s13_(X,"t*") .
+ex_postalCode_(X,@new(s13,X,ex_postalCode,1..1),"t"):-choose(s13,X,ex_postalCode,1) .
+choose(s13,X,ex_postalCode,1);choose(s13,X,ex_postalCode,0):-s13_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s14_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s13_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s13_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s14_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s13_(X,"t*") .
 s15_(X,"f"):-s14_(X,"t*") .
 s15_(X,"t*"):-s14_(X,"f") .
 
 
-s10_(X,"f");s12_(X,"f"):-node1g835dclmx516_(X,"f") .
+s10_(X,"f");s12_(X,"f"):-node1hdcdgs0ox1850_(X,"f") .
 s2_(X,"f");s9_(X,"f"):-s1_(X,"f") .
 
 % universal for ex_AddressShape_address
@@ -171,57 +176,62 @@ s17_(X,"f"):-s16_(X,"t*") .
 s17_(X,"t*"):-s16_(X,"f") .
 ex_address_(X,@new(s17,X,ex_address,1..1),"t"):-choose(s17,X,ex_address,1) .
 choose(s17,X,ex_address,1);choose(s17,X,ex_address,0):-s17_(X,"t*") .
-(C-0) {ex_address_(X,Y,"f"):ex_address(X,Y);s18_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s17_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+(C-0) {ex_address_(X,Y,"f"):ex_address_(X,Y,"t*");s18_(Y,"f"):ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f")} (C-0):-s17_(X,"f"),#count {Y:ex_address_(X,Y,"t*")}=C,C>0 .
+ex_address_(X,Y,"f"):-s17_(X,"f"),ex_address_(X,Y,"t*"),ex_address_(X,Y,"f") .
 1 {s18_(Y,"t*"):ex_address_(X,Y,"t**")} 1:-s17_(X,"t*") .
 s19_(X,"f"):-s18_(X,"t*") .
 s19_(X,"t*"):-s18_(X,"f") .
 
 s20_(X,"t*"):-s19_(X,"t*") .
-node1g835dclmx519_(X,"t*"):-s20_(X,"t*") .
-node1g835dclmx519_(X,"f"):-s20_(X,"f") .
+node1hdcdgs0ox1847_(X,"t*"):-s20_(X,"t*") .
+node1hdcdgs0ox1847_(X,"f"):-s20_(X,"f") .
 
-s21_(X,"t*"):-node1g835dclmx519_(X,"t*") .
-ex_postalCode_(X,@new(s21,X,ex_postalCode,1..1),"t"):-choose(s21,X,ex_postalCode,1) .
-choose(s21,X,ex_postalCode,1);choose(s21,X,ex_postalCode,0):-s21_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s22_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s21_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s22_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s21_(X,"t*") .
+s21_(X,"t*"):-node1hdcdgs0ox1847_(X,"t*") .
+ex_suburb_(X,@new(s21,X,ex_suburb,1..1),"t"):-choose(s21,X,ex_suburb,1) .
+choose(s21,X,ex_suburb,1);choose(s21,X,ex_suburb,0):-s21_(X,"t*") .
+(C-0) {ex_suburb_(X,Y,"f"):ex_suburb_(X,Y,"t*");s22_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s21_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
+ex_suburb_(X,Y,"f"):-s21_(X,"f"),ex_suburb_(X,Y,"t*"),ex_suburb_(X,Y,"f") .
+1 {s22_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s21_(X,"t*") .
 
 
-s23_(X,"t*"):-node1g835dclmx519_(X,"t*") .
+s23_(X,"t*"):-node1hdcdgs0ox1847_(X,"t*") .
 s24_(X,"f"):-s23_(X,"t*") .
 s24_(X,"t*"):-s23_(X,"f") .
-ex_postalCode_(X,@new(s24,X,ex_postalCode,1..1),"t"):-choose(s24,X,ex_postalCode,1) .
-choose(s24,X,ex_postalCode,1);choose(s24,X,ex_postalCode,0):-s24_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode(X,Y);s25_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s24_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
-1 {s25_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s24_(X,"t*") .
+ex_suburb_(X,@new(s24,X,ex_suburb,1..1),"t"):-choose(s24,X,ex_suburb,1) .
+choose(s24,X,ex_suburb,1);choose(s24,X,ex_suburb,0):-s24_(X,"t*") .
+(C-0) {ex_suburb_(X,Y,"f"):ex_suburb_(X,Y,"t*");s25_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s24_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
+ex_suburb_(X,Y,"f"):-s24_(X,"f"),ex_suburb_(X,Y,"t*"),ex_suburb_(X,Y,"f") .
+1 {s25_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s24_(X,"t*") .
 s26_(X,"f"):-s25_(X,"t*") .
 s26_(X,"t*"):-s25_(X,"f") .
 
 
-s21_(X,"f");s23_(X,"f"):-node1g835dclmx519_(X,"f") .
+s21_(X,"f");s23_(X,"f"):-node1hdcdgs0ox1847_(X,"f") .
 s27_(X,"t*"):-s19_(X,"t*") .
-node1g835dclmx516_(X,"t*"):-s27_(X,"t*") .
-node1g835dclmx516_(X,"f"):-s27_(X,"f") .
+node1hdcdgs0ox1850_(X,"t*"):-s27_(X,"t*") .
+node1hdcdgs0ox1850_(X,"f"):-s27_(X,"f") .
 
-s28_(X,"t*"):-node1g835dclmx516_(X,"t*") .
-ex_suburb_(X,@new(s28,X,ex_suburb,1..1),"t"):-choose(s28,X,ex_suburb,1) .
-choose(s28,X,ex_suburb,1);choose(s28,X,ex_suburb,0):-s28_(X,"t*") .
-(C-0) {ex_suburb_(X,Y,"f"):ex_suburb(X,Y);s29_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s28_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
-1 {s29_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s28_(X,"t*") .
+s28_(X,"t*"):-node1hdcdgs0ox1850_(X,"t*") .
+ex_postalCode_(X,@new(s28,X,ex_postalCode,1..1),"t"):-choose(s28,X,ex_postalCode,1) .
+choose(s28,X,ex_postalCode,1);choose(s28,X,ex_postalCode,0):-s28_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s29_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s28_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s28_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s29_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s28_(X,"t*") .
 
 
-s30_(X,"t*"):-node1g835dclmx516_(X,"t*") .
+s30_(X,"t*"):-node1hdcdgs0ox1850_(X,"t*") .
 s31_(X,"f"):-s30_(X,"t*") .
 s31_(X,"t*"):-s30_(X,"f") .
-ex_suburb_(X,@new(s31,X,ex_suburb,1..1),"t"):-choose(s31,X,ex_suburb,1) .
-choose(s31,X,ex_suburb,1);choose(s31,X,ex_suburb,0):-s31_(X,"t*") .
-(C-0) {ex_suburb_(X,Y,"f"):ex_suburb(X,Y);s32_(Y,"f"):ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f")} (C-0):-s31_(X,"f"),#count {Y:ex_suburb_(X,Y,"t*")}=C,C>0 .
-1 {s32_(Y,"t*"):ex_suburb_(X,Y,"t**")} 1:-s31_(X,"t*") .
+ex_postalCode_(X,@new(s31,X,ex_postalCode,1..1),"t"):-choose(s31,X,ex_postalCode,1) .
+choose(s31,X,ex_postalCode,1);choose(s31,X,ex_postalCode,0):-s31_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s32_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s31_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s31_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+1 {s32_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 1:-s31_(X,"t*") .
 s33_(X,"f"):-s32_(X,"t*") .
 s33_(X,"t*"):-s32_(X,"f") .
 
 
-s28_(X,"f");s30_(X,"f"):-node1g835dclmx516_(X,"f") .
+s28_(X,"f");s30_(X,"f"):-node1hdcdgs0ox1850_(X,"f") .
 s20_(X,"f");s27_(X,"f"):-s19_(X,"f") .
 
 s0_(X,"f");s16_(X,"f"):-ex_AddressShape_address_(X,"f") .
@@ -229,16 +239,16 @@ s0_(X,"f");s16_(X,"f"):-ex_AddressShape_address_(X,"f") .
 % Interpretation Rules
 
 ex_address_(X,Y,"t**"):-ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f") .
-ex_postalCode_(X,Y,"t**"):-ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f") .
 ex_suburb_(X,Y,"t**"):-ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f") .
+ex_postalCode_(X,Y,"t**"):-ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f") .
 
 % Program Constraints
 
 :-ex_address_(X,Y,"t"),ex_address_(X,Y,"f") .
-:-ex_postalCode_(X,Y,"t"),ex_postalCode_(X,Y,"f") .
+:-ex_suburb_(X,Y,"t"),ex_suburb_(X,Y,"f") .
 :-s4_(X,"f") .
 :-s8_(X,"f") .
-:-ex_suburb_(X,Y,"t"),ex_suburb_(X,Y,"f") .
+:-ex_postalCode_(X,Y,"t"),ex_postalCode_(X,Y,"f") .
 :-s11_(X,"f") .
 :-s15_(X,"f") .
 :-s22_(X,"f") .
@@ -250,11 +260,11 @@ ex_suburb_(X,Y,"t**"):-ex_suburb_(X,Y,"t*"),not ex_suburb_(X,Y,"f") .
 
 add(ex_address(X,Y)):-ex_address_(X,Y,"t**"),not ex_address(X,Y) .
 del(ex_address(X,Y)):-ex_address_(X,Y,"f"),ex_address(X,Y) .
-add(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"t**"),not ex_postalCode(X,Y) .
-del(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"f"),ex_postalCode(X,Y) .
 add(ex_suburb(X,Y)):-ex_suburb_(X,Y,"t**"),not ex_suburb(X,Y) .
 del(ex_suburb(X,Y)):-ex_suburb_(X,Y,"f"),ex_suburb(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+add(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"t**"),not ex_postalCode(X,Y) .
+del(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"f"),ex_postalCode(X,Y) .
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

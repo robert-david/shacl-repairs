@@ -1,18 +1,14 @@
-clingo version 5.5.2
+clingo version 5.6.2
 Reading from .../property/class-001/class-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) add(ex_SuperClass("A string"))
-Optimization: 0 2
-Answer: 2
+
 actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string"))
-Optimization: 0 2
-Answer: 3
+
 actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string"))
-Optimization: 0 2
-Answer: 4
+
 actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) add(ex_SuperClass("ex_InvalidResource1"))
-Optimization: 0 2
+
 OPTIMUM FOUND
 
 Models       : 10
@@ -20,5 +16,5 @@ Models       : 10
   Optimal    : 4
 Optimization : 0 2
 Calls        : 1
-Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.008s
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s

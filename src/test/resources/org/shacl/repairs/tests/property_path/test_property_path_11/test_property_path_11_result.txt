@@ -1,0 +1,16 @@
+clingo version 5.6.2
+Reading from ...path_11/test_property_path_11_rules.pl
+Solving...
+actualTarget("_ben",_studentShape) del(_hasStudent("_bn1","_ben"))
+
+actualTarget("_ben",_studentShape) del(_hasStudent("_bn2","_ben"))
+
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+  Optimal    : 2
+Optimization : 0 1
+Calls        : 1
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s

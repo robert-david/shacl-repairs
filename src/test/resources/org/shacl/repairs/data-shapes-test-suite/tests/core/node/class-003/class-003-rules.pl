@@ -22,54 +22,54 @@ sh_targetNode("ex_TestShape","ex_Quokkip") .
 sh_targetNode("ex_TestShape","ex_Someone") .
 sh_targetNode("ex_TestShape","ex_Typeless") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1g835dclmx153") .
-rdf_first("node1g835dclmx153","http://repairs.shacl.org/class_003") .
-rdf_rest("node1g835dclmx153","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hdcdgs0ox2229") .
+rdf_first("node1hdcdgs0ox2229","http://repairs.shacl.org/class_003") .
+rdf_rest("node1hdcdgs0ox2229","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_003") .
 rdfs_label("http://repairs.shacl.org/class_003","Test of sh:class at node shape 003 multiple classes, overlapping target sets") .
 xsd_string("Test of sh:class at node shape 003 multiple classes, overlapping target sets") .
-mf_action("http://repairs.shacl.org/class_003","node1g835dclmx154") .
-sht_dataGraph("node1g835dclmx154","http://repairs.shacl.org") .
-sht_shapesGraph("node1g835dclmx154","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_003","node1g835dclmx155") .
-sh_ValidationReport("node1g835dclmx155") .
-sh_conforms("node1g835dclmx155","false") .
+mf_action("http://repairs.shacl.org/class_003","node1hdcdgs0ox2230") .
+sht_dataGraph("node1hdcdgs0ox2230","http://repairs.shacl.org") .
+sht_shapesGraph("node1hdcdgs0ox2230","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_003","node1hdcdgs0ox2231") .
+sh_ValidationReport("node1hdcdgs0ox2231") .
+sh_conforms("node1hdcdgs0ox2231","false") .
 xsd_boolean("false") .
-sh_result("node1g835dclmx155","node1g835dclmx156") .
-sh_ValidationResult("node1g835dclmx156") .
-sh_focusNode("node1g835dclmx156","ex_Typeless") .
-sh_resultSeverity("node1g835dclmx156","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx156","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx156","ex_TestShape") .
-sh_value("node1g835dclmx156","ex_Typeless") .
-sh_result("node1g835dclmx155","node1g835dclmx157") .
-sh_ValidationResult("node1g835dclmx157") .
-sh_focusNode("node1g835dclmx157","ex_Typeless") .
-sh_resultSeverity("node1g835dclmx157","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx157","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx157","ex_TestShape") .
-sh_value("node1g835dclmx157","ex_Typeless") .
-sh_result("node1g835dclmx155","node1g835dclmx158") .
-sh_ValidationResult("node1g835dclmx158") .
-sh_focusNode("node1g835dclmx158","ex_Quokki") .
-sh_resultSeverity("node1g835dclmx158","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx158","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx158","ex_TestShape") .
-sh_value("node1g835dclmx158","ex_Quokki") .
-sh_result("node1g835dclmx155","node1g835dclmx159") .
-sh_ValidationResult("node1g835dclmx159") .
-sh_focusNode("node1g835dclmx159","ex_John") .
-sh_resultSeverity("node1g835dclmx159","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx159","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx159","ex_TestShape") .
-sh_value("node1g835dclmx159","ex_John") .
-sh_result("node1g835dclmx155","node1g835dclmx160") .
-sh_ValidationResult("node1g835dclmx160") .
-sh_focusNode("node1g835dclmx160","ex_Quokkip") .
-sh_resultSeverity("node1g835dclmx160","sh_Violation") .
-sh_sourceConstraintComponent("node1g835dclmx160","sh_ClassConstraintComponent") .
-sh_sourceShape("node1g835dclmx160","ex_TestShape") .
-sh_value("node1g835dclmx160","ex_Quokkip") .
+sh_result("node1hdcdgs0ox2231","node1hdcdgs0ox2232") .
+sh_ValidationResult("node1hdcdgs0ox2232") .
+sh_focusNode("node1hdcdgs0ox2232","ex_Typeless") .
+sh_resultSeverity("node1hdcdgs0ox2232","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox2232","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox2232","ex_TestShape") .
+sh_value("node1hdcdgs0ox2232","ex_Typeless") .
+sh_result("node1hdcdgs0ox2231","node1hdcdgs0ox2233") .
+sh_ValidationResult("node1hdcdgs0ox2233") .
+sh_focusNode("node1hdcdgs0ox2233","ex_Typeless") .
+sh_resultSeverity("node1hdcdgs0ox2233","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox2233","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox2233","ex_TestShape") .
+sh_value("node1hdcdgs0ox2233","ex_Typeless") .
+sh_result("node1hdcdgs0ox2231","node1hdcdgs0ox2234") .
+sh_ValidationResult("node1hdcdgs0ox2234") .
+sh_focusNode("node1hdcdgs0ox2234","ex_Quokki") .
+sh_resultSeverity("node1hdcdgs0ox2234","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox2234","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox2234","ex_TestShape") .
+sh_value("node1hdcdgs0ox2234","ex_Quokki") .
+sh_result("node1hdcdgs0ox2231","node1hdcdgs0ox2235") .
+sh_ValidationResult("node1hdcdgs0ox2235") .
+sh_focusNode("node1hdcdgs0ox2235","ex_John") .
+sh_resultSeverity("node1hdcdgs0ox2235","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox2235","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox2235","ex_TestShape") .
+sh_value("node1hdcdgs0ox2235","ex_John") .
+sh_result("node1hdcdgs0ox2231","node1hdcdgs0ox2236") .
+sh_ValidationResult("node1hdcdgs0ox2236") .
+sh_focusNode("node1hdcdgs0ox2236","ex_Quokkip") .
+sh_resultSeverity("node1hdcdgs0ox2236","sh_Violation") .
+sh_sourceConstraintComponent("node1hdcdgs0ox2236","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hdcdgs0ox2236","ex_TestShape") .
+sh_value("node1hdcdgs0ox2236","ex_Quokkip") .
 mf_status("http://repairs.shacl.org/class_003","sht_approved") .
 
 % Shape Targets
@@ -96,38 +96,44 @@ ex_TestShape_("ex_Someone","t*"):-actualTarget("ex_Someone",ex_TestShape) .
 
 % Annotation Rules
 
-ex_Animal_(X,"t*"):-ex_Animal(X) .
-ex_Animal_(X,"t*"):-ex_Animal_(X,"t") .
 ex_Person_(X,"t*"):-ex_Person(X) .
 ex_Person_(X,"t*"):-ex_Person_(X,"t") .
+ex_Animal_(X,"t*"):-ex_Animal(X) .
+ex_Animal_(X,"t*"):-ex_Animal_(X,"t") .
 
 % Repair Rules
 
 s0_(X,"t*"):-ex_TestShape_(X,"t*") .
-ex_Animal_(X,"t"):-s0_(X,"t*") .
-ex_Animal_(X,"f"):-s0_(X,"f") .
+ex_Person_(X,"t"):-s0_(X,"t*") .
+ex_Person_(X,"f"):-s0_(X,"f") .
 s1_(X,"t*"):-ex_TestShape_(X,"t*") .
-ex_Person_(X,"t"):-s1_(X,"t*") .
-ex_Person_(X,"f"):-s1_(X,"f") .
-s0_(X,"f");s1_(X,"f"):-ex_TestShape_(X,"f") .
+ex_Animal_(X,"t"):-s1_(X,"t*") .
+ex_Animal_(X,"f"):-s1_(X,"f") .
+s2_(X,"t*"):-ex_TestShape_(X,"t*") .
+ex_Person_(X,"t"):-s2_(X,"t*") .
+ex_Person_(X,"f"):-s2_(X,"f") .
+s3_(X,"t*"):-ex_TestShape_(X,"t*") .
+ex_Animal_(X,"t"):-s3_(X,"t*") .
+ex_Animal_(X,"f"):-s3_(X,"f") .
+s0_(X,"f");s1_(X,"f");s2_(X,"f");s3_(X,"f"):-ex_TestShape_(X,"f") .
 
 % Interpretation Rules
 
-ex_Animal_(X,"t**"):-ex_Animal_(X,"t*"),not ex_Animal_(X,"f") .
 ex_Person_(X,"t**"):-ex_Person_(X,"t*"),not ex_Person_(X,"f") .
+ex_Animal_(X,"t**"):-ex_Animal_(X,"t*"),not ex_Animal_(X,"f") .
 
 % Program Constraints
 
-:-ex_Animal_(X,"t"),ex_Animal_(X,"f") .
 :-ex_Person_(X,"t"),ex_Person_(X,"f") .
+:-ex_Animal_(X,"t"),ex_Animal_(X,"f") .
 
 % Change Set Rules
 
-add(ex_Animal(X)):-ex_Animal_(X,"t**"),not ex_Animal(X) .
-del(ex_Animal(X)):-ex_Animal_(X,"f"),ex_Animal(X) .
 add(ex_Person(X)):-ex_Person_(X,"t**"),not ex_Person(X) .
 del(ex_Person(X)):-ex_Person_(X,"f"),ex_Person(X) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+add(ex_Animal(X)):-ex_Animal_(X,"t**"),not ex_Animal(X) .
+del(ex_Animal(X)):-ex_Animal_(X,"f"),ex_Animal(X) .
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

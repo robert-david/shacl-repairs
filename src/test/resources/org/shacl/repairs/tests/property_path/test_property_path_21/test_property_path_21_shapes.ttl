@@ -1,0 +1,10 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+:NotStudentShape a sh:NodeShape ;
+    sh:targetNode :ben ;
+    sh:property [
+        sh:path (:enrolledIn :hasPart :hasId) ;
+        sh:maxCount 0 ;
+    ] .
