@@ -324,26 +324,18 @@ public class RepairGenerator {
 
     public static void createPropertyRules(String path) {
 
-        createPropertyRules(path, false);
-    }
-    public static void createPropertyRules(String path, boolean aux) {
-
         RepairData.get().getAnnotationRules().add(path + "_(X,Y,\"t*\"):-" + path + "(X,Y) .\n");
         RepairData.get().getAnnotationRules().add(path + "_(X,Y,\"t*\"):-" + path + "_(X,Y,\"t\") .\n");
 
-        if (!aux) {
-            RepairData.get().getInterpretationRules().add(
-                    path + "_(X,Y,\"t**\"):-" +
-                            path + "_(X,Y,\"t*\"),not " + path + "_(X,Y,\"f\") .\n");
-        }
+        RepairData.get().getInterpretationRules().add(
+                path + "_(X,Y,\"t**\"):-" +
+                        path + "_(X,Y,\"t*\"),not " + path + "_(X,Y,\"f\") .\n");
 
         RepairData.get().getProgramConstraints().add(
                 ":-" + path + "_(X,Y,\"t\")," + path + "_(X,Y,\"f\") .\n");
 
-        if (!aux) {
-            RepairData.get().getChangeSetRules().add("add(" + path + "(X,Y)):-" + path + "_(X,Y,\"t**\"),not " + path + "(X,Y) .\n");
-            RepairData.get().getChangeSetRules().add("del(" + path + "(X,Y)):-" + path + "_(X,Y,\"f\")," + path + "(X,Y) .\n");
-        }
+        RepairData.get().getChangeSetRules().add("add(" + path + "(X,Y)):-" + path + "_(X,Y,\"t**\"),not " + path + "(X,Y) .\n");
+        RepairData.get().getChangeSetRules().add("del(" + path + "(X,Y)):-" + path + "_(X,Y,\"f\")," + path + "(X,Y) .\n");
 
         RepairData.get().getRepairRules().add("\n");
     }
@@ -417,7 +409,6 @@ public class RepairGenerator {
             }
 
             rule = shapeName + "_st_(X,X" + count + ",\"t**\"):-" + rule  +" .\n";
-            //rule = shapeName + "_st_(X,Y,\"t**\"):-" + rule  +" .\n";
             RepairData.get().getInterpretationRules().add(rule);
 
         } else {
@@ -701,7 +692,7 @@ public class RepairGenerator {
                 RepairData.get().getChangeSetRules().add("#minimize { 1@1,X,Y: " + firstPath + "_(X,Y,\"t\"), const(Y) } .\n");
             }
 
-            // if only a simple property, we do not need an auxiliary p
+            // if only a simple property, we do not need an auxiliary s-t property
             st = firstPath;
 
             if (path instanceof SequencePath) {
@@ -748,7 +739,7 @@ public class RepairGenerator {
         long allowed = minCount > 0 ? (minCount - 1) : 0;
         RepairData.get().getRepairRules().add(
                 "(C-" + allowed + ") {" +
-                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +//,not " + s + "_(Y,\"f\")" +
+                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
                         "} (C-" + allowed + "):-"
@@ -854,7 +845,7 @@ public class RepairGenerator {
         long allowed = 0;
         RepairData.get().getRepairRules().add(
                 "(C-" + allowed + ") {" +
-                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +//,not " + s + "_(Y,\"f\")" +
+                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
                         "} (C-" + allowed + "):-"
@@ -917,7 +908,9 @@ public class RepairGenerator {
 
     public static void createSequencePathRules(SequencePath seq, String propertyPathName, long minCount) {
 
-        createPropertyRules(propertyPathName, true);
+        // add program constraint for auxiliary s-t property
+        RepairData.get().getProgramConstraints().add(
+                ":-" + propertyPathName + "_(X,Y,\"t\")," + propertyPathName + "_(X,Y,\"f\") .\n");
 
         for (int pI = 0; pI < seq.getSequence().size(); pI++) {
 
