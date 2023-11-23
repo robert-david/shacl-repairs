@@ -357,6 +357,10 @@ public class RepairGenerator {
 
         } else if (path instanceof InversePath) {
 
+            if (!(((InversePath) path).getInversePath() instanceof SimplePath)) {
+                throw new RuntimeException("sequence path contains not supported element " + ((InversePath) path).getInversePath().getClass().getSimpleName());
+            }
+
             String pathName = getPathName(path);
             createPropertyRules(pathName);
 
@@ -609,6 +613,10 @@ public class RepairGenerator {
                     ns(nss, path.getId()) + "_(X,Y,\"f\"):-" + shapeName + "_(X,\"f\")," + ns(nss, path.getId()) + "_(X,Y,\"t*\")," + sink + "_(X,Y,\"f\") .\n");
 
         } else if (path instanceof InversePath) {
+
+            if (!(((InversePath) path).getInversePath() instanceof SimplePath)) {
+                throw new RuntimeException("sequence path contains not supported element " + ((InversePath) path).getInversePath().getClass().getSimpleName());
+            }
 
             InversePath inv = (InversePath) path;
             String pathName = ns(nss, inv.getInversePath().getId());
