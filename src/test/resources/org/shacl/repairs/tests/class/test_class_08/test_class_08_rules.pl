@@ -20,19 +20,19 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _worksFor_(X,Y,"t*"):-_worksFor(X,Y) .
 _worksFor_(X,Y,"t*"):-_worksFor_(X,Y,"t") .
-_organization_(X,"t*"):-_organization(X) .
-_organization_(X,"t*"):-_organization_(X,"t") .
 _person_(X,"t*"):-_person(X) .
 _person_(X,"t*"):-_person_(X,"t") .
+_organization_(X,"t*"):-_organization(X) .
+_organization_(X,"t*"):-_organization_(X,"t") .
 
 % Repair Rules
 
 s0_(X,"t*"):-_personShape_(X,"t*") .
-node1hdcdgs0ox825_(X,"t*"):-s0_(X,"t*") .
-node1hdcdgs0ox825_(X,"f"):-s0_(X,"f") .
+node1hgd7v9f9x1126_(X,"t*"):-s0_(X,"t*") .
+node1hgd7v9f9x1126_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 2 for node1hdcdgs0ox825
-s1_(X,"t*"):-node1hdcdgs0ox825_(X,"t*") .
+% sh:minCount 2 for node1hgd7v9f9x1126
+s1_(X,"t*"):-node1hgd7v9f9x1126_(X,"t*") .
 _worksFor_(X,@new(s1,X,_worksFor,1..1),"t"):-choose(s1,X,_worksFor,1) .
 _worksFor_(X,@new(s1,X,_worksFor,1..2),"t"):-choose(s1,X,_worksFor,2) .
 choose(s1,X,_worksFor,2);choose(s1,X,_worksFor,1);choose(s1,X,_worksFor,0):-s1_(X,"t*") .
@@ -41,8 +41,8 @@ _worksFor_(X,Y,"f"):-s1_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 2 {s2_(Y,"t*"):_worksFor_(X,Y,"t**")} 2:-s1_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox825
-s3_(X,"t*"):-node1hdcdgs0ox825_(X,"t*") .
+% universal for node1hgd7v9f9x1126
+s3_(X,"t*"):-node1hgd7v9f9x1126_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 _worksFor_(X,@new(s4,X,_worksFor,1..1),"t"):-choose(s4,X,_worksFor,1) .
@@ -54,27 +54,27 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s1_(X,"f");s3_(X,"f"):-node1hdcdgs0ox825_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hgd7v9f9x1126_(X,"f") .
 s7_(X,"t*"):-_personShape_(X,"t*") .
-node1hdcdgs0ox825_(X,"t*"):-s7_(X,"t*") .
-node1hdcdgs0ox825_(X,"f"):-s7_(X,"f") .
+node1hgd7v9f9x1126_(X,"t*"):-s7_(X,"t*") .
+node1hgd7v9f9x1126_(X,"f"):-s7_(X,"f") .
 
-% sh:minCount 0 for node1hdcdgs0ox825
-s8_(X,"t*"):-node1hdcdgs0ox825_(X,"t*") .
+% sh:minCount 0 for node1hgd7v9f9x1126
+s8_(X,"t*"):-node1hgd7v9f9x1126_(X,"t*") .
 choose(s8,X,_worksFor,0):-s8_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s9_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
 _worksFor_(X,Y,"f"):-s8_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 0 {s9_(Y,"t*"):_worksFor_(X,Y,"t**")} 0:-s8_(X,"t*") .
 
 s10_(X,"f"):-s9_(X,"f") .
-_organization_(X,"t"):-s10_(X,"t*") .
-_organization_(X,"f"):-s10_(X,"f") .
+_person_(X,"t"):-s10_(X,"t*") .
+_person_(X,"f"):-s10_(X,"f") .
 s11_(X,"f"):-s9_(X,"f") .
-_person_(X,"t"):-s11_(X,"t*") .
-_person_(X,"f"):-s11_(X,"f") .
+_organization_(X,"t"):-s11_(X,"t*") .
+_organization_(X,"f"):-s11_(X,"f") .
 s10_(X,"t*");s11_(X,"t*"):-s9_(X,"t*") .
 
-s12_(X,"t*"):-node1hdcdgs0ox825_(X,"t*") .
+s12_(X,"t*"):-node1hgd7v9f9x1126_(X,"t*") .
 s13_(X,"f"):-s12_(X,"t*") .
 s13_(X,"t*"):-s12_(X,"f") .
 _worksFor_(X,@new(s13,X,_worksFor,1..1),"t"):-choose(s13,X,_worksFor,1) .
@@ -86,38 +86,38 @@ s15_(X,"f"):-s14_(X,"t*") .
 s15_(X,"t*"):-s14_(X,"f") .
 
 s16_(X,"f"):-s15_(X,"f") .
-_organization_(X,"t"):-s16_(X,"t*") .
-_organization_(X,"f"):-s16_(X,"f") .
+_person_(X,"t"):-s16_(X,"t*") .
+_person_(X,"f"):-s16_(X,"f") .
 s17_(X,"f"):-s15_(X,"f") .
-_person_(X,"t"):-s17_(X,"t*") .
-_person_(X,"f"):-s17_(X,"f") .
+_organization_(X,"t"):-s17_(X,"t*") .
+_organization_(X,"f"):-s17_(X,"f") .
 s16_(X,"t*");s17_(X,"t*"):-s15_(X,"t*") .
 
-s8_(X,"f");s12_(X,"f"):-node1hdcdgs0ox825_(X,"f") .
+s8_(X,"f");s12_(X,"f"):-node1hgd7v9f9x1126_(X,"f") .
 s0_(X,"f");s7_(X,"f"):-_personShape_(X,"f") .
 
 % Interpretation Rules
 
 _worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
-_organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
 _person_(X,"t**"):-_person_(X,"t*"),not _person_(X,"f") .
+_organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
 
 % Program Constraints
 
 :-_worksFor_(X,Y,"t"),_worksFor_(X,Y,"f") .
 :-s2_(X,"f") .
 :-s6_(X,"f") .
-:-_organization_(X,"t"),_organization_(X,"f") .
 :-_person_(X,"t"),_person_(X,"f") .
+:-_organization_(X,"t"),_organization_(X,"f") .
 
 % Change Set Rules
 
 add(_worksFor(X,Y)):-_worksFor_(X,Y,"t**"),not _worksFor(X,Y) .
 del(_worksFor(X,Y)):-_worksFor_(X,Y,"f"),_worksFor(X,Y) .
-add(_organization(X)):-_organization_(X,"t**"),not _organization(X) .
-del(_organization(X)):-_organization_(X,"f"),_organization(X) .
 add(_person(X)):-_person_(X,"t**"),not _person(X) .
 del(_person(X)):-_person_(X,"f"),_person(X) .
+add(_organization(X)):-_organization_(X,"t**"),not _organization(X) .
+del(_organization(X)):-_organization_(X,"f"),_organization(X) .
 % Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .

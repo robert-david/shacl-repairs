@@ -29,13 +29,17 @@ _givenName_(X,Y,"t*"):-_givenName_(X,Y,"t") .
 
 % Repair Rules
 
-node1hdcdgs0ox625_(X,"f"):-_personShape_(X,"t*") .
-node1hdcdgs0ox625_(X,"t*"):-_personShape_(X,"f") .
-node1hdcdgs0ox626_(X,"t*"):-node1hdcdgs0ox625_(X,"t*") .
-node1hdcdgs0ox626_(X,"f"):-node1hdcdgs0ox625_(X,"f") .
+node1hgd7v9f9x926_(X,"f"):-_personShape_(X,"t*") .
+node1hgd7v9f9x926_(X,"t*"):-_personShape_(X,"f") .
+node1hgd7v9f9x927_(X,"t*"):-node1hgd7v9f9x926_(X,"t*") .
+node1hgd7v9f9x927_(X,"f"):-node1hgd7v9f9x926_(X,"f") .
 
-% sh:minCount 2 for node1hdcdgs0ox626
-s0_(X,"t*"):-node1hdcdgs0ox626_(X,"t*") .
+_givenName_(X,Y,"t"):-node1hgd7v9f9x927_(X,"t*"),_firstName_(X,Y,"t*") .
+_firstName_(X,Y,"t"):-node1hgd7v9f9x927_(X,"t*"),_givenName_(X,Y,"t*") .
+1 {_firstName_(X,Y,"f");_givenName_(X,Y,"f")} 1:-node1hgd7v9f9x927_(X,"f"),_firstName_(X,Y,"t*"),_givenName_(X,Y,"t*") .
+
+% sh:minCount 2 for node1hgd7v9f9x927
+s0_(X,"t*"):-node1hgd7v9f9x927_(X,"t*") .
 _firstName_(X,@new(s0,X,_firstName,1..1),"t"):-choose(s0,X,_firstName,1) .
 _firstName_(X,@new(s0,X,_firstName,1..2),"t"):-choose(s0,X,_firstName,2) .
 choose(s0,X,_firstName,2);choose(s0,X,_firstName,1);choose(s0,X,_firstName,0):-s0_(X,"t*") .
@@ -44,12 +48,8 @@ _firstName_(X,Y,"f"):-s0_(X,"f"),_firstName_(X,Y,"t*"),_firstName_(X,Y,"f") .
 2 {s1_(Y,"t*"):_firstName_(X,Y,"t**")} 2:-s0_(X,"t*") .
 
 
-_givenName_(X,Y,"t"):-node1hdcdgs0ox626_(X,"t*"),_firstName_(X,Y,"t*") .
-_firstName_(X,Y,"t"):-node1hdcdgs0ox626_(X,"t*"),_givenName_(X,Y,"t*") .
-1 {_firstName_(X,Y,"f");_givenName_(X,Y,"f")} 1:-node1hdcdgs0ox626_(X,"f"),_firstName_(X,Y,"t*"),_givenName_(X,Y,"t*") .
-
-% universal for node1hdcdgs0ox626
-s2_(X,"t*"):-node1hdcdgs0ox626_(X,"t*") .
+% universal for node1hgd7v9f9x927
+s2_(X,"t*"):-node1hgd7v9f9x927_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 _firstName_(X,@new(s3,X,_firstName,1..1),"t"):-choose(s3,X,_firstName,1) .
@@ -61,7 +61,7 @@ s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-node1hdcdgs0ox626_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1hgd7v9f9x927_(X,"f") .
 
 % Interpretation Rules
 
@@ -71,8 +71,8 @@ _givenName_(X,Y,"t**"):-_givenName_(X,Y,"t*"),not _givenName_(X,Y,"f") .
 % Program Constraints
 
 :-_firstName_(X,Y,"t"),_firstName_(X,Y,"f") .
-:-s1_(X,"f") .
 :-_givenName_(X,Y,"t"),_givenName_(X,Y,"f") .
+:-s1_(X,"f") .
 :-s5_(X,"f") .
 
 % Change Set Rules

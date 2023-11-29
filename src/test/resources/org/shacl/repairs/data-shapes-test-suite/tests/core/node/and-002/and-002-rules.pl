@@ -2,15 +2,15 @@
 % Graph Data
 
 sh_NodeShape("ex_AndShape") .
-sh_and("ex_AndShape","node1hdcdgs0ox2297") .
-rdf_first("node1hdcdgs0ox2297","ex_SuperShape") .
-rdf_rest("node1hdcdgs0ox2297","node1hdcdgs0ox2298") .
-rdf_first("node1hdcdgs0ox2298","node1hdcdgs0ox2299") .
-sh_property("node1hdcdgs0ox2299","node1hdcdgs0ox2300") .
-sh_path("node1hdcdgs0ox2300","ex_property") .
-sh_maxCount("node1hdcdgs0ox2300","1") .
+sh_and("ex_AndShape","node1hgd7v9f9x2598") .
+rdf_first("node1hgd7v9f9x2598","ex_SuperShape") .
+rdf_rest("node1hgd7v9f9x2598","node1hgd7v9f9x2599") .
+rdf_first("node1hgd7v9f9x2599","node1hgd7v9f9x2600") .
+sh_property("node1hgd7v9f9x2600","node1hgd7v9f9x2601") .
+sh_path("node1hgd7v9f9x2601","ex_property") .
+sh_maxCount("node1hgd7v9f9x2601","1") .
 xsd_integer("1") .
-rdf_rest("node1hdcdgs0ox2298","rdf_nil") .
+rdf_rest("node1hgd7v9f9x2599","rdf_nil") .
 sh_targetNode("ex_AndShape","ex_InvalidInstance1") .
 sh_targetNode("ex_AndShape","ex_InvalidInstance2") .
 sh_targetNode("ex_AndShape","ex_ValidInstance1") .
@@ -19,38 +19,38 @@ xsd_string("One") .
 ex_property("ex_InvalidInstance2","Two") .
 xsd_string("Two") .
 sh_NodeShape("ex_SuperShape") .
-sh_property("ex_SuperShape","node1hdcdgs0ox2301") .
-sh_path("node1hdcdgs0ox2301","ex_property") .
-sh_minCount("node1hdcdgs0ox2301","1") .
+sh_property("ex_SuperShape","node1hgd7v9f9x2602") .
+sh_path("node1hgd7v9f9x2602","ex_property") .
+sh_minCount("node1hgd7v9f9x2602","1") .
 ex_property("ex_ValidInstance1","One") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox2302") .
-rdf_first("node1hdcdgs0ox2302","http://repairs.shacl.org/and_002") .
-rdf_rest("node1hdcdgs0ox2302","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2603") .
+rdf_first("node1hgd7v9f9x2603","http://repairs.shacl.org/and_002") .
+rdf_rest("node1hgd7v9f9x2603","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/and_002") .
 rdfs_label("http://repairs.shacl.org/and_002","Test of sh:and at node shape 002") .
 xsd_string("Test of sh:and at node shape 002") .
-mf_action("http://repairs.shacl.org/and_002","node1hdcdgs0ox2303") .
-sht_dataGraph("node1hdcdgs0ox2303","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox2303","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/and_002","node1hdcdgs0ox2304") .
-sh_ValidationReport("node1hdcdgs0ox2304") .
-sh_conforms("node1hdcdgs0ox2304","false") .
+mf_action("http://repairs.shacl.org/and_002","node1hgd7v9f9x2604") .
+sht_dataGraph("node1hgd7v9f9x2604","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x2604","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/and_002","node1hgd7v9f9x2605") .
+sh_ValidationReport("node1hgd7v9f9x2605") .
+sh_conforms("node1hgd7v9f9x2605","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox2304","node1hdcdgs0ox2305") .
-sh_ValidationResult("node1hdcdgs0ox2305") .
-sh_focusNode("node1hdcdgs0ox2305","ex_InvalidInstance1") .
-sh_resultSeverity("node1hdcdgs0ox2305","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2305","sh_AndConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2305","ex_AndShape") .
-sh_value("node1hdcdgs0ox2305","ex_InvalidInstance1") .
-sh_result("node1hdcdgs0ox2304","node1hdcdgs0ox2306") .
-sh_ValidationResult("node1hdcdgs0ox2306") .
-sh_focusNode("node1hdcdgs0ox2306","ex_InvalidInstance2") .
-sh_resultSeverity("node1hdcdgs0ox2306","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2306","sh_AndConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2306","ex_AndShape") .
-sh_value("node1hdcdgs0ox2306","ex_InvalidInstance2") .
+sh_result("node1hgd7v9f9x2605","node1hgd7v9f9x2606") .
+sh_ValidationResult("node1hgd7v9f9x2606") .
+sh_focusNode("node1hgd7v9f9x2606","ex_InvalidInstance1") .
+sh_resultSeverity("node1hgd7v9f9x2606","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2606","sh_AndConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2606","ex_AndShape") .
+sh_value("node1hgd7v9f9x2606","ex_InvalidInstance1") .
+sh_result("node1hgd7v9f9x2605","node1hgd7v9f9x2607") .
+sh_ValidationResult("node1hgd7v9f9x2607") .
+sh_focusNode("node1hgd7v9f9x2607","ex_InvalidInstance2") .
+sh_resultSeverity("node1hgd7v9f9x2607","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2607","sh_AndConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2607","ex_AndShape") .
+sh_value("node1hgd7v9f9x2607","ex_InvalidInstance2") .
 mf_status("http://repairs.shacl.org/and_002","sht_approved") .
 
 % Shape Targets
@@ -77,11 +77,11 @@ ex_property_(X,Y,"t*"):-ex_property_(X,Y,"t") .
 % Repair Rules
 
 s0_(X,"t*"):-ex_AndShape_(X,"t*") .
-node1hdcdgs0ox2311_(X,"t*"):-s0_(X,"t*") .
-node1hdcdgs0ox2311_(X,"f"):-s0_(X,"f") .
+node1hgd7v9f9x2612_(X,"t*"):-s0_(X,"t*") .
+node1hgd7v9f9x2612_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 1 for node1hdcdgs0ox2311
-s1_(X,"t*"):-node1hdcdgs0ox2311_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x2612
+s1_(X,"t*"):-node1hgd7v9f9x2612_(X,"t*") .
 ex_property_(X,@new(s1,X,ex_property,1..1),"t"):-choose(s1,X,ex_property,1) .
 choose(s1,X,ex_property,1);choose(s1,X,ex_property,0):-s1_(X,"t*") .
 (C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s2_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
@@ -89,8 +89,8 @@ ex_property_(X,Y,"f"):-s1_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 1 {s2_(Y,"t*"):ex_property_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox2311
-s3_(X,"t*"):-node1hdcdgs0ox2311_(X,"t*") .
+% universal for node1hgd7v9f9x2612
+s3_(X,"t*"):-node1hgd7v9f9x2612_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 ex_property_(X,@new(s4,X,ex_property,1..1),"t"):-choose(s4,X,ex_property,1) .
@@ -102,21 +102,21 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s1_(X,"f");s3_(X,"f"):-node1hdcdgs0ox2311_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hgd7v9f9x2612_(X,"f") .
 s7_(X,"t*"):-ex_AndShape_(X,"t*") .
-node1hdcdgs0ox2310_(X,"t*"):-s7_(X,"t*") .
-node1hdcdgs0ox2310_(X,"f"):-s7_(X,"f") .
+node1hgd7v9f9x2611_(X,"t*"):-s7_(X,"t*") .
+node1hgd7v9f9x2611_(X,"f"):-s7_(X,"f") .
 
-% sh:minCount 0 for node1hdcdgs0ox2310
-s8_(X,"t*"):-node1hdcdgs0ox2310_(X,"t*") .
+% sh:minCount 0 for node1hgd7v9f9x2611
+s8_(X,"t*"):-node1hgd7v9f9x2611_(X,"t*") .
 choose(s8,X,ex_property,0):-s8_(X,"t*") .
 (C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s9_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
 ex_property_(X,Y,"f"):-s8_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 0 {s9_(Y,"t*"):ex_property_(X,Y,"t**")} 0:-s8_(X,"t*") .
 
 
-% sh:maxCount 1 for node1hdcdgs0ox2310
-s10_(X,"t*"):-node1hdcdgs0ox2310_(X,"t*") .
+% sh:maxCount 1 for node1hgd7v9f9x2611
+s10_(X,"t*"):-node1hgd7v9f9x2611_(X,"t*") .
 s11_(X,"f"):-s10_(X,"t*") .
 s11_(X,"t*"):-s10_(X,"f") .
 ex_property_(X,@new(s11,X,ex_property,1..1),"t"):-choose(s11,X,ex_property,1) .
@@ -127,8 +127,8 @@ ex_property_(X,Y,"f"):-s11_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") 
 2 {s12_(Y,"t*"):ex_property_(X,Y,"t**")} 2:-s11_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox2310
-s13_(X,"t*"):-node1hdcdgs0ox2310_(X,"t*") .
+% universal for node1hgd7v9f9x2611
+s13_(X,"t*"):-node1hgd7v9f9x2611_(X,"t*") .
 s14_(X,"f"):-s13_(X,"t*") .
 s14_(X,"t*"):-s13_(X,"f") .
 ex_property_(X,@new(s14,X,ex_property,1..1),"t"):-choose(s14,X,ex_property,1) .
@@ -140,7 +140,7 @@ s16_(X,"f"):-s15_(X,"t*") .
 s16_(X,"t*"):-s15_(X,"f") .
 
 
-s8_(X,"f");s10_(X,"f");s13_(X,"f"):-node1hdcdgs0ox2310_(X,"f") .
+s8_(X,"f");s10_(X,"f");s13_(X,"f"):-node1hgd7v9f9x2611_(X,"f") .
 s0_(X,"f");s7_(X,"f"):-ex_AndShape_(X,"f") .
 
 % Interpretation Rules

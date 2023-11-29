@@ -22,13 +22,13 @@ _person_(X,"t*"):-_person_(X,"t") .
 % Repair Rules
 
 s0_(X,"t*"):-_personShape_(X,"t*") .
-_person_(X,"t"):-s0_(X,"t*") .
-_person_(X,"f"):-s0_(X,"f") .
+node1hgd7v9f9x933_(X,"f"):-s0_(X,"t*") .
+node1hgd7v9f9x933_(X,"t*"):-s0_(X,"f") .
+_person_(X,"t"):-node1hgd7v9f9x933_(X,"t*") .
+_person_(X,"f"):-node1hgd7v9f9x933_(X,"f") .
 s1_(X,"t*"):-_personShape_(X,"t*") .
-node1hdcdgs0ox632_(X,"f"):-s1_(X,"t*") .
-node1hdcdgs0ox632_(X,"t*"):-s1_(X,"f") .
-_person_(X,"t"):-node1hdcdgs0ox632_(X,"t*") .
-_person_(X,"f"):-node1hdcdgs0ox632_(X,"f") .
+_person_(X,"t"):-s1_(X,"t*") .
+_person_(X,"f"):-s1_(X,"f") .
 s0_(X,"f");s1_(X,"f"):-_personShape_(X,"f") .
 
 % Interpretation Rules

@@ -5,10 +5,10 @@ actualTarget("_x",_cutShape) actualTarget("_ben",_studentShape) del(_p0("_x","_b
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 5
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
-Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.017s
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s

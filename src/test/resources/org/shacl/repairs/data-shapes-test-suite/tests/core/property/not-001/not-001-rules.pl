@@ -16,8 +16,8 @@ sh_targetNode("ex_TestShape","ex_InvalidResource1") .
 sh_targetNode("ex_TestShape","ex_ValidResource1") .
 sh_targetNode("ex_TestShape","ex_ValidResource2") .
 sh_path("ex_TestShape_property","ex_property") .
-sh_not("ex_TestShape_property","node1hdcdgs0ox1636") .
-sh_datatype("node1hdcdgs0ox1636","xsd_integer") .
+sh_not("ex_TestShape_property","node1hgd7v9f9x1937") .
+sh_datatype("node1hgd7v9f9x1937","xsd_integer") .
 rdfs_Resource("ex_ValidResource1") .
 rdfs_label("ex_ValidResource1","Valid resource1") .
 xsd_string("Valid resource1") .
@@ -29,27 +29,27 @@ xsd_string("String") .
 rdfs_label("ex_ValidResource2","Valid resource2") .
 xsd_string("Valid resource2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1637") .
-rdf_first("node1hdcdgs0ox1637","http://repairs.shacl.org/not_001") .
-rdf_rest("node1hdcdgs0ox1637","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1938") .
+rdf_first("node1hgd7v9f9x1938","http://repairs.shacl.org/not_001") .
+rdf_rest("node1hgd7v9f9x1938","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/not_001") .
 rdfs_label("http://repairs.shacl.org/not_001","Test of sh:not at property shape 001") .
 xsd_string("Test of sh:not at property shape 001") .
-mf_action("http://repairs.shacl.org/not_001","node1hdcdgs0ox1638") .
-sht_dataGraph("node1hdcdgs0ox1638","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox1638","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/not_001","node1hdcdgs0ox1639") .
-sh_ValidationReport("node1hdcdgs0ox1639") .
-sh_conforms("node1hdcdgs0ox1639","false") .
+mf_action("http://repairs.shacl.org/not_001","node1hgd7v9f9x1939") .
+sht_dataGraph("node1hgd7v9f9x1939","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x1939","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/not_001","node1hgd7v9f9x1940") .
+sh_ValidationReport("node1hgd7v9f9x1940") .
+sh_conforms("node1hgd7v9f9x1940","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox1639","node1hdcdgs0ox1640") .
-sh_ValidationResult("node1hdcdgs0ox1640") .
-sh_focusNode("node1hdcdgs0ox1640","ex_InvalidResource1") .
-sh_resultPath("node1hdcdgs0ox1640","ex_property") .
-sh_resultSeverity("node1hdcdgs0ox1640","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox1640","sh_NotConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox1640","ex_TestShape_property") .
-sh_value("node1hdcdgs0ox1640","42") .
+sh_result("node1hgd7v9f9x1940","node1hgd7v9f9x1941") .
+sh_ValidationResult("node1hgd7v9f9x1941") .
+sh_focusNode("node1hgd7v9f9x1941","ex_InvalidResource1") .
+sh_resultPath("node1hgd7v9f9x1941","ex_property") .
+sh_resultSeverity("node1hgd7v9f9x1941","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x1941","sh_NotConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x1941","ex_TestShape_property") .
+sh_value("node1hgd7v9f9x1941","42") .
 mf_status("http://repairs.shacl.org/not_001","sht_approved") .
 
 % Shape Targets
@@ -87,10 +87,10 @@ choose(s0,X,ex_property,0):-s0_(X,"t*") .
 ex_property_(X,Y,"f"):-s0_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 0 {s1_(Y,"t*"):ex_property_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
-node1hdcdgs0ox1641_(X,"f"):-s1_(X,"t*") .
-node1hdcdgs0ox1641_(X,"t*"):-s1_(X,"f") .
-xsd_integer_(X,"t"):-node1hdcdgs0ox1641_(X,"t*") .
-xsd_integer_(X,"f"):-node1hdcdgs0ox1641_(X,"f") .
+node1hgd7v9f9x1942_(X,"f"):-s1_(X,"t*") .
+node1hgd7v9f9x1942_(X,"t*"):-s1_(X,"f") .
+xsd_integer_(X,"t"):-node1hgd7v9f9x1942_(X,"t*") .
+xsd_integer_(X,"f"):-node1hgd7v9f9x1942_(X,"f") .
 
 % universal for ex_TestShape_property
 s2_(X,"t*"):-ex_TestShape_property_(X,"t*") .
@@ -104,8 +104,8 @@ ex_property_(X,Y,"f"):-s3_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
-node1hdcdgs0ox1641_(X,"f"):-s5_(X,"t*") .
-node1hdcdgs0ox1641_(X,"t*"):-s5_(X,"f") .
+node1hgd7v9f9x1942_(X,"f"):-s5_(X,"t*") .
+node1hgd7v9f9x1942_(X,"t*"):-s5_(X,"f") .
 
 s0_(X,"f");s2_(X,"f"):-ex_TestShape_property_(X,"f") .
 

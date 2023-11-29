@@ -26,26 +26,26 @@ _organization_(X,"t*"):-_organization_(X,"t") .
 % Repair Rules
 
 s0_(X,"t*"):-_employeeShape_(X,"t*") .
-node1hdcdgs0ox602_(X,"f"):-s0_(X,"t*") .
-node1hdcdgs0ox602_(X,"t*"):-s0_(X,"f") .
-node1hdcdgs0ox603_(X,"t*"):-node1hdcdgs0ox602_(X,"t*") .
-node1hdcdgs0ox603_(X,"f"):-node1hdcdgs0ox602_(X,"f") .
+node1hgd7v9f9x903_(X,"f"):-s0_(X,"t*") .
+node1hgd7v9f9x903_(X,"t*"):-s0_(X,"f") .
+node1hgd7v9f9x904_(X,"t*"):-node1hgd7v9f9x903_(X,"t*") .
+node1hgd7v9f9x904_(X,"f"):-node1hgd7v9f9x903_(X,"f") .
 
-% sh:minCount 1 for node1hdcdgs0ox603
-s1_(X,"t*"):-node1hdcdgs0ox603_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x904
+s1_(X,"t*"):-node1hgd7v9f9x904_(X,"t*") .
 _worksFor_(X,@new(s1,X,_worksFor,1..1),"t"):-choose(s1,X,_worksFor,1) .
 choose(s1,X,_worksFor,1);choose(s1,X,_worksFor,0):-s1_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s2_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
 _worksFor_(X,Y,"f"):-s1_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 1 {s2_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
-node1hdcdgs0ox604_(X,"f"):-s2_(X,"t*") .
-node1hdcdgs0ox604_(X,"t*"):-s2_(X,"f") .
-_organization_(X,"t"):-node1hdcdgs0ox604_(X,"t*") .
-_organization_(X,"f"):-node1hdcdgs0ox604_(X,"f") .
+node1hgd7v9f9x905_(X,"f"):-s2_(X,"t*") .
+node1hgd7v9f9x905_(X,"t*"):-s2_(X,"f") .
+_organization_(X,"t"):-node1hgd7v9f9x905_(X,"t*") .
+_organization_(X,"f"):-node1hgd7v9f9x905_(X,"f") .
 
-% universal for node1hdcdgs0ox603
-s3_(X,"t*"):-node1hdcdgs0ox603_(X,"t*") .
+% universal for node1hgd7v9f9x904
+s3_(X,"t*"):-node1hgd7v9f9x904_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 _worksFor_(X,@new(s4,X,_worksFor,1..1),"t"):-choose(s4,X,_worksFor,1) .
@@ -56,25 +56,26 @@ _worksFor_(X,Y,"f"):-s4_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
-node1hdcdgs0ox604_(X,"f"):-s6_(X,"t*") .
-node1hdcdgs0ox604_(X,"t*"):-s6_(X,"f") .
+node1hgd7v9f9x905_(X,"f"):-s6_(X,"t*") .
+node1hgd7v9f9x905_(X,"t*"):-s6_(X,"f") .
 
-s1_(X,"f");s3_(X,"f"):-node1hdcdgs0ox603_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hgd7v9f9x904_(X,"f") .
 s7_(X,"t*"):-_employeeShape_(X,"t*") .
-node1hdcdgs0ox601_(X,"t*"):-s7_(X,"t*") .
-node1hdcdgs0ox601_(X,"f"):-s7_(X,"f") .
+node1hgd7v9f9x902_(X,"t*"):-s7_(X,"t*") .
+node1hgd7v9f9x902_(X,"f"):-s7_(X,"f") .
 
-% sh:minCount 1 for node1hdcdgs0ox601
-s8_(X,"t*"):-node1hdcdgs0ox601_(X,"t*") .
-_worksFor_(X,@new(s8,X,_worksFor,1..1),"t"):-choose(s8,X,_worksFor,1) .
-choose(s8,X,_worksFor,1);choose(s8,X,_worksFor,0):-s8_(X,"t*") .
+% sh:minCount 0 for node1hgd7v9f9x902
+s8_(X,"t*"):-node1hgd7v9f9x902_(X,"t*") .
+choose(s8,X,_worksFor,0):-s8_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s9_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
 _worksFor_(X,Y,"f"):-s8_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
-1 {s9_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s8_(X,"t*") .
+0 {s9_(Y,"t*"):_worksFor_(X,Y,"t**")} 0:-s8_(X,"t*") .
 
+_organization_(X,"t"):-s9_(X,"t*") .
+_organization_(X,"f"):-s9_(X,"f") .
 
-% universal for node1hdcdgs0ox601
-s10_(X,"t*"):-node1hdcdgs0ox601_(X,"t*") .
+% universal for node1hgd7v9f9x902
+s10_(X,"t*"):-node1hgd7v9f9x902_(X,"t*") .
 s11_(X,"f"):-s10_(X,"t*") .
 s11_(X,"t*"):-s10_(X,"f") .
 _worksFor_(X,@new(s11,X,_worksFor,1..1),"t"):-choose(s11,X,_worksFor,1) .
@@ -85,23 +86,24 @@ _worksFor_(X,Y,"f"):-s11_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 s13_(X,"f"):-s12_(X,"t*") .
 s13_(X,"t*"):-s12_(X,"f") .
 
+_organization_(X,"t"):-s13_(X,"t*") .
+_organization_(X,"f"):-s13_(X,"f") .
 
-s8_(X,"f");s10_(X,"f"):-node1hdcdgs0ox601_(X,"f") .
+s8_(X,"f");s10_(X,"f"):-node1hgd7v9f9x902_(X,"f") .
 s14_(X,"t*"):-_employeeShape_(X,"t*") .
-node1hdcdgs0ox601_(X,"t*"):-s14_(X,"t*") .
-node1hdcdgs0ox601_(X,"f"):-s14_(X,"f") .
+node1hgd7v9f9x902_(X,"t*"):-s14_(X,"t*") .
+node1hgd7v9f9x902_(X,"f"):-s14_(X,"f") .
 
-% sh:minCount 0 for node1hdcdgs0ox601
-s15_(X,"t*"):-node1hdcdgs0ox601_(X,"t*") .
-choose(s15,X,_worksFor,0):-s15_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x902
+s15_(X,"t*"):-node1hgd7v9f9x902_(X,"t*") .
+_worksFor_(X,@new(s15,X,_worksFor,1..1),"t"):-choose(s15,X,_worksFor,1) .
+choose(s15,X,_worksFor,1);choose(s15,X,_worksFor,0):-s15_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s16_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s15_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
 _worksFor_(X,Y,"f"):-s15_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
-0 {s16_(Y,"t*"):_worksFor_(X,Y,"t**")} 0:-s15_(X,"t*") .
+1 {s16_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s15_(X,"t*") .
 
-_organization_(X,"t"):-s16_(X,"t*") .
-_organization_(X,"f"):-s16_(X,"f") .
 
-s17_(X,"t*"):-node1hdcdgs0ox601_(X,"t*") .
+s17_(X,"t*"):-node1hgd7v9f9x902_(X,"t*") .
 s18_(X,"f"):-s17_(X,"t*") .
 s18_(X,"t*"):-s17_(X,"f") .
 _worksFor_(X,@new(s18,X,_worksFor,1..1),"t"):-choose(s18,X,_worksFor,1) .
@@ -112,10 +114,8 @@ _worksFor_(X,Y,"f"):-s18_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 s20_(X,"f"):-s19_(X,"t*") .
 s20_(X,"t*"):-s19_(X,"f") .
 
-_organization_(X,"t"):-s20_(X,"t*") .
-_organization_(X,"f"):-s20_(X,"f") .
 
-s15_(X,"f");s17_(X,"f"):-node1hdcdgs0ox601_(X,"f") .
+s15_(X,"f");s17_(X,"f"):-node1hgd7v9f9x902_(X,"f") .
 s0_(X,"f");s7_(X,"f");s14_(X,"f"):-_employeeShape_(X,"f") .
 
 % Interpretation Rules
@@ -127,8 +127,8 @@ _organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
 
 :-_worksFor_(X,Y,"t"),_worksFor_(X,Y,"f") .
 :-_organization_(X,"t"),_organization_(X,"f") .
-:-s9_(X,"f") .
-:-s13_(X,"f") .
+:-s16_(X,"f") .
+:-s20_(X,"f") .
 
 % Change Set Rules
 

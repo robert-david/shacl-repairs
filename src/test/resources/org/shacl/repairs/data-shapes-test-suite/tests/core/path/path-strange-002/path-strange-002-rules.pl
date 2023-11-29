@@ -11,41 +11,41 @@ ex_p("ex_j","ex_jp") .
 ex_q("ex_jp","ex_jpq") .
 sh_PropertyShape("ex_s1") .
 sh_targetClass("ex_s1","ex_C") .
-sh_path("ex_s1","node1hdcdgs0ox179") .
-rdf_first("node1hdcdgs0ox179","ex_p") .
-rdf_rest("node1hdcdgs0ox179","node1hdcdgs0ox180") .
-rdf_first("node1hdcdgs0ox180","ex_q") .
-rdf_rest("node1hdcdgs0ox180","rdf_nil") .
-sh_inversePath("node1hdcdgs0ox179","node1hdcdgs0ox181") .
-rdf_first("node1hdcdgs0ox181","ex_p") .
-rdf_rest("node1hdcdgs0ox181","rdf_nil") .
+sh_path("ex_s1","node1hgd7v9f9x179") .
+rdf_first("node1hgd7v9f9x179","ex_p") .
+rdf_rest("node1hgd7v9f9x179","node1hgd7v9f9x180") .
+rdf_first("node1hgd7v9f9x180","ex_q") .
+rdf_rest("node1hgd7v9f9x180","rdf_nil") .
+sh_inversePath("node1hgd7v9f9x179","node1hgd7v9f9x181") .
+rdf_first("node1hgd7v9f9x181","ex_p") .
+rdf_rest("node1hgd7v9f9x181","rdf_nil") .
 sh_class("ex_s1","ex_C") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox182") .
-rdf_first("node1hdcdgs0ox182","http://repairs.shacl.org/path_strange_002") .
-rdf_rest("node1hdcdgs0ox182","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x182") .
+rdf_first("node1hgd7v9f9x182","http://repairs.shacl.org/path_strange_002") .
+rdf_rest("node1hgd7v9f9x182","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_strange_002") .
 rdfs_label("http://repairs.shacl.org/path_strange_002","Test of strange path 002 valid and invalid paths together") .
 xsd_string("Test of strange path 002 valid and invalid paths together") .
-mf_action("http://repairs.shacl.org/path_strange_002","node1hdcdgs0ox183") .
-sht_dataGraph("node1hdcdgs0ox183","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox183","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_strange_002","node1hdcdgs0ox184") .
-sh_ValidationReport("node1hdcdgs0ox184") .
-sh_conforms("node1hdcdgs0ox184","false") .
+mf_action("http://repairs.shacl.org/path_strange_002","node1hgd7v9f9x183") .
+sht_dataGraph("node1hgd7v9f9x183","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x183","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_strange_002","node1hgd7v9f9x184") .
+sh_ValidationReport("node1hgd7v9f9x184") .
+sh_conforms("node1hgd7v9f9x184","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox184","node1hdcdgs0ox185") .
-sh_ValidationResult("node1hdcdgs0ox185") .
-sh_focusNode("node1hdcdgs0ox185","ex_j") .
-sh_value("node1hdcdgs0ox185","ex_jpq") .
-sh_resultPath("node1hdcdgs0ox185","node1hdcdgs0ox186") .
-rdf_first("node1hdcdgs0ox186","ex_p") .
-rdf_rest("node1hdcdgs0ox186","node1hdcdgs0ox187") .
-rdf_first("node1hdcdgs0ox187","ex_q") .
-rdf_rest("node1hdcdgs0ox187","rdf_nil") .
-sh_resultSeverity("node1hdcdgs0ox185","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox185","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox185","ex_s1") .
+sh_result("node1hgd7v9f9x184","node1hgd7v9f9x185") .
+sh_ValidationResult("node1hgd7v9f9x185") .
+sh_focusNode("node1hgd7v9f9x185","ex_j") .
+sh_value("node1hgd7v9f9x185","ex_jpq") .
+sh_resultPath("node1hgd7v9f9x185","node1hgd7v9f9x186") .
+rdf_first("node1hgd7v9f9x186","ex_p") .
+rdf_rest("node1hgd7v9f9x186","node1hgd7v9f9x187") .
+rdf_first("node1hgd7v9f9x187","ex_q") .
+rdf_rest("node1hgd7v9f9x187","rdf_nil") .
+sh_resultSeverity("node1hgd7v9f9x185","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x185","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x185","ex_s1") .
 mf_status("http://repairs.shacl.org/path_strange_002","sht_approved") .
 
 % Shape Targets
@@ -71,8 +71,6 @@ ex_p_(X,Y,"t*"):-ex_p_(X,Y,"t") .
 ex_q_(X,Y,"t*"):-ex_q(X,Y) .
 ex_q_(X,Y,"t*"):-ex_q_(X,Y,"t") .
 ex_s1_st_(X,X1,"t*"):-ex_s1_(X,_),ex_p_(X,X0,"t*"),ex_q_(X0,X1,"t*") .
-ex_s1_st_(X,Y,"t*"):-ex_s1_st(X,Y) .
-ex_s1_st_(X,Y,"t*"):-ex_s1_st_(X,Y,"t") .
 ex_C_(X,"t*"):-ex_C(X) .
 ex_C_(X,"t*"):-ex_C_(X,"t") .
 
@@ -85,7 +83,6 @@ ex_s1_(X,"f"):-ex_s1_(X,"f") .
 % sh:minCount 0 for ex_s1
 s0_(X,"t*"):-ex_s1_(X,"t*") .
 choose(s0,X,ex_s1_st,0):-s0_(X,"t*") .
-
 choose(ex_s1_st,X,ex_p,1);choose(ex_s1_st,X,ex_p,0):-ex_s1_st_(X,Y,"t") .
 ex_p_(X,@new(ex_s1_st,X,ex_p,1),"t"):-choose(ex_s1_st,X,ex_p,1),ex_s1_st_(X,Y,"t") .
 (C-0) {ex_s1_st_(X,Y,"f"):ex_s1_st_(X,Y,"t*");s1_(Y,"f"):ex_s1_st_(X,Y,"t*"),not ex_s1_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_s1_st_(X,Y,"t*")}=C,C>0 .
@@ -101,7 +98,6 @@ s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 ex_s1_st_(X,@new(s3,X,ex_s1_st,1..1),"t"):-choose(s3,X,ex_s1_st,1) .
 choose(s3,X,ex_s1_st,1);choose(s3,X,ex_s1_st,0):-s3_(X,"t*") .
-
 0 {ex_q_(X0,Y,"t")} 1:-ex_p_(X,X0,"t**"),ex_s1_st_(X,Y,"t") .
 (C-0) {ex_s1_st_(X,Y,"f"):ex_s1_st_(X,Y,"t*");s4_(Y,"f"):ex_s1_st_(X,Y,"t*"),not ex_s1_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_s1_st_(X,Y,"t*")}=C,C>0 .
 ex_p_(X,X0,"f");ex_q_(X0,X1,"f"):-s3_(X,"f"),ex_p_(X,X0,"t*"),ex_q_(X0,X1,"t*"),ex_s1_st_(X,X1,"f") .
@@ -118,7 +114,7 @@ s0_(X,"f");s2_(X,"f"):-ex_s1_(X,"f") .
 
 ex_p_(X,Y,"t**"):-ex_p_(X,Y,"t*"),not ex_p_(X,Y,"f") .
 ex_q_(X,Y,"t**"):-ex_q_(X,Y,"t*"),not ex_q_(X,Y,"f") .
-ex_s1_st_(X,X1,"t**"):-ex_s1_st_(X,Y,"t*"),not ex_s1_st_(X,Y,"f"),ex_p_(X,X0,"t**"),ex_q_(X0,X1,"t**") .
+ex_s1_st_(X,X1,"t**"):-ex_s1_st_(X,X1,"t*"),not ex_s1_st_(X,X1,"f"),ex_p_(X,X0,"t**"),ex_q_(X0,X1,"t**") .
 ex_C_(X,"t**"):-ex_C_(X,"t*"),not ex_C_(X,"f") .
 
 % Program Constraints

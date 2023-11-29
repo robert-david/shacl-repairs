@@ -18,45 +18,51 @@ _studentShape_("_ben","t*"):-actualTarget("_ben",_studentShape) .
 
 _hasStudent_(X,Y,"t*"):-_hasStudent(X,Y) .
 _hasStudent_(X,Y,"t*"):-_hasStudent_(X,Y,"t") .
-node1hdcdgs0ox958_st_(X,Y,"t*"):-node1hdcdgs0ox958_(X,_),_hasStudent_(Y,X,"t*") .
+_hasStudent_(Y,X,"t"):-_hasStudent_inv_(X,Y,"t") .
+_hasStudent_inv_(X,Y,"t*"):-_hasStudent_(Y,X,"t*") .
+_hasStudent_(Y,X,"f"):-_hasStudent_inv_(X,Y,"f") .
+_hasStudent_inv_(X,Y,"f"):-_hasStudent_(Y,X,"f") .
+node1hgd7v9f9x1259_st_(X,Y,"t*"):-node1hgd7v9f9x1259_(X,_),_hasStudent_inv_(X,Y,"t*") .
 
 % Repair Rules
 
-node1hdcdgs0ox958_(X,"t*"):-_studentShape_(X,"t*") .
-node1hdcdgs0ox958_(X,"f"):-_studentShape_(X,"f") .
+node1hgd7v9f9x1259_(X,"t*"):-_studentShape_(X,"t*") .
+node1hgd7v9f9x1259_(X,"f"):-_studentShape_(X,"f") .
 
-% sh:minCount 1 for node1hdcdgs0ox958
-s0_(X,"t*"):-node1hdcdgs0ox958_(X,"t*") .
-_hasStudent_(@new(s0,X,_hasStudent,1..1),X,"t"):-choose(s0,X,_hasStudent,1) .
+% sh:minCount 1 for node1hgd7v9f9x1259
+s0_(X,"t*"):-node1hgd7v9f9x1259_(X,"t*") .
+_hasStudent_inv_(X,@new(s0,X,_hasStudent_inv_,1..1),"t"):-choose(s0,X,_hasStudent,1) .
 choose(s0,X,_hasStudent,1);choose(s0,X,_hasStudent,0):-s0_(X,"t*") .
-(C-0) {node1hdcdgs0ox958_st_(X,Y,"f"):node1hdcdgs0ox958_st_(X,Y,"t*");s1_(Y,"f"):node1hdcdgs0ox958_st_(X,Y,"t*"),not node1hdcdgs0ox958_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:node1hdcdgs0ox958_st_(X,Y,"t*")}=C,C>0 .
-_hasStudent_(Y,X,"f"):-s0_(X,"f"),_hasStudent_(Y,X,"t*"),node1hdcdgs0ox958_st_(X,Y,"f") .
-1 {s1_(Y,"t*"):node1hdcdgs0ox958_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
+(C-0) {node1hgd7v9f9x1259_st_(X,Y,"f"):node1hgd7v9f9x1259_st_(X,Y,"t*");s1_(Y,"f"):node1hgd7v9f9x1259_st_(X,Y,"t*"),not node1hgd7v9f9x1259_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:node1hgd7v9f9x1259_st_(X,Y,"t*")}=C,C>0 .
+_hasStudent_(Y,X,"f"):-s0_(X,"f"),_hasStudent_inv_(X,Y,"t*"),node1hgd7v9f9x1259_st_(X,Y,"f") .
+1 {s1_(Y,"t*"):node1hgd7v9f9x1259_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox958
-s2_(X,"t*"):-node1hdcdgs0ox958_(X,"t*") .
+% universal for node1hgd7v9f9x1259
+s2_(X,"t*"):-node1hgd7v9f9x1259_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
-_hasStudent_(@new(s3,X,_hasStudent,1..1),X,"t"):-choose(s3,X,_hasStudent,1) .
+_hasStudent_inv_(X,@new(s3,X,_hasStudent_inv_,1..1),"t"):-choose(s3,X,_hasStudent,1) .
 choose(s3,X,_hasStudent,1);choose(s3,X,_hasStudent,0):-s3_(X,"t*") .
-(C-0) {node1hdcdgs0ox958_st_(X,Y,"f"):node1hdcdgs0ox958_st_(X,Y,"t*");s4_(Y,"f"):node1hdcdgs0ox958_st_(X,Y,"t*"),not node1hdcdgs0ox958_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:node1hdcdgs0ox958_st_(X,Y,"t*")}=C,C>0 .
-_hasStudent_(Y,X,"f"):-s3_(X,"f"),_hasStudent_(Y,X,"t*"),node1hdcdgs0ox958_st_(X,Y,"f") .
-1 {s4_(Y,"t*"):node1hdcdgs0ox958_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
+(C-0) {node1hgd7v9f9x1259_st_(X,Y,"f"):node1hgd7v9f9x1259_st_(X,Y,"t*");s4_(Y,"f"):node1hgd7v9f9x1259_st_(X,Y,"t*"),not node1hgd7v9f9x1259_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:node1hgd7v9f9x1259_st_(X,Y,"t*")}=C,C>0 .
+_hasStudent_(Y,X,"f"):-s3_(X,"f"),_hasStudent_inv_(X,Y,"t*"),node1hgd7v9f9x1259_st_(X,Y,"f") .
+1 {s4_(Y,"t*"):node1hgd7v9f9x1259_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-node1hdcdgs0ox958_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1hgd7v9f9x1259_(X,"f") .
 
 % Interpretation Rules
 
 _hasStudent_(X,Y,"t**"):-_hasStudent_(X,Y,"t*"),not _hasStudent_(X,Y,"f") .
-node1hdcdgs0ox958_st_(X,Y,"t**"):-_hasStudent_(Y,X,"t**"),node1hdcdgs0ox958_st_(X,Y,"t*"),not node1hdcdgs0ox958_st_(X,Y,"f") .
+_hasStudent_inv_(X,Y,"t**"):-_hasStudent_inv_(X,Y,"t*"),not _hasStudent_inv_(X,Y,"f") .
+node1hgd7v9f9x1259_st_(X,Y,"t**"):-_hasStudent_inv_(X,Y,"t**"),node1hgd7v9f9x1259_st_(X,Y,"t*"),not node1hgd7v9f9x1259_st_(X,Y,"f") .
 
 % Program Constraints
 
 :-_hasStudent_(X,Y,"t"),_hasStudent_(X,Y,"f") .
+:-_hasStudent_inv_(X,Y,"t"),_hasStudent_inv_(X,Y,"f") .
 :-s1_(X,"f") .
 :-s5_(X,"f") .
 

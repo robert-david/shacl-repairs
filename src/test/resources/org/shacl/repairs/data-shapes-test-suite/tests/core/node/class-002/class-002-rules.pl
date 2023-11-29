@@ -9,44 +9,44 @@ sh_targetNode("ex_TestShape","ex_NamedInstance") .
 sh_targetNode("ex_TestShape","String") .
 xsd_string("String") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox2205") .
-rdf_first("node1hdcdgs0ox2205","http://repairs.shacl.org/class_002") .
-rdf_rest("node1hdcdgs0ox2205","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2506") .
+rdf_first("node1hgd7v9f9x2506","http://repairs.shacl.org/class_002") .
+rdf_rest("node1hgd7v9f9x2506","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_002") .
 rdfs_label("http://repairs.shacl.org/class_002","Test of sh:class at node shape 002") .
 xsd_string("Test of sh:class at node shape 002") .
-mf_action("http://repairs.shacl.org/class_002","node1hdcdgs0ox2206") .
-sht_dataGraph("node1hdcdgs0ox2206","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox2206","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_002","node1hdcdgs0ox2207") .
-sh_ValidationReport("node1hdcdgs0ox2207") .
-sh_conforms("node1hdcdgs0ox2207","false") .
+mf_action("http://repairs.shacl.org/class_002","node1hgd7v9f9x2507") .
+sht_dataGraph("node1hgd7v9f9x2507","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x2507","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_002","node1hgd7v9f9x2508") .
+sh_ValidationReport("node1hgd7v9f9x2508") .
+sh_conforms("node1hgd7v9f9x2508","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox2207","node1hdcdgs0ox2208") .
-sh_ValidationResult("node1hdcdgs0ox2208") .
-sh_focusNode("node1hdcdgs0ox2208","String") .
-sh_resultSeverity("node1hdcdgs0ox2208","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2208","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2208","ex_TestShape") .
-sh_value("node1hdcdgs0ox2208","String") .
-sh_result("node1hdcdgs0ox2207","node1hdcdgs0ox2209") .
-sh_ValidationResult("node1hdcdgs0ox2209") .
-sh_focusNode("node1hdcdgs0ox2209","b9751") .
-sh_resultSeverity("node1hdcdgs0ox2209","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2209","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2209","ex_TestShape") .
-sh_value("node1hdcdgs0ox2209","b9751") .
+sh_result("node1hgd7v9f9x2508","node1hgd7v9f9x2509") .
+sh_ValidationResult("node1hgd7v9f9x2509") .
+sh_focusNode("node1hgd7v9f9x2509","String") .
+sh_resultSeverity("node1hgd7v9f9x2509","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2509","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2509","ex_TestShape") .
+sh_value("node1hgd7v9f9x2509","String") .
+sh_result("node1hgd7v9f9x2508","node1hgd7v9f9x2510") .
+sh_ValidationResult("node1hgd7v9f9x2510") .
+sh_focusNode("node1hgd7v9f9x2510","b9751") .
+sh_resultSeverity("node1hgd7v9f9x2510","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2510","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2510","ex_TestShape") .
+sh_value("node1hgd7v9f9x2510","b9751") .
 mf_status("http://repairs.shacl.org/class_002","sht_approved") .
 ex_BNodeClass("b9751") .
-ex_BNodeClass("node1hdcdgs0ox2210") .
-ex_TestClass("node1hdcdgs0ox2210") .
+ex_BNodeClass("node1hgd7v9f9x2511") .
+ex_TestClass("node1hgd7v9f9x2511") .
 
 % Shape Targets
 
 targetNode("ex_NamedInstance",ex_TestShape) .
 targetNode("b9751",ex_TestShape) .
+targetNode("node1hgd7v9f9x2511",ex_TestShape) .
 targetNode("String",ex_TestShape) .
-targetNode("node1hdcdgs0ox2210",ex_TestShape) .
 
 % Constants
 
@@ -56,8 +56,8 @@ targetNode("node1hdcdgs0ox2210",ex_TestShape) .
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
 ex_TestShape_("ex_NamedInstance","t*"):-actualTarget("ex_NamedInstance",ex_TestShape) .
 ex_TestShape_("b9751","t*"):-actualTarget("b9751",ex_TestShape) .
+ex_TestShape_("node1hgd7v9f9x2511","t*"):-actualTarget("node1hgd7v9f9x2511",ex_TestShape) .
 ex_TestShape_("String","t*"):-actualTarget("String",ex_TestShape) .
-ex_TestShape_("node1hdcdgs0ox2210","t*"):-actualTarget("node1hdcdgs0ox2210",ex_TestShape) .
 
 % Annotation Rules
 

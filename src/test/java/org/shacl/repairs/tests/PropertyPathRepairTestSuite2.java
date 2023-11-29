@@ -47,7 +47,7 @@ public class PropertyPathRepairTestSuite2 {
 
         String result = r.runProgram(testPath + "/test_property_path_2_02_rules.pl");
 
-        assertTrue(result.contains("Models       : 6"));
+        assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
         assertTrue(Pattern.compile("add\\(_hasLecture\\(\"_bn1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
         assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
@@ -86,7 +86,7 @@ public class PropertyPathRepairTestSuite2 {
 
         String result = r.runProgram(testPath + "/test_property_path_2_04_rules.pl");
 
-        assertTrue(result.contains("Models       : 5"));
+        assertTrue(result.contains("Models       : 9"));
         assertTrue(result.contains("Optimal    : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 2);
         assertTrue(Pattern.compile("add\\(_hasId\\(\"_bn2\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
@@ -192,7 +192,7 @@ public class PropertyPathRepairTestSuite2 {
 
         String result = r.runProgram(testPath + "/test_property_path_2_09_rules.pl");
 
-        assertTrue(result.contains("Models       : 29"));
+        assertTrue(result.contains("Models       : 31"));
         assertTrue(result.contains("Optimal    : 27"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
         assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
@@ -237,7 +237,7 @@ public class PropertyPathRepairTestSuite2 {
 
         String result = r.runProgram(testPath + "/test_property_path_2_11_rules.pl");
 
-        assertTrue(result.contains("Models       : 10"));
+        assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 8"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
         assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);

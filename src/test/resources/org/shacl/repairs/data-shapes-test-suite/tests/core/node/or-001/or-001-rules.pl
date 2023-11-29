@@ -8,21 +8,21 @@ ex_RectangleWithArea("ex_InvalidRectangle2") .
 rdfs_Class("ex_RectangleWithArea") .
 sh_NodeShape("ex_RectangleWithArea") .
 rdfs_Resource(X):-ex_RectangleWithArea(X) .
-sh_or("ex_RectangleWithArea","node1hdcdgs0ox2361") .
-rdf_first("node1hdcdgs0ox2361","node1hdcdgs0ox2362") .
-sh_property("node1hdcdgs0ox2362","node1hdcdgs0ox2363") .
-sh_path("node1hdcdgs0ox2363","ex_height") .
-sh_minCount("node1hdcdgs0ox2363","1") .
+sh_or("ex_RectangleWithArea","node1hgd7v9f9x2662") .
+rdf_first("node1hgd7v9f9x2662","node1hgd7v9f9x2663") .
+sh_property("node1hgd7v9f9x2663","node1hgd7v9f9x2664") .
+sh_path("node1hgd7v9f9x2664","ex_height") .
+sh_minCount("node1hgd7v9f9x2664","1") .
 xsd_integer("1") .
-sh_property("node1hdcdgs0ox2362","node1hdcdgs0ox2364") .
-sh_path("node1hdcdgs0ox2364","ex_width") .
-sh_minCount("node1hdcdgs0ox2364","1") .
-rdf_rest("node1hdcdgs0ox2361","node1hdcdgs0ox2365") .
-rdf_first("node1hdcdgs0ox2365","node1hdcdgs0ox2366") .
-sh_property("node1hdcdgs0ox2366","node1hdcdgs0ox2367") .
-sh_path("node1hdcdgs0ox2367","ex_area") .
-sh_minCount("node1hdcdgs0ox2367","1") .
-rdf_rest("node1hdcdgs0ox2365","rdf_nil") .
+sh_property("node1hgd7v9f9x2663","node1hgd7v9f9x2665") .
+sh_path("node1hgd7v9f9x2665","ex_width") .
+sh_minCount("node1hgd7v9f9x2665","1") .
+rdf_rest("node1hgd7v9f9x2662","node1hgd7v9f9x2666") .
+rdf_first("node1hgd7v9f9x2666","node1hgd7v9f9x2667") .
+sh_property("node1hgd7v9f9x2667","node1hgd7v9f9x2668") .
+sh_path("node1hgd7v9f9x2668","ex_area") .
+sh_minCount("node1hgd7v9f9x2668","1") .
+rdf_rest("node1hgd7v9f9x2666","rdf_nil") .
 ex_RectangleWithArea("ex_ValidRectangle1") .
 ex_height("ex_ValidRectangle1","3") .
 ex_width("ex_ValidRectangle1","2") .
@@ -36,33 +36,33 @@ ex_RectangleWithArea("ex_ValidRectangle3") .
 ex_area("ex_ValidRectangle3","6") .
 ex_height("ex_ValidRectangle3","3") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox2368") .
-rdf_first("node1hdcdgs0ox2368","http://repairs.shacl.org/or_001") .
-rdf_rest("node1hdcdgs0ox2368","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2669") .
+rdf_first("node1hgd7v9f9x2669","http://repairs.shacl.org/or_001") .
+rdf_rest("node1hgd7v9f9x2669","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/or_001") .
 rdfs_label("http://repairs.shacl.org/or_001","Test of sh:or at node shape 001") .
 xsd_string("Test of sh:or at node shape 001") .
-mf_action("http://repairs.shacl.org/or_001","node1hdcdgs0ox2369") .
-sht_dataGraph("node1hdcdgs0ox2369","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox2369","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/or_001","node1hdcdgs0ox2370") .
-sh_ValidationReport("node1hdcdgs0ox2370") .
-sh_conforms("node1hdcdgs0ox2370","false") .
+mf_action("http://repairs.shacl.org/or_001","node1hgd7v9f9x2670") .
+sht_dataGraph("node1hgd7v9f9x2670","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x2670","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/or_001","node1hgd7v9f9x2671") .
+sh_ValidationReport("node1hgd7v9f9x2671") .
+sh_conforms("node1hgd7v9f9x2671","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox2370","node1hdcdgs0ox2371") .
-sh_ValidationResult("node1hdcdgs0ox2371") .
-sh_focusNode("node1hdcdgs0ox2371","ex_InvalidRectangle1") .
-sh_resultSeverity("node1hdcdgs0ox2371","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2371","sh_OrConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2371","ex_RectangleWithArea") .
-sh_value("node1hdcdgs0ox2371","ex_InvalidRectangle1") .
-sh_result("node1hdcdgs0ox2370","node1hdcdgs0ox2372") .
-sh_ValidationResult("node1hdcdgs0ox2372") .
-sh_focusNode("node1hdcdgs0ox2372","ex_InvalidRectangle2") .
-sh_resultSeverity("node1hdcdgs0ox2372","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox2372","sh_OrConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox2372","ex_RectangleWithArea") .
-sh_value("node1hdcdgs0ox2372","ex_InvalidRectangle2") .
+sh_result("node1hgd7v9f9x2671","node1hgd7v9f9x2672") .
+sh_ValidationResult("node1hgd7v9f9x2672") .
+sh_focusNode("node1hgd7v9f9x2672","ex_InvalidRectangle1") .
+sh_resultSeverity("node1hgd7v9f9x2672","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2672","sh_OrConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2672","ex_RectangleWithArea") .
+sh_value("node1hgd7v9f9x2672","ex_InvalidRectangle1") .
+sh_result("node1hgd7v9f9x2671","node1hgd7v9f9x2673") .
+sh_ValidationResult("node1hgd7v9f9x2673") .
+sh_focusNode("node1hgd7v9f9x2673","ex_InvalidRectangle2") .
+sh_resultSeverity("node1hgd7v9f9x2673","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x2673","sh_OrConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x2673","ex_RectangleWithArea") .
+sh_value("node1hgd7v9f9x2673","ex_InvalidRectangle2") .
 mf_status("http://repairs.shacl.org/or_001","sht_approved") .
 
 % Shape Targets
@@ -97,11 +97,11 @@ ex_height_(X,Y,"t*"):-ex_height_(X,Y,"t") .
 % Repair Rules
 
 s0_(X,"f"):-ex_RectangleWithArea_(X,"f") .
-node1hdcdgs0ox2379_(X,"t*"):-s0_(X,"t*") .
-node1hdcdgs0ox2379_(X,"f"):-s0_(X,"f") .
+node1hgd7v9f9x2680_(X,"t*"):-s0_(X,"t*") .
+node1hgd7v9f9x2680_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 1 for node1hdcdgs0ox2379
-s1_(X,"t*"):-node1hdcdgs0ox2379_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x2680
+s1_(X,"t*"):-node1hgd7v9f9x2680_(X,"t*") .
 ex_area_(X,@new(s1,X,ex_area,1..1),"t"):-choose(s1,X,ex_area,1) .
 choose(s1,X,ex_area,1);choose(s1,X,ex_area,0):-s1_(X,"t*") .
 (C-0) {ex_area_(X,Y,"f"):ex_area_(X,Y,"t*");s2_(Y,"f"):ex_area_(X,Y,"t*"),not ex_area_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:ex_area_(X,Y,"t*")}=C,C>0 .
@@ -109,8 +109,8 @@ ex_area_(X,Y,"f"):-s1_(X,"f"),ex_area_(X,Y,"t*"),ex_area_(X,Y,"f") .
 1 {s2_(Y,"t*"):ex_area_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox2379
-s3_(X,"t*"):-node1hdcdgs0ox2379_(X,"t*") .
+% universal for node1hgd7v9f9x2680
+s3_(X,"t*"):-node1hgd7v9f9x2680_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 ex_area_(X,@new(s4,X,ex_area,1..1),"t"):-choose(s4,X,ex_area,1) .
@@ -122,12 +122,12 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s1_(X,"f");s3_(X,"f"):-node1hdcdgs0ox2379_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hgd7v9f9x2680_(X,"f") .
 s7_(X,"f"):-ex_RectangleWithArea_(X,"f") .
-node1hdcdgs0ox2376_(X,"t*"):-s7_(X,"t*") .
+node1hgd7v9f9x2677_(X,"t*"):-s7_(X,"t*") .
 
-% sh:minCount 1 for node1hdcdgs0ox2376
-s8_(X,"t*"):-node1hdcdgs0ox2376_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x2677
+s8_(X,"t*"):-node1hgd7v9f9x2677_(X,"t*") .
 ex_width_(X,@new(s8,X,ex_width,1..1),"t"):-choose(s8,X,ex_width,1) .
 choose(s8,X,ex_width,1);choose(s8,X,ex_width,0):-s8_(X,"t*") .
 (C-0) {ex_width_(X,Y,"f"):ex_width_(X,Y,"t*");s9_(Y,"f"):ex_width_(X,Y,"t*"),not ex_width_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:ex_width_(X,Y,"t*")}=C,C>0 .
@@ -135,8 +135,8 @@ ex_width_(X,Y,"f"):-s8_(X,"f"),ex_width_(X,Y,"t*"),ex_width_(X,Y,"f") .
 1 {s9_(Y,"t*"):ex_width_(X,Y,"t**")} 1:-s8_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox2376
-s10_(X,"t*"):-node1hdcdgs0ox2376_(X,"t*") .
+% universal for node1hgd7v9f9x2677
+s10_(X,"t*"):-node1hgd7v9f9x2677_(X,"t*") .
 s11_(X,"f"):-s10_(X,"t*") .
 s11_(X,"t*"):-s10_(X,"f") .
 ex_width_(X,@new(s11,X,ex_width,1..1),"t"):-choose(s11,X,ex_width,1) .
@@ -148,11 +148,11 @@ s13_(X,"f"):-s12_(X,"t*") .
 s13_(X,"t*"):-s12_(X,"f") .
 
 
-s8_(X,"f");s10_(X,"f"):-node1hdcdgs0ox2376_(X,"f") .
-node1hdcdgs0ox2375_(X,"t*"):-s7_(X,"t*") .
+s8_(X,"f");s10_(X,"f"):-node1hgd7v9f9x2677_(X,"f") .
+node1hgd7v9f9x2676_(X,"t*"):-s7_(X,"t*") .
 
-% sh:minCount 1 for node1hdcdgs0ox2375
-s14_(X,"t*"):-node1hdcdgs0ox2375_(X,"t*") .
+% sh:minCount 1 for node1hgd7v9f9x2676
+s14_(X,"t*"):-node1hgd7v9f9x2676_(X,"t*") .
 ex_height_(X,@new(s14,X,ex_height,1..1),"t"):-choose(s14,X,ex_height,1) .
 choose(s14,X,ex_height,1);choose(s14,X,ex_height,0):-s14_(X,"t*") .
 (C-0) {ex_height_(X,Y,"f"):ex_height_(X,Y,"t*");s15_(Y,"f"):ex_height_(X,Y,"t*"),not ex_height_(X,Y,"f")} (C-0):-s14_(X,"f"),#count {Y:ex_height_(X,Y,"t*")}=C,C>0 .
@@ -160,8 +160,8 @@ ex_height_(X,Y,"f"):-s14_(X,"f"),ex_height_(X,Y,"t*"),ex_height_(X,Y,"f") .
 1 {s15_(Y,"t*"):ex_height_(X,Y,"t**")} 1:-s14_(X,"t*") .
 
 
-% universal for node1hdcdgs0ox2375
-s16_(X,"t*"):-node1hdcdgs0ox2375_(X,"t*") .
+% universal for node1hgd7v9f9x2676
+s16_(X,"t*"):-node1hgd7v9f9x2676_(X,"t*") .
 s17_(X,"f"):-s16_(X,"t*") .
 s17_(X,"t*"):-s16_(X,"f") .
 ex_height_(X,@new(s17,X,ex_height,1..1),"t"):-choose(s17,X,ex_height,1) .
@@ -173,8 +173,8 @@ s19_(X,"f"):-s18_(X,"t*") .
 s19_(X,"t*"):-s18_(X,"f") .
 
 
-s14_(X,"f");s16_(X,"f"):-node1hdcdgs0ox2375_(X,"f") .
-node1hdcdgs0ox2376_(X,"f");node1hdcdgs0ox2375_(X,"f"):-s7_(X,"f") .
+s14_(X,"f");s16_(X,"f"):-node1hgd7v9f9x2676_(X,"f") .
+node1hgd7v9f9x2677_(X,"f");node1hgd7v9f9x2676_(X,"f"):-s7_(X,"f") .
 s0_(X,"t*");s7_(X,"t*"):-ex_RectangleWithArea_(X,"t*") .
 
 % Interpretation Rules

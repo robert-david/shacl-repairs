@@ -27,26 +27,26 @@ ex_MalePerson("ex_ValidMalePerson2") .
 ex_gender("ex_ValidMalePerson2","female") .
 ex_gender("ex_ValidMalePerson2","male") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1363") .
-rdf_first("node1hdcdgs0ox1363","http://repairs.shacl.org/hasValue_001") .
-rdf_rest("node1hdcdgs0ox1363","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1664") .
+rdf_first("node1hgd7v9f9x1664","http://repairs.shacl.org/hasValue_001") .
+rdf_rest("node1hgd7v9f9x1664","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/hasValue_001") .
 rdfs_label("http://repairs.shacl.org/hasValue_001","Test of sh:hasValue at property shape 001") .
 xsd_string("Test of sh:hasValue at property shape 001") .
-mf_action("http://repairs.shacl.org/hasValue_001","node1hdcdgs0ox1364") .
-sht_dataGraph("node1hdcdgs0ox1364","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox1364","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/hasValue_001","node1hdcdgs0ox1365") .
-sh_ValidationReport("node1hdcdgs0ox1365") .
-sh_conforms("node1hdcdgs0ox1365","false") .
+mf_action("http://repairs.shacl.org/hasValue_001","node1hgd7v9f9x1665") .
+sht_dataGraph("node1hgd7v9f9x1665","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x1665","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/hasValue_001","node1hgd7v9f9x1666") .
+sh_ValidationReport("node1hgd7v9f9x1666") .
+sh_conforms("node1hgd7v9f9x1666","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox1365","node1hdcdgs0ox1366") .
-sh_ValidationResult("node1hdcdgs0ox1366") .
-sh_focusNode("node1hdcdgs0ox1366","ex_InvalidMalePerson") .
-sh_resultPath("node1hdcdgs0ox1366","ex_gender") .
-sh_resultSeverity("node1hdcdgs0ox1366","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox1366","sh_HasValueConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox1366","ex_PersonShape_gender") .
+sh_result("node1hgd7v9f9x1666","node1hgd7v9f9x1667") .
+sh_ValidationResult("node1hgd7v9f9x1667") .
+sh_focusNode("node1hgd7v9f9x1667","ex_InvalidMalePerson") .
+sh_resultPath("node1hgd7v9f9x1667","ex_gender") .
+sh_resultSeverity("node1hgd7v9f9x1667","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x1667","sh_HasValueConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x1667","ex_PersonShape_gender") .
 mf_status("http://repairs.shacl.org/hasValue_001","sht_approved") .
 
 % Shape Targets
@@ -79,46 +79,42 @@ s0_(X,"t*"):-ex_PersonShape_(X,"t*") .
 ex_PersonShape_gender_(X,"t*"):-s0_(X,"t*") .
 ex_PersonShape_gender_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 0 for ex_PersonShape_gender
 s1_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
-choose(s1,X,ex_gender,0):-s1_(X,"t*") .
+ex_gender_(X,@new(s1,X,ex_gender,1..1),"t"):-choose(s1,X,ex_gender,1) .
+choose(s1,X,ex_gender,1);choose(s1,X,ex_gender,0):-s1_(X,"t*") .
 0 {ex_gender_(X,Y,"t"):const(Y)} 1:-s1_(X,"t*") .
 (C-0) {ex_gender_(X,Y,"f"):ex_gender_(X,Y,"t*");s2_(Y,"f"):ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:ex_gender_(X,Y,"t*")}=C,C>0 .
 ex_gender_(X,Y,"f"):-s1_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
-0 {s2_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s1_(X,"t*") .
+1 {s2_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
-xsd_string_(X,"t"):-s2_(X,"t*") .
-xsd_string_(X,"f"):-s2_(X,"f") .
+
+% sh:minCount 0 for ex_PersonShape_gender
+s3_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
+choose(s3,X,ex_gender,0):-s3_(X,"t*") .
+0 {ex_gender_(X,Y,"t"):const(Y)} 1:-s3_(X,"t*") .
+(C-0) {ex_gender_(X,Y,"f"):ex_gender_(X,Y,"t*");s4_(Y,"f"):ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_gender_(X,Y,"t*")}=C,C>0 .
+ex_gender_(X,Y,"f"):-s3_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
+0 {s4_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s3_(X,"t*") .
+
 
 % universal for ex_PersonShape_gender
-s3_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
-s4_(X,"f"):-s3_(X,"t*") .
-s4_(X,"t*"):-s3_(X,"f") .
-ex_gender_(X,@new(s4,X,ex_gender,1..1),"t"):-choose(s4,X,ex_gender,1) .
-choose(s4,X,ex_gender,1);choose(s4,X,ex_gender,0):-s4_(X,"t*") .
-0 {ex_gender_(X,Y,"t"):const(Y)} 1:-s4_(X,"t*") .
-(C-0) {ex_gender_(X,Y,"f"):ex_gender_(X,Y,"t*");s5_(Y,"f"):ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:ex_gender_(X,Y,"t*")}=C,C>0 .
-ex_gender_(X,Y,"f"):-s4_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
-1 {s5_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s4_(X,"t*") .
+s5_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
+ex_gender_(X,@new(s6,X,ex_gender,1..1),"t"):-choose(s6,X,ex_gender,1) .
+choose(s6,X,ex_gender,1);choose(s6,X,ex_gender,0):-s6_(X,"t*") .
+0 {ex_gender_(X,Y,"t"):const(Y)} 1:-s6_(X,"t*") .
+(C-0) {ex_gender_(X,Y,"f"):ex_gender_(X,Y,"t*");s7_(Y,"f"):ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:ex_gender_(X,Y,"t*")}=C,C>0 .
+ex_gender_(X,Y,"f"):-s6_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
+1 {s7_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s6_(X,"t*") .
+s8_(X,"f"):-s7_(X,"t*") .
+s8_(X,"t*"):-s7_(X,"f") .
 
-xsd_string_(X,"t"):-s6_(X,"t*") .
-xsd_string_(X,"f"):-s6_(X,"f") .
 
-s1_(X,"f");s3_(X,"f"):-ex_PersonShape_gender_(X,"f") .
-s7_(X,"t*"):-ex_PersonShape_(X,"t*") .
-ex_PersonShape_gender_(X,"t*"):-s7_(X,"t*") .
-ex_PersonShape_gender_(X,"f"):-s7_(X,"f") .
-
-s8_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
-ex_gender_(X,@new(s8,X,ex_gender,1..1),"t"):-choose(s8,X,ex_gender,1) .
-choose(s8,X,ex_gender,1);choose(s8,X,ex_gender,0):-s8_(X,"t*") .
-0 {ex_gender_(X,Y,"t"):const(Y)} 1:-s8_(X,"t*") .
-(C-0) {ex_gender_(X,Y,"f"):ex_gender_(X,Y,"t*");s9_(Y,"f"):ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:ex_gender_(X,Y,"t*")}=C,C>0 .
-ex_gender_(X,Y,"f"):-s8_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
-1 {s9_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s8_(X,"t*") .
-
+s1_(X,"f");s3_(X,"f");s5_(X,"f"):-ex_PersonShape_gender_(X,"f") .
+s9_(X,"t*"):-ex_PersonShape_(X,"t*") .
+ex_PersonShape_gender_(X,"t*"):-s9_(X,"t*") .
+ex_PersonShape_gender_(X,"f"):-s9_(X,"f") .
 
 s10_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
 choose(s10,X,ex_gender,0):-s10_(X,"t*") .
@@ -127,6 +123,8 @@ choose(s10,X,ex_gender,0):-s10_(X,"t*") .
 ex_gender_(X,Y,"f"):-s10_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
 0 {s11_(Y,"t*"):ex_gender_(X,Y,"t**")} 1:-s10_(X,"t*") .
 
+xsd_string_(X,"t"):-s11_(X,"t*") .
+xsd_string_(X,"f"):-s11_(X,"f") .
 
 s12_(X,"t*"):-ex_PersonShape_gender_(X,"t*") .
 s13_(X,"f"):-s12_(X,"t*") .
@@ -140,9 +138,11 @@ ex_gender_(X,Y,"f"):-s13_(X,"f"),ex_gender_(X,Y,"t*"),ex_gender_(X,Y,"f") .
 s15_(X,"f"):-s14_(X,"t*") .
 s15_(X,"t*"):-s14_(X,"f") .
 
+xsd_string_(X,"t"):-s15_(X,"t*") .
+xsd_string_(X,"f"):-s15_(X,"f") .
 
-s8_(X,"f");s10_(X,"f");s12_(X,"f"):-ex_PersonShape_gender_(X,"f") .
-s0_(X,"f");s7_(X,"f"):-ex_PersonShape_(X,"f") .
+s10_(X,"f");s12_(X,"f"):-ex_PersonShape_gender_(X,"f") .
+s0_(X,"f");s9_(X,"f"):-ex_PersonShape_(X,"f") .
 
 % Interpretation Rules
 
@@ -152,11 +152,11 @@ xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 % Program Constraints
 
 :-ex_gender_(X,Y,"t"),ex_gender_(X,Y,"f") .
+:-s2_(X,"t*"),X!="male" .
+:-s2_(X,"f"),X="male" .
+:-s4_(X,"f") .
+:-s8_(X,"f") .
 :-xsd_string_(X,"t"),xsd_string_(X,"f") .
-:-s9_(X,"t*"),X!="male" .
-:-s9_(X,"f"),X="male" .
-:-s11_(X,"f") .
-:-s15_(X,"f") .
 
 % Change Set Rules
 

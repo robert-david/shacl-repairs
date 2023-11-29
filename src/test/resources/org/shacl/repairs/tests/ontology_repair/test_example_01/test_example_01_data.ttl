@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#:p1 a owl:ObjectProperty , owl:DatatypeProperty .
+#:p1 rdfs:range :C .
+#:p1 rdfs:range xsd:string .
+#:C a rdfs:Class .
+##:C a owl:Class .
+
+:p1 a owl:ObjectProperty , owl:DatatypeProperty .
+:p1 rdfs:subPropertyOf :p2 .
+
+:p1 rdfs:range xsd:string .
+:p2 a owl:ObjectProperty .

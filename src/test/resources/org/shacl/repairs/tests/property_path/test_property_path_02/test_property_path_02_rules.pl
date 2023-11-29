@@ -27,67 +27,62 @@ _enrolledIn_(X,Y,"t*"):-_enrolledIn(X,Y) .
 _enrolledIn_(X,Y,"t*"):-_enrolledIn_(X,Y,"t") .
 _hasId_(X,Y,"t*"):-_hasId(X,Y) .
 _hasId_(X,Y,"t*"):-_hasId_(X,Y,"t") .
-node1hdcdgs0ox849_st_(X,X1,"t*"):-node1hdcdgs0ox849_(X,_),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*") .
-node1hdcdgs0ox849_st_(X,Y,"t*"):-node1hdcdgs0ox849_st(X,Y) .
-node1hdcdgs0ox849_st_(X,Y,"t*"):-node1hdcdgs0ox849_st_(X,Y,"t") .
+node1hgd7v9f9x1150_st_(X,X1,"t*"):-node1hgd7v9f9x1150_(X,_),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*") .
 
 % Repair Rules
 
-node1hdcdgs0ox849_(X,"t*"):-_studentShape_(X,"t*") .
-node1hdcdgs0ox849_(X,"f"):-_studentShape_(X,"f") .
+node1hgd7v9f9x1150_(X,"t*"):-_studentShape_(X,"t*") .
+node1hgd7v9f9x1150_(X,"f"):-_studentShape_(X,"f") .
 
 
-% sh:minCount 0 for node1hdcdgs0ox849
-s0_(X,"t*"):-node1hdcdgs0ox849_(X,"t*") .
-choose(s0,X,node1hdcdgs0ox849_st,0):-s0_(X,"t*") .
+% sh:minCount 0 for node1hgd7v9f9x1150
+s0_(X,"t*"):-node1hgd7v9f9x1150_(X,"t*") .
+choose(s0,X,node1hgd7v9f9x1150_st,0):-s0_(X,"t*") .
+choose(node1hgd7v9f9x1150_st,X,_enrolledIn,1);choose(node1hgd7v9f9x1150_st,X,_enrolledIn,0):-node1hgd7v9f9x1150_st_(X,Y,"t") .
+_enrolledIn_(X,@new(node1hgd7v9f9x1150_st,X,_enrolledIn,1),"t"):-choose(node1hgd7v9f9x1150_st,X,_enrolledIn,1),node1hgd7v9f9x1150_st_(X,Y,"t") .
+(C-0) {node1hgd7v9f9x1150_st_(X,Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*");s1_(Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*"),not node1hgd7v9f9x1150_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:node1hgd7v9f9x1150_st_(X,Y,"t*")}=C,C>0 .
+_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s0_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hgd7v9f9x1150_st_(X,X1,"f") .
+0 {s1_(Y,"t*"):node1hgd7v9f9x1150_st_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
-choose(node1hdcdgs0ox849_st,X,_enrolledIn,1);choose(node1hdcdgs0ox849_st,X,_enrolledIn,0):-node1hdcdgs0ox849_st_(X,Y,"t") .
-_enrolledIn_(X,@new(node1hdcdgs0ox849_st,X,_enrolledIn,1),"t"):-choose(node1hdcdgs0ox849_st,X,_enrolledIn,1),node1hdcdgs0ox849_st_(X,Y,"t") .
-(C-0) {node1hdcdgs0ox849_st_(X,Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*");s1_(Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*"),not node1hdcdgs0ox849_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:node1hdcdgs0ox849_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s0_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hdcdgs0ox849_st_(X,X1,"f") .
-0 {s1_(Y,"t*"):node1hdcdgs0ox849_st_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
-
-% sh:maxCount 0 for node1hdcdgs0ox849
-s2_(X,"t*"):-node1hdcdgs0ox849_(X,"t*") .
+% sh:maxCount 0 for node1hgd7v9f9x1150
+s2_(X,"t*"):-node1hgd7v9f9x1150_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
-node1hdcdgs0ox849_st_(X,@new(s3,X,node1hdcdgs0ox849_st,1..1),"t"):-choose(s3,X,node1hdcdgs0ox849_st,1) .
-choose(s3,X,node1hdcdgs0ox849_st,1);choose(s3,X,node1hdcdgs0ox849_st,0):-s3_(X,"t*") .
+node1hgd7v9f9x1150_st_(X,@new(s3,X,node1hgd7v9f9x1150_st,1..1),"t"):-choose(s3,X,node1hgd7v9f9x1150_st,1) .
+choose(s3,X,node1hgd7v9f9x1150_st,1);choose(s3,X,node1hgd7v9f9x1150_st,0):-s3_(X,"t*") .
+0 {_hasId_(X0,Y,"t")} 1:-_enrolledIn_(X,X0,"t**"),node1hgd7v9f9x1150_st_(X,Y,"t") .
+(C-0) {node1hgd7v9f9x1150_st_(X,Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*");s4_(Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*"),not node1hgd7v9f9x1150_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:node1hgd7v9f9x1150_st_(X,Y,"t*")}=C,C>0 .
+_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s3_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hgd7v9f9x1150_st_(X,X1,"f") .
+1 {s4_(Y,"t*"):node1hgd7v9f9x1150_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 
-0 {_hasId_(X0,Y,"t")} 1:-_enrolledIn_(X,X0,"t**"),node1hdcdgs0ox849_st_(X,Y,"t") .
-(C-0) {node1hdcdgs0ox849_st_(X,Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*");s4_(Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*"),not node1hdcdgs0ox849_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:node1hdcdgs0ox849_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s3_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hdcdgs0ox849_st_(X,X1,"f") .
-1 {s4_(Y,"t*"):node1hdcdgs0ox849_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 
-
-% universal for node1hdcdgs0ox849
-s5_(X,"t*"):-node1hdcdgs0ox849_(X,"t*") .
+% universal for node1hgd7v9f9x1150
+s5_(X,"t*"):-node1hgd7v9f9x1150_(X,"t*") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
-node1hdcdgs0ox849_st_(X,@new(s6,X,node1hdcdgs0ox849_st,1..1),"t"):-choose(s6,X,node1hdcdgs0ox849_st,1) .
-choose(s6,X,node1hdcdgs0ox849_st,1);choose(s6,X,node1hdcdgs0ox849_st,0):-s6_(X,"t*") .
-
-(C-0) {node1hdcdgs0ox849_st_(X,Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*");s7_(Y,"f"):node1hdcdgs0ox849_st_(X,Y,"t*"),not node1hdcdgs0ox849_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:node1hdcdgs0ox849_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s6_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hdcdgs0ox849_st_(X,X1,"f") .
-1 {s7_(Y,"t*"):node1hdcdgs0ox849_st_(X,Y,"t**")} 1:-s6_(X,"t*") .
+node1hgd7v9f9x1150_st_(X,@new(s6,X,node1hgd7v9f9x1150_st,1..1),"t"):-choose(s6,X,node1hgd7v9f9x1150_st,1) .
+choose(s6,X,node1hgd7v9f9x1150_st,1);choose(s6,X,node1hgd7v9f9x1150_st,0):-s6_(X,"t*") .
+(C-0) {node1hgd7v9f9x1150_st_(X,Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*");s7_(Y,"f"):node1hgd7v9f9x1150_st_(X,Y,"t*"),not node1hgd7v9f9x1150_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:node1hgd7v9f9x1150_st_(X,Y,"t*")}=C,C>0 .
+_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s6_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hgd7v9f9x1150_st_(X,X1,"f") .
+1 {s7_(Y,"t*"):node1hgd7v9f9x1150_st_(X,Y,"t**")} 1:-s6_(X,"t*") .
 s8_(X,"f"):-s7_(X,"t*") .
 s8_(X,"t*"):-s7_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f");s5_(X,"f"):-node1hdcdgs0ox849_(X,"f") .
+s0_(X,"f");s2_(X,"f");s5_(X,"f"):-node1hgd7v9f9x1150_(X,"f") .
 
 % Interpretation Rules
 
 _enrolledIn_(X,Y,"t**"):-_enrolledIn_(X,Y,"t*"),not _enrolledIn_(X,Y,"f") .
 _hasId_(X,Y,"t**"):-_hasId_(X,Y,"t*"),not _hasId_(X,Y,"f") .
-node1hdcdgs0ox849_st_(X,X1,"t**"):-node1hdcdgs0ox849_st_(X,Y,"t*"),not node1hdcdgs0ox849_st_(X,Y,"f"),_enrolledIn_(X,X0,"t**"),_hasId_(X0,X1,"t**") .
+node1hgd7v9f9x1150_st_(X,X1,"t**"):-node1hgd7v9f9x1150_st_(X,X1,"t*"),not node1hgd7v9f9x1150_st_(X,X1,"f"),_enrolledIn_(X,X0,"t**"),_hasId_(X0,X1,"t**") .
 
 % Program Constraints
 
 :-_enrolledIn_(X,Y,"t"),_enrolledIn_(X,Y,"f") .
 :-_hasId_(X,Y,"t"),_hasId_(X,Y,"f") .
-:-node1hdcdgs0ox849_st_(X,Y,"t"),node1hdcdgs0ox849_st_(X,Y,"f") .
+:-node1hgd7v9f9x1150_st_(X,Y,"t"),node1hgd7v9f9x1150_st_(X,Y,"f") .
 :-s1_(X,"f") .
 :-s4_(X,"f") .
 :-s8_(X,"f") .

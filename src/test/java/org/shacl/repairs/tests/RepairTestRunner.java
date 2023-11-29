@@ -48,7 +48,7 @@ public class RepairTestRunner extends RepairProgram {
                 solutions = true;
             }
         }
-
+        System.out.println(result);
         return result;
     }
 

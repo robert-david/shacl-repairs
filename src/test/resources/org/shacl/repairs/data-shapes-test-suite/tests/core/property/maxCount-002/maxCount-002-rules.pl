@@ -19,26 +19,26 @@ rdfs_Resource("ex_ValidResource") .
 rdfs_label("ex_ValidResource","Valid resource") .
 xsd_string("Valid resource") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hdcdgs0ox1581") .
-rdf_first("node1hdcdgs0ox1581","http://repairs.shacl.org/maxCount_002") .
-rdf_rest("node1hdcdgs0ox1581","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1882") .
+rdf_first("node1hgd7v9f9x1882","http://repairs.shacl.org/maxCount_002") .
+rdf_rest("node1hgd7v9f9x1882","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/maxCount_002") .
 rdfs_label("http://repairs.shacl.org/maxCount_002","Test of sh:maxCount at property shape 002") .
 xsd_string("Test of sh:maxCount at property shape 002") .
-mf_action("http://repairs.shacl.org/maxCount_002","node1hdcdgs0ox1582") .
-sht_dataGraph("node1hdcdgs0ox1582","http://repairs.shacl.org") .
-sht_shapesGraph("node1hdcdgs0ox1582","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/maxCount_002","node1hdcdgs0ox1583") .
-sh_ValidationReport("node1hdcdgs0ox1583") .
-sh_conforms("node1hdcdgs0ox1583","false") .
+mf_action("http://repairs.shacl.org/maxCount_002","node1hgd7v9f9x1883") .
+sht_dataGraph("node1hgd7v9f9x1883","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgd7v9f9x1883","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/maxCount_002","node1hgd7v9f9x1884") .
+sh_ValidationReport("node1hgd7v9f9x1884") .
+sh_conforms("node1hgd7v9f9x1884","false") .
 xsd_boolean("false") .
-sh_result("node1hdcdgs0ox1583","node1hdcdgs0ox1584") .
-sh_ValidationResult("node1hdcdgs0ox1584") .
-sh_focusNode("node1hdcdgs0ox1584","ex_InvalidResource") .
-sh_resultPath("node1hdcdgs0ox1584","owl_versionInfo") .
-sh_resultSeverity("node1hdcdgs0ox1584","sh_Violation") .
-sh_sourceConstraintComponent("node1hdcdgs0ox1584","sh_MaxCountConstraintComponent") .
-sh_sourceShape("node1hdcdgs0ox1584","ex_TestShape_versionInfo") .
+sh_result("node1hgd7v9f9x1884","node1hgd7v9f9x1885") .
+sh_ValidationResult("node1hgd7v9f9x1885") .
+sh_focusNode("node1hgd7v9f9x1885","ex_InvalidResource") .
+sh_resultPath("node1hgd7v9f9x1885","owl_versionInfo") .
+sh_resultSeverity("node1hgd7v9f9x1885","sh_Violation") .
+sh_sourceConstraintComponent("node1hgd7v9f9x1885","sh_MaxCountConstraintComponent") .
+sh_sourceShape("node1hgd7v9f9x1885","ex_TestShape_versionInfo") .
 mf_status("http://repairs.shacl.org/maxCount_002","sht_approved") .
 
 % Shape Targets
@@ -65,23 +65,23 @@ owl_versionInfo_(X,Y,"t*"):-owl_versionInfo_(X,Y,"t") .
 ex_TestShape_versionInfo_(X,"t*"):-ex_TestShape_(X,"t*") .
 ex_TestShape_versionInfo_(X,"f"):-ex_TestShape_(X,"f") .
 
-% sh:maxCount 0 for ex_TestShape_versionInfo
-s0_(X,"t*"):-ex_TestShape_versionInfo_(X,"t*") .
-s1_(X,"f"):-s0_(X,"t*") .
-s1_(X,"t*"):-s0_(X,"f") .
-owl_versionInfo_(X,@new(s1,X,owl_versionInfo,1..1),"t"):-choose(s1,X,owl_versionInfo,1) .
-choose(s1,X,owl_versionInfo,1);choose(s1,X,owl_versionInfo,0):-s1_(X,"t*") .
-(C-0) {owl_versionInfo_(X,Y,"f"):owl_versionInfo_(X,Y,"t*");s2_(Y,"f"):owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:owl_versionInfo_(X,Y,"t*")}=C,C>0 .
-owl_versionInfo_(X,Y,"f"):-s1_(X,"f"),owl_versionInfo_(X,Y,"t*"),owl_versionInfo_(X,Y,"f") .
-1 {s2_(Y,"t*"):owl_versionInfo_(X,Y,"t**")} 1:-s1_(X,"t*") .
-
-
 % sh:minCount 0 for ex_TestShape_versionInfo
-s3_(X,"t*"):-ex_TestShape_versionInfo_(X,"t*") .
-choose(s3,X,owl_versionInfo,0):-s3_(X,"t*") .
+s0_(X,"t*"):-ex_TestShape_versionInfo_(X,"t*") .
+choose(s0,X,owl_versionInfo,0):-s0_(X,"t*") .
+(C-0) {owl_versionInfo_(X,Y,"f"):owl_versionInfo_(X,Y,"t*");s1_(Y,"f"):owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:owl_versionInfo_(X,Y,"t*")}=C,C>0 .
+owl_versionInfo_(X,Y,"f"):-s0_(X,"f"),owl_versionInfo_(X,Y,"t*"),owl_versionInfo_(X,Y,"f") .
+0 {s1_(Y,"t*"):owl_versionInfo_(X,Y,"t**")} 0:-s0_(X,"t*") .
+
+
+% sh:maxCount 0 for ex_TestShape_versionInfo
+s2_(X,"t*"):-ex_TestShape_versionInfo_(X,"t*") .
+s3_(X,"f"):-s2_(X,"t*") .
+s3_(X,"t*"):-s2_(X,"f") .
+owl_versionInfo_(X,@new(s3,X,owl_versionInfo,1..1),"t"):-choose(s3,X,owl_versionInfo,1) .
+choose(s3,X,owl_versionInfo,1);choose(s3,X,owl_versionInfo,0):-s3_(X,"t*") .
 (C-0) {owl_versionInfo_(X,Y,"f"):owl_versionInfo_(X,Y,"t*");s4_(Y,"f"):owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:owl_versionInfo_(X,Y,"t*")}=C,C>0 .
 owl_versionInfo_(X,Y,"f"):-s3_(X,"f"),owl_versionInfo_(X,Y,"t*"),owl_versionInfo_(X,Y,"f") .
-0 {s4_(Y,"t*"):owl_versionInfo_(X,Y,"t**")} 0:-s3_(X,"t*") .
+1 {s4_(Y,"t*"):owl_versionInfo_(X,Y,"t**")} 1:-s3_(X,"t*") .
 
 
 % universal for ex_TestShape_versionInfo
@@ -97,7 +97,7 @@ s8_(X,"f"):-s7_(X,"t*") .
 s8_(X,"t*"):-s7_(X,"f") .
 
 
-s0_(X,"f");s3_(X,"f");s5_(X,"f"):-ex_TestShape_versionInfo_(X,"f") .
+s0_(X,"f");s2_(X,"f");s5_(X,"f"):-ex_TestShape_versionInfo_(X,"f") .
 
 % Interpretation Rules
 
@@ -106,7 +106,7 @@ owl_versionInfo_(X,Y,"t**"):-owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y
 % Program Constraints
 
 :-owl_versionInfo_(X,Y,"t"),owl_versionInfo_(X,Y,"f") .
-:-s2_(X,"f") .
+:-s1_(X,"f") .
 :-s4_(X,"f") .
 :-s8_(X,"f") .
 

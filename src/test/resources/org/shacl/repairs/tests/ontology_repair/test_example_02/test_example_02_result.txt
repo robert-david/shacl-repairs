@@ -1,0 +1,14 @@
+clingo version 5.6.2
+Reading from ...st_example_02/test_example_02_rules.pl
+Solving...
+actualTarget("_p1",_property) actualTarget("_p1",_subProperty) actualTarget("_p2",_property) del(rdfs_subPropertyOf("_p1","_p2"))
+
+OPTIMUM FOUND
+
+Models       : 109+
+  Optimum    : yes
+  Optimal    : 100
+Optimization : 0 1 0
+Calls        : 1
+Time         : 0.224s (Solving: 0.03s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.222s
