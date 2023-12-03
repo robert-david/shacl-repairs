@@ -8,7 +8,7 @@
     sh:repair [
         sh:path :hasContractStatus;
         sh:action sh:delete;
-        sh:preserveOrder (
+        sh:preferenceOrder (
             :statusViolated :statusFulfilled :statusPending :statusCreated
         )
     ];
@@ -23,7 +23,7 @@
     sh:repair [
         sh:path :hasState;
         sh:action sh:delete;
-        sh:preserveOrder (
+        sh:preferenceOrder (
             :ViolatedState :FulfilledState :PendingState :CreatedState
         )
     ];

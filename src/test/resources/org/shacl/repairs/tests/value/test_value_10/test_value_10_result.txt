@@ -1,18 +1,14 @@
 clingo version 5.6.2
 Reading from ...e/test_value_10/test_value_10_rules.pl
 Solving...
-Answer: 1
 actualTarget("_ann",_personShape)
-Optimization: 0 0 0
-Answer: 2
-actualTarget("_ann",_personShape)
-Optimization: 0 0 0
+
 OPTIMUM FOUND
 
-Models       : 5
+Models       : 4
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 0 0
 Calls        : 1
-Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.009s
+Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s

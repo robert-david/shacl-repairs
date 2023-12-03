@@ -1,14 +1,13 @@
 clingo version 5.6.2
 Reading from ...re/property/node-001/node-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_Anon",ex_Person) actualTarget("ex_Issue_1",ex_Issue) actualTarget("ex_JohnDoeWithEmail",ex_Person) actualTarget("ex_Issue_2",ex_Issue) del(ex_assignedTo("ex_Issue_1","ex_Anon"))
-Optimization: 0 1
+
 OPTIMUM FOUND
 
-Models       : 10
+Models       : 7
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.052s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.052s
+Time         : 0.053s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.053s

@@ -76,10 +76,9 @@ public class ConflictRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_conflict_04_rules.pl");
 
-        assertTrue(result.contains("Models       : 3"));
+        assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_notPersonShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_worksFor(\"_ann\",\"1649\"))") == 1);
 
         r.writeResult(testPath + "/test_conflict_04_result.txt", result);
     }
@@ -147,7 +146,7 @@ public class ConflictRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_conflict_08_rules.pl");
 
-        assertTrue(result.contains("Models       : 5"));
+        assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_vegetarian)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_steak\",_meat)") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_eats(\"_ann\",\"_steak\"))") == 1);

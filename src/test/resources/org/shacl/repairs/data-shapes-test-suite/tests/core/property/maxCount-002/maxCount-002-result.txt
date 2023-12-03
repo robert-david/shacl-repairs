@@ -1,14 +1,13 @@
 clingo version 5.6.2
 Reading from ...rty/maxCount-002/maxCount-002-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_ValidResource",ex_TestShape) actualTarget("ex_InvalidResource",ex_TestShape) del(owl_versionInfo("ex_InvalidResource","1.0"))
-Optimization: 0 1
+
 OPTIMUM FOUND
 
 Models       : 3
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s

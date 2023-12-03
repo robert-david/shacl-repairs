@@ -9,44 +9,44 @@ sh_targetNode("ex_TestShape","ex_NamedInstance") .
 sh_targetNode("ex_TestShape","String") .
 xsd_string("String") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1h0oc2cvkx918") .
-rdf_first("node1h0oc2cvkx918","http://repairs.shacl.org/class_002") .
-rdf_rest("node1h0oc2cvkx918","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgobhchgx159") .
+rdf_first("node1hgobhchgx159","http://repairs.shacl.org/class_002") .
+rdf_rest("node1hgobhchgx159","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_002") .
 rdfs_label("http://repairs.shacl.org/class_002","Test of sh:class at node shape 002") .
 xsd_string("Test of sh:class at node shape 002") .
-mf_action("http://repairs.shacl.org/class_002","node1h0oc2cvkx919") .
-sht_dataGraph("node1h0oc2cvkx919","http://repairs.shacl.org") .
-sht_shapesGraph("node1h0oc2cvkx919","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_002","node1h0oc2cvkx920") .
-sh_ValidationReport("node1h0oc2cvkx920") .
-sh_conforms("node1h0oc2cvkx920","false") .
+mf_action("http://repairs.shacl.org/class_002","node1hgobhchgx160") .
+sht_dataGraph("node1hgobhchgx160","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgobhchgx160","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_002","node1hgobhchgx161") .
+sh_ValidationReport("node1hgobhchgx161") .
+sh_conforms("node1hgobhchgx161","false") .
 xsd_boolean("false") .
-sh_result("node1h0oc2cvkx920","node1h0oc2cvkx921") .
-sh_ValidationResult("node1h0oc2cvkx921") .
-sh_focusNode("node1h0oc2cvkx921","String") .
-sh_resultSeverity("node1h0oc2cvkx921","sh_Violation") .
-sh_sourceConstraintComponent("node1h0oc2cvkx921","sh_ClassConstraintComponent") .
-sh_sourceShape("node1h0oc2cvkx921","ex_TestShape") .
-sh_value("node1h0oc2cvkx921","String") .
-sh_result("node1h0oc2cvkx920","node1h0oc2cvkx922") .
-sh_ValidationResult("node1h0oc2cvkx922") .
-sh_focusNode("node1h0oc2cvkx922","b9751") .
-sh_resultSeverity("node1h0oc2cvkx922","sh_Violation") .
-sh_sourceConstraintComponent("node1h0oc2cvkx922","sh_ClassConstraintComponent") .
-sh_sourceShape("node1h0oc2cvkx922","ex_TestShape") .
-sh_value("node1h0oc2cvkx922","b9751") .
+sh_result("node1hgobhchgx161","node1hgobhchgx162") .
+sh_ValidationResult("node1hgobhchgx162") .
+sh_focusNode("node1hgobhchgx162","String") .
+sh_resultSeverity("node1hgobhchgx162","sh_Violation") .
+sh_sourceConstraintComponent("node1hgobhchgx162","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hgobhchgx162","ex_TestShape") .
+sh_value("node1hgobhchgx162","String") .
+sh_result("node1hgobhchgx161","node1hgobhchgx163") .
+sh_ValidationResult("node1hgobhchgx163") .
+sh_focusNode("node1hgobhchgx163","b9751") .
+sh_resultSeverity("node1hgobhchgx163","sh_Violation") .
+sh_sourceConstraintComponent("node1hgobhchgx163","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hgobhchgx163","ex_TestShape") .
+sh_value("node1hgobhchgx163","b9751") .
 mf_status("http://repairs.shacl.org/class_002","sht_approved") .
 ex_BNodeClass("b9751") .
-ex_BNodeClass("node1h0oc2cvkx923") .
-ex_TestClass("node1h0oc2cvkx923") .
+ex_BNodeClass("node1hgobhchgx164") .
+ex_TestClass("node1hgobhchgx164") .
 
 % Shape Targets
 
 targetNode("ex_NamedInstance",ex_TestShape) .
 targetNode("b9751",ex_TestShape) .
 targetNode("String",ex_TestShape) .
-targetNode("node1h0oc2cvkx923",ex_TestShape) .
+targetNode("node1hgobhchgx164",ex_TestShape) .
 
 % Constants
 
@@ -57,7 +57,7 @@ actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
 ex_TestShape_("ex_NamedInstance","t*"):-actualTarget("ex_NamedInstance",ex_TestShape) .
 ex_TestShape_("b9751","t*"):-actualTarget("b9751",ex_TestShape) .
 ex_TestShape_("String","t*"):-actualTarget("String",ex_TestShape) .
-ex_TestShape_("node1h0oc2cvkx923","t*"):-actualTarget("node1h0oc2cvkx923",ex_TestShape) .
+ex_TestShape_("node1hgobhchgx164","t*"):-actualTarget("node1hgobhchgx164",ex_TestShape) .
 
 % Annotation Rules
 
@@ -86,7 +86,7 @@ ex_TestClass_(X,"t**"):-ex_TestClass_(X,"t*"),not ex_TestClass_(X,"f") .
 
 add(ex_TestClass(X)):-ex_TestClass_(X,"t**"),not ex_TestClass(X) .
 del(ex_TestClass(X)):-ex_TestClass_(X,"f"),ex_TestClass(X) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

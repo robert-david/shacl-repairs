@@ -11,22 +11,22 @@ public class RepairTestRunner extends RepairProgram {
     public RepairTestRunner() {
     }
 
-    public synchronized String runProgram(String rulesFile) throws IOException {
+    public String runProgram(String rulesFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"/usr/local/bin/clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10"};
+        String[] commands = {"/usr/local/bin/clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "100"};
         Process proc = rt.exec(commands);
 
-        Set<String> reduced = new LinkedHashSet();
-        String result = "";
+        BufferedReader stdInput = new BufferedReader(new
+                InputStreamReader(proc.getInputStream()));
 
-        try (BufferedReader stdInput = new BufferedReader(new
-                        InputStreamReader(proc.getInputStream()))) {
-            String s;
-            while ((s = stdInput.readLine()) != null) {
-                if (!s.startsWith("Answer: ") && !s.startsWith("Optimization: ")) {
-                    reduced.add(s);
-                }
+        Set<String> reduced = new LinkedHashSet();
+
+        String s;
+        String result = "";
+        while ((s = stdInput.readLine()) != null) {
+            if (!s.startsWith("Answer: ") && !s.startsWith("Optimization: ")) {
+                reduced.add(s);
             }
         }
 
@@ -39,10 +39,10 @@ public class RepairTestRunner extends RepairProgram {
             }
 
             result += s1;
-            result += System.lineSeparator();
-            if (solutions) {
                 result += System.lineSeparator();
-            }
+                if (solutions) {
+                    result += System.lineSeparator();
+                }
 
             if (s1.equals("Solving...")) {
                 solutions = true;

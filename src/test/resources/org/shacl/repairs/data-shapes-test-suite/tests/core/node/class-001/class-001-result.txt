@@ -1,14 +1,13 @@
 clingo version 5.6.2
 Reading from ...core/node/class-001/class-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_Quokki",ex_TestShape) actualTarget("ex_John",ex_TestShape) actualTarget("ex_Typeless",ex_TestShape) actualTarget("ex_Someone",ex_TestShape) add(ex_Person("ex_Quokki")) add(ex_Person("ex_Typeless"))
-Optimization: 0 2
+
 OPTIMUM FOUND
 
 Models       : 5
   Optimum    : yes
 Optimization : 0 2
 Calls        : 1
-Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.002s

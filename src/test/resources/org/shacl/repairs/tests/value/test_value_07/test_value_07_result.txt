@@ -1,42 +1,16 @@
 clingo version 5.6.2
 Reading from ...e/test_value_07/test_value_07_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 2
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 3
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 4
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 5
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 6
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 7
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 8
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 9
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
-Answer: 10
-actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1212")) add(_person("Ann"))
-Optimization: 0 5 1
+actualTarget("_ann",_personShape) add(_name("_ann","1205")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1205")) add(_person("Ann"))
+
+actualTarget("_ann",_personShape) add(_name("_ann","1260")) add(_name("_ann","Ann")) add(_person("ANN")) add(_person("1260")) add(_person("Ann"))
+
 OPTIMUM FOUND
 
-Models       : 15+
+Models       : 34
   Optimum    : yes
-  Optimal    : 10
+  Optimal    : 32
 Optimization : 0 5 1
 Calls        : 1
-Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.017s
+Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s

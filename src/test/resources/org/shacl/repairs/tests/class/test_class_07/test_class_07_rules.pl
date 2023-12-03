@@ -49,7 +49,7 @@ add(_person(X)):-_person_(X,"t**"),not _person(X) .
 del(_person(X)):-_person_(X,"f"),_person(X) .
 add(_organization(X)):-_organization_(X,"t**"),not _organization(X) .
 del(_organization(X)):-_organization_(X,"f"),_organization(X) .
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

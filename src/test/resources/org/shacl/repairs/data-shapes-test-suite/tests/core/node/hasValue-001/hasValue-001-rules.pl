@@ -10,25 +10,25 @@ sh_targetNode("ex_TestShape","Invalid String") .
 xsd_string("Invalid String") .
 sh_targetNode("ex_TestShape","Test") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1h0oc2cvkx816") .
-rdf_first("node1h0oc2cvkx816","http://repairs.shacl.org/hasValue_001") .
-rdf_rest("node1h0oc2cvkx816","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hgobhchgx57") .
+rdf_first("node1hgobhchgx57","http://repairs.shacl.org/hasValue_001") .
+rdf_rest("node1hgobhchgx57","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/hasValue_001") .
 rdfs_label("http://repairs.shacl.org/hasValue_001","Test of sh:hasValue at node shape 001") .
 xsd_string("Test of sh:hasValue at node shape 001") .
-mf_action("http://repairs.shacl.org/hasValue_001","node1h0oc2cvkx817") .
-sht_dataGraph("node1h0oc2cvkx817","http://repairs.shacl.org") .
-sht_shapesGraph("node1h0oc2cvkx817","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/hasValue_001","node1h0oc2cvkx818") .
-sh_ValidationReport("node1h0oc2cvkx818") .
-sh_conforms("node1h0oc2cvkx818","false") .
+mf_action("http://repairs.shacl.org/hasValue_001","node1hgobhchgx58") .
+sht_dataGraph("node1hgobhchgx58","http://repairs.shacl.org") .
+sht_shapesGraph("node1hgobhchgx58","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/hasValue_001","node1hgobhchgx59") .
+sh_ValidationReport("node1hgobhchgx59") .
+sh_conforms("node1hgobhchgx59","false") .
 xsd_boolean("false") .
-sh_result("node1h0oc2cvkx818","node1h0oc2cvkx819") .
-sh_ValidationResult("node1h0oc2cvkx819") .
-sh_focusNode("node1h0oc2cvkx819","Invalid String") .
-sh_resultSeverity("node1h0oc2cvkx819","sh_Violation") .
-sh_sourceConstraintComponent("node1h0oc2cvkx819","sh_HasValueConstraintComponent") .
-sh_sourceShape("node1h0oc2cvkx819","ex_TestShape") .
+sh_result("node1hgobhchgx59","node1hgobhchgx60") .
+sh_ValidationResult("node1hgobhchgx60") .
+sh_focusNode("node1hgobhchgx60","Invalid String") .
+sh_resultSeverity("node1hgobhchgx60","sh_Violation") .
+sh_sourceConstraintComponent("node1hgobhchgx60","sh_HasValueConstraintComponent") .
+sh_sourceShape("node1hgobhchgx60","ex_TestShape") .
 mf_status("http://repairs.shacl.org/hasValue_001","sht_approved") .
 
 % Shape Targets
@@ -62,7 +62,7 @@ ex_TestShape_("Test","t*"):-actualTarget("Test",ex_TestShape) .
 
 % Change Set Rules
 
-% Get all optimal models: --opt-mode=optN -n 10 --quiet=1
+% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

@@ -78,16 +78,16 @@ public class RepairStrategyParser {
 
                         repair.clazz = (Resource) statement.getObject();
 
-                    } else if (statement.getPredicate().stringValue().equals(SHACL.NAMESPACE + "preserveOrder")) {
+                    } else if (statement.getPredicate().stringValue().equals(SHACL.NAMESPACE + "preferenceOrder")) {
 
-                        repair.preserveOrder = new ArrayList();
+                        repair.preferenceOrder = new ArrayList();
 
                         Value rest = statement.getObject();
                         while (rest.isBNode()) {
 
                             if (!RDF.NIL.equals(rest)) {
                                 Statement first = dataModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
-                                repair.preserveOrder.add(first.getObject());
+                                repair.preferenceOrder.add(first.getObject());
                             }
                             rest = dataModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
                         }
@@ -171,15 +171,15 @@ public class RepairStrategyParser {
                             throw new RuntimeException("Not implemented yet");
                         }
 
-                    } else if (repair.preserveOrder != null && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
+                    } else if (repair.preferenceOrder != null && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
 
-                        Collections.reverse(repair.preserveOrder);
+                        Collections.reverse(repair.preferenceOrder);
 
-                        for (int i = 0; i < repair.preserveOrder.size(); i++) {
+                        for (int i = 0; i < repair.preferenceOrder.size(); i++) {
 
                             repairData.getRepairStrategyRules().add(
                                     "#minimize { " + (i + 1) + "@0,X: del(" +
-                                            ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.preserveOrder.get(i)) + "\")) } .\n"
+                                            ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.preferenceOrder.get(i)) + "\")) } .\n"
                             );
                         }
 
@@ -222,7 +222,7 @@ public class RepairStrategyParser {
 
     private static class Repair {
 
-        public List<Value> preserveOrder;
+        public List<Value> preferenceOrder;
 
         public Repair(Resource iri) {
             this.iri = iri;

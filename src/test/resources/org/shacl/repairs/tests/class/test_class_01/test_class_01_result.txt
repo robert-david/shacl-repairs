@@ -1,9 +1,8 @@
 clingo version 5.6.2
 Reading from ...s/test_class_01/test_class_01_rules.pl
 Solving...
-Answer: 1
 actualTarget("_ann",_personShape) add(_person("_ann"))
-Optimization: 0 1
+
 OPTIMUM FOUND
 
 Models       : 3

@@ -17,7 +17,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -47,7 +46,7 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_01_rules.pl");
 
-        assertTrue(result.contains("Models       : 6"));
+        assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
@@ -69,7 +68,7 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_02_rules.pl");
 
-        assertTrue(result.contains("Models       : 6"));
+        assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
@@ -91,7 +90,7 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_03_rules.pl");
 
-        assertTrue(result.contains("Models       : 6"));
+        assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
@@ -113,7 +112,7 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_04_rules.pl");
 
-        assertTrue(result.contains("Models       : 6"));
+        assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"add(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
@@ -135,8 +134,8 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_05_rules.pl");
 
-        assertTrue(result.contains("Models       : 18+"));
-        assertTrue(result.contains("Optimal    : 10"));
+        assertTrue(result.contains("Models       : 11"));
+        assertTrue(result.contains("Optimal    : 8"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractViolationShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusViolated\"))") == 1);

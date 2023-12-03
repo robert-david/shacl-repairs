@@ -21,6 +21,9 @@ import org.eclipse.rdf4j.sail.shacl.ast.paths.*;
 import org.eclipse.rdf4j.sail.shacl.ast.targets.*;
 import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
+import org.shacl.repairs.processor.reduction.AndConstraintHelper;
+import org.shacl.repairs.processor.reduction.NotConstraintHelper;
+import org.shacl.repairs.processor.reduction.OrConstraintHelper;
 
 import java.util.*;
 
@@ -66,7 +69,7 @@ public class RepairGenerator {
             SHACLData parserData,
             RepairData repairData) {
 
-        repairData.getChangeSetRules().add("% Get all optimal models: --opt-mode=optN -n 10 --quiet=1\n");
+        repairData.getChangeSetRules().add("% Get all optimal models: --opt-mode=optN -n 100 --quiet=1\n");
         repairData.getChangeSetRules().add("% Change the scores of add and del to prioritize additions or deletions\n");
         repairData.getChangeSetRules().add("#minimize { 1@2,A: add(A); 1@2,D: del(D) } .\n");
         repairData.getChangeSetRules().add("#minimize { 1@3,X,S: skipTarget(X,S) } .\n");
@@ -169,17 +172,17 @@ public class RepairGenerator {
             }
         }
 
-        for (Resource shape : shapeMap.keySet()) {
+        for (Resource shapeId : shapeMap.keySet()) {
 
-            String shapeName = ns(nss, shape);
+            String shapeName = ns(nss, shapeId);
 
-            if (shapeMap.get(shape).size() == 1) {
+            if (shapeMap.get(shapeId).size() == 1) {
 
-                dispatch(shapeName, shapeMap.get(shape).stream().findFirst().get(), false);
+                dispatch(shapeName, shapeMap.get(shapeId).stream().findFirst().get(), false);
 
-            } else if (shapeMap.get(shape).size() > 1) {
+            } else if (shapeMap.get(shapeId).size() > 1) {
 
-                processConjunction(shapeName, shapeMap.get(shape), false);
+                processConjunction(shapeName, shapeMap.get(shapeId), false);
             }
         }
     }
@@ -294,20 +297,45 @@ public class RepairGenerator {
         }
     }
 
-    public static void createPropertyRules(String path) {
+    private static void processXone(String shapeName, Collection<? extends ConstraintComponent> constraintComponents, boolean universal) {
 
-        RepairData.get().getAnnotationRules().add(path + "_(X,Y,\"t*\"):-" + path + "(X,Y) .\n");
-        RepairData.get().getAnnotationRules().add(path + "_(X,Y,\"t*\"):-" + path + "_(X,Y,\"t\") .\n");
+        OrConstraintHelper xone = new OrConstraintHelper();
+
+        ArrayList<? extends ConstraintComponent> constraintList = new ArrayList<>(constraintComponents);
+
+        for (int i = 0; i < constraintList.size(); i++) {
+
+            AndConstraintHelper and = new AndConstraintHelper();
+            and.getAnd().add(constraintList.get(i));
+
+            OrConstraintHelper others = new OrConstraintHelper();
+            for (int j = 0; j < constraintList.size(); j++) {
+                if (i != j) {
+                    others.getOr().add(constraintList.get(j));
+                }
+            }
+
+            and.getAnd().add(new NotConstraintHelper(others));
+            xone.getOr().add(and);
+        }
+
+        processDisjunction(shapeName, xone.getOr(), universal);
+    }
+
+    public static void createPropertyRules(String pathName) {
+
+        RepairData.get().getAnnotationRules().add(pathName + "_(X,Y,\"t*\"):-" + pathName + "(X,Y) .\n");
+        RepairData.get().getAnnotationRules().add(pathName + "_(X,Y,\"t*\"):-" + pathName + "_(X,Y,\"t\") .\n");
 
         RepairData.get().getInterpretationRules().add(
-                path + "_(X,Y,\"t**\"):-" +
-                        path + "_(X,Y,\"t*\"),not " + path + "_(X,Y,\"f\") .\n");
+                pathName + "_(X,Y,\"t**\"):-" +
+                        pathName + "_(X,Y,\"t*\"),not " + pathName + "_(X,Y,\"f\") .\n");
 
         RepairData.get().getProgramConstraints().add(
-                ":-" + path + "_(X,Y,\"t\")," + path + "_(X,Y,\"f\") .\n");
+                ":-" + pathName + "_(X,Y,\"t\")," + pathName + "_(X,Y,\"f\") .\n");
 
-        RepairData.get().getChangeSetRules().add("add(" + path + "(X,Y)):-" + path + "_(X,Y,\"t**\"),not " + path + "(X,Y) .\n");
-        RepairData.get().getChangeSetRules().add("del(" + path + "(X,Y)):-" + path + "_(X,Y,\"f\")," + path + "(X,Y) .\n");
+        RepairData.get().getChangeSetRules().add("add(" + pathName + "(X,Y)):-" + pathName + "_(X,Y,\"t**\"),not " + pathName + "(X,Y) .\n");
+        RepairData.get().getChangeSetRules().add("del(" + pathName + "(X,Y)):-" + pathName + "_(X,Y,\"f\")," + pathName + "(X,Y) .\n");
 
         RepairData.get().getRepairRules().add("\n");
     }
@@ -319,22 +347,20 @@ public class RepairGenerator {
             String pathName = getPathName(path);
             createPropertyRules(pathName);
 
-            String rule = shapeName + "_st_(X,Y,\"t*\"):-" + shapeName + "_(X,_)" + "," + pathName + "_(X,Y,\"t*\") .\n";
-
-            RepairData.get().getAnnotationRules().add(rule);
-
-            rule = shapeName + "_st_(X,Y,\"t**\"):-" + pathName + "_(X,Y,\"t**\")," + shapeName + "_st_(X,Y,\"t*\"),not " + shapeName + "_st_(X,Y,\"f\") .\n";
-            RepairData.get().getInterpretationRules().add(rule);
-
         } else if (path instanceof InversePath) {
+
+            if (!(((InversePath) path).getInversePath() instanceof SimplePath)) {
+                throw new RuntimeException("sequence path contains not supported element " + ((InversePath) path).getInversePath().getClass().getSimpleName());
+            }
 
             String pathName = getPathName(path);
             createPropertyRules(pathName);
+            createInversePropertyRules(pathName);
 
-            String rule = shapeName + "_st_(X,Y,\"t*\"):-" + shapeName + "_(X,_)" + "," + pathName + "_(Y,X,\"t*\") .\n";
+            String rule = shapeName + "_st_(X,Y,\"t*\"):-" + shapeName + "_(X,_)" + "," + pathName + "_inv_(X,Y,\"t*\") .\n";
             RepairData.get().getAnnotationRules().add(rule);
 
-            rule = shapeName + "_st_(X,Y,\"t**\"):-" + pathName + "_(Y,X,\"t**\")," + shapeName + "_st_(X,Y,\"t*\"),not " + shapeName + "_st_(X,Y,\"f\") .\n";
+            rule = shapeName + "_st_(X,Y,\"t**\"):-" + pathName + "_inv_(X,Y,\"t**\")," + shapeName + "_st_(X,Y,\"t*\"),not " + shapeName + "_st_(X,Y,\"f\") .\n";
             RepairData.get().getInterpretationRules().add(rule);
 
         } else if (path instanceof SequencePath) {
@@ -347,6 +373,10 @@ public class RepairGenerator {
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
+
+                if (pathEl instanceof InversePath) {
+                    createInversePropertyRules(getPathName(pathEl));
+                }
             }
 
             int count = -1;
@@ -356,8 +386,9 @@ public class RepairGenerator {
                     rule += "," + getPathName(pathEl) +
                             "_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\")";
                 } else if (pathEl instanceof InversePath) {
-                    rule += "," + getPathName(pathEl) +
-                            "_(X" + (count + 1) + ",X" + (count >= 0 ? count : "") + ",\"t*\")";
+                    String pathName = getPathName(pathEl);
+                    rule += "," + pathName +
+                            "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\")";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
@@ -369,21 +400,24 @@ public class RepairGenerator {
             RepairData.get().getAnnotationRules().add(rule);
 
             count = -1;
-            rule = shapeName + "_st_(X,Y,\"t*\"),not " + shapeName + "_st_(X,Y,\"f\")";
+            rule = "";
             for (Path pathEl : seq.getSequence()) {
                 if (pathEl instanceof SimplePath) {
                     rule += "," + getPathName(pathEl) +
                             "_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t**\")";
                 } else if (pathEl instanceof InversePath) {
-                    rule += "," + getPathName(pathEl) +
-                            "_(X" + (count + 1) + ",X" + (count >= 0 ? count : "") + ",\"t**\")";
+                    String pathName = getPathName(pathEl);
+                    rule += "," + pathName +
+                            "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t**\")";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
                 count++;
             }
 
-            rule = shapeName + "_st_(X,Y,\"t**\"):-" + rule  +" .\n";
+            rule = shapeName + "_st_(X,X" + count + ",\"t**\"):-" +
+                    shapeName + "_st_(X,X" + count + ",\"t*\"),not " + shapeName + "_st_(X,X" + count + ",\"f\")" +
+                    rule  +" .\n";
             RepairData.get().getInterpretationRules().add(rule);
 
         } else {
@@ -417,7 +451,7 @@ public class RepairGenerator {
 
             } else {
                 if (!pathNode.equals(ns(nss, propertyShape.getPath().getId()))) {
-                    throw new RuntimeException("Duplicate path on shape " + shapeName +
+                    throw new RuntimeException("duplicate path on shape " + shapeName +
                             "; " + path + " " + (ns(nss, propertyShape.getPath().getId())));
                 }
             }
@@ -440,6 +474,7 @@ public class RepairGenerator {
                         || constraintComponent instanceof AndConstraintComponent
                         || constraintComponent instanceof OrConstraintComponent
                         || constraintComponent instanceof NotConstraintComponent
+                        || constraintComponent instanceof XoneConstraintComponent
                         || constraintComponent instanceof NodeShape
                         || constraintComponent instanceof PropertyShape
                         || constraintComponent instanceof DatatypeConstraintComponent
@@ -541,8 +576,9 @@ public class RepairGenerator {
 
             } else if (constraintComponent instanceof EqualsConstraintComponent) {
 
+                // todo: add support for property paths
                 String equalsName = ns(nss, ((EqualsConstraintComponent) constraintComponent).getPredicate());
-                getEqualsRules(shapeName, st, equalsName);
+                getEqualsRules(shapeName, st, path, equalsName);
             }
         }
 
@@ -578,11 +614,15 @@ public class RepairGenerator {
 
         } else if (path instanceof InversePath) {
 
+            if (!(((InversePath) path).getInversePath() instanceof SimplePath)) {
+                throw new RuntimeException("sequence path contains not supported element " + ((InversePath) path).getInversePath().getClass().getSimpleName());
+            }
+
             InversePath inv = (InversePath) path;
             String pathName = ns(nss, inv.getInversePath().getId());
 
             RepairData.get().getRepairRules().add(
-                    pathName + "_(Y,X,\"f\"):-" + shapeName + "_(X,\"f\")," + pathName + "_(Y,X,\"t*\")," + sink + "_(X,Y,\"f\") .\n");
+                    pathName + "_(Y,X,\"f\"):-" + shapeName + "_(X,\"f\")," + pathName + "_inv_(X,Y,\"t*\")," + sink + "_(X,Y,\"f\") .\n");
 
         } else if (path instanceof SequencePath) {
 
@@ -597,10 +637,11 @@ public class RepairGenerator {
                     head += getPathName(pathEl) +
                             "_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"f\");";
                 } else if (pathEl instanceof InversePath) {
-                    body += "," + getPathName(pathEl) +
-                            "_(X" + (count + 1) + ",X" + (count >= 0 ? count : "") + ",\"t*\")";
+                    String pathName = getPathName(pathEl);
+                    body += "," + pathName +
+                            "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\")";
                     head += getPathName(pathEl) +
-                            "_(X" + (count + 1) + ",X" + (count >= 0 ? count : "") + ",\"f\");";
+                            "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"f\");";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
@@ -630,9 +671,9 @@ public class RepairGenerator {
     private static void getCardinalityRules(String shapeName, Path path, String st, long minCount, Collection<ConstraintComponent> valueNodeConstraints) {
 
         String firstPath;
-        if (path instanceof SimplePath) {
+        if (path instanceof SimplePath || path instanceof SequencePath) {
 
-            firstPath = ns(nss, path.getId());
+            firstPath = (path instanceof SimplePath) ? ns(nss, path.getId()) : st;
 
             String repairChoices = ";choose(" + shapeName + ",X," + firstPath + ",0):-" + shapeName + "_(X,\"t*\") .\n";
 
@@ -646,7 +687,7 @@ public class RepairGenerator {
             }
 
             if (!repairChoices.startsWith(";")) {
-                throw new RuntimeException("Error processing choose options for " + shapeName);
+                throw new RuntimeException("error processing choose options for " + shapeName);
             }
             repairChoices = repairChoices.substring(1);
 
@@ -661,6 +702,13 @@ public class RepairGenerator {
                 RepairData.get().getChangeSetRules().add("#minimize { 1@1,X,Y: " + firstPath + "_(X,Y,\"t\"), const(Y) } .\n");
             }
 
+            // if only a simple property, we do not need an auxiliary s-t property
+            st = firstPath;
+
+            if (path instanceof SequencePath) {
+                createSequencePathRules((SequencePath) path, st, minCount);
+            }
+
         } else if (path instanceof InversePath) {
 
             firstPath = getPathName(path);
@@ -672,12 +720,12 @@ public class RepairGenerator {
                 repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + i + ")" + repairChoices;
 
                 RepairData.get().getRepairRules().add(
-                        firstPath + "_(@new(" + shapeName + ",X," + firstPath + ",1.." + i + "),X,\"t\")" +
+                        firstPath + "_inv_(X,@new(" + shapeName + ",X," + firstPath + "_inv_,1.." + i + "),\"t\")" +
                                 ":-choose(" + shapeName + ",X," + firstPath + "," + i + ") .\n");
             }
 
             if (!repairChoices.startsWith(";")) {
-                throw new RuntimeException("Error processing choose options for " + shapeName);
+                throw new RuntimeException("error processing choose options for " + shapeName);
             }
             repairChoices = repairChoices.substring(1);
 
@@ -692,10 +740,6 @@ public class RepairGenerator {
                 RepairData.get().getChangeSetRules().add("#minimize { 1@1,Y,X: " + firstPath + "_(Y,X,\"t\"), const(Y) } .\n");
             }
 
-        } else if (path instanceof SequencePath) {
-
-            createSequencePathRules((SequencePath) path, shapeName, minCount);
-
         } else {
             throw new RuntimeException("path expression " + path.getClass().getSimpleName() + " not supported");
         }
@@ -705,7 +749,7 @@ public class RepairGenerator {
         long allowed = minCount > 0 ? (minCount - 1) : 0;
         RepairData.get().getRepairRules().add(
                 "(C-" + allowed + ") {" +
-                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +//,not " + s + "_(Y,\"f\")" +
+                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
                         "} (C-" + allowed + "):-"
@@ -743,9 +787,9 @@ public class RepairGenerator {
 
         String firstPath;
 
-        if (path instanceof SimplePath) {
+        if (path instanceof SimplePath || path instanceof SequencePath) {
 
-            firstPath = getPathName(path);
+            firstPath = (path instanceof SimplePath) ? ns(nss, path.getId()) : st;
 
             String repairChoices = ";choose(" + shapeName + ",X," + firstPath + ",0):-" + shapeName + "_(X,\"t*\") .\n";
             repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + 1 + ")" + repairChoices;
@@ -755,7 +799,7 @@ public class RepairGenerator {
                             ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
 
             if (!repairChoices.startsWith(";")) {
-                throw new RuntimeException("Error processing choose options for " + shapeName);
+                throw new RuntimeException("error processing choose options for " + shapeName);
             }
             repairChoices = repairChoices.substring(1);
             RepairData.get().getRepairRules().add(repairChoices);
@@ -769,6 +813,13 @@ public class RepairGenerator {
                 RepairData.get().getChangeSetRules().add("#minimize { 1@1,X,Y: " + firstPath + "_(X,Y,\"t\"), const(Y) } .\n");
             }
 
+            // if only a simple property, we do not need an auxiliary p
+            st = firstPath;
+
+            if (path instanceof SequencePath) {
+                createSequencePathRules((SequencePath) path, st, 1);
+            }
+
         } else if (path instanceof InversePath) {
 
             firstPath = getPathName(path);
@@ -777,11 +828,11 @@ public class RepairGenerator {
             repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + 1 + ")" + repairChoices;
 
             RepairData.get().getRepairRules().add(
-                    firstPath + "_(@new(" + shapeName + ",X," + firstPath + ",1.." + 1 + "),X,\"t\")" +
+                    firstPath + "_inv_(X,@new(" + shapeName + ",X," + firstPath + "_inv_,1.." + 1 + "),\"t\")" +
                             ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
 
             if (!repairChoices.startsWith(";")) {
-                throw new RuntimeException("Error processing choose options for " + shapeName);
+                throw new RuntimeException("error processing choose options for " + shapeName);
             }
             repairChoices = repairChoices.substring(1);
             RepairData.get().getRepairRules().add(repairChoices);
@@ -795,10 +846,6 @@ public class RepairGenerator {
                 RepairData.get().getChangeSetRules().add("#minimize { 1@1,Y,X: " + firstPath + "_(Y,X,\"t\"), const(Y) } .\n");
             }
 
-        } else if (path instanceof SequencePath) {
-
-            createSequencePathRules((SequencePath) path, shapeName, 1);
-
         } else {
             throw new RuntimeException("path expression " + path.getClass().getSimpleName() + " not supported");
         }
@@ -808,7 +855,7 @@ public class RepairGenerator {
         long allowed = 0;
         RepairData.get().getRepairRules().add(
                 "(C-" + allowed + ") {" +
-                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +//,not " + s + "_(Y,\"f\")" +
+                        st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
                         "} (C-" + allowed + "):-"
@@ -842,7 +889,7 @@ public class RepairGenerator {
         RepairData.get().getRepairRules().add("\n");
     }
 
-    private static String createSubPathRuleBody(String shapeName, SequencePath seq, int pI) {
+    private static String createSubPathRuleBody(String propertyPathName, SequencePath seq, int pI) {
 
         String ruleBody = "";
 
@@ -857,19 +904,23 @@ public class RepairGenerator {
                                 ",X" + spI + ",\"t**\"),";
             } else if (seq.getSequence().get(spI) instanceof InversePath) {
                 ruleBody +=
-                        currentPathName + "_(X" + spI + ",X" +
+                        currentPathName + "_inv_(X" +
                                 ((spI-1) >= 0 ? (spI-1) : "") +
-                                ",\"t**\"),";
+                                ",X" + spI + ",\"t**\"),";
             } else {
                 throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
             }
         }
-        ruleBody += shapeName + "_(X,\"t*\") .\n";
+        ruleBody += propertyPathName + "_(X,Y,\"t\") .\n";
 
         return ruleBody;
     }
 
-    public static void createSequencePathRules(SequencePath seq, String shapeName, long minCount) {
+    public static void createSequencePathRules(SequencePath seq, String propertyPathName, long minCount) {
+
+        // add program constraint for auxiliary s-t property
+        RepairData.get().getProgramConstraints().add(
+                ":-" + propertyPathName + "_(X,Y,\"t\")," + propertyPathName + "_(X,Y,\"f\") .\n");
 
         for (int pI = 0; pI < seq.getSequence().size(); pI++) {
 
@@ -877,33 +928,35 @@ public class RepairGenerator {
             String nextObject;
 
             String repairChoices;
-            String ruleBody = createSubPathRuleBody(shapeName, seq, pI);
+            String ruleBody = createSubPathRuleBody(propertyPathName, seq, pI);
 
             if (pI < (seq.getSequence().size() - 1)) {
 
                 String currentPathIndex = ((pI-1) >= 0 ? (pI-1) + "" : "");
 
-                nextObject = "@new(" + shapeName + ",X" + currentPathIndex +"," + nextPath + "," + 1 + ")";
-
                 if (seq.getSequence().get(pI) instanceof SimplePath) {
 
-                    repairChoices = "choose(" + shapeName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + ");" +
-                            "choose(" + shapeName + ",X" + currentPathIndex + "," + nextPath + ",0):-" + ruleBody;
+                    nextObject = "@new(" + propertyPathName + ",X" + currentPathIndex +"," + nextPath + "," + 1 + ")";
+
+                    repairChoices = "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + ");" +
+                            "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + ",0):-" + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoices);
 
                     String repairChoice = nextPath + "_(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
-                            + "choose(" + shapeName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + "),"
+                            + "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + "),"
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
                 } else if (seq.getSequence().get(pI) instanceof InversePath) {
 
-                    repairChoices = "choose(" + shapeName + "," + nextObject + "," + nextPath + "," + 1 + ");" +
-                            "choose(" + shapeName + "," + nextObject + "," + nextPath + ",0):-" + ruleBody;
+                    nextObject = "@new(" + propertyPathName + ",X" + currentPathIndex +"," + nextPath + "_inv_," + 1 + ")";
+
+                    repairChoices = "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_," + 1 + ");" +
+                            "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_,0):-" + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoices);
 
-                    String repairChoice = nextPath + "_(" + nextObject + ",X" + currentPathIndex + ",\"t\"):-"
-                            + "choose(" + shapeName + "," + nextObject + "," + nextPath + "," + 1 + "),"
+                    String repairChoice = nextPath + "_inv_(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
+                            + "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_," + 1 + "),"
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
@@ -913,90 +966,111 @@ public class RepairGenerator {
 
             } else if (pI == (seq.getSequence().size() - 1)) {
 
-                repairChoices = ":-" + ruleBody;
+                if (seq.getSequence().get(pI) instanceof SimplePath) {
 
-                for (int i = 0; i <= minCount; i++) {
+                    nextObject = "Y";
 
-                    if (seq.getSequence().get(pI) instanceof SimplePath) {
-
-                        nextObject = "@new(" + shapeName + ",X" + (seq.getSequence().size() - 2) +"," + nextPath + ",1.." + i + ")";
-
-                        repairChoices = ";choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + ")" + repairChoices;
-
-                        if (i > 0) {
-                            String repairChoice =
-                                    nextPath + "_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")" +
-                                            ":-choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + "),"
-                                            + ruleBody;
-                            RepairData.get().getRepairRules().add(repairChoice);
-
-                            if (SHACLData.get().getConstantsFacts().size() > 0) {
-                                repairChoice =
-                                        "0 {" + nextPath + "_(X" + (seq.getSequence().size() - 2) + ",Y,\"t\"):const(Y)} " +
-                                                SHACLData.get().getConstantsFacts().size() +
-                                                ":-"
-                                                //"choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + "),"
-                                                + ruleBody;
-                                RepairData.get().getRepairRules().add(repairChoice);
-                                RepairData.get().getChangeSetRules().add("#minimize { 1@1,X,Y: " + nextPath + "_(X,Y,\"t\"), const(Y) } .\n");
-                            }
-                        }
-
-                    } else if (seq.getSequence().get(pI) instanceof InversePath) {
-
-                        nextObject = "@new(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + ",1.." + i + ")";
-
-                        repairChoices = ";choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + ")" + repairChoices;
-
-                        if (i > 0) {
-                            String repairChoice =
-                                    nextPath + "_(" + nextObject + ",X" + (seq.getSequence().size() - 2) + ",\"t\")" +
-                                            ":-choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + "),"
-                                            + ruleBody;
-                            RepairData.get().getRepairRules().add(repairChoice);
-
-                            if (SHACLData.get().getConstantsFacts().size() > 0) {
-                                repairChoice =
-                                        "0 {" + nextPath + "_(Y,X" + (seq.getSequence().size() - 2) + ",\"t\"):const(Y)} " +
-                                                SHACLData.get().getConstantsFacts().size() +
-                                                ":-"
-                                                //"choose(" + shapeName + ",X" + (seq.getSequence().size() - 2) + "," + nextPath + "," + i + "),"
-                                                + ruleBody;
-                                RepairData.get().getRepairRules().add(repairChoice);
-                                RepairData.get().getChangeSetRules().add("#minimize { 1@1,Y,X: " + nextPath + "_(Y,X,\"t\"), const(Y) } .\n");
-                            }
-                        }
-
-                    } else {
-                        throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
+                    if (minCount > 0) {
+                        String repairChoice = "0 {" + nextPath + "_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")} " + minCount + ":-"
+                                + ruleBody;
+                        RepairData.get().getRepairRules().add(repairChoice);
                     }
+
+                    if (SHACLData.get().getConstantsFacts().size() > 0) {
+                        String repairChoice =
+                                "0 {" + nextPath + "_(X" + (seq.getSequence().size() - 2) + ",Y,\"t\"):const(Y)} " +
+                                        SHACLData.get().getConstantsFacts().size() + ":-"
+                                        + ruleBody;
+                        RepairData.get().getRepairRules().add(repairChoice);
+                        RepairData.get().getChangeSetRules().add("#minimize { 1@1,X,Y: " + nextPath + "_(X,Y,\"t\"), const(Y) } .\n");
+                    }
+
+                } else if (seq.getSequence().get(pI) instanceof InversePath) {
+
+                    nextObject = "Y";
+
+                    if (minCount > 0) {
+                        String repairChoice = "0 {" + nextPath + "_inv_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")} " + minCount + ":-"
+                                + ruleBody;
+                        RepairData.get().getRepairRules().add(repairChoice);
+                    }
+
+                    if (SHACLData.get().getConstantsFacts().size() > 0) {
+                        String repairChoice =
+                                "0 {" + nextPath + "_inv_(X" + (seq.getSequence().size() - 2) + ",Y,\"t\"):const(Y)} " +
+                                        SHACLData.get().getConstantsFacts().size() + ":-"
+                                        + ruleBody;
+                        RepairData.get().getRepairRules().add(repairChoice);
+                        RepairData.get().getChangeSetRules().add("#minimize { 1@1,Y,X: " + nextPath + "_(Y,X,\"t\"), const(Y) } .\n");
+                    }
+                } else {
+                    throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
                 }
-
-                if (!repairChoices.startsWith(";")) {
-                    throw new RuntimeException("No constraints for sh:or " + shapeName);
-                }
-                repairChoices = repairChoices.substring(1);
-
-                RepairData.get().getRepairRules().add(repairChoices);
-
             } else {
-                throw new RuntimeException("Error processing choose options for " + shapeName);
+                throw new RuntimeException("error processing choose options for " + propertyPathName);
             }
         }
     }
 
-    private static void getEqualsRules(String shapeName, String path, String equalsName) {
+    private static void createInversePropertyRules(String pathName) {
+
+        RepairData.get().getAnnotationRules().add(pathName + "_(Y,X,\"t\"):-" + pathName + "_inv_(X,Y,\"t\") .\n");
+        RepairData.get().getAnnotationRules().add(pathName + "_inv_(X,Y,\"t*\"):-" + pathName + "_(Y,X,\"t*\") .\n");
+
+        RepairData.get().getAnnotationRules().add(pathName + "_(Y,X,\"f\"):-" + pathName + "_inv_(X,Y,\"f\") .\n");
+        RepairData.get().getAnnotationRules().add(pathName + "_inv_(X,Y,\"f\"):-" + pathName + "_(Y,X,\"f\") .\n");
+
+        RepairData.get().getInterpretationRules().add(
+                pathName + "_inv_(X,Y,\"t**\"):-" +
+                        pathName + "_inv_(X,Y,\"t*\"),not " + pathName + "_inv_(X,Y,\"f\") .\n");
+
+        RepairData.get().getProgramConstraints().add(
+                ":-" + pathName + "_inv_(X,Y,\"t\")," + pathName + "_inv_(X,Y,\"f\") .\n");
+    }
+
+    private static void getEqualsRules(String shapeName, String st, Path path, String equalsName) {
 
         RepairData.get().getAnnotationRules().add(equalsName + "_(X,Y,\"t*\"):-" + equalsName + "(X,Y) .\n");
         RepairData.get().getAnnotationRules().add(equalsName + "_(X,Y,\"t*\"):-" + equalsName + "_(X,Y,\"t\") .\n");
 
-        RepairData.get().getRepairRules().add(equalsName + "_(X,Y,\"t\"):-" +
-                shapeName + "_(X,\"t*\")," + path + "_(X,Y,\"t*\") .\n");
-        RepairData.get().getRepairRules().add(path + "_(X,Y,\"t\"):-" +
-                shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+        if (path instanceof SequencePath) {
 
-        RepairData.get().getRepairRules().add("1 {" + path + "_(X,Y,\"f\");" + equalsName + "_(X,Y,\"f\")} 1:-" +
-                shapeName + "_(X,\"f\")," + path + "_(X,Y,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(equalsName + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + st + "_(X,Y,\"f\");" + equalsName + "_(X,Y,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+
+        } else if (path instanceof SimplePath) {
+
+            String property = ns(nss, path.getId());
+
+            RepairData.get().getRepairRules().add(equalsName + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + property + "_(X,Y,\"f\");" + equalsName + "_(X,Y,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+
+        } else if (path instanceof InversePath) {
+
+            String property = ns(nss, path.getId());
+
+            // todo: adapt for inv aux properties
+            RepairData.get().getRepairRules().add(equalsName + "_(Y,X,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(property + "_(Y,X,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + property + "_(X,Y,\"f\");" + equalsName + "_(Y,X,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\")," + equalsName + "_(Y,X,\"t*\") .\n");
+
+        } else {
+            throw new RuntimeException("path contains not supported element " + path.getClass().getSimpleName());
+        }
 
         RepairData.get().getRepairRules().add("\n");
 
@@ -1064,10 +1138,20 @@ public class RepairGenerator {
             AndConstraintComponent and = (AndConstraintComponent) constraintComponent;
             processConjunction(shapeName, and.getAnd(), universal);
 
+        } else if (constraintComponent instanceof AndConstraintHelper) {
+
+            AndConstraintHelper and = (AndConstraintHelper) constraintComponent;
+            processConjunction(shapeName, and.getAnd(), universal);
+
         } else if (constraintComponent instanceof OrConstraintComponent) {
 
-            OrConstraintComponent and = (OrConstraintComponent) constraintComponent;
-            processDisjunction(shapeName, and.getOr(), universal);
+            OrConstraintComponent or = (OrConstraintComponent) constraintComponent;
+            processDisjunction(shapeName, or.getOr(), universal);
+
+        } else if (constraintComponent instanceof OrConstraintHelper) {
+
+            OrConstraintHelper or = (OrConstraintHelper) constraintComponent;
+            processDisjunction(shapeName, or.getOr(), universal);
 
         } else if (constraintComponent instanceof NotConstraintComponent) {
 
@@ -1079,6 +1163,22 @@ public class RepairGenerator {
             RepairData.get().getRepairRules().add(notName + "_(X,\"t*\"):-" + shapeName + "_(X,\"f\") .\n");
 
             dispatch(notName, not.getNot(), universal);
+
+        } else if (constraintComponent instanceof NotConstraintHelper) {
+
+            NotConstraintHelper not = (NotConstraintHelper) constraintComponent;
+
+            String notName = "s" + shapeCount++;
+
+            RepairData.get().getRepairRules().add(notName + "_(X,\"f\"):-" + shapeName + "_(X,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(notName + "_(X,\"t*\"):-" + shapeName + "_(X,\"f\") .\n");
+
+            dispatch(notName, not.getNot(), universal);
+
+        } else if (constraintComponent instanceof XoneConstraintComponent) {
+
+            XoneConstraintComponent xone = (XoneConstraintComponent) constraintComponent;
+            processXone(shapeName, xone.getXone(), universal);
 
         } else if (constraintComponent instanceof HasValueConstraintComponent) {
 

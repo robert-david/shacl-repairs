@@ -1,12 +1,11 @@
 clingo version 5.6.2
 Reading from ...sts/core/node/and-001/and-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_InvalidRectangle2",ex_Rectangle) actualTarget("ex_ValidRectangle1",ex_Rectangle) actualTarget("ex_InvalidRectangle1",ex_Rectangle) add(ex_height("ex_InvalidRectangle2","3224")) add(ex_width("ex_InvalidRectangle1","3141"))
-Optimization: 0 2
+
 OPTIMUM FOUND
 
-Models       : 16
+Models       : 5
   Optimum    : yes
 Optimization : 0 2
 Calls        : 1

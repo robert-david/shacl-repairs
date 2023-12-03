@@ -5,10 +5,10 @@ actualTarget("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",_contractStatusShap
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 7
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 2 1 -1
 Calls        : 1
-Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.014s
+Time         : 0.015s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.015s

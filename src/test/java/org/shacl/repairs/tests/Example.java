@@ -15,9 +15,12 @@ public class Example {
         String shapesFile = testPath + "example_shapes.ttl";
         String clingoFile = testPath + "example_rules.pl";
 
-        new RepairProgram().createRepairProgram(
+        RepairTestRunner r = new RepairTestRunner();
+        r.createRepairProgram(
                 datafile,
                 shapesFile,
                 clingoFile);
+        String result = r.runProgram(testPath + "example_rules.pl");
+        r.writeResult(testPath + "example_result.txt", result);
     }
 }

@@ -1,12 +1,10 @@
 clingo version 5.6.2
 Reading from ...rty/maxCount-001/maxCount-001-rules.pl
 Solving...
-Answer: 1
-actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) del(ex_firstName("ex_InvalidPerson","George"))
-Optimization: 0 1
-Answer: 2
 actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) del(ex_firstName("ex_InvalidPerson","John"))
-Optimization: 0 1
+
+actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) del(ex_firstName("ex_InvalidPerson","George"))
+
 OPTIMUM FOUND
 
 Models       : 5

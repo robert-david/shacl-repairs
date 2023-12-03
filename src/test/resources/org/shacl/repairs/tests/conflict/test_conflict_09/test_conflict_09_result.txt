@@ -1,9 +1,8 @@
 clingo version 5.6.2
 Reading from ..._conflict_09/test_conflict_09_rules.pl
 Solving...
-Answer: 1
 actualTarget("_company1",_organizationShape) actualTarget("_ann",_unemployedShape) del(_worksFor("_ann","_company1")) add(_organization("_company1"))
-Optimization: 0 2
+
 OPTIMUM FOUND
 
 Models       : 4

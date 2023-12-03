@@ -1,0 +1,13 @@
+clingo version 5.6.2
+Reading from ...g/shacl/repairs/tests/example_rules.pl
+Solving...
+skipTarget("_ben",_teacher) actualTarget("_ben",_student) add(_course("_c1"))
+
+OPTIMUM FOUND
+
+Models       : 3
+  Optimum    : yes
+Optimization : 1 1
+Calls        : 1
+Time         : 0.022s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.017s

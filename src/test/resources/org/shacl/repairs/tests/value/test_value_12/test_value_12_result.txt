@@ -1,14 +1,13 @@
 clingo version 5.6.2
 Reading from ...e/test_value_12/test_value_12_rules.pl
 Solving...
-Answer: 1
 skipTarget("_ann",_personShape)
-Optimization: 1 0 0
+
 OPTIMUM FOUND
 
 Models       : 2
   Optimum    : yes
 Optimization : 1 0 0
 Calls        : 1
-Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.013s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s

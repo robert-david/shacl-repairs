@@ -1,42 +1,14 @@
 clingo version 5.6.2
 Reading from ...e-001/qualifiedValueShape-001-rules.pl
 Solving...
-Answer: 1
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 2
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 3
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 4
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 5
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 6
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 7
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 8
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 9
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
-Answer: 10
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1h0oc2cvkx1277","node1h0oc2cvkx1278"))
-Optimization: 0 1 0
+actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1hgobhchgx518","node1hgobhchgx519"))
+
 OPTIMUM FOUND
 
-Models       : 27+
+Models       : 105+
   Optimum    : yes
-  Optimal    : 10
+  Optimal    : 100
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.381s (Solving: 0.10s 1st Model: 0.04s Unsat: 0.00s)
-CPU Time     : 0.380s
+Time         : 0.357s (Solving: 0.02s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.355s

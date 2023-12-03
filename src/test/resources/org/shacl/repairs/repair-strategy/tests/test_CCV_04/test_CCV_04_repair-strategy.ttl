@@ -7,7 +7,7 @@
     sh:repair [
         sh:path :hasState;
         sh:action sh:delete;
-        sh:preserveOrder (
+        sh:preferenceOrder (
             :ViolatedState :FulfilledState :PendingState
         )
     ];

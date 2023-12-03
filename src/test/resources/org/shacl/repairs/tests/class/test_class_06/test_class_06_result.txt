@@ -1,14 +1,13 @@
 clingo version 5.6.2
 Reading from ...s/test_class_06/test_class_06_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_personShape) add(_worksFor("_ann","1656")) add(_organization("1656")) add(_person("_company1")) add(_person("1656"))
-Optimization: 0 4
+actualTarget("_ann",_personShape) add(_worksFor("_ann","1649")) add(_person("_company1")) add(_person("1649")) add(_organization("1649"))
+
 OPTIMUM FOUND
 
 Models       : 3
   Optimum    : yes
 Optimization : 0 4
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s

@@ -24,7 +24,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/and-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 16"));
+        assertTrue(result.contains("Models       : 5"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle1\",ex_Rectangle)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidRectangle1\",ex_Rectangle)") == 1);
@@ -163,7 +163,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/not-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 4"));
+        assertTrue(result.contains("Models       : 5"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 1);
@@ -205,18 +205,18 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/or-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 14"));
+        assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 4"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidRectangle2\",ex_RectangleWithArea)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidRectangle1\",ex_RectangleWithArea)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle3\",ex_RectangleWithArea)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle1\",ex_RectangleWithArea)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle2\",ex_RectangleWithArea)") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidRectangle2\",ex_RectangleWithArea)") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidRectangle1\",ex_RectangleWithArea)") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle3\",ex_RectangleWithArea)") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle1\",ex_RectangleWithArea)") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidRectangle2\",ex_RectangleWithArea)") == 2);
 
-        assertTrue(StringUtils.countMatches(result,"add(ex_area(\"ex_InvalidRectangle2\",\"") == 4);
-        assertTrue(StringUtils.countMatches(result,"add(ex_width(\"ex_InvalidRectangle1\",\"") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(ex_area(\"ex_InvalidRectangle1\",\"") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(ex_area(\"ex_InvalidRectangle2\",\"") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(ex_width(\"ex_InvalidRectangle1\",\"") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_area(\"ex_InvalidRectangle1\",\"") == 1);
 
         r.writeResult(testPath + "/or-001-result.txt", result);
     }
@@ -260,7 +260,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/class-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 14"));
+        assertTrue(result.contains("Models       : 10"));
         assertTrue(result.contains("Optimal    : 4"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 4);
@@ -286,13 +286,13 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/hasValue-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 18"));
+        assertTrue(result.contains("Models       : 13"));
         assertTrue(result.contains("Optimal    : 9"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidMalePerson\",ex_PersonShape)") == 9);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson1\",ex_PersonShape)") == 9);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson2\",ex_PersonShape)") == 9);
-        assertTrue(StringUtils.countMatches(result,"add(ex_gender(\"ex_InvalidMalePerson\",\"male\"))") == 9);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidMalePerson\",ex_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson1\",ex_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson2\",ex_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_gender(\"ex_InvalidMalePerson\",\"male\"))") == 1);
 
         r.writeResult(testPath + "/hasValue-001-result.txt", result);
     }
@@ -349,7 +349,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/minCount-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 9"));
+        assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 2"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidPerson\",ex_PersonShape)") == 2);
@@ -388,7 +388,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/node-001-rules.pl");
 
-        //assertTrue(result.contains("Models       : 10"));
+        assertTrue(result.contains("Models       : 7"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Anon\",ex_Person)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Issue_1\",ex_Issue)") == 1);
@@ -410,7 +410,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/node-002-rules.pl");
 
-        assertTrue(result.contains("Models       : 9"));
+        assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 2"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Bob\",ex_PersonShape)") == 2);
@@ -433,7 +433,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/not-001-rules.pl");
 
-        assertTrue(result.contains("Models       : 11"));
+        assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 2"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 2);
@@ -457,6 +457,7 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/or-001-rules.pl");
 
+        // assertTrue(result.contains("Models       : 8"));
         assertTrue(result.contains("Optimal    : 3"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_AddressShape)") == 3);
@@ -481,12 +482,12 @@ public class DataShapesTestSuite {
 
         String result = r.runProgram(testPath + "/qualifiedValueShape-001-rules.pl");
 
-        //assertTrue(result.contains("Models       : 21+"));
-        assertTrue(result.contains("Optimal    : 10"));
+        assertTrue(result.contains("Models       : 105+"));
+        assertTrue(result.contains("Optimal    : 100"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 10);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 1);
 
-        assertTrue(StringUtils.countMatches(result,"del(ex_related_target(\"") == 10);
+        assertTrue(StringUtils.countMatches(result,"del(ex_related_target(\"") == 1);
 
         r.writeResult(testPath + "//qualifiedValueShape-001-result.txt", result);
     }

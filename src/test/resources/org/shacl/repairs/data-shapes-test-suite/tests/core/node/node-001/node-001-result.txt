@@ -1,9 +1,8 @@
 clingo version 5.6.2
 Reading from ...s/core/node/node-001/node-001-rules.pl
 Solving...
-Answer: 1
 actualTarget("ex_ValidInstance",ex_TestClass) actualTarget("ex_InvalidInstance",ex_TestClass) add(ex_OtherClass("ex_InvalidInstance"))
-Optimization: 0 1
+
 OPTIMUM FOUND
 
 Models       : 4

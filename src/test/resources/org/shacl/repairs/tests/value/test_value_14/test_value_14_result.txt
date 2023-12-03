@@ -1,42 +1,14 @@
 clingo version 5.6.2
 Reading from ...e/test_value_14/test_value_14_rules.pl
 Solving...
-Answer: 1
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 2
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 3
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 4
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 5
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 6
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 7
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 8
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 9
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
-Answer: 10
-actualTarget("_ann",_personShape) add(_name("_ann","1205"))
-Optimization: 0 1 0
+actualTarget("_ann",_personShape) add(_name("_ann","1255"))
+
 OPTIMUM FOUND
 
-Models       : 14+
+Models       : 14
   Optimum    : yes
-  Optimal    : 10
+  Optimal    : 12
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.009s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
