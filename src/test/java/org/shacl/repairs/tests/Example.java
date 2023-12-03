@@ -1,12 +1,7 @@
 package org.shacl.repairs.tests;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
-import org.shacl.repairs.processor.RepairProgram;
-
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Example {
 

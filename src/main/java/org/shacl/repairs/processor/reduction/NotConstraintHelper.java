@@ -4,10 +4,8 @@ import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.sail.shacl.SourceConstraintComponent;
-import org.eclipse.rdf4j.sail.shacl.ast.Shape;
 import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.ConstraintComponent;
 import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.LogicalOperatorConstraintComponent;
-import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.NotConstraintComponent;
 
 import java.util.Set;
 

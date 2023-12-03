@@ -6,7 +6,6 @@ import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.sail.shacl.SourceConstraintComponent;
 import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.ConstraintComponent;
 import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.LogicalOperatorConstraintComponent;
-import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.OrConstraintComponent;
 
 import java.util.ArrayList;
 import java.util.List;

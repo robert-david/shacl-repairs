@@ -347,6 +347,13 @@ public class RepairGenerator {
             String pathName = getPathName(path);
             createPropertyRules(pathName);
 
+            String rule = shapeName + "_st_(X,Y,\"t*\"):-" + shapeName + "_(X,_)" + "," + pathName + "_(X,Y,\"t*\") .\n";
+
+            RepairData.get().getAnnotationRules().add(rule);
+
+            rule = shapeName + "_st_(X,Y,\"t**\"):-" + pathName + "_(X,Y,\"t**\")," + shapeName + "_st_(X,Y,\"t*\"),not " + shapeName + "_st_(X,Y,\"f\") .\n";
+            RepairData.get().getInterpretationRules().add(rule);
+
         } else if (path instanceof InversePath) {
 
             if (!(((InversePath) path).getInversePath() instanceof SimplePath)) {
@@ -794,9 +801,9 @@ public class RepairGenerator {
             String repairChoices = ";choose(" + shapeName + ",X," + firstPath + ",0):-" + shapeName + "_(X,\"t*\") .\n";
             repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + 1 + ")" + repairChoices;
 
-                RepairData.get().getRepairRules().add(
-                        firstPath + "_(X,@new(" + shapeName + ",X," + firstPath + ",1.." + 1 + "),\"t\")" +
-                                ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
+            RepairData.get().getRepairRules().add(
+                    firstPath + "_(X,@new(" + shapeName + ",X," + firstPath + ",1.." + 1 + "),\"t\")" +
+                            ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
 
             if (!repairChoices.startsWith(";")) {
                 throw new RuntimeException("error processing choose options for " + shapeName);
@@ -1104,8 +1111,8 @@ public class RepairGenerator {
         } else if (constraintComponent instanceof PropertyShape) {
 
             RepairData.get().getRepairRules().add(
-                            ns(nss, ((PropertyShape) constraintComponent).getId()) + "_(X,\"t*\"):-" +
-                                    shapeName + "_(X,\"t*\") .\n");
+                    ns(nss, ((PropertyShape) constraintComponent).getId()) + "_(X,\"t*\"):-" +
+                            shapeName + "_(X,\"t*\") .\n");
 
             RepairData.get().getRepairRules().add(
                     ns(nss, ((PropertyShape) constraintComponent).getId()) + "_(X,\"f\"):-" +
@@ -1186,14 +1193,14 @@ public class RepairGenerator {
             String valueName = (value.isLiteral() ?
                     value.toString() : "\"" + ns(nss, value) + "\"");
 
-                RepairData.get().getProgramConstraints().add(":-" + shapeName + "_(X,\"t*\"),X!="
-                        + valueName
-                        + " .\n");
+            RepairData.get().getProgramConstraints().add(":-" + shapeName + "_(X,\"t*\"),X!="
+                    + valueName
+                    + " .\n");
 
-                RepairData.get().getProgramConstraints().add(":-" +
-                        shapeName + "_(X,\"f\"),X="
-                        + valueName
-                        + " .\n");
+            RepairData.get().getProgramConstraints().add(":-" +
+                    shapeName + "_(X,\"f\"),X="
+                    + valueName
+                    + " .\n");
 
         } else if (constraintComponent instanceof InConstraintComponent) {
 

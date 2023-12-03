@@ -158,7 +158,7 @@ public class ClassRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_class_08_rules.pl");
 
-        assertTrue(result.contains("Models       : 4"));
+        assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 2"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
         assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
