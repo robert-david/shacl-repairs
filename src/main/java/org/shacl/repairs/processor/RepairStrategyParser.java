@@ -80,16 +80,21 @@ public class RepairStrategyParser {
 
                     } else if (statement.getPredicate().stringValue().equals(SHACL.NAMESPACE + "preferenceOrder")) {
 
-                        repair.preferenceOrder = new ArrayList();
+                        repair.preferenceOrderList = new ArrayList();
 
                         Value rest = statement.getObject();
-                        while (rest.isBNode()) {
 
-                            if (!RDF.NIL.equals(rest)) {
-                                Statement first = dataModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
-                                repair.preferenceOrder.add(first.getObject());
+                        if (rest.isBNode()) {
+                            while (rest.isBNode()) {
+
+                                if (!RDF.NIL.equals(rest)) {
+                                    Statement first = dataModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
+                                    repair.preferenceOrderList.add(first.getObject());
+                                }
+                                rest = dataModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
                             }
-                            rest = dataModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
+                        } else {
+                            repair.preferenceOrderFunction = (IRI) rest;
                         }
 
                     } else {
@@ -155,7 +160,7 @@ public class RepairStrategyParser {
                                         ":-del(" + ns(rss_nss, repair.path) + "(X,M))," + ns(rss_nss, repair.path) + "(X,M)," +
                                                 "M=#min {Y:" + ns(rss_nss, repair.path) + "(X,Y)} .\n"
                                 );
-                            } else if (repair.value.toString().equals("http://www.w3.org/ns/shacl#AnyValue")) {
+                            } else if (repair.value.toString().equals("http://www.w3.org/ns/shacl#anyValue")) {
                                 repairData.getRepairStrategyRules().add(
                                         ":-del(" + ns(rss_nss, repair.path) + "(X,_)) .\n"
                                 );
@@ -171,18 +176,33 @@ public class RepairStrategyParser {
                             throw new RuntimeException("Not implemented yet");
                         }
 
-                    } else if (repair.preferenceOrder != null && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
+                    } else if (!repair.preferenceOrderList.isEmpty() && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
 
-                        Collections.reverse(repair.preferenceOrder);
+                        Collections.reverse(repair.preferenceOrderList);
 
-                        for (int i = 0; i < repair.preferenceOrder.size(); i++) {
+                        for (int i = 0; i < repair.preferenceOrderList.size(); i++) {
 
                             repairData.getRepairStrategyRules().add(
                                     "#minimize { " + (i + 1) + "@0,X: del(" +
-                                            ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.preferenceOrder.get(i)) + "\")) } .\n"
+                                            ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.preferenceOrderList.get(i)) + "\")) } .\n"
                             );
                         }
 
+                    } else if (repair.preferenceOrderFunction != null && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
+
+                        if (repair.preferenceOrderFunction.toString().equals("http://www.w3.org/ns/shacl#minValue")) {
+
+                            repairData.getRepairStrategyRules().add(
+                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y>Z,Y!=Z } .\n");
+
+                        } else if (repair.preferenceOrderFunction.toString().equals("http://www.w3.org/ns/shacl#maxValue")) {
+
+                            repairData.getRepairStrategyRules().add(
+                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y<Z,Y!=Z } .\n");
+
+                        } else {
+                            throw new RuntimeException("Unkown preference function: " + repair.preferenceOrderFunction.toString());
+                        }
                     } else {
                         throw new RuntimeException("Not implemented yet");
                     }
@@ -222,7 +242,8 @@ public class RepairStrategyParser {
 
     private static class Repair {
 
-        public List<Value> preferenceOrder;
+        public List<Value> preferenceOrderList;
+        public IRI preferenceOrderFunction;
 
         public Repair(Resource iri) {
             this.iri = iri;

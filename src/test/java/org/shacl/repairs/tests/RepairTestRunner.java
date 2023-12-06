@@ -1,5 +1,8 @@
 package org.shacl.repairs.tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.LoggerContext;
 import org.shacl.repairs.processor.RepairProgram;
 
 import java.io.*;
@@ -7,6 +10,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RepairTestRunner extends RepairProgram {
+
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     public RepairTestRunner() {
     }
@@ -49,6 +54,7 @@ public class RepairTestRunner extends RepairProgram {
             }
         }
 
+        logger.info(result);
         return result;
     }
 

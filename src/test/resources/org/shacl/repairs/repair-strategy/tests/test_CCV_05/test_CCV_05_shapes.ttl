@@ -3,33 +3,16 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# CR-1: A Contract needs to have exactly one state.
-# CR-3: A Contract is violated if at least one associated Obligation is violated.
+# CR-2: Obligations must have exactly one end date and it must not exceed the end date of the associated Contract.
 
-:ContractStatusShape a sh:NodeShape;
-    sh:targetClass fibo-fnd-agr-ctr:Contract;
+:EndDateConsistencyShape a sh:NodeShape;
+    sh:targetClass :Obligation;
     sh:property [
-        sh:path :hasContractStatus;
-        sh:in (:statusPending :statusFulfilled :statusViolated );
+        sh:path ( [sh:inversePath :hasObligations] :hasEndDate);
+        sh:lessThanOrEquals :hasEndDate
+    ];
+    sh:property [
+        sh:path :hasEndDate;
         sh:minCount 1;
         sh:maxCount 1;
     ] .
-
-:ContractViolationShape a sh:NodeShape;
-    sh:targetClass fibo-fnd-agr-ctr:Contract;
-    sh:or (
-        [
-            sh:not [
-                sh:property [
-                    sh:path (:hasObligations :hasState);
-                    sh:hasValue :ViolatedState;
-                ]
-            ]
-        ]
-        [
-            sh:property [
-                sh:path :hasContractStatus;
-                sh:hasValue :statusViolated;
-            ]
-        ]
-    ) .

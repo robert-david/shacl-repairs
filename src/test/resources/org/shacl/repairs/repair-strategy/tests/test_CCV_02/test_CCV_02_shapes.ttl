@@ -3,8 +3,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# CR-1: A Contract needs to have exactly one state.
-# CR-2: A Contract cannot be at the same time pending, fulfilled and violated.
+# CR-1: Contracts must have exactly one contract status of pending, fulfilled or violated.
 
 :ContractStatusShape a sh:NodeShape;
     sh:targetClass fibo-fnd-agr-ctr:Contract;

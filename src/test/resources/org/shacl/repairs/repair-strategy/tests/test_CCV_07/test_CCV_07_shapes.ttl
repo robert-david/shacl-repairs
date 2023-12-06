@@ -4,6 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # CR-1: Contracts must have exactly one contract status of pending, fulfilled or violated.
+# CR-3: A Contract is violated if at least one associated Obligation has the state set to violated.
 
 :ContractStatusShape a sh:NodeShape;
     sh:targetClass fibo-fnd-agr-ctr:Contract;
@@ -13,3 +14,22 @@
         sh:minCount 1;
         sh:maxCount 1;
     ] .
+
+:ContractViolationShape a sh:NodeShape;
+    sh:targetClass fibo-fnd-agr-ctr:Contract;
+    sh:or (
+        [
+            sh:not [
+                sh:property [
+                    sh:path (:hasObligations :hasState);
+                    sh:hasValue :ViolatedState;
+                ]
+            ]
+        ]
+        [
+            sh:property [
+                sh:path :hasContractStatus;
+                sh:hasValue :statusViolated;
+            ]
+        ]
+    ) .

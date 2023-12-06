@@ -1,0 +1,13 @@
+clingo version 5.6.2
+Reading from ...tests/test_CCV_06/test_CCV_06_rules.pl
+Solving...
+actualTarget("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",_endDateConsistencyShape) del(_hasEndDate("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","2020_09_07"))
+
+OPTIMUM FOUND
+
+Models       : 5
+  Optimum    : yes
+Optimization : 0 1 -1
+Calls        : 1
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.015s

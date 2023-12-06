@@ -3982,9 +3982,11 @@
 	<hasObligations rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ob_29143200-ec41-11ed-bd52-0242ac150004"/>
 </rdf:Description>
 
+<!-->
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2b_6d36ca8a-3820-11ee-b1f4-0242ac150002">
 	<hasObligations rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ob_d4d1d70c-545a-11ed-bc75-0242ac150003"/>
 </rdf:Description>
+-->
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#sig_d3f99eb4-545a-11ed-9f53-0242ac150003">
 	<hasSignature>W0YdK06q9py6jwFTmFyPn4cHasvV93Pp7Ed+AJBbjmE=</hasSignature>

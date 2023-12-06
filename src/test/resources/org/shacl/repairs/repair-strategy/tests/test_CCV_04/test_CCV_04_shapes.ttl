@@ -2,8 +2,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# CR-1: An Obligation needs to have exactly one state.
-# CR-2: An Obligation cannot be at the same time pending, fulfilled and violated.
+# CR-1: Contracts must have exactly one contract status of pending, fulfilled or violated.
 
 :ObligationStateShape a sh:NodeShape;
     sh:targetClass :Obligation;

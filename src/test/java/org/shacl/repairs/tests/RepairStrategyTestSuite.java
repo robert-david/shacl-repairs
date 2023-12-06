@@ -17,6 +17,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -134,12 +137,11 @@ public class RepairStrategyTestSuite {
 
         String result = r.runProgram(testPath + "/test_CCV_05_rules.pl");
 
-        assertTrue(result.contains("Models       : 11"));
-        assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractViolationShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusViolated\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusFulfilled\"))") == 1);
+        assertTrue(result.contains("Models       : 6"));
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_endDateConsistencyShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2022_09_07 17:14:32.687000+00:00\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2021_09_07\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2023_09_07\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_05_result.txt", result);
     }
@@ -147,9 +149,52 @@ public class RepairStrategyTestSuite {
     @Test
     public void test_CCV_06() throws IOException {
 
+        String testPath = path + "/repair-strategy/tests/test_CCV_06";
+
+        r.createRepairProgram(
+                testPath + "/test_CCV_06_data.ttl",
+                testPath + "/test_CCV_06_shapes.ttl",
+                testPath + "/test_CCV_06_rules.pl",
+                testPath + "/test_CCV_06_repair-strategy.ttl");
+
+        String result = r.runProgram(testPath + "/test_CCV_06_rules.pl");
+
+        assertTrue(result.contains("Models       : 5"));
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_endDateConsistencyShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2020_09_07\"))") == 1);
+
+        r.writeResult(testPath + "/test_CCV_06_result.txt", result);
+    }
+
+    @Test
+    public void test_CCV_07() throws IOException {
+
+        String testPath = path + "/repair-strategy/tests/test_CCV_07";
+
+        r.createRepairProgram(
+                testPath + "/test_CCV_07_data.ttl",
+                testPath + "/test_CCV_07_shapes.ttl",
+                testPath + "/test_CCV_07_rules.pl",
+                testPath + "/test_CCV_07_repair-strategy.ttl");
+
+        String result = r.runProgram(testPath + "/test_CCV_07_rules.pl");
+
+        assertTrue(result.contains("Models       : 11"));
+        assertTrue(result.contains("Optimal    : 8"));
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractViolationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusViolated\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusFulfilled\"))") == 1);
+
+        r.writeResult(testPath + "/test_CCV_07_result.txt", result);
+    }
+
+    @Test
+    public void test_CCV_08() throws IOException {
+
         long start = System.currentTimeMillis();
 
-        String testPath = path + "/repair-strategy/tests/test_CCV_06";
+        String testPath = path + "/repair-strategy/tests/test_CCV_08";
 
         Model model = new LinkedHashModel();
         try (FileInputStream stream = new FileInputStream(testPath + "/smashHit-consistent.rdf")) {
@@ -178,11 +223,13 @@ public class RepairStrategyTestSuite {
 
         int nrOfTests = 10;
         int nrOfAddedStatusAndState = 1;
+        int nrOfAddedEndDates = 1;
         Random rng = new Random();
 
         ValueFactory vf = SimpleValueFactory.getInstance();
         IRI hasContractStatus = vf.createIRI(smashHitCore + "hasContractStatus");
         IRI hasState = vf.createIRI(smashHitCore + "hasState");
+        IRI hasEndDate = vf.createIRI(smashHitCore + "hasEndDate");
 
         File file = new File(testPath + "/test-runs");
         if (!file.exists()) {
@@ -206,38 +253,60 @@ public class RepairStrategyTestSuite {
 
             for (Resource contract : contracts) {
 
-                int nrOfAddedStatus = rng.nextInt(nrOfAddedStatusAndState);
+                int nrOfAddedStatus = rng.nextInt(nrOfAddedStatusAndState+1);
                 for (int j = 0; j < nrOfAddedStatus; j++) {
 
-                    String status = dispatchContractStatus(rng.nextInt(4));
+                    if (rng.nextInt(2) == 1) {
+                        String status = dispatchContractStatus(rng.nextInt(4));
 
-                    Statement stmt = vf.createStatement(
-                            contract,
-                            hasContractStatus,
-                            vf.createIRI(smashHitCore + status));
+                        Statement stmt = vf.createStatement(
+                                contract,
+                                hasContractStatus,
+                                vf.createIRI(smashHitCore + status));
 
-                    if (!model.contains(stmt)) {
-                        model.add(stmt);
-                        changes++;
+                        if (!model.contains(stmt)) {
+                            model.add(stmt);
+                            changes++;
+                        }
                     }
                 }
             }
 
             for (Resource obligation : obligations) {
 
-                int nrOfAddedState = rng.nextInt(nrOfAddedStatusAndState);
+                int nrOfAddedState = rng.nextInt(nrOfAddedStatusAndState+1);
                 for (int j = 0; j < nrOfAddedState; j++) {
 
-                    String state = dispatchState(rng.nextInt(4));
+                    if (rng.nextInt(2) == 1) {
+                        String state = dispatchState(rng.nextInt(4));
 
-                    Statement stmt = vf.createStatement(
-                            obligation,
-                            hasState,
-                            vf.createIRI(smashHitCore + state));
+                        Statement stmt = vf.createStatement(
+                                obligation,
+                                hasState,
+                                vf.createIRI(smashHitCore + state));
 
-                    if (!model.contains(stmt)) {
-                        model.add(stmt);
-                        changes++;
+                        if (!model.contains(stmt)) {
+                            model.add(stmt);
+                            changes++;
+                        }
+                    }
+                }
+
+                int nrOfAddedEndDate = rng.nextInt(nrOfAddedEndDates+1);
+                for (int j = 0; j < nrOfAddedEndDate; j++) {
+
+                    if (rng.nextInt(2) == 1) {
+                        int offset = rng.nextInt(11) * (rng.nextInt(2) == 1 ? 1 : -1);
+                        Instant endDate = Instant.now().minus(Duration.ofDays(offset * 365));
+                        Statement stmt = vf.createStatement(
+                                obligation,
+                                hasEndDate,
+                                vf.createLiteral(Date.from(endDate)));
+
+                        if (!model.contains(stmt)) {
+                            model.add(stmt);
+                            changes++;
+                        }
                     }
                 }
             }
@@ -248,17 +317,18 @@ public class RepairStrategyTestSuite {
 
             r.createRepairProgram(
                     testPath + "/test-runs/smashHit-inconsistent-" + i + ".ttl",
-                    testPath + "/test_CCV_06_shapes.ttl",
-                    testPath + "/test-runs//test_CCV_06_rules-" + i + ".pl",
-                    testPath + "/test_CCV_06_repair-strategy.ttl");
-
-            String result = r.runProgram(testPath + "/test-runs/test_CCV_06_rules-" + i + ".pl");
+                    testPath + "/test_CCV_08_shapes.ttl",
+                    testPath + "/test-runs//test_CCV_08_rules-" + i + ".pl",
+                    testPath + "/test_CCV_08_repair-strategy.ttl");
 
             logger.info("Added changes " + changes);
+
+            String result = r.runProgram(testPath + "/test-runs/test_CCV_08_rules-" + i + ".pl");
+
             logger.info("actual targets " + StringUtils.countMatches(result, "actualTarget"));
             logger.info("skip targets " + StringUtils.countMatches(result, "skipTarget"));
 
-            assertTrue(StringUtils.countMatches(result, "actualTarget") == (contracts.size() * 2 + obligations.size()));
+            assertTrue(StringUtils.countMatches(result, "actualTarget") == (contracts.size() * 2 + obligations.size() * 2));
             assertTrue(StringUtils.countMatches(result, "skipTarget") == 0);
 
             logger.info("Additions " + StringUtils.countMatches(result, " add("));
