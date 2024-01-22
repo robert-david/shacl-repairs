@@ -162,7 +162,7 @@ public class RepairStrategyParser {
                                 );
                             } else if (repair.value.toString().equals("http://www.w3.org/ns/shacl#anyValue")) {
                                 repairData.getRepairStrategyRules().add(
-                                        ":-del(" + ns(rss_nss, repair.path) + "(X,_)) .\n"
+                                        ":-del(" + ns(rss_nss, repair.path) + "(X,Y)) .\n"
                                 );
                             }
 
