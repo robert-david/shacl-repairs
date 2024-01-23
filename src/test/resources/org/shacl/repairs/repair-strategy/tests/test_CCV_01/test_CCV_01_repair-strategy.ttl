@@ -8,7 +8,7 @@
         sh:path :hasContractStatus;
         sh:action sh:delete;
         sh:preferenceOrder (
-            :statusViolated :statusFulfilled :statusPending
+            :statusPending :statusFulfilled :statusViolated
         )
     ];
     sh:repair [

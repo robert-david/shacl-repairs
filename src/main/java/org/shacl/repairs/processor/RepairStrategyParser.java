@@ -178,8 +178,6 @@ public class RepairStrategyParser {
 
                     } else if (!repair.preferenceOrderList.isEmpty() && repair.action.toString().equals("http://www.w3.org/ns/shacl#delete")) {
 
-                        Collections.reverse(repair.preferenceOrderList);
-
                         for (int i = 0; i < repair.preferenceOrderList.size(); i++) {
 
                             repairData.getRepairStrategyRules().add(
@@ -193,12 +191,12 @@ public class RepairStrategyParser {
                         if (repair.preferenceOrderFunction.toString().equals("http://www.w3.org/ns/shacl#minValue")) {
 
                             repairData.getRepairStrategyRules().add(
-                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y>Z,Y!=Z } .\n");
+                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y<Z,Y!=Z } .\n");
 
                         } else if (repair.preferenceOrderFunction.toString().equals("http://www.w3.org/ns/shacl#maxValue")) {
 
                             repairData.getRepairStrategyRules().add(
-                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y<Z,Y!=Z } .\n");
+                                    "#maximize { 1@0,Z: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "(X,Z),Y>Z,Y!=Z } .\n");
 
                         } else {
                             throw new RuntimeException("Unkown preference function: " + repair.preferenceOrderFunction.toString());

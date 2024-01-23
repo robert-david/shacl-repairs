@@ -49,33 +49,33 @@ _hasState_(X,Y,"t*"):-_hasState_(X,Y,"t") .
 % Repair Rules
 
 s0_(X,"t*"):-_obligationStateShape_(X,"t*") .
-node1hgvtqvi9x99_(X,"t*"):-s0_(X,"t*") .
-node1hgvtqvi9x99_(X,"f"):-s0_(X,"f") .
+node1hks35ijax99_(X,"t*"):-s0_(X,"t*") .
+node1hks35ijax99_(X,"f"):-s0_(X,"f") .
 
-% sh:maxCount 1 for node1hgvtqvi9x99
-s1_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
-s2_(X,"f"):-s1_(X,"t*") .
-s2_(X,"t*"):-s1_(X,"f") .
-_hasState_(X,@new(s2,X,_hasState,1..1),"t"):-choose(s2,X,_hasState,1) .
-_hasState_(X,@new(s2,X,_hasState,1..2),"t"):-choose(s2,X,_hasState,2) .
-choose(s2,X,_hasState,2);choose(s2,X,_hasState,1);choose(s2,X,_hasState,0):-s2_(X,"t*") .
-0 {_hasState_(X,Y,"t"):const(Y)} 3:-s2_(X,"t*") .
-(C-1) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s3_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-1):-s2_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>1 .
-_hasState_(X,Y,"f"):-s2_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-2 {s3_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s2_(X,"t*") .
+% sh:minCount 0 for node1hks35ijax99
+s1_(X,"t*"):-node1hks35ijax99_(X,"t*") .
+choose(s1,X,_hasState,0):-s1_(X,"t*") .
+0 {_hasState_(X,Y,"t"):const(Y)} 3:-s1_(X,"t*") .
+(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s2_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
+_hasState_(X,Y,"f"):-s1_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
+0 {s2_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s1_(X,"t*") .
 
 
-% sh:minCount 0 for node1hgvtqvi9x99
-s4_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
-choose(s4,X,_hasState,0):-s4_(X,"t*") .
+% sh:maxCount 1 for node1hks35ijax99
+s3_(X,"t*"):-node1hks35ijax99_(X,"t*") .
+s4_(X,"f"):-s3_(X,"t*") .
+s4_(X,"t*"):-s3_(X,"f") .
+_hasState_(X,@new(s4,X,_hasState,1..1),"t"):-choose(s4,X,_hasState,1) .
+_hasState_(X,@new(s4,X,_hasState,1..2),"t"):-choose(s4,X,_hasState,2) .
+choose(s4,X,_hasState,2);choose(s4,X,_hasState,1);choose(s4,X,_hasState,0):-s4_(X,"t*") .
 0 {_hasState_(X,Y,"t"):const(Y)} 3:-s4_(X,"t*") .
-(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s5_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
+(C-1) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s5_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-1):-s4_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>1 .
 _hasState_(X,Y,"f"):-s4_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-0 {s5_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s4_(X,"t*") .
+2 {s5_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s4_(X,"t*") .
 
 
-% universal for node1hgvtqvi9x99
-s6_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
+% universal for node1hks35ijax99
+s6_(X,"t*"):-node1hks35ijax99_(X,"t*") .
 s7_(X,"f"):-s6_(X,"t*") .
 s7_(X,"t*"):-s6_(X,"f") .
 _hasState_(X,@new(s7,X,_hasState,1..1),"t"):-choose(s7,X,_hasState,1) .
@@ -88,86 +88,86 @@ s9_(X,"f"):-s8_(X,"t*") .
 s9_(X,"t*"):-s8_(X,"f") .
 
 
-s1_(X,"f");s4_(X,"f");s6_(X,"f"):-node1hgvtqvi9x99_(X,"f") .
+s1_(X,"f");s3_(X,"f");s6_(X,"f"):-node1hks35ijax99_(X,"f") .
 s10_(X,"t*"):-_obligationStateShape_(X,"t*") .
-node1hgvtqvi9x99_(X,"t*"):-s10_(X,"t*") .
-node1hgvtqvi9x99_(X,"f"):-s10_(X,"f") .
+node1hks35ijax99_(X,"t*"):-s10_(X,"t*") .
+node1hks35ijax99_(X,"f"):-s10_(X,"f") .
 
-% sh:minCount 1 for node1hgvtqvi9x99
-s11_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
-_hasState_(X,@new(s11,X,_hasState,1..1),"t"):-choose(s11,X,_hasState,1) .
-choose(s11,X,_hasState,1);choose(s11,X,_hasState,0):-s11_(X,"t*") .
+s11_(X,"t*"):-node1hks35ijax99_(X,"t*") .
+choose(s11,X,_hasState,0):-s11_(X,"t*") .
 0 {_hasState_(X,Y,"t"):const(Y)} 3:-s11_(X,"t*") .
 (C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s12_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s11_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
 _hasState_(X,Y,"f"):-s11_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-1 {s12_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s11_(X,"t*") .
+0 {s12_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s11_(X,"t*") .
 
+s13_(X,"f"):-s12_(X,"t*") .
+s13_(X,"t*"):-s12_(X,"f") .
+s14_(X,"t*"):-s13_(X,"t*") .
+s15_(X,"f"):-s14_(X,"t*") .
+s15_(X,"t*"):-s14_(X,"f") .
+s16_(X,"t*"):-s13_(X,"t*") .
+s17_(X,"f"):-s16_(X,"t*") .
+s17_(X,"t*"):-s16_(X,"f") .
+s18_(X,"t*"):-s13_(X,"t*") .
+s19_(X,"f"):-s18_(X,"t*") .
+s19_(X,"t*"):-s18_(X,"f") .
+s14_(X,"f");s16_(X,"f");s18_(X,"f"):-s13_(X,"f") .
 
-s13_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
-s14_(X,"f"):-s13_(X,"t*") .
-s14_(X,"t*"):-s13_(X,"f") .
-_hasState_(X,@new(s14,X,_hasState,1..1),"t"):-choose(s14,X,_hasState,1) .
-choose(s14,X,_hasState,1);choose(s14,X,_hasState,0):-s14_(X,"t*") .
-0 {_hasState_(X,Y,"t"):const(Y)} 3:-s14_(X,"t*") .
-(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s15_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s14_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
-_hasState_(X,Y,"f"):-s14_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-1 {s15_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s14_(X,"t*") .
-s16_(X,"f"):-s15_(X,"t*") .
-s16_(X,"t*"):-s15_(X,"f") .
+s20_(X,"t*"):-node1hks35ijax99_(X,"t*") .
+s21_(X,"f"):-s20_(X,"t*") .
+s21_(X,"t*"):-s20_(X,"f") .
+_hasState_(X,@new(s21,X,_hasState,1..1),"t"):-choose(s21,X,_hasState,1) .
+choose(s21,X,_hasState,1);choose(s21,X,_hasState,0):-s21_(X,"t*") .
+0 {_hasState_(X,Y,"t"):const(Y)} 3:-s21_(X,"t*") .
+(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s22_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s21_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
+_hasState_(X,Y,"f"):-s21_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
+1 {s22_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s21_(X,"t*") .
+s23_(X,"f"):-s22_(X,"t*") .
+s23_(X,"t*"):-s22_(X,"f") .
 
-
-s11_(X,"f");s13_(X,"f"):-node1hgvtqvi9x99_(X,"f") .
-s17_(X,"t*"):-_obligationStateShape_(X,"t*") .
-node1hgvtqvi9x99_(X,"t*"):-s17_(X,"t*") .
-node1hgvtqvi9x99_(X,"f"):-s17_(X,"f") .
-
-s18_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
-choose(s18,X,_hasState,0):-s18_(X,"t*") .
-0 {_hasState_(X,Y,"t"):const(Y)} 3:-s18_(X,"t*") .
-(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s19_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s18_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
-_hasState_(X,Y,"f"):-s18_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-0 {s19_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s18_(X,"t*") .
-
-s20_(X,"f"):-s19_(X,"t*") .
-s20_(X,"t*"):-s19_(X,"f") .
-s21_(X,"t*"):-s20_(X,"t*") .
-s22_(X,"f"):-s21_(X,"t*") .
-s22_(X,"t*"):-s21_(X,"f") .
-s23_(X,"t*"):-s20_(X,"t*") .
 s24_(X,"f"):-s23_(X,"t*") .
 s24_(X,"t*"):-s23_(X,"f") .
-s25_(X,"t*"):-s20_(X,"t*") .
+s25_(X,"t*"):-s24_(X,"t*") .
 s26_(X,"f"):-s25_(X,"t*") .
 s26_(X,"t*"):-s25_(X,"f") .
-s21_(X,"f");s23_(X,"f");s25_(X,"f"):-s20_(X,"f") .
-
-s27_(X,"t*"):-node1hgvtqvi9x99_(X,"t*") .
+s27_(X,"t*"):-s24_(X,"t*") .
 s28_(X,"f"):-s27_(X,"t*") .
 s28_(X,"t*"):-s27_(X,"f") .
-_hasState_(X,@new(s28,X,_hasState,1..1),"t"):-choose(s28,X,_hasState,1) .
-choose(s28,X,_hasState,1);choose(s28,X,_hasState,0):-s28_(X,"t*") .
-0 {_hasState_(X,Y,"t"):const(Y)} 3:-s28_(X,"t*") .
-(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s29_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s28_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
-_hasState_(X,Y,"f"):-s28_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
-1 {s29_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s28_(X,"t*") .
+s29_(X,"t*"):-s24_(X,"t*") .
 s30_(X,"f"):-s29_(X,"t*") .
 s30_(X,"t*"):-s29_(X,"f") .
+s25_(X,"f");s27_(X,"f");s29_(X,"f"):-s24_(X,"f") .
 
-s31_(X,"f"):-s30_(X,"t*") .
-s31_(X,"t*"):-s30_(X,"f") .
-s32_(X,"t*"):-s31_(X,"t*") .
-s33_(X,"f"):-s32_(X,"t*") .
-s33_(X,"t*"):-s32_(X,"f") .
-s34_(X,"t*"):-s31_(X,"t*") .
+s11_(X,"f");s20_(X,"f"):-node1hks35ijax99_(X,"f") .
+s31_(X,"t*"):-_obligationStateShape_(X,"t*") .
+node1hks35ijax99_(X,"t*"):-s31_(X,"t*") .
+node1hks35ijax99_(X,"f"):-s31_(X,"f") .
+
+% sh:minCount 1 for node1hks35ijax99
+s32_(X,"t*"):-node1hks35ijax99_(X,"t*") .
+_hasState_(X,@new(s32,X,_hasState,1..1),"t"):-choose(s32,X,_hasState,1) .
+choose(s32,X,_hasState,1);choose(s32,X,_hasState,0):-s32_(X,"t*") .
+0 {_hasState_(X,Y,"t"):const(Y)} 3:-s32_(X,"t*") .
+(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s33_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s32_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
+_hasState_(X,Y,"f"):-s32_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
+1 {s33_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s32_(X,"t*") .
+
+
+s34_(X,"t*"):-node1hks35ijax99_(X,"t*") .
 s35_(X,"f"):-s34_(X,"t*") .
 s35_(X,"t*"):-s34_(X,"f") .
-s36_(X,"t*"):-s31_(X,"t*") .
+_hasState_(X,@new(s35,X,_hasState,1..1),"t"):-choose(s35,X,_hasState,1) .
+choose(s35,X,_hasState,1);choose(s35,X,_hasState,0):-s35_(X,"t*") .
+0 {_hasState_(X,Y,"t"):const(Y)} 3:-s35_(X,"t*") .
+(C-0) {_hasState_(X,Y,"f"):_hasState_(X,Y,"t*");s36_(Y,"f"):_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f")} (C-0):-s35_(X,"f"),#count {Y:_hasState_(X,Y,"t*")}=C,C>0 .
+_hasState_(X,Y,"f"):-s35_(X,"f"),_hasState_(X,Y,"t*"),_hasState_(X,Y,"f") .
+1 {s36_(Y,"t*"):_hasState_(X,Y,"t**")} 3:-s35_(X,"t*") .
 s37_(X,"f"):-s36_(X,"t*") .
 s37_(X,"t*"):-s36_(X,"f") .
-s32_(X,"f");s34_(X,"f");s36_(X,"f"):-s31_(X,"f") .
 
-s18_(X,"f");s27_(X,"f"):-node1hgvtqvi9x99_(X,"f") .
-s0_(X,"f");s10_(X,"f");s17_(X,"f"):-_obligationStateShape_(X,"f") .
+
+s32_(X,"f");s34_(X,"f"):-node1hks35ijax99_(X,"f") .
+s0_(X,"f");s10_(X,"f");s31_(X,"f"):-_obligationStateShape_(X,"f") .
 
 % Interpretation Rules
 
@@ -176,23 +176,23 @@ _hasState_(X,Y,"t**"):-_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f") .
 % Program Constraints
 
 :-_hasState_(X,Y,"t"),_hasState_(X,Y,"f") .
-:-s3_(X,"f") .
+:-s2_(X,"f") .
 :-s5_(X,"f") .
 :-s9_(X,"f") .
-:-s12_(X,"f") .
-:-s16_(X,"f") .
-:-s22_(X,"t*"),X!="_pendingState" .
-:-s22_(X,"f"),X="_pendingState" .
-:-s24_(X,"t*"),X!="_fulfilledState" .
-:-s24_(X,"f"),X="_fulfilledState" .
-:-s26_(X,"t*"),X!="_violatedState" .
-:-s26_(X,"f"),X="_violatedState" .
-:-s33_(X,"t*"),X!="_pendingState" .
-:-s33_(X,"f"),X="_pendingState" .
-:-s35_(X,"t*"),X!="_fulfilledState" .
-:-s35_(X,"f"),X="_fulfilledState" .
-:-s37_(X,"t*"),X!="_violatedState" .
-:-s37_(X,"f"),X="_violatedState" .
+:-s15_(X,"t*"),X!="_pendingState" .
+:-s15_(X,"f"),X="_pendingState" .
+:-s17_(X,"t*"),X!="_fulfilledState" .
+:-s17_(X,"f"),X="_fulfilledState" .
+:-s19_(X,"t*"),X!="_violatedState" .
+:-s19_(X,"f"),X="_violatedState" .
+:-s26_(X,"t*"),X!="_pendingState" .
+:-s26_(X,"f"),X="_pendingState" .
+:-s28_(X,"t*"),X!="_fulfilledState" .
+:-s28_(X,"f"),X="_fulfilledState" .
+:-s30_(X,"t*"),X!="_violatedState" .
+:-s30_(X,"f"),X="_violatedState" .
+:-s33_(X,"f") .
+:-s37_(X,"f") .
 
 % Change Set Rules
 

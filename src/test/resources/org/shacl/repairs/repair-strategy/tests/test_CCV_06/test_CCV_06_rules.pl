@@ -48,96 +48,96 @@ _hasObligations_(Y,X,"f"):-_hasObligations_inv_(X,Y,"f") .
 _hasObligations_inv_(X,Y,"f"):-_hasObligations_(Y,X,"f") .
 _hasEndDate_(X,Y,"t*"):-_hasEndDate(X,Y) .
 _hasEndDate_(X,Y,"t*"):-_hasEndDate_(X,Y,"t") .
-node1hgvtqvi9x192_st_(X,X1,"t*"):-node1hgvtqvi9x192_(X,_),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*") .
+node1hks35ijax192_st_(X,X1,"t*"):-node1hks35ijax192_(X,_),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*") .
 
 % Repair Rules
 
 s0_(X,"t*"):-_endDateConsistencyShape_(X,"t*") .
-node1hgvtqvi9x192_(X,"t*"):-s0_(X,"t*") .
-node1hgvtqvi9x192_(X,"f"):-s0_(X,"f") .
+node1hks35ijax192_(X,"t*"):-s0_(X,"t*") .
+node1hks35ijax192_(X,"f"):-s0_(X,"f") .
 
 
-% sh:minCount 0 for node1hgvtqvi9x192
-s1_(X,"t*"):-node1hgvtqvi9x192_(X,"t*") .
-choose(s1,X,node1hgvtqvi9x192_st,0):-s1_(X,"t*") .
-choose(node1hgvtqvi9x192_st,X,_hasObligations_inv_,1);choose(node1hgvtqvi9x192_st,X,_hasObligations_inv_,0):-node1hgvtqvi9x192_st_(X,Y,"t") .
-_hasObligations_inv_(X,@new(node1hgvtqvi9x192_st,X,_hasObligations_inv_,1),"t"):-choose(node1hgvtqvi9x192_st,X,_hasObligations_inv_,1),node1hgvtqvi9x192_st_(X,Y,"t") .
-(C-0) {node1hgvtqvi9x192_st_(X,Y,"f"):node1hgvtqvi9x192_st_(X,Y,"t*");s2_(Y,"f"):node1hgvtqvi9x192_st_(X,Y,"t*"),not node1hgvtqvi9x192_st_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:node1hgvtqvi9x192_st_(X,Y,"t*")}=C,C>0 .
-_hasObligations_inv_(X,X0,"f");_hasEndDate_(X0,X1,"f"):-s1_(X,"f"),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*"),node1hgvtqvi9x192_st_(X,X1,"f") .
-0 {s2_(Y,"t*"):node1hgvtqvi9x192_st_(X,Y,"t**")} 0:-s1_(X,"t*") .
+% sh:minCount 0 for node1hks35ijax192
+s1_(X,"t*"):-node1hks35ijax192_(X,"t*") .
+choose(s1,X,node1hks35ijax192_st,0):-s1_(X,"t*") .
+choose(node1hks35ijax192_st,X,_hasObligations_inv_,1);choose(node1hks35ijax192_st,X,_hasObligations_inv_,0):-node1hks35ijax192_st_(X,Y,"t") .
+_hasObligations_inv_(X,@new(node1hks35ijax192_st,X,_hasObligations_inv_,1),"t"):-choose(node1hks35ijax192_st,X,_hasObligations_inv_,1),node1hks35ijax192_st_(X,Y,"t") .
+(C-0) {node1hks35ijax192_st_(X,Y,"f"):node1hks35ijax192_st_(X,Y,"t*");s2_(Y,"f"):node1hks35ijax192_st_(X,Y,"t*"),not node1hks35ijax192_st_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:node1hks35ijax192_st_(X,Y,"t*")}=C,C>0 .
+_hasObligations_inv_(X,X0,"f");_hasEndDate_(X0,X1,"f"):-s1_(X,"f"),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*"),node1hks35ijax192_st_(X,X1,"f") .
+0 {s2_(Y,"t*"):node1hks35ijax192_st_(X,Y,"t**")} 0:-s1_(X,"t*") .
 
 
-_hasEndDate_(X,Y,"t"):-node1hgvtqvi9x192_(X,"t*"),node1hgvtqvi9x192_st_(X,Y,"t*"),_hasEndDate_(X,Z,"t*"),Z>Y .
-node1hgvtqvi9x192_st_(X,Y,"t"):-node1hgvtqvi9x192_(X,"t*"),_hasEndDate_(X,Y,"t*"),node1hgvtqvi9x192_st_(X,Z,"t*"),Y>Z .
-1 {node1hgvtqvi9x192_st_(X,Y,"f");_hasEndDate_(X,Y,"f")} 1:-node1hgvtqvi9x192_(X,"f"),node1hgvtqvi9x192_st_(X,Y,"t*"),_hasEndDate_(X,Y,"t*") .
+_hasEndDate_(X,Y,"t"):-node1hks35ijax192_(X,"t*"),node1hks35ijax192_st_(X,Y,"t*"),_hasEndDate_(X,Z,"t*"),Z>Y .
+node1hks35ijax192_st_(X,Y,"t"):-node1hks35ijax192_(X,"t*"),_hasEndDate_(X,Y,"t*"),node1hks35ijax192_st_(X,Z,"t*"),Y>Z .
+1 {node1hks35ijax192_st_(X,Y,"f");_hasEndDate_(X,Y,"f")} 1:-node1hks35ijax192_(X,"f"),node1hks35ijax192_st_(X,Y,"t*"),_hasEndDate_(X,Y,"t*") .
 
-% universal for node1hgvtqvi9x192
-s3_(X,"t*"):-node1hgvtqvi9x192_(X,"t*") .
+% universal for node1hks35ijax192
+s3_(X,"t*"):-node1hks35ijax192_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
-node1hgvtqvi9x192_st_(X,@new(s4,X,node1hgvtqvi9x192_st,1..1),"t"):-choose(s4,X,node1hgvtqvi9x192_st,1) .
-choose(s4,X,node1hgvtqvi9x192_st,1);choose(s4,X,node1hgvtqvi9x192_st,0):-s4_(X,"t*") .
-0 {_hasEndDate_(X0,Y,"t")} 1:-_hasObligations_inv_(X,X0,"t**"),node1hgvtqvi9x192_st_(X,Y,"t") .
-(C-0) {node1hgvtqvi9x192_st_(X,Y,"f"):node1hgvtqvi9x192_st_(X,Y,"t*");s5_(Y,"f"):node1hgvtqvi9x192_st_(X,Y,"t*"),not node1hgvtqvi9x192_st_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:node1hgvtqvi9x192_st_(X,Y,"t*")}=C,C>0 .
-_hasObligations_inv_(X,X0,"f");_hasEndDate_(X0,X1,"f"):-s4_(X,"f"),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*"),node1hgvtqvi9x192_st_(X,X1,"f") .
-1 {s5_(Y,"t*"):node1hgvtqvi9x192_st_(X,Y,"t**")} 1:-s4_(X,"t*") .
+node1hks35ijax192_st_(X,@new(s4,X,node1hks35ijax192_st,1..1),"t"):-choose(s4,X,node1hks35ijax192_st,1) .
+choose(s4,X,node1hks35ijax192_st,1);choose(s4,X,node1hks35ijax192_st,0):-s4_(X,"t*") .
+0 {_hasEndDate_(X0,Y,"t")} 1:-_hasObligations_inv_(X,X0,"t**"),node1hks35ijax192_st_(X,Y,"t") .
+(C-0) {node1hks35ijax192_st_(X,Y,"f"):node1hks35ijax192_st_(X,Y,"t*");s5_(Y,"f"):node1hks35ijax192_st_(X,Y,"t*"),not node1hks35ijax192_st_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:node1hks35ijax192_st_(X,Y,"t*")}=C,C>0 .
+_hasObligations_inv_(X,X0,"f");_hasEndDate_(X0,X1,"f"):-s4_(X,"f"),_hasObligations_inv_(X,X0,"t*"),_hasEndDate_(X0,X1,"t*"),node1hks35ijax192_st_(X,X1,"f") .
+1 {s5_(Y,"t*"):node1hks35ijax192_st_(X,Y,"t**")} 1:-s4_(X,"t*") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s1_(X,"f");s3_(X,"f"):-node1hgvtqvi9x192_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hks35ijax192_(X,"f") .
 s7_(X,"t*"):-_endDateConsistencyShape_(X,"t*") .
-node1hgvtqvi9x196_(X,"t*"):-s7_(X,"t*") .
-node1hgvtqvi9x196_(X,"f"):-s7_(X,"f") .
+node1hks35ijax196_(X,"t*"):-s7_(X,"t*") .
+node1hks35ijax196_(X,"f"):-s7_(X,"f") .
 
-% sh:minCount 1 for node1hgvtqvi9x196
-s8_(X,"t*"):-node1hgvtqvi9x196_(X,"t*") .
-_hasEndDate_(X,@new(s8,X,_hasEndDate,1..1),"t"):-choose(s8,X,_hasEndDate,1) .
-choose(s8,X,_hasEndDate,1);choose(s8,X,_hasEndDate,0):-s8_(X,"t*") .
-(C-0) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s9_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>0 .
-_hasEndDate_(X,Y,"f"):-s8_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
-1 {s9_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 1:-s8_(X,"t*") .
+% sh:maxCount 1 for node1hks35ijax196
+s8_(X,"t*"):-node1hks35ijax196_(X,"t*") .
+s9_(X,"f"):-s8_(X,"t*") .
+s9_(X,"t*"):-s8_(X,"f") .
+_hasEndDate_(X,@new(s9,X,_hasEndDate,1..1),"t"):-choose(s9,X,_hasEndDate,1) .
+_hasEndDate_(X,@new(s9,X,_hasEndDate,1..2),"t"):-choose(s9,X,_hasEndDate,2) .
+choose(s9,X,_hasEndDate,2);choose(s9,X,_hasEndDate,1);choose(s9,X,_hasEndDate,0):-s9_(X,"t*") .
+(C-1) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s10_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-1):-s9_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>1 .
+_hasEndDate_(X,Y,"f"):-s9_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
+2 {s10_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 2:-s9_(X,"t*") .
 
 
-% universal for node1hgvtqvi9x196
-s10_(X,"t*"):-node1hgvtqvi9x196_(X,"t*") .
-s11_(X,"f"):-s10_(X,"t*") .
-s11_(X,"t*"):-s10_(X,"f") .
-_hasEndDate_(X,@new(s11,X,_hasEndDate,1..1),"t"):-choose(s11,X,_hasEndDate,1) .
-choose(s11,X,_hasEndDate,1);choose(s11,X,_hasEndDate,0):-s11_(X,"t*") .
+% sh:minCount 0 for node1hks35ijax196
+s11_(X,"t*"):-node1hks35ijax196_(X,"t*") .
+choose(s11,X,_hasEndDate,0):-s11_(X,"t*") .
 (C-0) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s12_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-0):-s11_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>0 .
 _hasEndDate_(X,Y,"f"):-s11_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
-1 {s12_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 1:-s11_(X,"t*") .
-s13_(X,"f"):-s12_(X,"t*") .
-s13_(X,"t*"):-s12_(X,"f") .
+0 {s12_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 0:-s11_(X,"t*") .
 
 
-s8_(X,"f");s10_(X,"f"):-node1hgvtqvi9x196_(X,"f") .
-s14_(X,"t*"):-_endDateConsistencyShape_(X,"t*") .
-node1hgvtqvi9x196_(X,"t*"):-s14_(X,"t*") .
-node1hgvtqvi9x196_(X,"f"):-s14_(X,"f") .
-
-% sh:maxCount 1 for node1hgvtqvi9x196
-s15_(X,"t*"):-node1hgvtqvi9x196_(X,"t*") .
+% universal for node1hks35ijax196
+s13_(X,"t*"):-node1hks35ijax196_(X,"t*") .
+s14_(X,"f"):-s13_(X,"t*") .
+s14_(X,"t*"):-s13_(X,"f") .
+_hasEndDate_(X,@new(s14,X,_hasEndDate,1..1),"t"):-choose(s14,X,_hasEndDate,1) .
+choose(s14,X,_hasEndDate,1);choose(s14,X,_hasEndDate,0):-s14_(X,"t*") .
+(C-0) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s15_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-0):-s14_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>0 .
+_hasEndDate_(X,Y,"f"):-s14_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
+1 {s15_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 1:-s14_(X,"t*") .
 s16_(X,"f"):-s15_(X,"t*") .
 s16_(X,"t*"):-s15_(X,"f") .
-_hasEndDate_(X,@new(s16,X,_hasEndDate,1..1),"t"):-choose(s16,X,_hasEndDate,1) .
-_hasEndDate_(X,@new(s16,X,_hasEndDate,1..2),"t"):-choose(s16,X,_hasEndDate,2) .
-choose(s16,X,_hasEndDate,2);choose(s16,X,_hasEndDate,1);choose(s16,X,_hasEndDate,0):-s16_(X,"t*") .
-(C-1) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s17_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-1):-s16_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>1 .
-_hasEndDate_(X,Y,"f"):-s16_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
-2 {s17_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 2:-s16_(X,"t*") .
 
 
-% sh:minCount 0 for node1hgvtqvi9x196
-s18_(X,"t*"):-node1hgvtqvi9x196_(X,"t*") .
-choose(s18,X,_hasEndDate,0):-s18_(X,"t*") .
+s8_(X,"f");s11_(X,"f");s13_(X,"f"):-node1hks35ijax196_(X,"f") .
+s17_(X,"t*"):-_endDateConsistencyShape_(X,"t*") .
+node1hks35ijax196_(X,"t*"):-s17_(X,"t*") .
+node1hks35ijax196_(X,"f"):-s17_(X,"f") .
+
+% sh:minCount 1 for node1hks35ijax196
+s18_(X,"t*"):-node1hks35ijax196_(X,"t*") .
+_hasEndDate_(X,@new(s18,X,_hasEndDate,1..1),"t"):-choose(s18,X,_hasEndDate,1) .
+choose(s18,X,_hasEndDate,1);choose(s18,X,_hasEndDate,0):-s18_(X,"t*") .
 (C-0) {_hasEndDate_(X,Y,"f"):_hasEndDate_(X,Y,"t*");s19_(Y,"f"):_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f")} (C-0):-s18_(X,"f"),#count {Y:_hasEndDate_(X,Y,"t*")}=C,C>0 .
 _hasEndDate_(X,Y,"f"):-s18_(X,"f"),_hasEndDate_(X,Y,"t*"),_hasEndDate_(X,Y,"f") .
-0 {s19_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 0:-s18_(X,"t*") .
+1 {s19_(Y,"t*"):_hasEndDate_(X,Y,"t**")} 1:-s18_(X,"t*") .
 
 
-s20_(X,"t*"):-node1hgvtqvi9x196_(X,"t*") .
+s20_(X,"t*"):-node1hks35ijax196_(X,"t*") .
 s21_(X,"f"):-s20_(X,"t*") .
 s21_(X,"t*"):-s20_(X,"f") .
 _hasEndDate_(X,@new(s21,X,_hasEndDate,1..1),"t"):-choose(s21,X,_hasEndDate,1) .
@@ -149,27 +149,27 @@ s23_(X,"f"):-s22_(X,"t*") .
 s23_(X,"t*"):-s22_(X,"f") .
 
 
-s15_(X,"f");s18_(X,"f");s20_(X,"f"):-node1hgvtqvi9x196_(X,"f") .
-s0_(X,"f");s7_(X,"f");s14_(X,"f"):-_endDateConsistencyShape_(X,"f") .
+s18_(X,"f");s20_(X,"f"):-node1hks35ijax196_(X,"f") .
+s0_(X,"f");s7_(X,"f");s17_(X,"f"):-_endDateConsistencyShape_(X,"f") .
 
 % Interpretation Rules
 
 _hasObligations_(X,Y,"t**"):-_hasObligations_(X,Y,"t*"),not _hasObligations_(X,Y,"f") .
 _hasObligations_inv_(X,Y,"t**"):-_hasObligations_inv_(X,Y,"t*"),not _hasObligations_inv_(X,Y,"f") .
 _hasEndDate_(X,Y,"t**"):-_hasEndDate_(X,Y,"t*"),not _hasEndDate_(X,Y,"f") .
-node1hgvtqvi9x192_st_(X,X1,"t**"):-node1hgvtqvi9x192_st_(X,X1,"t*"),not node1hgvtqvi9x192_st_(X,X1,"f"),_hasObligations_inv_(X,X0,"t**"),_hasEndDate_(X0,X1,"t**") .
+node1hks35ijax192_st_(X,X1,"t**"):-node1hks35ijax192_st_(X,X1,"t*"),not node1hks35ijax192_st_(X,X1,"f"),_hasObligations_inv_(X,X0,"t**"),_hasEndDate_(X0,X1,"t**") .
 
 % Program Constraints
 
 :-_hasObligations_(X,Y,"t"),_hasObligations_(X,Y,"f") .
 :-_hasObligations_inv_(X,Y,"t"),_hasObligations_inv_(X,Y,"f") .
 :-_hasEndDate_(X,Y,"t"),_hasEndDate_(X,Y,"f") .
-:-node1hgvtqvi9x192_st_(X,Y,"t"),node1hgvtqvi9x192_st_(X,Y,"f") .
+:-node1hks35ijax192_st_(X,Y,"t"),node1hks35ijax192_st_(X,Y,"f") .
 :-s2_(X,"f") .
 :-s6_(X,"f") .
-:-s9_(X,"f") .
-:-s13_(X,"f") .
-:-s17_(X,"f") .
+:-s10_(X,"f") .
+:-s12_(X,"f") .
+:-s16_(X,"f") .
 :-s19_(X,"f") .
 :-s23_(X,"f") .
 

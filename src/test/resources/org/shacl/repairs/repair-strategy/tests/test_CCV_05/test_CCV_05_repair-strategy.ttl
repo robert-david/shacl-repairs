@@ -8,5 +8,5 @@
     sh:repair [
         sh:path :hasEndDate;
         sh:action sh:delete;
-        sh:preferenceOrder sh:maxValue
+        sh:preferenceOrder sh:minValue
     ] .

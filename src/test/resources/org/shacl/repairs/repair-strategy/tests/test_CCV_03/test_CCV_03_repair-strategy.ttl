@@ -8,7 +8,7 @@
         sh:path :hasState;
         sh:action sh:delete;
         sh:preferenceOrder (
-            :ViolatedState :FulfilledState :PendingState
+            :PendingState :FulfilledState :ViolatedState
         )
     ];
     sh:repair [
