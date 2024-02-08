@@ -166,7 +166,7 @@ public class RepairGenerator {
             }
 
             if (shape.getConstraintComponents().size() == 1) {
-                shapeMap.get(shape.getId()).addAll(Collections.singletonList(shape));
+                shapeMap.get(shape.getId()).add(shape);
             } else {
                 shapeMap.get(shape.getId()).addAll(shape.getConstraintComponents());
             }
@@ -472,6 +472,8 @@ public class RepairGenerator {
                 if (constraintComponent instanceof MinCountConstraintComponent
                         || constraintComponent instanceof MaxCountConstraintComponent
                         || constraintComponent instanceof EqualsConstraintComponent
+                        || constraintComponent instanceof LessThanConstraintComponent
+                        || constraintComponent instanceof LessThanOrEqualsConstraintComponent
                 ) {
                     propertyConstraints.add(constraintComponent);
                 } else if (constraintComponent instanceof QualifiedMinCountConstraintComponent
@@ -583,9 +585,13 @@ public class RepairGenerator {
 
             } else if (constraintComponent instanceof EqualsConstraintComponent) {
 
-                // todo: add support for property paths
                 String equalsName = ns(nss, ((EqualsConstraintComponent) constraintComponent).getPredicate());
                 getEqualsRules(shapeName, st, path, equalsName);
+
+            } else if (constraintComponent instanceof LessThanOrEqualsConstraintComponent) {
+                
+                String lessThanOrEqualsName = ns(nss, ((LessThanOrEqualsConstraintComponent) constraintComponent).getPredicate());
+                getLessThanOrEqualsRules(shapeName, st, path, lessThanOrEqualsName);
             }
         }
 
@@ -1066,7 +1072,6 @@ public class RepairGenerator {
 
             String property = ns(nss, path.getId());
 
-            // todo: adapt for inv aux properties
             RepairData.get().getRepairRules().add(equalsName + "_(Y,X,\"t\"):-" +
                     shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
             RepairData.get().getRepairRules().add(property + "_(Y,X,\"t\"):-" +
@@ -1089,6 +1094,61 @@ public class RepairGenerator {
         RepairData.get().getChangeSetRules().add("del(" + equalsName + "(X,Y)):-" + equalsName + "_(X,Y,\"f\")," + equalsName + "(X,Y) .\n");
 
         RepairData.get().getProgramConstraints().add(":-" + equalsName + "_(X,Y,\"t\")," + equalsName + "_(X,Y,\"f\") .\n");
+    }
+
+    private static void getLessThanOrEqualsRules(String shapeName, String st, Path path, String lessThanOrEqualsName) {
+
+        RepairData.get().getAnnotationRules().add(lessThanOrEqualsName + "_(X,Y,\"t*\"):-" + lessThanOrEqualsName + "(X,Y) .\n");
+        RepairData.get().getAnnotationRules().add(lessThanOrEqualsName + "_(X,Y,\"t*\"):-" + lessThanOrEqualsName + "_(X,Y,\"t\") .\n");
+
+        if (path instanceof SequencePath) {
+
+            RepairData.get().getRepairRules().add(lessThanOrEqualsName + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Z,\"t*\"),geq(Z,Y) .\n");
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\")," + st + "_(X,Z,\"t*\"),geq(Y,Z) .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + st + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(X,Y,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\") .\n");
+
+        } else if (path instanceof SimplePath) {
+
+            String property = ns(nss, path.getId());
+
+            RepairData.get().getRepairRules().add(lessThanOrEqualsName + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + property + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(X,Y,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\") .\n");
+
+        } else if (path instanceof InversePath) {
+
+            String property = ns(nss, path.getId());
+
+            RepairData.get().getRepairRules().add(lessThanOrEqualsName + "_(Y,X,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(property + "_(Y,X,\"t\"):-" +
+                    shapeName + "_(X,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add("1 {" + property + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(Y,X,\"f\")} 1:-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(Y,X,\"t*\") .\n");
+
+        } else {
+            throw new RuntimeException("path contains not supported element " + path.getClass().getSimpleName());
+        }
+
+        RepairData.get().getRepairRules().add("\n");
+
+        RepairData.get().getInterpretationRules().add(
+                lessThanOrEqualsName + "_(X,Y,\"t**\"):-" +
+                        lessThanOrEqualsName + "_(X,Y,\"t*\"),not " + lessThanOrEqualsName + "_(X,Y,\"f\") .\n");
+
+        RepairData.get().getChangeSetRules().add("add(" + lessThanOrEqualsName + "(X,Y)):-" + lessThanOrEqualsName + "_(X,Y,\"t**\"),not " + lessThanOrEqualsName + "(X,Y) .\n");
+        RepairData.get().getChangeSetRules().add("del(" + lessThanOrEqualsName + "(X,Y)):-" + lessThanOrEqualsName + "_(X,Y,\"f\")," + lessThanOrEqualsName + "(X,Y) .\n");
+
+        RepairData.get().getProgramConstraints().add(":-" + lessThanOrEqualsName + "_(X,Y,\"t\")," + lessThanOrEqualsName + "_(X,Y,\"f\") .\n");
     }
 
     public static void getNodeConstraintRules(String shapeName, Collection<ConstraintComponent> nodeConstraints, boolean universal) {
