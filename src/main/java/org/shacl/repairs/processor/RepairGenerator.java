@@ -589,7 +589,7 @@ public class RepairGenerator {
                 getEqualsRules(shapeName, st, path, equalsName);
 
             } else if (constraintComponent instanceof LessThanOrEqualsConstraintComponent) {
-                
+
                 String lessThanOrEqualsName = ns(nss, ((LessThanOrEqualsConstraintComponent) constraintComponent).getPredicate());
                 getLessThanOrEqualsRules(shapeName, st, path, lessThanOrEqualsName);
             }

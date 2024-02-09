@@ -1,5 +1,7 @@
 package org.shacl.repairs.tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.shacl.repairs.processor.RepairProgram;
 
 import java.io.*;
@@ -8,13 +10,15 @@ import java.util.Set;
 
 public class RepairTestRunner extends RepairProgram {
 
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     public RepairTestRunner() {
     }
 
     public String runProgram(String rulesFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"/usr/local/bin/clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "100"};
+        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "100", "-t", "3"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new
@@ -30,7 +34,6 @@ public class RepairTestRunner extends RepairProgram {
             }
         }
 
-        int c = 1;
         boolean solutions = false;
         for (String s1 : reduced) {
 
@@ -48,7 +51,8 @@ public class RepairTestRunner extends RepairProgram {
                 solutions = true;
             }
         }
-        System.out.println(result);
+
+        logger.info(result);
         return result;
     }
 
