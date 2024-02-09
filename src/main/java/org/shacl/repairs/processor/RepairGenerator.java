@@ -69,7 +69,7 @@ public class RepairGenerator {
             SHACLData parserData,
             RepairData repairData) {
 
-        repairData.getChangeSetRules().add("% Get all optimal models: --opt-mode=optN -n 100 --quiet=1\n");
+        repairData.getChangeSetRules().add("% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3\n");
         repairData.getChangeSetRules().add("% Change the scores of add and del to prioritize additions or deletions\n");
         repairData.getChangeSetRules().add("#minimize { 1@2,A: add(A); 1@2,D: del(D) } .\n");
         repairData.getChangeSetRules().add("#minimize { 1@3,X,S: skipTarget(X,S) } .\n");
@@ -1103,13 +1103,11 @@ public class RepairGenerator {
 
         if (path instanceof SequencePath) {
 
-            RepairData.get().getRepairRules().add(lessThanOrEqualsName + "_(X,Y,\"t\"):-" +
-                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Z,\"t*\"),geq(Z,Y) .\n");
-            RepairData.get().getRepairRules().add(st + "_(X,Y,\"t\"):-" +
-                    shapeName + "_(X,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\")," + st + "_(X,Z,\"t*\"),geq(Y,Z) .\n");
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(X,Z,\"f\"):-" +
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Z,\"t*\"),Y>Z .\n");
 
-            RepairData.get().getRepairRules().add("1 {" + st + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(X,Y,\"f\")} 1:-" +
-                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Y,\"t*\") .\n");
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\");" + lessThanOrEqualsName + "_(X,Z,\"f\"):-" +
+                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + lessThanOrEqualsName + "_(X,Z,\"t*\"),Y<=Z .\n");
 
         } else if (path instanceof SimplePath) {
 
