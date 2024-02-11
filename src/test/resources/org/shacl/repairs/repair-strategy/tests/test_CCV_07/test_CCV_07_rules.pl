@@ -50,95 +50,95 @@ _hasObligations_(X,Y,"t*"):-_hasObligations(X,Y) .
 _hasObligations_(X,Y,"t*"):-_hasObligations_(X,Y,"t") .
 _hasState_(X,Y,"t*"):-_hasState(X,Y) .
 _hasState_(X,Y,"t*"):-_hasState_(X,Y,"t") .
-node1hks35ijax239_st_(X,X1,"t*"):-node1hks35ijax239_(X,_),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*") .
+node1hm6rtb6tx275_st_(X,X1,"t*"):-node1hm6rtb6tx275_(X,_),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*") .
 
 % Repair Rules
 
 s0_(X,"t*"):-_contractStatusShape_(X,"t*") .
-node1hks35ijax232_(X,"t*"):-s0_(X,"t*") .
-node1hks35ijax232_(X,"f"):-s0_(X,"f") .
+node1hm6rtb6tx268_(X,"t*"):-s0_(X,"t*") .
+node1hm6rtb6tx268_(X,"f"):-s0_(X,"f") .
 
-% sh:minCount 0 for node1hks35ijax232
-s1_(X,"t*"):-node1hks35ijax232_(X,"t*") .
-choose(s1,X,_hasContractStatus,0):-s1_(X,"t*") .
+% sh:minCount 1 for node1hm6rtb6tx268
+s1_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
+_hasContractStatus_(X,@new(s1,X,_hasContractStatus,1..1),"t"):-choose(s1,X,_hasContractStatus,1) .
+choose(s1,X,_hasContractStatus,1);choose(s1,X,_hasContractStatus,0):-s1_(X,"t*") .
 0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s1_(X,"t*") .
 (C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s2_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
 _hasContractStatus_(X,Y,"f"):-s1_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
-0 {s2_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s1_(X,"t*") .
+1 {s2_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s1_(X,"t*") .
 
-s3_(X,"f"):-s2_(X,"t*") .
-s3_(X,"t*"):-s2_(X,"f") .
-s4_(X,"t*"):-s3_(X,"t*") .
-s5_(X,"f"):-s4_(X,"t*") .
-s5_(X,"t*"):-s4_(X,"f") .
-s6_(X,"t*"):-s3_(X,"t*") .
-s7_(X,"f"):-s6_(X,"t*") .
-s7_(X,"t*"):-s6_(X,"f") .
-s8_(X,"t*"):-s3_(X,"t*") .
-s9_(X,"f"):-s8_(X,"t*") .
-s9_(X,"t*"):-s8_(X,"f") .
-s4_(X,"f");s6_(X,"f");s8_(X,"f"):-s3_(X,"f") .
 
-% universal for node1hks35ijax232
-s10_(X,"t*"):-node1hks35ijax232_(X,"t*") .
-s11_(X,"f"):-s10_(X,"t*") .
-s11_(X,"t*"):-s10_(X,"f") .
-_hasContractStatus_(X,@new(s11,X,_hasContractStatus,1..1),"t"):-choose(s11,X,_hasContractStatus,1) .
-choose(s11,X,_hasContractStatus,1);choose(s11,X,_hasContractStatus,0):-s11_(X,"t*") .
-0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s11_(X,"t*") .
-(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s12_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s11_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
-_hasContractStatus_(X,Y,"f"):-s11_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
-1 {s12_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s11_(X,"t*") .
-s13_(X,"f"):-s12_(X,"t*") .
-s13_(X,"t*"):-s12_(X,"f") .
+% universal for node1hm6rtb6tx268
+s3_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
+s4_(X,"f"):-s3_(X,"t*") .
+s4_(X,"t*"):-s3_(X,"f") .
+_hasContractStatus_(X,@new(s4,X,_hasContractStatus,1..1),"t"):-choose(s4,X,_hasContractStatus,1) .
+choose(s4,X,_hasContractStatus,1);choose(s4,X,_hasContractStatus,0):-s4_(X,"t*") .
+0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s4_(X,"t*") .
+(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s5_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
+_hasContractStatus_(X,Y,"f"):-s4_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
+1 {s5_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s4_(X,"t*") .
+s6_(X,"f"):-s5_(X,"t*") .
+s6_(X,"t*"):-s5_(X,"f") .
 
+
+s1_(X,"f");s3_(X,"f"):-node1hm6rtb6tx268_(X,"f") .
+s7_(X,"t*"):-_contractStatusShape_(X,"t*") .
+node1hm6rtb6tx268_(X,"t*"):-s7_(X,"t*") .
+node1hm6rtb6tx268_(X,"f"):-s7_(X,"f") .
+
+% sh:minCount 0 for node1hm6rtb6tx268
+s8_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
+choose(s8,X,_hasContractStatus,0):-s8_(X,"t*") .
+0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s8_(X,"t*") .
+(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s9_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
+_hasContractStatus_(X,Y,"f"):-s8_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
+0 {s9_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s8_(X,"t*") .
+
+s10_(X,"f"):-s9_(X,"t*") .
+s10_(X,"t*"):-s9_(X,"f") .
+s11_(X,"t*"):-s10_(X,"t*") .
+s12_(X,"f"):-s11_(X,"t*") .
+s12_(X,"t*"):-s11_(X,"f") .
+s13_(X,"t*"):-s10_(X,"t*") .
 s14_(X,"f"):-s13_(X,"t*") .
 s14_(X,"t*"):-s13_(X,"f") .
-s15_(X,"t*"):-s14_(X,"t*") .
+s15_(X,"t*"):-s10_(X,"t*") .
 s16_(X,"f"):-s15_(X,"t*") .
 s16_(X,"t*"):-s15_(X,"f") .
-s17_(X,"t*"):-s14_(X,"t*") .
+s11_(X,"f");s13_(X,"f");s15_(X,"f"):-s10_(X,"f") .
+
+s17_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
 s18_(X,"f"):-s17_(X,"t*") .
 s18_(X,"t*"):-s17_(X,"f") .
-s19_(X,"t*"):-s14_(X,"t*") .
+_hasContractStatus_(X,@new(s18,X,_hasContractStatus,1..1),"t"):-choose(s18,X,_hasContractStatus,1) .
+choose(s18,X,_hasContractStatus,1);choose(s18,X,_hasContractStatus,0):-s18_(X,"t*") .
+0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s18_(X,"t*") .
+(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s19_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s18_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
+_hasContractStatus_(X,Y,"f"):-s18_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
+1 {s19_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s18_(X,"t*") .
 s20_(X,"f"):-s19_(X,"t*") .
 s20_(X,"t*"):-s19_(X,"f") .
-s15_(X,"f");s17_(X,"f");s19_(X,"f"):-s14_(X,"f") .
 
-s1_(X,"f");s10_(X,"f"):-node1hks35ijax232_(X,"f") .
-s21_(X,"t*"):-_contractStatusShape_(X,"t*") .
-node1hks35ijax232_(X,"t*"):-s21_(X,"t*") .
-node1hks35ijax232_(X,"f"):-s21_(X,"f") .
-
-% sh:minCount 1 for node1hks35ijax232
-s22_(X,"t*"):-node1hks35ijax232_(X,"t*") .
-_hasContractStatus_(X,@new(s22,X,_hasContractStatus,1..1),"t"):-choose(s22,X,_hasContractStatus,1) .
-choose(s22,X,_hasContractStatus,1);choose(s22,X,_hasContractStatus,0):-s22_(X,"t*") .
-0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s22_(X,"t*") .
-(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s23_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s22_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
-_hasContractStatus_(X,Y,"f"):-s22_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
-1 {s23_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s22_(X,"t*") .
-
-
-s24_(X,"t*"):-node1hks35ijax232_(X,"t*") .
+s21_(X,"f"):-s20_(X,"t*") .
+s21_(X,"t*"):-s20_(X,"f") .
+s22_(X,"t*"):-s21_(X,"t*") .
+s23_(X,"f"):-s22_(X,"t*") .
+s23_(X,"t*"):-s22_(X,"f") .
+s24_(X,"t*"):-s21_(X,"t*") .
 s25_(X,"f"):-s24_(X,"t*") .
 s25_(X,"t*"):-s24_(X,"f") .
-_hasContractStatus_(X,@new(s25,X,_hasContractStatus,1..1),"t"):-choose(s25,X,_hasContractStatus,1) .
-choose(s25,X,_hasContractStatus,1);choose(s25,X,_hasContractStatus,0):-s25_(X,"t*") .
-0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s25_(X,"t*") .
-(C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s26_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s25_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
-_hasContractStatus_(X,Y,"f"):-s25_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasContractStatus_(X,Y,"f") .
-1 {s26_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s25_(X,"t*") .
+s26_(X,"t*"):-s21_(X,"t*") .
 s27_(X,"f"):-s26_(X,"t*") .
 s27_(X,"t*"):-s26_(X,"f") .
+s22_(X,"f");s24_(X,"f");s26_(X,"f"):-s21_(X,"f") .
 
-
-s22_(X,"f");s24_(X,"f"):-node1hks35ijax232_(X,"f") .
+s8_(X,"f");s17_(X,"f"):-node1hm6rtb6tx268_(X,"f") .
 s28_(X,"t*"):-_contractStatusShape_(X,"t*") .
-node1hks35ijax232_(X,"t*"):-s28_(X,"t*") .
-node1hks35ijax232_(X,"f"):-s28_(X,"f") .
+node1hm6rtb6tx268_(X,"t*"):-s28_(X,"t*") .
+node1hm6rtb6tx268_(X,"f"):-s28_(X,"f") .
 
-s29_(X,"t*"):-node1hks35ijax232_(X,"t*") .
+s29_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
 choose(s29,X,_hasContractStatus,0):-s29_(X,"t*") .
 0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s29_(X,"t*") .
 (C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s30_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s29_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
@@ -146,8 +146,8 @@ _hasContractStatus_(X,Y,"f"):-s29_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasCont
 0 {s30_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s29_(X,"t*") .
 
 
-% sh:maxCount 1 for node1hks35ijax232
-s31_(X,"t*"):-node1hks35ijax232_(X,"t*") .
+% sh:maxCount 1 for node1hm6rtb6tx268
+s31_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
 s32_(X,"f"):-s31_(X,"t*") .
 s32_(X,"t*"):-s31_(X,"f") .
 _hasContractStatus_(X,@new(s32,X,_hasContractStatus,1..1),"t"):-choose(s32,X,_hasContractStatus,1) .
@@ -159,7 +159,7 @@ _hasContractStatus_(X,Y,"f"):-s32_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasCont
 2 {s33_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s32_(X,"t*") .
 
 
-s34_(X,"t*"):-node1hks35ijax232_(X,"t*") .
+s34_(X,"t*"):-node1hm6rtb6tx268_(X,"t*") .
 s35_(X,"f"):-s34_(X,"t*") .
 s35_(X,"t*"):-s34_(X,"f") .
 _hasContractStatus_(X,@new(s35,X,_hasContractStatus,1..1),"t"):-choose(s35,X,_hasContractStatus,1) .
@@ -172,13 +172,13 @@ s37_(X,"f"):-s36_(X,"t*") .
 s37_(X,"t*"):-s36_(X,"f") .
 
 
-s29_(X,"f");s31_(X,"f");s34_(X,"f"):-node1hks35ijax232_(X,"f") .
-s0_(X,"f");s21_(X,"f");s28_(X,"f"):-_contractStatusShape_(X,"f") .
+s29_(X,"f");s31_(X,"f");s34_(X,"f"):-node1hm6rtb6tx268_(X,"f") .
+s0_(X,"f");s7_(X,"f");s28_(X,"f"):-_contractStatusShape_(X,"f") .
 s38_(X,"f"):-_contractViolationShape_(X,"f") .
-node1hks35ijax244_(X,"t*"):-s38_(X,"t*") .
-node1hks35ijax244_(X,"f"):-s38_(X,"f") .
+node1hm6rtb6tx280_(X,"t*"):-s38_(X,"t*") .
+node1hm6rtb6tx280_(X,"f"):-s38_(X,"f") .
 
-s39_(X,"t*"):-node1hks35ijax244_(X,"t*") .
+s39_(X,"t*"):-node1hm6rtb6tx280_(X,"t*") .
 _hasContractStatus_(X,@new(s39,X,_hasContractStatus,1..1),"t"):-choose(s39,X,_hasContractStatus,1) .
 choose(s39,X,_hasContractStatus,1);choose(s39,X,_hasContractStatus,0):-s39_(X,"t*") .
 0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s39_(X,"t*") .
@@ -187,8 +187,8 @@ _hasContractStatus_(X,Y,"f"):-s39_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasCont
 1 {s40_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s39_(X,"t*") .
 
 
-% sh:minCount 0 for node1hks35ijax244
-s41_(X,"t*"):-node1hks35ijax244_(X,"t*") .
+% sh:minCount 0 for node1hm6rtb6tx280
+s41_(X,"t*"):-node1hm6rtb6tx280_(X,"t*") .
 choose(s41,X,_hasContractStatus,0):-s41_(X,"t*") .
 0 {_hasContractStatus_(X,Y,"t"):const(Y)} 4:-s41_(X,"t*") .
 (C-0) {_hasContractStatus_(X,Y,"f"):_hasContractStatus_(X,Y,"t*");s42_(Y,"f"):_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f")} (C-0):-s41_(X,"f"),#count {Y:_hasContractStatus_(X,Y,"t*")}=C,C>0 .
@@ -196,8 +196,8 @@ _hasContractStatus_(X,Y,"f"):-s41_(X,"f"),_hasContractStatus_(X,Y,"t*"),_hasCont
 0 {s42_(Y,"t*"):_hasContractStatus_(X,Y,"t**")} 4:-s41_(X,"t*") .
 
 
-% universal for node1hks35ijax244
-s43_(X,"t*"):-node1hks35ijax244_(X,"t*") .
+% universal for node1hm6rtb6tx280
+s43_(X,"t*"):-node1hm6rtb6tx280_(X,"t*") .
 s44_(X,"f"):-s43_(X,"t*") .
 s44_(X,"t*"):-s43_(X,"f") .
 _hasContractStatus_(X,@new(s44,X,_hasContractStatus,1..1),"t"):-choose(s44,X,_hasContractStatus,1) .
@@ -210,51 +210,51 @@ s46_(X,"f"):-s45_(X,"t*") .
 s46_(X,"t*"):-s45_(X,"f") .
 
 
-s39_(X,"f");s41_(X,"f");s43_(X,"f"):-node1hks35ijax244_(X,"f") .
+s39_(X,"f");s41_(X,"f");s43_(X,"f"):-node1hm6rtb6tx280_(X,"f") .
 s47_(X,"f"):-_contractViolationShape_(X,"f") .
-node1hks35ijax238_(X,"f"):-s47_(X,"t*") .
-node1hks35ijax238_(X,"t*"):-s47_(X,"f") .
-node1hks35ijax239_(X,"t*"):-node1hks35ijax238_(X,"t*") .
-node1hks35ijax239_(X,"f"):-node1hks35ijax238_(X,"f") .
+node1hm6rtb6tx274_(X,"f"):-s47_(X,"t*") .
+node1hm6rtb6tx274_(X,"t*"):-s47_(X,"f") .
+node1hm6rtb6tx275_(X,"t*"):-node1hm6rtb6tx274_(X,"t*") .
+node1hm6rtb6tx275_(X,"f"):-node1hm6rtb6tx274_(X,"f") .
 
 
-s48_(X,"t*"):-node1hks35ijax239_(X,"t*") .
-node1hks35ijax239_st_(X,@new(s48,X,node1hks35ijax239_st,1..1),"t"):-choose(s48,X,node1hks35ijax239_st,1) .
-choose(s48,X,node1hks35ijax239_st,1);choose(s48,X,node1hks35ijax239_st,0):-s48_(X,"t*") .
-0 {node1hks35ijax239_st_(X,Y,"t"):const(Y)} 4:-s48_(X,"t*") .
-choose(node1hks35ijax239_st,X,_hasObligations,1);choose(node1hks35ijax239_st,X,_hasObligations,0):-node1hks35ijax239_st_(X,Y,"t") .
-_hasObligations_(X,@new(node1hks35ijax239_st,X,_hasObligations,1),"t"):-choose(node1hks35ijax239_st,X,_hasObligations,1),node1hks35ijax239_st_(X,Y,"t") .
-0 {_hasState_(X0,Y,"t")} 1:-_hasObligations_(X,X0,"t**"),node1hks35ijax239_st_(X,Y,"t") .
-0 {_hasState_(X0,Y,"t"):const(Y)} 4:-_hasObligations_(X,X0,"t**"),node1hks35ijax239_st_(X,Y,"t") .
-(C-0) {node1hks35ijax239_st_(X,Y,"f"):node1hks35ijax239_st_(X,Y,"t*");s49_(Y,"f"):node1hks35ijax239_st_(X,Y,"t*"),not node1hks35ijax239_st_(X,Y,"f")} (C-0):-s48_(X,"f"),#count {Y:node1hks35ijax239_st_(X,Y,"t*")}=C,C>0 .
-_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s48_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hks35ijax239_st_(X,X1,"f") .
-1 {s49_(Y,"t*"):node1hks35ijax239_st_(X,Y,"t**")} 4:-s48_(X,"t*") .
+s48_(X,"t*"):-node1hm6rtb6tx275_(X,"t*") .
+node1hm6rtb6tx275_st_(X,@new(s48,X,node1hm6rtb6tx275_st,1..1),"t"):-choose(s48,X,node1hm6rtb6tx275_st,1) .
+choose(s48,X,node1hm6rtb6tx275_st,1);choose(s48,X,node1hm6rtb6tx275_st,0):-s48_(X,"t*") .
+0 {node1hm6rtb6tx275_st_(X,Y,"t"):const(Y)} 4:-s48_(X,"t*") .
+choose(node1hm6rtb6tx275_st,X,_hasObligations,1);choose(node1hm6rtb6tx275_st,X,_hasObligations,0):-node1hm6rtb6tx275_st_(X,Y,"t") .
+_hasObligations_(X,@new(node1hm6rtb6tx275_st,X,_hasObligations,1),"t"):-choose(node1hm6rtb6tx275_st,X,_hasObligations,1),node1hm6rtb6tx275_st_(X,Y,"t") .
+0 {_hasState_(X0,Y,"t")} 1:-_hasObligations_(X,X0,"t**"),node1hm6rtb6tx275_st_(X,Y,"t") .
+0 {_hasState_(X0,Y,"t"):const(Y)} 4:-_hasObligations_(X,X0,"t**"),node1hm6rtb6tx275_st_(X,Y,"t") .
+(C-0) {node1hm6rtb6tx275_st_(X,Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*");s49_(Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*"),not node1hm6rtb6tx275_st_(X,Y,"f")} (C-0):-s48_(X,"f"),#count {Y:node1hm6rtb6tx275_st_(X,Y,"t*")}=C,C>0 .
+_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s48_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hm6rtb6tx275_st_(X,X1,"f") .
+1 {s49_(Y,"t*"):node1hm6rtb6tx275_st_(X,Y,"t**")} 4:-s48_(X,"t*") .
 
 
-% sh:minCount 0 for node1hks35ijax239
-s50_(X,"t*"):-node1hks35ijax239_(X,"t*") .
-choose(s50,X,node1hks35ijax239_st,0):-s50_(X,"t*") .
-0 {node1hks35ijax239_st_(X,Y,"t"):const(Y)} 4:-s50_(X,"t*") .
-(C-0) {node1hks35ijax239_st_(X,Y,"f"):node1hks35ijax239_st_(X,Y,"t*");s51_(Y,"f"):node1hks35ijax239_st_(X,Y,"t*"),not node1hks35ijax239_st_(X,Y,"f")} (C-0):-s50_(X,"f"),#count {Y:node1hks35ijax239_st_(X,Y,"t*")}=C,C>0 .
-_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s50_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hks35ijax239_st_(X,X1,"f") .
-0 {s51_(Y,"t*"):node1hks35ijax239_st_(X,Y,"t**")} 4:-s50_(X,"t*") .
+% sh:minCount 0 for node1hm6rtb6tx275
+s50_(X,"t*"):-node1hm6rtb6tx275_(X,"t*") .
+choose(s50,X,node1hm6rtb6tx275_st,0):-s50_(X,"t*") .
+0 {node1hm6rtb6tx275_st_(X,Y,"t"):const(Y)} 4:-s50_(X,"t*") .
+(C-0) {node1hm6rtb6tx275_st_(X,Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*");s51_(Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*"),not node1hm6rtb6tx275_st_(X,Y,"f")} (C-0):-s50_(X,"f"),#count {Y:node1hm6rtb6tx275_st_(X,Y,"t*")}=C,C>0 .
+_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s50_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hm6rtb6tx275_st_(X,X1,"f") .
+0 {s51_(Y,"t*"):node1hm6rtb6tx275_st_(X,Y,"t**")} 4:-s50_(X,"t*") .
 
 
-% universal for node1hks35ijax239
-s52_(X,"t*"):-node1hks35ijax239_(X,"t*") .
+% universal for node1hm6rtb6tx275
+s52_(X,"t*"):-node1hm6rtb6tx275_(X,"t*") .
 s53_(X,"f"):-s52_(X,"t*") .
 s53_(X,"t*"):-s52_(X,"f") .
-node1hks35ijax239_st_(X,@new(s53,X,node1hks35ijax239_st,1..1),"t"):-choose(s53,X,node1hks35ijax239_st,1) .
-choose(s53,X,node1hks35ijax239_st,1);choose(s53,X,node1hks35ijax239_st,0):-s53_(X,"t*") .
-0 {node1hks35ijax239_st_(X,Y,"t"):const(Y)} 4:-s53_(X,"t*") .
-(C-0) {node1hks35ijax239_st_(X,Y,"f"):node1hks35ijax239_st_(X,Y,"t*");s54_(Y,"f"):node1hks35ijax239_st_(X,Y,"t*"),not node1hks35ijax239_st_(X,Y,"f")} (C-0):-s53_(X,"f"),#count {Y:node1hks35ijax239_st_(X,Y,"t*")}=C,C>0 .
-_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s53_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hks35ijax239_st_(X,X1,"f") .
-1 {s54_(Y,"t*"):node1hks35ijax239_st_(X,Y,"t**")} 4:-s53_(X,"t*") .
+node1hm6rtb6tx275_st_(X,@new(s53,X,node1hm6rtb6tx275_st,1..1),"t"):-choose(s53,X,node1hm6rtb6tx275_st,1) .
+choose(s53,X,node1hm6rtb6tx275_st,1);choose(s53,X,node1hm6rtb6tx275_st,0):-s53_(X,"t*") .
+0 {node1hm6rtb6tx275_st_(X,Y,"t"):const(Y)} 4:-s53_(X,"t*") .
+(C-0) {node1hm6rtb6tx275_st_(X,Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*");s54_(Y,"f"):node1hm6rtb6tx275_st_(X,Y,"t*"),not node1hm6rtb6tx275_st_(X,Y,"f")} (C-0):-s53_(X,"f"),#count {Y:node1hm6rtb6tx275_st_(X,Y,"t*")}=C,C>0 .
+_hasObligations_(X,X0,"f");_hasState_(X0,X1,"f"):-s53_(X,"f"),_hasObligations_(X,X0,"t*"),_hasState_(X0,X1,"t*"),node1hm6rtb6tx275_st_(X,X1,"f") .
+1 {s54_(Y,"t*"):node1hm6rtb6tx275_st_(X,Y,"t**")} 4:-s53_(X,"t*") .
 s55_(X,"f"):-s54_(X,"t*") .
 s55_(X,"t*"):-s54_(X,"f") .
 
 
-s48_(X,"f");s50_(X,"f");s52_(X,"f"):-node1hks35ijax239_(X,"f") .
+s48_(X,"f");s50_(X,"f");s52_(X,"f"):-node1hm6rtb6tx275_(X,"f") .
 s38_(X,"t*");s47_(X,"t*"):-_contractViolationShape_(X,"t*") .
 
 % Interpretation Rules
@@ -262,25 +262,25 @@ s38_(X,"t*");s47_(X,"t*"):-_contractViolationShape_(X,"t*") .
 _hasContractStatus_(X,Y,"t**"):-_hasContractStatus_(X,Y,"t*"),not _hasContractStatus_(X,Y,"f") .
 _hasObligations_(X,Y,"t**"):-_hasObligations_(X,Y,"t*"),not _hasObligations_(X,Y,"f") .
 _hasState_(X,Y,"t**"):-_hasState_(X,Y,"t*"),not _hasState_(X,Y,"f") .
-node1hks35ijax239_st_(X,X1,"t**"):-node1hks35ijax239_st_(X,X1,"t*"),not node1hks35ijax239_st_(X,X1,"f"),_hasObligations_(X,X0,"t**"),_hasState_(X0,X1,"t**") .
+node1hm6rtb6tx275_st_(X,X1,"t**"):-node1hm6rtb6tx275_st_(X,X1,"t*"),not node1hm6rtb6tx275_st_(X,X1,"f"),_hasObligations_(X,X0,"t**"),_hasState_(X0,X1,"t**") .
 
 % Program Constraints
 
 :-_hasContractStatus_(X,Y,"t"),_hasContractStatus_(X,Y,"f") .
-:-s5_(X,"t*"),X!="_statusPending" .
-:-s5_(X,"f"),X="_statusPending" .
-:-s7_(X,"t*"),X!="_statusFulfilled" .
-:-s7_(X,"f"),X="_statusFulfilled" .
-:-s9_(X,"t*"),X!="_statusViolated" .
-:-s9_(X,"f"),X="_statusViolated" .
-:-s16_(X,"t*"),X!="_statusPending" .
-:-s16_(X,"f"),X="_statusPending" .
-:-s18_(X,"t*"),X!="_statusFulfilled" .
-:-s18_(X,"f"),X="_statusFulfilled" .
-:-s20_(X,"t*"),X!="_statusViolated" .
-:-s20_(X,"f"),X="_statusViolated" .
-:-s23_(X,"f") .
-:-s27_(X,"f") .
+:-s2_(X,"f") .
+:-s6_(X,"f") .
+:-s12_(X,"t*"),X!="_statusPending" .
+:-s12_(X,"f"),X="_statusPending" .
+:-s14_(X,"t*"),X!="_statusFulfilled" .
+:-s14_(X,"f"),X="_statusFulfilled" .
+:-s16_(X,"t*"),X!="_statusViolated" .
+:-s16_(X,"f"),X="_statusViolated" .
+:-s23_(X,"t*"),X!="_statusPending" .
+:-s23_(X,"f"),X="_statusPending" .
+:-s25_(X,"t*"),X!="_statusFulfilled" .
+:-s25_(X,"f"),X="_statusFulfilled" .
+:-s27_(X,"t*"),X!="_statusViolated" .
+:-s27_(X,"f"),X="_statusViolated" .
 :-s30_(X,"f") .
 :-s33_(X,"f") .
 :-s37_(X,"f") .
@@ -290,7 +290,7 @@ node1hks35ijax239_st_(X,X1,"t**"):-node1hks35ijax239_st_(X,X1,"t*"),not node1hks
 :-s46_(X,"f") .
 :-_hasObligations_(X,Y,"t"),_hasObligations_(X,Y,"f") .
 :-_hasState_(X,Y,"t"),_hasState_(X,Y,"f") .
-:-node1hks35ijax239_st_(X,Y,"t"),node1hks35ijax239_st_(X,Y,"f") .
+:-node1hm6rtb6tx275_st_(X,Y,"t"),node1hm6rtb6tx275_st_(X,Y,"f") .
 :-s49_(X,"t*"),X!="_violatedState" .
 :-s49_(X,"f"),X="_violatedState" .
 :-s51_(X,"f") .
@@ -305,17 +305,17 @@ add(_hasObligations(X,Y)):-_hasObligations_(X,Y,"t**"),not _hasObligations(X,Y) 
 del(_hasObligations(X,Y)):-_hasObligations_(X,Y,"f"),_hasObligations(X,Y) .
 add(_hasState(X,Y)):-_hasState_(X,Y,"t**"),not _hasState(X,Y) .
 del(_hasState(X,Y)):-_hasState_(X,Y,"f"),_hasState(X,Y) .
-#minimize { 1@1,X,Y: node1hks35ijax239_st_(X,Y,"t"), const(Y) } .
+#minimize { 1@1,X,Y: node1hm6rtb6tx275_st_(X,Y,"t"), const(Y) } .
 #minimize { 1@1,X,Y: _hasState_(X,Y,"t"), const(Y) } .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .
 
 % Repair Strategy Rules
 
-:-del(_hasObligations(X,Y)) .
 :-del(_hasState(X,"_violatedState")) .
+:-del(_hasObligations(X,Y)) .
 
 % Program Functions
 

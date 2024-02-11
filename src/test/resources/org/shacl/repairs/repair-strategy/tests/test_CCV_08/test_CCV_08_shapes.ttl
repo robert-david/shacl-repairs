@@ -7,22 +7,30 @@
 # CR-2: Obligations must have exactly one end date and it must not exceed the end date of the associated Contract.
 # CR-3: A Contract is violated if at least one associated Obligation has the state set to violated.
 
-:ContractStatusShape a sh:NodeShape;
+:ContractShape a sh:NodeShape;
     sh:targetClass fibo-fnd-agr-ctr:Contract;
     sh:property [
         sh:path :hasContractStatus;
         sh:in ( :statusCreated :statusPending :statusFulfilled :statusViolated );
         sh:minCount 1;
         sh:maxCount 1;
+    ];
+    sh:property [
+        sh:path :hasEndDate;
+        sh:maxCount 1;
     ] .
 
-:ObligationStateShape a sh:NodeShape;
+:ObligationShape a sh:NodeShape;
     sh:targetClass :Obligation;
     sh:targetObjectsOf :hasObligations;
     sh:property [
         sh:path :hasState;
         sh:in ( :CreatedState :PendingState :FulfilledState :ViolatedState );
         sh:minCount 1;
+        sh:maxCount 1;
+    ];
+    sh:property [
+        sh:path :hasEndDate;
         sh:maxCount 1;
     ] .
 
@@ -46,13 +54,8 @@
     ) .
 
 :EndDateConsistencyShape a sh:NodeShape;
-    sh:targetClass :Obligation;
+    sh:targetClass fibo-fnd-agr-ctr:Contract;
     sh:property [
-        sh:path ( [sh:inversePath :hasObligations] :hasEndDate);
-        sh:lessThanOrEquals :hasEndDate
-    ];
-    sh:property [
-        sh:path :hasEndDate;
-        sh:minCount 1;
-        sh:maxCount 1;
+        sh:path ( :hasObligations :hasEndDate);
+        sh:lessThanOrEquals :hasEndDate;
     ] .
