@@ -14,37 +14,37 @@ rdfs_Class("ex_TestShape") .
 sh_NodeShape("ex_TestShape") .
 rdfs_label("ex_TestShape","Test shape") .
 xsd_string("Test shape") .
-sh_in("ex_TestShape","node1hgd7v9f9x2630") .
-rdf_first("node1hgd7v9f9x2630","ex_Green") .
-rdf_rest("node1hgd7v9f9x2630","node1hgd7v9f9x2631") .
-rdf_first("node1hgd7v9f9x2631","ex_Red") .
-rdf_rest("node1hgd7v9f9x2631","node1hgd7v9f9x2632") .
-rdf_first("node1hgd7v9f9x2632","ex_Yellow") .
-rdf_rest("node1hgd7v9f9x2632","rdf_nil") .
+sh_in("ex_TestShape","node1hmci9mjqx275") .
+rdf_first("node1hmci9mjqx275","ex_Green") .
+rdf_rest("node1hmci9mjqx275","node1hmci9mjqx276") .
+rdf_first("node1hmci9mjqx276","ex_Red") .
+rdf_rest("node1hmci9mjqx276","node1hmci9mjqx277") .
+rdf_first("node1hmci9mjqx277","ex_Yellow") .
+rdf_rest("node1hmci9mjqx277","rdf_nil") .
 ex_TestShape("ex_Yellow") .
 rdfs_label("ex_Yellow","Yellow") .
 xsd_string("Yellow") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2633") .
-rdf_first("node1hgd7v9f9x2633","http://repairs.shacl.org/in_001") .
-rdf_rest("node1hgd7v9f9x2633","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmci9mjqx278") .
+rdf_first("node1hmci9mjqx278","http://repairs.shacl.org/in_001") .
+rdf_rest("node1hmci9mjqx278","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/in_001") .
 rdfs_label("http://repairs.shacl.org/in_001","Test of sh:in at node shape 001") .
 xsd_string("Test of sh:in at node shape 001") .
-mf_action("http://repairs.shacl.org/in_001","node1hgd7v9f9x2634") .
-sht_dataGraph("node1hgd7v9f9x2634","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x2634","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/in_001","node1hgd7v9f9x2635") .
-sh_ValidationReport("node1hgd7v9f9x2635") .
-sh_conforms("node1hgd7v9f9x2635","false") .
+mf_action("http://repairs.shacl.org/in_001","node1hmci9mjqx279") .
+sht_dataGraph("node1hmci9mjqx279","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmci9mjqx279","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/in_001","node1hmci9mjqx280") .
+sh_ValidationReport("node1hmci9mjqx280") .
+sh_conforms("node1hmci9mjqx280","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x2635","node1hgd7v9f9x2636") .
-sh_ValidationResult("node1hgd7v9f9x2636") .
-sh_focusNode("node1hgd7v9f9x2636","ex_InvalidInstance") .
-sh_resultSeverity("node1hgd7v9f9x2636","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x2636","sh_InConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x2636","ex_TestShape") .
-sh_value("node1hgd7v9f9x2636","ex_InvalidInstance") .
+sh_result("node1hmci9mjqx280","node1hmci9mjqx281") .
+sh_ValidationResult("node1hmci9mjqx281") .
+sh_focusNode("node1hmci9mjqx281","ex_InvalidInstance") .
+sh_resultSeverity("node1hmci9mjqx281","sh_Violation") .
+sh_sourceConstraintComponent("node1hmci9mjqx281","sh_InConstraintComponent") .
+sh_sourceShape("node1hmci9mjqx281","ex_TestShape") .
+sh_value("node1hmci9mjqx281","ex_InvalidInstance") .
 mf_status("http://repairs.shacl.org/in_001","sht_approved") .
 
 % Shape Targets
@@ -100,7 +100,7 @@ s1_(X,"f");s3_(X,"f");s5_(X,"f"):-s0_(X,"f") .
 
 % Change Set Rules
 
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

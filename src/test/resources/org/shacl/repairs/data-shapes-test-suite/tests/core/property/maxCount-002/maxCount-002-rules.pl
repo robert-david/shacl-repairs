@@ -19,26 +19,26 @@ rdfs_Resource("ex_ValidResource") .
 rdfs_label("ex_ValidResource","Valid resource") .
 xsd_string("Valid resource") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1882") .
-rdf_first("node1hgd7v9f9x1882","http://repairs.shacl.org/maxCount_002") .
-rdf_rest("node1hgd7v9f9x1882","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx250") .
+rdf_first("node1hmcimj6lx250","http://repairs.shacl.org/maxCount_002") .
+rdf_rest("node1hmcimj6lx250","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/maxCount_002") .
 rdfs_label("http://repairs.shacl.org/maxCount_002","Test of sh:maxCount at property shape 002") .
 xsd_string("Test of sh:maxCount at property shape 002") .
-mf_action("http://repairs.shacl.org/maxCount_002","node1hgd7v9f9x1883") .
-sht_dataGraph("node1hgd7v9f9x1883","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x1883","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/maxCount_002","node1hgd7v9f9x1884") .
-sh_ValidationReport("node1hgd7v9f9x1884") .
-sh_conforms("node1hgd7v9f9x1884","false") .
+mf_action("http://repairs.shacl.org/maxCount_002","node1hmcimj6lx251") .
+sht_dataGraph("node1hmcimj6lx251","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx251","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/maxCount_002","node1hmcimj6lx252") .
+sh_ValidationReport("node1hmcimj6lx252") .
+sh_conforms("node1hmcimj6lx252","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x1884","node1hgd7v9f9x1885") .
-sh_ValidationResult("node1hgd7v9f9x1885") .
-sh_focusNode("node1hgd7v9f9x1885","ex_InvalidResource") .
-sh_resultPath("node1hgd7v9f9x1885","owl_versionInfo") .
-sh_resultSeverity("node1hgd7v9f9x1885","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1885","sh_MaxCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1885","ex_TestShape_versionInfo") .
+sh_result("node1hmcimj6lx252","node1hmcimj6lx253") .
+sh_ValidationResult("node1hmcimj6lx253") .
+sh_focusNode("node1hmcimj6lx253","ex_InvalidResource") .
+sh_resultPath("node1hmcimj6lx253","owl_versionInfo") .
+sh_resultSeverity("node1hmcimj6lx253","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx253","sh_MaxCountConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx253","ex_TestShape_versionInfo") .
 mf_status("http://repairs.shacl.org/maxCount_002","sht_approved") .
 
 % Shape Targets
@@ -59,6 +59,7 @@ ex_TestShape_("ex_InvalidResource","t*"):-actualTarget("ex_InvalidResource",ex_T
 
 owl_versionInfo_(X,Y,"t*"):-owl_versionInfo(X,Y) .
 owl_versionInfo_(X,Y,"t*"):-owl_versionInfo_(X,Y,"t") .
+ex_TestShape_versionInfo_st_(X,Y,"t*"):-ex_TestShape_versionInfo_(X,_),owl_versionInfo_(X,Y,"t*") .
 
 % Repair Rules
 
@@ -102,6 +103,7 @@ s0_(X,"f");s2_(X,"f");s5_(X,"f"):-ex_TestShape_versionInfo_(X,"f") .
 % Interpretation Rules
 
 owl_versionInfo_(X,Y,"t**"):-owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y,"f") .
+ex_TestShape_versionInfo_st_(X,Y,"t**"):-owl_versionInfo_(X,Y,"t**"),ex_TestShape_versionInfo_st_(X,Y,"t*"),not ex_TestShape_versionInfo_st_(X,Y,"f") .
 
 % Program Constraints
 
@@ -114,7 +116,7 @@ owl_versionInfo_(X,Y,"t**"):-owl_versionInfo_(X,Y,"t*"),not owl_versionInfo_(X,Y
 
 add(owl_versionInfo(X,Y)):-owl_versionInfo_(X,Y,"t**"),not owl_versionInfo(X,Y) .
 del(owl_versionInfo(X,Y)):-owl_versionInfo_(X,Y,"f"),owl_versionInfo(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

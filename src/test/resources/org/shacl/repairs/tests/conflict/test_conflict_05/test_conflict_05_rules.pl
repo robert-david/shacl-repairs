@@ -31,7 +31,7 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 % Change Set Rules
 
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

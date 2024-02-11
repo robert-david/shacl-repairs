@@ -25,26 +25,26 @@ ex_firstName("ex_ValidResource","John") .
 rdfs_label("ex_ValidResource","Valid resource") .
 xsd_string("Valid resource") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1866") .
-rdf_first("node1hgd7v9f9x1866","http://repairs.shacl.org/maxCount_001") .
-rdf_rest("node1hgd7v9f9x1866","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx234") .
+rdf_first("node1hmcimj6lx234","http://repairs.shacl.org/maxCount_001") .
+rdf_rest("node1hmcimj6lx234","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/maxCount_001") .
 rdfs_label("http://repairs.shacl.org/maxCount_001","Test of sh:maxCount at property shape 001") .
 xsd_string("Test of sh:maxCount at property shape 001") .
-mf_action("http://repairs.shacl.org/maxCount_001","node1hgd7v9f9x1867") .
-sht_dataGraph("node1hgd7v9f9x1867","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x1867","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/maxCount_001","node1hgd7v9f9x1868") .
-sh_ValidationReport("node1hgd7v9f9x1868") .
-sh_conforms("node1hgd7v9f9x1868","false") .
+mf_action("http://repairs.shacl.org/maxCount_001","node1hmcimj6lx235") .
+sht_dataGraph("node1hmcimj6lx235","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx235","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/maxCount_001","node1hmcimj6lx236") .
+sh_ValidationReport("node1hmcimj6lx236") .
+sh_conforms("node1hmcimj6lx236","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x1868","node1hgd7v9f9x1869") .
-sh_ValidationResult("node1hgd7v9f9x1869") .
-sh_focusNode("node1hgd7v9f9x1869","ex_InvalidPerson") .
-sh_resultPath("node1hgd7v9f9x1869","ex_firstName") .
-sh_resultSeverity("node1hgd7v9f9x1869","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1869","sh_MaxCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1869","ex_PersonShape_firstName") .
+sh_result("node1hmcimj6lx236","node1hmcimj6lx237") .
+sh_ValidationResult("node1hmcimj6lx237") .
+sh_focusNode("node1hmcimj6lx237","ex_InvalidPerson") .
+sh_resultPath("node1hmcimj6lx237","ex_firstName") .
+sh_resultSeverity("node1hmcimj6lx237","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx237","sh_MaxCountConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx237","ex_PersonShape_firstName") .
 mf_status("http://repairs.shacl.org/maxCount_001","sht_approved") .
 
 % Shape Targets
@@ -65,6 +65,7 @@ ex_PersonShape_("ex_ValidResource","t*"):-actualTarget("ex_ValidResource",ex_Per
 
 ex_firstName_(X,Y,"t*"):-ex_firstName(X,Y) .
 ex_firstName_(X,Y,"t*"):-ex_firstName_(X,Y,"t") .
+ex_PersonShape_firstName_st_(X,Y,"t*"):-ex_PersonShape_firstName_(X,_),ex_firstName_(X,Y,"t*") .
 xsd_string_(X,"t*"):-xsd_string(X) .
 xsd_string_(X,"t*"):-xsd_string_(X,"t") .
 
@@ -146,45 +147,43 @@ choose(s18,X,ex_firstName,0):-s18_(X,"t*") .
 ex_firstName_(X,Y,"f"):-s18_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f") .
 0 {s19_(Y,"t*"):ex_firstName_(X,Y,"t**")} 0:-s18_(X,"t*") .
 
-xsd_string_(X,"t"):-s19_(X,"t*") .
-xsd_string_(X,"f"):-s19_(X,"f") .
 
 s20_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
 s21_(X,"f"):-s20_(X,"t*") .
 s21_(X,"t*"):-s20_(X,"f") .
 ex_firstName_(X,@new(s21,X,ex_firstName,1..1),"t"):-choose(s21,X,ex_firstName,1) .
-choose(s21,X,ex_firstName,1);choose(s21,X,ex_firstName,0):-s21_(X,"t*") .
-(C-0) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s22_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-0):-s21_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>0 .
+ex_firstName_(X,@new(s21,X,ex_firstName,1..2),"t"):-choose(s21,X,ex_firstName,2) .
+choose(s21,X,ex_firstName,2);choose(s21,X,ex_firstName,1);choose(s21,X,ex_firstName,0):-s21_(X,"t*") .
+(C-1) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s22_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-1):-s21_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>1 .
 ex_firstName_(X,Y,"f"):-s21_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f") .
-1 {s22_(Y,"t*"):ex_firstName_(X,Y,"t**")} 1:-s21_(X,"t*") .
-s23_(X,"f"):-s22_(X,"t*") .
-s23_(X,"t*"):-s22_(X,"f") .
-
-xsd_string_(X,"t"):-s23_(X,"t*") .
-xsd_string_(X,"f"):-s23_(X,"f") .
-
-s18_(X,"f");s20_(X,"f"):-ex_PersonShape_firstName_(X,"f") .
-s24_(X,"t*"):-ex_PersonShape_(X,"t*") .
-ex_PersonShape_firstName_(X,"t*"):-s24_(X,"t*") .
-ex_PersonShape_firstName_(X,"f"):-s24_(X,"f") .
-
-s25_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
-choose(s25,X,ex_firstName,0):-s25_(X,"t*") .
-(C-0) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s26_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-0):-s25_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>0 .
-ex_firstName_(X,Y,"f"):-s25_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f") .
-0 {s26_(Y,"t*"):ex_firstName_(X,Y,"t**")} 0:-s25_(X,"t*") .
+2 {s22_(Y,"t*"):ex_firstName_(X,Y,"t**")} 2:-s21_(X,"t*") .
 
 
-s27_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
-s28_(X,"f"):-s27_(X,"t*") .
-s28_(X,"t*"):-s27_(X,"f") .
-ex_firstName_(X,@new(s28,X,ex_firstName,1..1),"t"):-choose(s28,X,ex_firstName,1) .
-ex_firstName_(X,@new(s28,X,ex_firstName,1..2),"t"):-choose(s28,X,ex_firstName,2) .
-choose(s28,X,ex_firstName,2);choose(s28,X,ex_firstName,1);choose(s28,X,ex_firstName,0):-s28_(X,"t*") .
-(C-1) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s29_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-1):-s28_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>1 .
+s23_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
+s24_(X,"f"):-s23_(X,"t*") .
+s24_(X,"t*"):-s23_(X,"f") .
+ex_firstName_(X,@new(s24,X,ex_firstName,1..1),"t"):-choose(s24,X,ex_firstName,1) .
+choose(s24,X,ex_firstName,1);choose(s24,X,ex_firstName,0):-s24_(X,"t*") .
+(C-0) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s25_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-0):-s24_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>0 .
+ex_firstName_(X,Y,"f"):-s24_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f") .
+1 {s25_(Y,"t*"):ex_firstName_(X,Y,"t**")} 1:-s24_(X,"t*") .
+s26_(X,"f"):-s25_(X,"t*") .
+s26_(X,"t*"):-s25_(X,"f") .
+
+
+s18_(X,"f");s20_(X,"f");s23_(X,"f"):-ex_PersonShape_firstName_(X,"f") .
+s27_(X,"t*"):-ex_PersonShape_(X,"t*") .
+ex_PersonShape_firstName_(X,"t*"):-s27_(X,"t*") .
+ex_PersonShape_firstName_(X,"f"):-s27_(X,"f") .
+
+s28_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
+choose(s28,X,ex_firstName,0):-s28_(X,"t*") .
+(C-0) {ex_firstName_(X,Y,"f"):ex_firstName_(X,Y,"t*");s29_(Y,"f"):ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f")} (C-0):-s28_(X,"f"),#count {Y:ex_firstName_(X,Y,"t*")}=C,C>0 .
 ex_firstName_(X,Y,"f"):-s28_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f") .
-2 {s29_(Y,"t*"):ex_firstName_(X,Y,"t**")} 2:-s28_(X,"t*") .
+0 {s29_(Y,"t*"):ex_firstName_(X,Y,"t**")} 0:-s28_(X,"t*") .
 
+xsd_string_(X,"t"):-s29_(X,"t*") .
+xsd_string_(X,"f"):-s29_(X,"f") .
 
 s30_(X,"t*"):-ex_PersonShape_firstName_(X,"t*") .
 s31_(X,"f"):-s30_(X,"t*") .
@@ -197,13 +196,16 @@ ex_firstName_(X,Y,"f"):-s31_(X,"f"),ex_firstName_(X,Y,"t*"),ex_firstName_(X,Y,"f
 s33_(X,"f"):-s32_(X,"t*") .
 s33_(X,"t*"):-s32_(X,"f") .
 
+xsd_string_(X,"t"):-s33_(X,"t*") .
+xsd_string_(X,"f"):-s33_(X,"f") .
 
-s25_(X,"f");s27_(X,"f");s30_(X,"f"):-ex_PersonShape_firstName_(X,"f") .
-s0_(X,"f");s7_(X,"f");s17_(X,"f");s24_(X,"f"):-ex_PersonShape_(X,"f") .
+s28_(X,"f");s30_(X,"f"):-ex_PersonShape_firstName_(X,"f") .
+s0_(X,"f");s7_(X,"f");s17_(X,"f");s27_(X,"f"):-ex_PersonShape_(X,"f") .
 
 % Interpretation Rules
 
 ex_firstName_(X,Y,"t**"):-ex_firstName_(X,Y,"t*"),not ex_firstName_(X,Y,"f") .
+ex_PersonShape_firstName_st_(X,Y,"t**"):-ex_firstName_(X,Y,"t**"),ex_PersonShape_firstName_st_(X,Y,"t*"),not ex_PersonShape_firstName_st_(X,Y,"f") .
 xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 
 % Program Constraints
@@ -213,9 +215,9 @@ xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 :-s10_(X,"f") .
 :-s12_(X,"f") .
 :-s16_(X,"f") .
+:-s19_(X,"f") .
+:-s22_(X,"f") .
 :-s26_(X,"f") .
-:-s29_(X,"f") .
-:-s33_(X,"f") .
 
 % Change Set Rules
 
@@ -223,7 +225,7 @@ add(ex_firstName(X,Y)):-ex_firstName_(X,Y,"t**"),not ex_firstName(X,Y) .
 del(ex_firstName(X,Y)):-ex_firstName_(X,Y,"f"),ex_firstName(X,Y) .
 add(xsd_string(X)):-xsd_string_(X,"t**"),not xsd_string(X) .
 del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

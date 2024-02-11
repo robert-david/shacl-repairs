@@ -5,9 +5,10 @@ actualTarget("ex_Anon",ex_Person) actualTarget("ex_Issue_1",ex_Issue) actualTarg
 
 OPTIMUM FOUND
 
-Models       : 7
+Models       : 3
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.041s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.041s
+Time         : 0.062s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.062s
+Threads      : 3        (Winner: 2)

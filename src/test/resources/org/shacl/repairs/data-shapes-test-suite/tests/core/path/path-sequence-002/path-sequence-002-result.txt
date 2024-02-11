@@ -5,10 +5,11 @@ actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",
 
 OPTIMUM FOUND
 
-Models       : 27
+Models       : 8
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 5
 Calls        : 1
 Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+CPU Time     : 0.011s
+Threads      : 3        (Winner: 2)

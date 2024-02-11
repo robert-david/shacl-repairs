@@ -20,15 +20,19 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _worksFor_(X,Y,"t*"):-_worksFor(X,Y) .
 _worksFor_(X,Y,"t*"):-_worksFor_(X,Y,"t") .
+node1hmcj09prx41_st_(X,Y,"t*"):-node1hmcj09prx41_(X,_),_worksFor_(X,Y,"t*") .
+node1hmcj09prx37_st_(X,Y,"t*"):-node1hmcj09prx37_(X,_),_worksFor_(X,Y,"t*") .
 
 % Repair Rules
 
 s0_(X,"f"):-_personShape_(X,"f") .
-node1hgd7v9f9x864_(X,"t*"):-s0_(X,"t*") .
-node1hgd7v9f9x864_(X,"f"):-s0_(X,"f") .
+node1hmcj09prx40_(X,"f"):-s0_(X,"t*") .
+node1hmcj09prx40_(X,"t*"):-s0_(X,"f") .
+node1hmcj09prx41_(X,"t*"):-node1hmcj09prx40_(X,"t*") .
+node1hmcj09prx41_(X,"f"):-node1hmcj09prx40_(X,"f") .
 
-% sh:minCount 1 for node1hgd7v9f9x864
-s1_(X,"t*"):-node1hgd7v9f9x864_(X,"t*") .
+% sh:minCount 1 for node1hmcj09prx41
+s1_(X,"t*"):-node1hmcj09prx41_(X,"t*") .
 _worksFor_(X,@new(s1,X,_worksFor,1..1),"t"):-choose(s1,X,_worksFor,1) .
 choose(s1,X,_worksFor,1);choose(s1,X,_worksFor,0):-s1_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s2_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
@@ -36,8 +40,8 @@ _worksFor_(X,Y,"f"):-s1_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 1 {s2_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
 
-% universal for node1hgd7v9f9x864
-s3_(X,"t*"):-node1hgd7v9f9x864_(X,"t*") .
+% universal for node1hmcj09prx41
+s3_(X,"t*"):-node1hmcj09prx41_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 _worksFor_(X,@new(s4,X,_worksFor,1..1),"t"):-choose(s4,X,_worksFor,1) .
@@ -49,15 +53,13 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s1_(X,"f");s3_(X,"f"):-node1hgd7v9f9x864_(X,"f") .
+s1_(X,"f");s3_(X,"f"):-node1hmcj09prx41_(X,"f") .
 s7_(X,"f"):-_personShape_(X,"f") .
-node1hgd7v9f9x867_(X,"f"):-s7_(X,"t*") .
-node1hgd7v9f9x867_(X,"t*"):-s7_(X,"f") .
-node1hgd7v9f9x868_(X,"t*"):-node1hgd7v9f9x867_(X,"t*") .
-node1hgd7v9f9x868_(X,"f"):-node1hgd7v9f9x867_(X,"f") .
+node1hmcj09prx37_(X,"t*"):-s7_(X,"t*") .
+node1hmcj09prx37_(X,"f"):-s7_(X,"f") .
 
-% sh:minCount 1 for node1hgd7v9f9x868
-s8_(X,"t*"):-node1hgd7v9f9x868_(X,"t*") .
+% sh:minCount 1 for node1hmcj09prx37
+s8_(X,"t*"):-node1hmcj09prx37_(X,"t*") .
 _worksFor_(X,@new(s8,X,_worksFor,1..1),"t"):-choose(s8,X,_worksFor,1) .
 choose(s8,X,_worksFor,1);choose(s8,X,_worksFor,0):-s8_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s9_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
@@ -65,8 +67,8 @@ _worksFor_(X,Y,"f"):-s8_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 1 {s9_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s8_(X,"t*") .
 
 
-% universal for node1hgd7v9f9x868
-s10_(X,"t*"):-node1hgd7v9f9x868_(X,"t*") .
+% universal for node1hmcj09prx37
+s10_(X,"t*"):-node1hmcj09prx37_(X,"t*") .
 s11_(X,"f"):-s10_(X,"t*") .
 s11_(X,"t*"):-s10_(X,"f") .
 _worksFor_(X,@new(s11,X,_worksFor,1..1),"t"):-choose(s11,X,_worksFor,1) .
@@ -78,12 +80,14 @@ s13_(X,"f"):-s12_(X,"t*") .
 s13_(X,"t*"):-s12_(X,"f") .
 
 
-s8_(X,"f");s10_(X,"f"):-node1hgd7v9f9x868_(X,"f") .
+s8_(X,"f");s10_(X,"f"):-node1hmcj09prx37_(X,"f") .
 s0_(X,"t*");s7_(X,"t*"):-_personShape_(X,"t*") .
 
 % Interpretation Rules
 
 _worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
+node1hmcj09prx41_st_(X,Y,"t**"):-_worksFor_(X,Y,"t**"),node1hmcj09prx41_st_(X,Y,"t*"),not node1hmcj09prx41_st_(X,Y,"f") .
+node1hmcj09prx37_st_(X,Y,"t**"):-_worksFor_(X,Y,"t**"),node1hmcj09prx37_st_(X,Y,"t*"),not node1hmcj09prx37_st_(X,Y,"f") .
 
 % Program Constraints
 
@@ -97,7 +101,7 @@ _worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
 
 add(_worksFor(X,Y)):-_worksFor_(X,Y,"t**"),not _worksFor(X,Y) .
 del(_worksFor(X,Y)):-_worksFor_(X,Y,"f"),_worksFor(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

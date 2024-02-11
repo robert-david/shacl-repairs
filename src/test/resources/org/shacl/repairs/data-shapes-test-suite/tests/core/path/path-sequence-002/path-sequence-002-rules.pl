@@ -7,13 +7,13 @@ ex_property2("ex_Node1","ex_Node2") .
 ex_property3("ex_Node2","Value") .
 xsd_string("Value") .
 sh_PropertyShape("ex_TestShape") .
-sh_path("ex_TestShape","node1hgd7v9f9x107") .
-rdf_first("node1hgd7v9f9x107","ex_property1") .
-rdf_rest("node1hgd7v9f9x107","node1hgd7v9f9x108") .
-rdf_first("node1hgd7v9f9x108","ex_property2") .
-rdf_rest("node1hgd7v9f9x108","node1hgd7v9f9x109") .
-rdf_first("node1hgd7v9f9x109","ex_property3") .
-rdf_rest("node1hgd7v9f9x109","rdf_nil") .
+sh_path("ex_TestShape","node1hmcia2oqx107") .
+rdf_first("node1hmcia2oqx107","ex_property1") .
+rdf_rest("node1hmcia2oqx107","node1hmcia2oqx108") .
+rdf_first("node1hmcia2oqx108","ex_property2") .
+rdf_rest("node1hmcia2oqx108","node1hmcia2oqx109") .
+rdf_first("node1hmcia2oqx109","ex_property3") .
+rdf_rest("node1hmcia2oqx109","rdf_nil") .
 sh_minCount("ex_TestShape","1") .
 xsd_integer("1") .
 sh_targetNode("ex_TestShape","ex_InvalidResource1") .
@@ -24,45 +24,45 @@ ex_property1("ex_ValidResource1","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x110") .
-rdf_first("node1hgd7v9f9x110","http://repairs.shacl.org/path_sequence_002") .
-rdf_rest("node1hgd7v9f9x110","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcia2oqx110") .
+rdf_first("node1hmcia2oqx110","http://repairs.shacl.org/path_sequence_002") .
+rdf_rest("node1hmcia2oqx110","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_sequence_002") .
 rdfs_label("http://repairs.shacl.org/path_sequence_002","Test of path sequence 002") .
 xsd_string("Test of path sequence 002") .
-mf_action("http://repairs.shacl.org/path_sequence_002","node1hgd7v9f9x111") .
-sht_dataGraph("node1hgd7v9f9x111","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x111","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_sequence_002","node1hgd7v9f9x112") .
-sh_ValidationReport("node1hgd7v9f9x112") .
-sh_conforms("node1hgd7v9f9x112","false") .
+mf_action("http://repairs.shacl.org/path_sequence_002","node1hmcia2oqx111") .
+sht_dataGraph("node1hmcia2oqx111","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcia2oqx111","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_sequence_002","node1hmcia2oqx112") .
+sh_ValidationReport("node1hmcia2oqx112") .
+sh_conforms("node1hmcia2oqx112","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x112","node1hgd7v9f9x113") .
-sh_ValidationResult("node1hgd7v9f9x113") .
-sh_focusNode("node1hgd7v9f9x113","ex_InvalidResource1") .
-sh_resultPath("node1hgd7v9f9x113","node1hgd7v9f9x114") .
-rdf_first("node1hgd7v9f9x114","ex_property1") .
-rdf_rest("node1hgd7v9f9x114","node1hgd7v9f9x115") .
-rdf_first("node1hgd7v9f9x115","ex_property2") .
-rdf_rest("node1hgd7v9f9x115","node1hgd7v9f9x116") .
-rdf_first("node1hgd7v9f9x116","ex_property3") .
-rdf_rest("node1hgd7v9f9x116","rdf_nil") .
-sh_resultSeverity("node1hgd7v9f9x113","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x113","sh_MinCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x113","ex_TestShape") .
-sh_result("node1hgd7v9f9x112","node1hgd7v9f9x117") .
-sh_ValidationResult("node1hgd7v9f9x117") .
-sh_focusNode("node1hgd7v9f9x117","ex_InvalidResource2") .
-sh_resultPath("node1hgd7v9f9x117","node1hgd7v9f9x118") .
-rdf_first("node1hgd7v9f9x118","ex_property1") .
-rdf_rest("node1hgd7v9f9x118","node1hgd7v9f9x119") .
-rdf_first("node1hgd7v9f9x119","ex_property2") .
-rdf_rest("node1hgd7v9f9x119","node1hgd7v9f9x120") .
-rdf_first("node1hgd7v9f9x120","ex_property3") .
-rdf_rest("node1hgd7v9f9x120","rdf_nil") .
-sh_resultSeverity("node1hgd7v9f9x117","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x117","sh_MinCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x117","ex_TestShape") .
+sh_result("node1hmcia2oqx112","node1hmcia2oqx113") .
+sh_ValidationResult("node1hmcia2oqx113") .
+sh_focusNode("node1hmcia2oqx113","ex_InvalidResource1") .
+sh_resultPath("node1hmcia2oqx113","node1hmcia2oqx114") .
+rdf_first("node1hmcia2oqx114","ex_property1") .
+rdf_rest("node1hmcia2oqx114","node1hmcia2oqx115") .
+rdf_first("node1hmcia2oqx115","ex_property2") .
+rdf_rest("node1hmcia2oqx115","node1hmcia2oqx116") .
+rdf_first("node1hmcia2oqx116","ex_property3") .
+rdf_rest("node1hmcia2oqx116","rdf_nil") .
+sh_resultSeverity("node1hmcia2oqx113","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx113","sh_MinCountConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx113","ex_TestShape") .
+sh_result("node1hmcia2oqx112","node1hmcia2oqx117") .
+sh_ValidationResult("node1hmcia2oqx117") .
+sh_focusNode("node1hmcia2oqx117","ex_InvalidResource2") .
+sh_resultPath("node1hmcia2oqx117","node1hmcia2oqx118") .
+rdf_first("node1hmcia2oqx118","ex_property1") .
+rdf_rest("node1hmcia2oqx118","node1hmcia2oqx119") .
+rdf_first("node1hmcia2oqx119","ex_property2") .
+rdf_rest("node1hmcia2oqx119","node1hmcia2oqx120") .
+rdf_first("node1hmcia2oqx120","ex_property3") .
+rdf_rest("node1hmcia2oqx120","rdf_nil") .
+sh_resultSeverity("node1hmcia2oqx117","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx117","sh_MinCountConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx117","ex_TestShape") .
 mf_status("http://repairs.shacl.org/path_sequence_002","sht_approved") .
 
 % Shape Targets
@@ -153,7 +153,7 @@ add(ex_property2(X,Y)):-ex_property2_(X,Y,"t**"),not ex_property2(X,Y) .
 del(ex_property2(X,Y)):-ex_property2_(X,Y,"f"),ex_property2(X,Y) .
 add(ex_property3(X,Y)):-ex_property3_(X,Y,"t**"),not ex_property3(X,Y) .
 del(ex_property3(X,Y)):-ex_property3_(X,Y,"f"),ex_property3(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

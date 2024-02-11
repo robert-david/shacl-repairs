@@ -25,27 +25,27 @@ ex_address("ex_Reto","ex_RetosAddress") .
 ex_postalCode("ex_RetosAddress","5678") .
 xsd_integer("5678") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2108") .
-rdf_first("node1hgd7v9f9x2108","http://repairs.shacl.org/node_002") .
-rdf_rest("node1hgd7v9f9x2108","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx476") .
+rdf_first("node1hmcimj6lx476","http://repairs.shacl.org/node_002") .
+rdf_rest("node1hmcimj6lx476","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/node_002") .
 rdfs_label("http://repairs.shacl.org/node_002","Test of sh:node at property shape 002") .
 xsd_string("Test of sh:node at property shape 002") .
-mf_action("http://repairs.shacl.org/node_002","node1hgd7v9f9x2109") .
-sht_dataGraph("node1hgd7v9f9x2109","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x2109","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/node_002","node1hgd7v9f9x2110") .
-sh_ValidationReport("node1hgd7v9f9x2110") .
-sh_conforms("node1hgd7v9f9x2110","false") .
+mf_action("http://repairs.shacl.org/node_002","node1hmcimj6lx477") .
+sht_dataGraph("node1hmcimj6lx477","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx477","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/node_002","node1hmcimj6lx478") .
+sh_ValidationReport("node1hmcimj6lx478") .
+sh_conforms("node1hmcimj6lx478","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x2110","node1hgd7v9f9x2111") .
-sh_ValidationResult("node1hgd7v9f9x2111") .
-sh_focusNode("node1hgd7v9f9x2111","ex_Reto") .
-sh_resultPath("node1hgd7v9f9x2111","ex_address") .
-sh_resultSeverity("node1hgd7v9f9x2111","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x2111","sh_NodeConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x2111","ex_PersonShape_address") .
-sh_value("node1hgd7v9f9x2111","ex_RetosAddress") .
+sh_result("node1hmcimj6lx478","node1hmcimj6lx479") .
+sh_ValidationResult("node1hmcimj6lx479") .
+sh_focusNode("node1hmcimj6lx479","ex_Reto") .
+sh_resultPath("node1hmcimj6lx479","ex_address") .
+sh_resultSeverity("node1hmcimj6lx479","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx479","sh_NodeConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx479","ex_PersonShape_address") .
+sh_value("node1hmcimj6lx479","ex_RetosAddress") .
 mf_status("http://repairs.shacl.org/node_002","sht_approved") .
 
 % Shape Targets
@@ -66,8 +66,10 @@ ex_PersonShape_("ex_Reto","t*"):-actualTarget("ex_Reto",ex_PersonShape) .
 
 ex_address_(X,Y,"t*"):-ex_address(X,Y) .
 ex_address_(X,Y,"t*"):-ex_address_(X,Y,"t") .
+ex_PersonShape_address_st_(X,Y,"t*"):-ex_PersonShape_address_(X,_),ex_address_(X,Y,"t*") .
 ex_postalCode_(X,Y,"t*"):-ex_postalCode(X,Y) .
 ex_postalCode_(X,Y,"t*"):-ex_postalCode_(X,Y,"t") .
+ex_AddressShape_postalCode_st_(X,Y,"t*"):-ex_AddressShape_postalCode_(X,_),ex_postalCode_(X,Y,"t*") .
 xsd_string_(X,"t*"):-xsd_string(X) .
 xsd_string_(X,"t*"):-xsd_string_(X,"t") .
 
@@ -144,23 +146,23 @@ ex_AddressShape_postalCode_(X,"t*"):-s15_(X,"t*") .
 ex_AddressShape_postalCode_(X,"f"):-s15_(X,"f") .
 
 s16_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-s17_(X,"f"):-s16_(X,"t*") .
-s17_(X,"t*"):-s16_(X,"f") .
-ex_postalCode_(X,@new(s17,X,ex_postalCode,1..1),"t"):-choose(s17,X,ex_postalCode,1) .
-ex_postalCode_(X,@new(s17,X,ex_postalCode,1..2),"t"):-choose(s17,X,ex_postalCode,2) .
-choose(s17,X,ex_postalCode,2);choose(s17,X,ex_postalCode,1);choose(s17,X,ex_postalCode,0):-s17_(X,"t*") .
-(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s18_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s17_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
-ex_postalCode_(X,Y,"f"):-s17_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
-2 {s18_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s17_(X,"t*") .
+choose(s16,X,ex_postalCode,0):-s16_(X,"t*") .
+(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s17_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s16_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+ex_postalCode_(X,Y,"f"):-s16_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
+0 {s17_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s16_(X,"t*") .
 
-xsd_string_(X,"t"):-s18_(X,"t*") .
-xsd_string_(X,"f"):-s18_(X,"f") .
+xsd_string_(X,"t"):-s17_(X,"t*") .
+xsd_string_(X,"f"):-s17_(X,"f") .
 
-s19_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
-choose(s19,X,ex_postalCode,0):-s19_(X,"t*") .
-(C-0) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s20_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-0):-s19_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>0 .
+s18_(X,"t*"):-ex_AddressShape_postalCode_(X,"t*") .
+s19_(X,"f"):-s18_(X,"t*") .
+s19_(X,"t*"):-s18_(X,"f") .
+ex_postalCode_(X,@new(s19,X,ex_postalCode,1..1),"t"):-choose(s19,X,ex_postalCode,1) .
+ex_postalCode_(X,@new(s19,X,ex_postalCode,1..2),"t"):-choose(s19,X,ex_postalCode,2) .
+choose(s19,X,ex_postalCode,2);choose(s19,X,ex_postalCode,1);choose(s19,X,ex_postalCode,0):-s19_(X,"t*") .
+(C-1) {ex_postalCode_(X,Y,"f"):ex_postalCode_(X,Y,"t*");s20_(Y,"f"):ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f")} (C-1):-s19_(X,"f"),#count {Y:ex_postalCode_(X,Y,"t*")}=C,C>1 .
 ex_postalCode_(X,Y,"f"):-s19_(X,"f"),ex_postalCode_(X,Y,"t*"),ex_postalCode_(X,Y,"f") .
-0 {s20_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 0:-s19_(X,"t*") .
+2 {s20_(Y,"t*"):ex_postalCode_(X,Y,"t**")} 2:-s19_(X,"t*") .
 
 xsd_string_(X,"t"):-s20_(X,"t*") .
 xsd_string_(X,"f"):-s20_(X,"f") .
@@ -179,7 +181,7 @@ s24_(X,"t*"):-s23_(X,"f") .
 xsd_string_(X,"t"):-s24_(X,"t*") .
 xsd_string_(X,"f"):-s24_(X,"f") .
 
-s16_(X,"f");s19_(X,"f");s21_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
+s16_(X,"f");s18_(X,"f");s21_(X,"f"):-ex_AddressShape_postalCode_(X,"f") .
 
 s1_(X,"f");s12_(X,"f"):-ex_PersonShape_address_(X,"f") .
 s25_(X,"t*"):-ex_PersonShape_(X,"t*") .
@@ -213,7 +215,9 @@ s0_(X,"f");s25_(X,"f"):-ex_PersonShape_(X,"f") .
 % Interpretation Rules
 
 ex_address_(X,Y,"t**"):-ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f") .
+ex_PersonShape_address_st_(X,Y,"t**"):-ex_address_(X,Y,"t**"),ex_PersonShape_address_st_(X,Y,"t*"),not ex_PersonShape_address_st_(X,Y,"f") .
 ex_postalCode_(X,Y,"t**"):-ex_postalCode_(X,Y,"t*"),not ex_postalCode_(X,Y,"f") .
+ex_AddressShape_postalCode_st_(X,Y,"t**"):-ex_postalCode_(X,Y,"t**"),ex_AddressShape_postalCode_st_(X,Y,"t*"),not ex_AddressShape_postalCode_st_(X,Y,"f") .
 xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 
 % Program Constraints
@@ -232,7 +236,7 @@ add(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"t**"),not ex_postalCode(X,Y) .
 del(ex_postalCode(X,Y)):-ex_postalCode_(X,Y,"f"),ex_postalCode(X,Y) .
 add(xsd_string(X)):-xsd_string_(X,"t**"),not xsd_string(X) .
 del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

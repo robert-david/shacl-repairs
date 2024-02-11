@@ -22,18 +22,19 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _worksFor_(X,Y,"t*"):-_worksFor(X,Y) .
 _worksFor_(X,Y,"t*"):-_worksFor_(X,Y,"t") .
+node1hmcj09prx86_st_(X,Y,"t*"):-node1hmcj09prx86_(X,_),_worksFor_(X,Y,"t*") .
 _organization_(X,"t*"):-_organization(X) .
 _organization_(X,"t*"):-_organization_(X,"t") .
 
 % Repair Rules
 
-node1hgd7v9f9x912_(X,"f"):-_personShape_(X,"t*") .
-node1hgd7v9f9x912_(X,"t*"):-_personShape_(X,"f") .
-node1hgd7v9f9x913_(X,"t*"):-node1hgd7v9f9x912_(X,"t*") .
-node1hgd7v9f9x913_(X,"f"):-node1hgd7v9f9x912_(X,"f") .
+node1hmcj09prx85_(X,"f"):-_personShape_(X,"t*") .
+node1hmcj09prx85_(X,"t*"):-_personShape_(X,"f") .
+node1hmcj09prx86_(X,"t*"):-node1hmcj09prx85_(X,"t*") .
+node1hmcj09prx86_(X,"f"):-node1hmcj09prx85_(X,"f") .
 
-% sh:minCount 1 for node1hgd7v9f9x913
-s0_(X,"t*"):-node1hgd7v9f9x913_(X,"t*") .
+% sh:minCount 1 for node1hmcj09prx86
+s0_(X,"t*"):-node1hmcj09prx86_(X,"t*") .
 _worksFor_(X,@new(s0,X,_worksFor,1..1),"t"):-choose(s0,X,_worksFor,1) .
 choose(s0,X,_worksFor,1);choose(s0,X,_worksFor,0):-s0_(X,"t*") .
 (C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s1_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
@@ -43,8 +44,8 @@ _worksFor_(X,Y,"f"):-s0_(X,"f"),_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
 _organization_(X,"t"):-s1_(X,"t*") .
 _organization_(X,"f"):-s1_(X,"f") .
 
-% universal for node1hgd7v9f9x913
-s2_(X,"t*"):-node1hgd7v9f9x913_(X,"t*") .
+% universal for node1hmcj09prx86
+s2_(X,"t*"):-node1hmcj09prx86_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 _worksFor_(X,@new(s3,X,_worksFor,1..1),"t"):-choose(s3,X,_worksFor,1) .
@@ -58,11 +59,12 @@ s5_(X,"t*"):-s4_(X,"f") .
 _organization_(X,"t"):-s5_(X,"t*") .
 _organization_(X,"f"):-s5_(X,"f") .
 
-s0_(X,"f");s2_(X,"f"):-node1hgd7v9f9x913_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1hmcj09prx86_(X,"f") .
 
 % Interpretation Rules
 
 _worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
+node1hmcj09prx86_st_(X,Y,"t**"):-_worksFor_(X,Y,"t**"),node1hmcj09prx86_st_(X,Y,"t*"),not node1hmcj09prx86_st_(X,Y,"f") .
 _organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
 
 % Program Constraints
@@ -76,7 +78,7 @@ add(_worksFor(X,Y)):-_worksFor_(X,Y,"t**"),not _worksFor(X,Y) .
 del(_worksFor(X,Y)):-_worksFor_(X,Y,"f"),_worksFor(X,Y) .
 add(_organization(X)):-_organization_(X,"t**"),not _organization(X) .
 del(_organization(X)):-_organization_(X,"f"),_organization(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

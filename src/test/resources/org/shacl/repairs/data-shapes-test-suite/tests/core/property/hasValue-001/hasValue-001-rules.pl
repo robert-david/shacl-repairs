@@ -27,26 +27,26 @@ ex_MalePerson("ex_ValidMalePerson2") .
 ex_gender("ex_ValidMalePerson2","female") .
 ex_gender("ex_ValidMalePerson2","male") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1664") .
-rdf_first("node1hgd7v9f9x1664","http://repairs.shacl.org/hasValue_001") .
-rdf_rest("node1hgd7v9f9x1664","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx32") .
+rdf_first("node1hmcimj6lx32","http://repairs.shacl.org/hasValue_001") .
+rdf_rest("node1hmcimj6lx32","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/hasValue_001") .
 rdfs_label("http://repairs.shacl.org/hasValue_001","Test of sh:hasValue at property shape 001") .
 xsd_string("Test of sh:hasValue at property shape 001") .
-mf_action("http://repairs.shacl.org/hasValue_001","node1hgd7v9f9x1665") .
-sht_dataGraph("node1hgd7v9f9x1665","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x1665","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/hasValue_001","node1hgd7v9f9x1666") .
-sh_ValidationReport("node1hgd7v9f9x1666") .
-sh_conforms("node1hgd7v9f9x1666","false") .
+mf_action("http://repairs.shacl.org/hasValue_001","node1hmcimj6lx33") .
+sht_dataGraph("node1hmcimj6lx33","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx33","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/hasValue_001","node1hmcimj6lx34") .
+sh_ValidationReport("node1hmcimj6lx34") .
+sh_conforms("node1hmcimj6lx34","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x1666","node1hgd7v9f9x1667") .
-sh_ValidationResult("node1hgd7v9f9x1667") .
-sh_focusNode("node1hgd7v9f9x1667","ex_InvalidMalePerson") .
-sh_resultPath("node1hgd7v9f9x1667","ex_gender") .
-sh_resultSeverity("node1hgd7v9f9x1667","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1667","sh_HasValueConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1667","ex_PersonShape_gender") .
+sh_result("node1hmcimj6lx34","node1hmcimj6lx35") .
+sh_ValidationResult("node1hmcimj6lx35") .
+sh_focusNode("node1hmcimj6lx35","ex_InvalidMalePerson") .
+sh_resultPath("node1hmcimj6lx35","ex_gender") .
+sh_resultSeverity("node1hmcimj6lx35","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx35","sh_HasValueConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx35","ex_PersonShape_gender") .
 mf_status("http://repairs.shacl.org/hasValue_001","sht_approved") .
 
 % Shape Targets
@@ -70,6 +70,7 @@ ex_PersonShape_("ex_ValidMalePerson2","t*"):-actualTarget("ex_ValidMalePerson2",
 
 ex_gender_(X,Y,"t*"):-ex_gender(X,Y) .
 ex_gender_(X,Y,"t*"):-ex_gender_(X,Y,"t") .
+ex_PersonShape_gender_st_(X,Y,"t*"):-ex_PersonShape_gender_(X,_),ex_gender_(X,Y,"t*") .
 xsd_string_(X,"t*"):-xsd_string(X) .
 xsd_string_(X,"t*"):-xsd_string_(X,"t") .
 
@@ -147,6 +148,7 @@ s0_(X,"f");s9_(X,"f"):-ex_PersonShape_(X,"f") .
 % Interpretation Rules
 
 ex_gender_(X,Y,"t**"):-ex_gender_(X,Y,"t*"),not ex_gender_(X,Y,"f") .
+ex_PersonShape_gender_st_(X,Y,"t**"):-ex_gender_(X,Y,"t**"),ex_PersonShape_gender_st_(X,Y,"t*"),not ex_PersonShape_gender_st_(X,Y,"f") .
 xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 
 % Program Constraints
@@ -165,7 +167,7 @@ del(ex_gender(X,Y)):-ex_gender_(X,Y,"f"),ex_gender(X,Y) .
 #minimize { 1@1,X,Y: ex_gender_(X,Y,"t"), const(Y) } .
 add(xsd_string(X)):-xsd_string_(X,"t**"),not xsd_string(X) .
 del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

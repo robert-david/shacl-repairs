@@ -5,10 +5,11 @@ actualTarget("ex_InvalidMalePerson",ex_PersonShape) actualTarget("ex_ValidMalePe
 
 OPTIMUM FOUND
 
-Models       : 13
+Models       : 10
   Optimum    : yes
   Optimal    : 9
 Optimization : 0 1 1
 Calls        : 1
-Time         : 0.013s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.013s
+Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.017s
+Threads      : 3        (Winner: 2)

@@ -24,22 +24,19 @@ _personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
 
 _firstName_(X,Y,"t*"):-_firstName(X,Y) .
 _firstName_(X,Y,"t*"):-_firstName_(X,Y,"t") .
+node1hmcj09prx100_st_(X,Y,"t*"):-node1hmcj09prx100_(X,_),_firstName_(X,Y,"t*") .
 _givenName_(X,Y,"t*"):-_givenName(X,Y) .
 _givenName_(X,Y,"t*"):-_givenName_(X,Y,"t") .
 
 % Repair Rules
 
-node1hgd7v9f9x926_(X,"f"):-_personShape_(X,"t*") .
-node1hgd7v9f9x926_(X,"t*"):-_personShape_(X,"f") .
-node1hgd7v9f9x927_(X,"t*"):-node1hgd7v9f9x926_(X,"t*") .
-node1hgd7v9f9x927_(X,"f"):-node1hgd7v9f9x926_(X,"f") .
+node1hmcj09prx99_(X,"f"):-_personShape_(X,"t*") .
+node1hmcj09prx99_(X,"t*"):-_personShape_(X,"f") .
+node1hmcj09prx100_(X,"t*"):-node1hmcj09prx99_(X,"t*") .
+node1hmcj09prx100_(X,"f"):-node1hmcj09prx99_(X,"f") .
 
-_givenName_(X,Y,"t"):-node1hgd7v9f9x927_(X,"t*"),_firstName_(X,Y,"t*") .
-_firstName_(X,Y,"t"):-node1hgd7v9f9x927_(X,"t*"),_givenName_(X,Y,"t*") .
-1 {_firstName_(X,Y,"f");_givenName_(X,Y,"f")} 1:-node1hgd7v9f9x927_(X,"f"),_firstName_(X,Y,"t*"),_givenName_(X,Y,"t*") .
-
-% sh:minCount 2 for node1hgd7v9f9x927
-s0_(X,"t*"):-node1hgd7v9f9x927_(X,"t*") .
+% sh:minCount 2 for node1hmcj09prx100
+s0_(X,"t*"):-node1hmcj09prx100_(X,"t*") .
 _firstName_(X,@new(s0,X,_firstName,1..1),"t"):-choose(s0,X,_firstName,1) .
 _firstName_(X,@new(s0,X,_firstName,1..2),"t"):-choose(s0,X,_firstName,2) .
 choose(s0,X,_firstName,2);choose(s0,X,_firstName,1);choose(s0,X,_firstName,0):-s0_(X,"t*") .
@@ -48,8 +45,12 @@ _firstName_(X,Y,"f"):-s0_(X,"f"),_firstName_(X,Y,"t*"),_firstName_(X,Y,"f") .
 2 {s1_(Y,"t*"):_firstName_(X,Y,"t**")} 2:-s0_(X,"t*") .
 
 
-% universal for node1hgd7v9f9x927
-s2_(X,"t*"):-node1hgd7v9f9x927_(X,"t*") .
+_givenName_(X,Y,"t"):-node1hmcj09prx100_(X,"t*"),_firstName_(X,Y,"t*") .
+_firstName_(X,Y,"t"):-node1hmcj09prx100_(X,"t*"),_givenName_(X,Y,"t*") .
+1 {_firstName_(X,Y,"f");_givenName_(X,Y,"f")} 1:-node1hmcj09prx100_(X,"f"),_firstName_(X,Y,"t*"),_givenName_(X,Y,"t*") .
+
+% universal for node1hmcj09prx100
+s2_(X,"t*"):-node1hmcj09prx100_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 _firstName_(X,@new(s3,X,_firstName,1..1),"t"):-choose(s3,X,_firstName,1) .
@@ -61,18 +62,19 @@ s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-node1hgd7v9f9x927_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-node1hmcj09prx100_(X,"f") .
 
 % Interpretation Rules
 
 _firstName_(X,Y,"t**"):-_firstName_(X,Y,"t*"),not _firstName_(X,Y,"f") .
+node1hmcj09prx100_st_(X,Y,"t**"):-_firstName_(X,Y,"t**"),node1hmcj09prx100_st_(X,Y,"t*"),not node1hmcj09prx100_st_(X,Y,"f") .
 _givenName_(X,Y,"t**"):-_givenName_(X,Y,"t*"),not _givenName_(X,Y,"f") .
 
 % Program Constraints
 
 :-_firstName_(X,Y,"t"),_firstName_(X,Y,"f") .
-:-_givenName_(X,Y,"t"),_givenName_(X,Y,"f") .
 :-s1_(X,"f") .
+:-_givenName_(X,Y,"t"),_givenName_(X,Y,"f") .
 :-s5_(X,"f") .
 
 % Change Set Rules
@@ -81,7 +83,7 @@ add(_firstName(X,Y)):-_firstName_(X,Y,"t**"),not _firstName(X,Y) .
 del(_firstName(X,Y)):-_firstName_(X,Y,"f"),_firstName(X,Y) .
 add(_givenName(X,Y)):-_givenName_(X,Y,"t**"),not _givenName(X,Y) .
 del(_givenName(X,Y)):-_givenName_(X,Y,"f"),_givenName(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

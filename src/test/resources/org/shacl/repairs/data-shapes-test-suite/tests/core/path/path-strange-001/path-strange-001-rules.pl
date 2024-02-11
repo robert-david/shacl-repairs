@@ -11,39 +11,39 @@ ex_p("ex_j","ex_jp") .
 ex_q("ex_jp","ex_jpq") .
 sh_PropertyShape("ex_s1") .
 sh_targetClass("ex_s1","ex_C") .
-sh_path("ex_s1","node1hgd7v9f9x149") .
-rdf_first("node1hgd7v9f9x149","ex_p") .
-rdf_rest("node1hgd7v9f9x149","node1hgd7v9f9x150") .
-rdf_first("node1hgd7v9f9x150","ex_q") .
-rdf_rest("node1hgd7v9f9x150","rdf_nil") .
-sh_inversePath("node1hgd7v9f9x149","ex_p") .
+sh_path("ex_s1","node1hmcia2oqx149") .
+rdf_first("node1hmcia2oqx149","ex_p") .
+rdf_rest("node1hmcia2oqx149","node1hmcia2oqx150") .
+rdf_first("node1hmcia2oqx150","ex_q") .
+rdf_rest("node1hmcia2oqx150","rdf_nil") .
+sh_inversePath("node1hmcia2oqx149","ex_p") .
 sh_class("ex_s1","ex_C") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x151") .
-rdf_first("node1hgd7v9f9x151","http://repairs.shacl.org/path_strange_001") .
-rdf_rest("node1hgd7v9f9x151","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcia2oqx151") .
+rdf_first("node1hmcia2oqx151","http://repairs.shacl.org/path_strange_001") .
+rdf_rest("node1hmcia2oqx151","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_strange_001") .
 rdfs_label("http://repairs.shacl.org/path_strange_001","Test of strange path 001 two valid paths together") .
 xsd_string("Test of strange path 001 two valid paths together") .
-mf_action("http://repairs.shacl.org/path_strange_001","node1hgd7v9f9x152") .
-sht_dataGraph("node1hgd7v9f9x152","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x152","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_strange_001","node1hgd7v9f9x153") .
-sh_ValidationReport("node1hgd7v9f9x153") .
-sh_conforms("node1hgd7v9f9x153","false") .
+mf_action("http://repairs.shacl.org/path_strange_001","node1hmcia2oqx152") .
+sht_dataGraph("node1hmcia2oqx152","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcia2oqx152","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_strange_001","node1hmcia2oqx153") .
+sh_ValidationReport("node1hmcia2oqx153") .
+sh_conforms("node1hmcia2oqx153","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x153","node1hgd7v9f9x154") .
-sh_ValidationResult("node1hgd7v9f9x154") .
-sh_focusNode("node1hgd7v9f9x154","ex_j") .
-sh_value("node1hgd7v9f9x154","ex_jpq") .
-sh_resultPath("node1hgd7v9f9x154","node1hgd7v9f9x155") .
-rdf_first("node1hgd7v9f9x155","ex_p") .
-rdf_rest("node1hgd7v9f9x155","node1hgd7v9f9x156") .
-rdf_first("node1hgd7v9f9x156","ex_q") .
-rdf_rest("node1hgd7v9f9x156","rdf_nil") .
-sh_resultSeverity("node1hgd7v9f9x154","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x154","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x154","ex_s1") .
+sh_result("node1hmcia2oqx153","node1hmcia2oqx154") .
+sh_ValidationResult("node1hmcia2oqx154") .
+sh_focusNode("node1hmcia2oqx154","ex_j") .
+sh_value("node1hmcia2oqx154","ex_jpq") .
+sh_resultPath("node1hmcia2oqx154","node1hmcia2oqx155") .
+rdf_first("node1hmcia2oqx155","ex_p") .
+rdf_rest("node1hmcia2oqx155","node1hmcia2oqx156") .
+rdf_first("node1hmcia2oqx156","ex_q") .
+rdf_rest("node1hmcia2oqx156","rdf_nil") .
+sh_resultSeverity("node1hmcia2oqx154","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx154","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx154","ex_s1") .
 mf_status("http://repairs.shacl.org/path_strange_001","sht_approved") .
 
 % Shape Targets
@@ -130,7 +130,7 @@ add(ex_q(X,Y)):-ex_q_(X,Y,"t**"),not ex_q(X,Y) .
 del(ex_q(X,Y)):-ex_q_(X,Y,"f"),ex_q(X,Y) .
 add(ex_C(X)):-ex_C_(X,"t**"),not ex_C(X) .
 del(ex_C(X)):-ex_C_(X,"f"),ex_C(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

@@ -3,16 +3,17 @@ Reading from ...st_logical_03/test_logical_03_rules.pl
 Solving...
 actualTarget("_ann",_personShape) del(_name("_ann","Ann"))
 
-actualTarget("_ann",_personShape) del(_firstName("_ann","Ann"))
-
 actualTarget("_ann",_personShape) del(_lastName("_ann","Doe"))
+
+actualTarget("_ann",_personShape) del(_firstName("_ann","Ann"))
 
 OPTIMUM FOUND
 
-Models       : 5
+Models       : 4
   Optimum    : yes
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.033s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.032s
+Time         : 0.027s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.027s
+Threads      : 3        (Winner: 1)

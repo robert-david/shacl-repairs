@@ -300,7 +300,7 @@ public class DataShapesPropertyTestSuite {
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 1);
 
-        assertTrue(StringUtils.countMatches(result,"del(ex_related_target(\"") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_related(\"ex_Observation1\",\"") == 1);
 
         r.writeResult(testPath + "//qualifiedValueShape-001-result.txt", result);
     }

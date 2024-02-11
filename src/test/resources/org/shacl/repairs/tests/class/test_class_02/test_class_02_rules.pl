@@ -21,10 +21,10 @@ _person_(X,"t*"):-_person_(X,"t") .
 
 % Repair Rules
 
-node1hgd7v9f9x1079_(X,"f"):-_personShape_(X,"t*") .
-node1hgd7v9f9x1079_(X,"t*"):-_personShape_(X,"f") .
-_person_(X,"t"):-node1hgd7v9f9x1079_(X,"t*") .
-_person_(X,"f"):-node1hgd7v9f9x1079_(X,"f") .
+node1hmci76q4x14_(X,"f"):-_personShape_(X,"t*") .
+node1hmci76q4x14_(X,"t*"):-_personShape_(X,"f") .
+_person_(X,"t"):-node1hmci76q4x14_(X,"t*") .
+_person_(X,"f"):-node1hmci76q4x14_(X,"f") .
 
 % Interpretation Rules
 
@@ -38,7 +38,7 @@ _person_(X,"t**"):-_person_(X,"t*"),not _person_(X,"f") .
 
 add(_person(X)):-_person_(X,"t**"),not _person(X) .
 del(_person(X)):-_person_(X,"f"),_person(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

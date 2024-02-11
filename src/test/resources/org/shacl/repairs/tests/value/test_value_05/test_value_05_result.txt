@@ -3,7 +3,7 @@ Reading from ...e/test_value_05/test_value_05_rules.pl
 Solving...
 actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1258")) add(_name("_ann","Ann"))
 
-actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1205")) add(_name("_ann","Ann"))
+actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1212")) add(_name("_ann","Ann"))
 
 OPTIMUM FOUND
 
@@ -12,5 +12,6 @@ Models       : 34
   Optimal    : 32
 Optimization : 0 3 1
 Calls        : 1
-Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.011s
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.016s
+Threads      : 3        (Winner: 2)

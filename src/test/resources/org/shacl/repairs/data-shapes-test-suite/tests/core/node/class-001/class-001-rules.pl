@@ -15,33 +15,33 @@ sh_targetNode("ex_TestShape","ex_Quokki") .
 sh_targetNode("ex_TestShape","ex_Someone") .
 sh_targetNode("ex_TestShape","ex_Typeless") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x2486") .
-rdf_first("node1hgd7v9f9x2486","http://repairs.shacl.org/class_001") .
-rdf_rest("node1hgd7v9f9x2486","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx109") .
+rdf_first("node1hmcimj6lx109","http://repairs.shacl.org/class_001") .
+rdf_rest("node1hmcimj6lx109","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_001") .
 rdfs_label("http://repairs.shacl.org/class_001","Test of sh:class at node shape 001") .
 xsd_string("Test of sh:class at node shape 001") .
-mf_action("http://repairs.shacl.org/class_001","node1hgd7v9f9x2487") .
-sht_dataGraph("node1hgd7v9f9x2487","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x2487","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_001","node1hgd7v9f9x2488") .
-sh_ValidationReport("node1hgd7v9f9x2488") .
-sh_conforms("node1hgd7v9f9x2488","false") .
+mf_action("http://repairs.shacl.org/class_001","node1hmcimj6lx110") .
+sht_dataGraph("node1hmcimj6lx110","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx110","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_001","node1hmcimj6lx111") .
+sh_ValidationReport("node1hmcimj6lx111") .
+sh_conforms("node1hmcimj6lx111","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x2488","node1hgd7v9f9x2489") .
-sh_ValidationResult("node1hgd7v9f9x2489") .
-sh_focusNode("node1hgd7v9f9x2489","ex_Quokki") .
-sh_resultSeverity("node1hgd7v9f9x2489","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x2489","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x2489","ex_TestShape") .
-sh_value("node1hgd7v9f9x2489","ex_Quokki") .
-sh_result("node1hgd7v9f9x2488","node1hgd7v9f9x2490") .
-sh_ValidationResult("node1hgd7v9f9x2490") .
-sh_focusNode("node1hgd7v9f9x2490","ex_Typeless") .
-sh_resultSeverity("node1hgd7v9f9x2490","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x2490","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x2490","ex_TestShape") .
-sh_value("node1hgd7v9f9x2490","ex_Typeless") .
+sh_result("node1hmcimj6lx111","node1hmcimj6lx112") .
+sh_ValidationResult("node1hmcimj6lx112") .
+sh_focusNode("node1hmcimj6lx112","ex_Quokki") .
+sh_resultSeverity("node1hmcimj6lx112","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx112","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx112","ex_TestShape") .
+sh_value("node1hmcimj6lx112","ex_Quokki") .
+sh_result("node1hmcimj6lx111","node1hmcimj6lx113") .
+sh_ValidationResult("node1hmcimj6lx113") .
+sh_focusNode("node1hmcimj6lx113","ex_Typeless") .
+sh_resultSeverity("node1hmcimj6lx113","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx113","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx113","ex_TestShape") .
+sh_value("node1hmcimj6lx113","ex_Typeless") .
 mf_status("http://repairs.shacl.org/class_001","sht_approved") .
 
 % Shape Targets
@@ -84,7 +84,7 @@ ex_Person_(X,"t**"):-ex_Person_(X,"t*"),not ex_Person_(X,"f") .
 
 add(ex_Person(X)):-ex_Person_(X,"t**"),not ex_Person(X) .
 del(ex_Person(X)):-ex_Person_(X,"f"),ex_Person(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

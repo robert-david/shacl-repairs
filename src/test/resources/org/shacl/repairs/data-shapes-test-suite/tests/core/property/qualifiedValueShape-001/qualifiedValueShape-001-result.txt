@@ -1,14 +1,15 @@
 clingo version 5.6.2
 Reading from ...e-001/qualifiedValueShape-001-rules.pl
 Solving...
-actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("node1hgd7v9f9x2046","node1hgd7v9f9x2047"))
+actualTarget("ex_Observation1",ex_APGARObservationShape) add(ex_related("ex_Observation1","2863"))
 
 OPTIMUM FOUND
 
-Models       : 105+
+Models       : 106+
   Optimum    : yes
   Optimal    : 100
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.371s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.370s
+Time         : 0.438s (Solving: 0.02s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.464s
+Threads      : 3        (Winner: 1)

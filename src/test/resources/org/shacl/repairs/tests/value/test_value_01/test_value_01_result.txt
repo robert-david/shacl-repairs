@@ -1,7 +1,7 @@
 clingo version 5.6.2
 Reading from ...e/test_value_01/test_value_01_rules.pl
 Solving...
-actualTarget("_ann",_personShape) add(_name("_ann","1253")) add(_name("_ann","Ann"))
+actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann"))
 
 actualTarget("_ann",_personShape) add(_name("_ann","1205")) add(_name("_ann","Ann"))
 
@@ -12,5 +12,6 @@ Models       : 10
   Optimal    : 8
 Optimization : 0 2 1
 Calls        : 1
-Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.009s
+Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.011s
+Threads      : 3        (Winner: 0)

@@ -11,41 +11,41 @@ ex_p("ex_j","ex_jp") .
 ex_q("ex_jp","ex_jpq") .
 sh_PropertyShape("ex_s1") .
 sh_targetClass("ex_s1","ex_C") .
-sh_path("ex_s1","node1hgd7v9f9x179") .
-rdf_first("node1hgd7v9f9x179","ex_p") .
-rdf_rest("node1hgd7v9f9x179","node1hgd7v9f9x180") .
-rdf_first("node1hgd7v9f9x180","ex_q") .
-rdf_rest("node1hgd7v9f9x180","rdf_nil") .
-sh_inversePath("node1hgd7v9f9x179","node1hgd7v9f9x181") .
-rdf_first("node1hgd7v9f9x181","ex_p") .
-rdf_rest("node1hgd7v9f9x181","rdf_nil") .
+sh_path("ex_s1","node1hmcia2oqx179") .
+rdf_first("node1hmcia2oqx179","ex_p") .
+rdf_rest("node1hmcia2oqx179","node1hmcia2oqx180") .
+rdf_first("node1hmcia2oqx180","ex_q") .
+rdf_rest("node1hmcia2oqx180","rdf_nil") .
+sh_inversePath("node1hmcia2oqx179","node1hmcia2oqx181") .
+rdf_first("node1hmcia2oqx181","ex_p") .
+rdf_rest("node1hmcia2oqx181","rdf_nil") .
 sh_class("ex_s1","ex_C") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x182") .
-rdf_first("node1hgd7v9f9x182","http://repairs.shacl.org/path_strange_002") .
-rdf_rest("node1hgd7v9f9x182","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcia2oqx182") .
+rdf_first("node1hmcia2oqx182","http://repairs.shacl.org/path_strange_002") .
+rdf_rest("node1hmcia2oqx182","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_strange_002") .
 rdfs_label("http://repairs.shacl.org/path_strange_002","Test of strange path 002 valid and invalid paths together") .
 xsd_string("Test of strange path 002 valid and invalid paths together") .
-mf_action("http://repairs.shacl.org/path_strange_002","node1hgd7v9f9x183") .
-sht_dataGraph("node1hgd7v9f9x183","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x183","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_strange_002","node1hgd7v9f9x184") .
-sh_ValidationReport("node1hgd7v9f9x184") .
-sh_conforms("node1hgd7v9f9x184","false") .
+mf_action("http://repairs.shacl.org/path_strange_002","node1hmcia2oqx183") .
+sht_dataGraph("node1hmcia2oqx183","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcia2oqx183","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_strange_002","node1hmcia2oqx184") .
+sh_ValidationReport("node1hmcia2oqx184") .
+sh_conforms("node1hmcia2oqx184","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x184","node1hgd7v9f9x185") .
-sh_ValidationResult("node1hgd7v9f9x185") .
-sh_focusNode("node1hgd7v9f9x185","ex_j") .
-sh_value("node1hgd7v9f9x185","ex_jpq") .
-sh_resultPath("node1hgd7v9f9x185","node1hgd7v9f9x186") .
-rdf_first("node1hgd7v9f9x186","ex_p") .
-rdf_rest("node1hgd7v9f9x186","node1hgd7v9f9x187") .
-rdf_first("node1hgd7v9f9x187","ex_q") .
-rdf_rest("node1hgd7v9f9x187","rdf_nil") .
-sh_resultSeverity("node1hgd7v9f9x185","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x185","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x185","ex_s1") .
+sh_result("node1hmcia2oqx184","node1hmcia2oqx185") .
+sh_ValidationResult("node1hmcia2oqx185") .
+sh_focusNode("node1hmcia2oqx185","ex_j") .
+sh_value("node1hmcia2oqx185","ex_jpq") .
+sh_resultPath("node1hmcia2oqx185","node1hmcia2oqx186") .
+rdf_first("node1hmcia2oqx186","ex_p") .
+rdf_rest("node1hmcia2oqx186","node1hmcia2oqx187") .
+rdf_first("node1hmcia2oqx187","ex_q") .
+rdf_rest("node1hmcia2oqx187","rdf_nil") .
+sh_resultSeverity("node1hmcia2oqx185","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx185","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx185","ex_s1") .
 mf_status("http://repairs.shacl.org/path_strange_002","sht_approved") .
 
 % Shape Targets
@@ -132,7 +132,7 @@ add(ex_q(X,Y)):-ex_q_(X,Y,"t**"),not ex_q(X,Y) .
 del(ex_q(X,Y)):-ex_q_(X,Y,"f"),ex_q(X,Y) .
 add(ex_C(X)):-ex_C_(X,"t**"),not ex_C(X) .
 del(ex_C(X)):-ex_C_(X,"f"),ex_C(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

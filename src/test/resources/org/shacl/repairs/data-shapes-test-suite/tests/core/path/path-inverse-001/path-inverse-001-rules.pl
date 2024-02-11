@@ -20,42 +20,42 @@ xsd_string("Test shape") .
 sh_property("ex_TestShape","ex_TestShape_P") .
 sh_targetClass("ex_TestShape","ex_Person") .
 sh_PropertyShape("ex_TestShape_P") .
-sh_path("ex_TestShape_P","node1hgd7v9f9x9") .
-sh_inversePath("node1hgd7v9f9x9","ex_child") .
+sh_path("ex_TestShape_P","node1hmcia2oqx9") .
+sh_inversePath("node1hmcia2oqx9","ex_child") .
 sh_maxCount("ex_TestShape_P","2") .
 xsd_integer("2") .
 sh_minCount("ex_TestShape_P","2") .
 ex_Person("ex_ValidResource1") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x10") .
-rdf_first("node1hgd7v9f9x10","http://repairs.shacl.org/path_inverse_001") .
-rdf_rest("node1hgd7v9f9x10","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcia2oqx10") .
+rdf_first("node1hmcia2oqx10","http://repairs.shacl.org/path_inverse_001") .
+rdf_rest("node1hmcia2oqx10","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_inverse_001") .
 rdfs_label("http://repairs.shacl.org/path_inverse_001","Test of path sh:inversePath 001") .
 xsd_string("Test of path sh:inversePath 001") .
-mf_action("http://repairs.shacl.org/path_inverse_001","node1hgd7v9f9x11") .
-sht_dataGraph("node1hgd7v9f9x11","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x11","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_inverse_001","node1hgd7v9f9x12") .
-sh_ValidationReport("node1hgd7v9f9x12") .
-sh_conforms("node1hgd7v9f9x12","false") .
+mf_action("http://repairs.shacl.org/path_inverse_001","node1hmcia2oqx11") .
+sht_dataGraph("node1hmcia2oqx11","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcia2oqx11","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_inverse_001","node1hmcia2oqx12") .
+sh_ValidationReport("node1hmcia2oqx12") .
+sh_conforms("node1hmcia2oqx12","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x12","node1hgd7v9f9x13") .
-sh_ValidationResult("node1hgd7v9f9x13") .
-sh_focusNode("node1hgd7v9f9x13","ex_InvalidResource1") .
-sh_resultPath("node1hgd7v9f9x13","node1hgd7v9f9x14") .
-sh_inversePath("node1hgd7v9f9x14","ex_child") .
-sh_resultSeverity("node1hgd7v9f9x13","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x13","sh_MinCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x13","ex_TestShape_P") .
-sh_result("node1hgd7v9f9x12","node1hgd7v9f9x15") .
-sh_ValidationResult("node1hgd7v9f9x15") .
-sh_focusNode("node1hgd7v9f9x15","ex_InvalidResource2") .
-sh_resultPath("node1hgd7v9f9x15","node1hgd7v9f9x16") .
-sh_inversePath("node1hgd7v9f9x16","ex_child") .
-sh_resultSeverity("node1hgd7v9f9x15","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x15","sh_MaxCountConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x15","ex_TestShape_P") .
+sh_result("node1hmcia2oqx12","node1hmcia2oqx13") .
+sh_ValidationResult("node1hmcia2oqx13") .
+sh_focusNode("node1hmcia2oqx13","ex_InvalidResource1") .
+sh_resultPath("node1hmcia2oqx13","node1hmcia2oqx14") .
+sh_inversePath("node1hmcia2oqx14","ex_child") .
+sh_resultSeverity("node1hmcia2oqx13","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx13","sh_MinCountConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx13","ex_TestShape_P") .
+sh_result("node1hmcia2oqx12","node1hmcia2oqx15") .
+sh_ValidationResult("node1hmcia2oqx15") .
+sh_focusNode("node1hmcia2oqx15","ex_InvalidResource2") .
+sh_resultPath("node1hmcia2oqx15","node1hmcia2oqx16") .
+sh_inversePath("node1hmcia2oqx16","ex_child") .
+sh_resultSeverity("node1hmcia2oqx15","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcia2oqx15","sh_MaxCountConstraintComponent") .
+sh_sourceShape("node1hmcia2oqx15","ex_TestShape_P") .
 mf_status("http://repairs.shacl.org/path_inverse_001","sht_approved") .
 
 % Shape Targets
@@ -174,7 +174,7 @@ ex_TestShape_P_st_(X,Y,"t**"):-ex_child_inv_(X,Y,"t**"),ex_TestShape_P_st_(X,Y,"
 
 add(ex_child(X,Y)):-ex_child_(X,Y,"t**"),not ex_child(X,Y) .
 del(ex_child(X,Y)):-ex_child_(X,Y,"f"),ex_child(X,Y) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

@@ -13,13 +13,13 @@ sh_targetNode("ex_AddressShape","ex_InvalidResource1") .
 sh_targetNode("ex_AddressShape","ex_ValidResource1") .
 sh_targetNode("ex_AddressShape","ex_ValidResource2") .
 sh_path("ex_AddressShape_address","ex_address") .
-sh_or("ex_AddressShape_address","node1hgd7v9f9x1839") .
-rdf_first("node1hgd7v9f9x1839","node1hgd7v9f9x1840") .
-sh_datatype("node1hgd7v9f9x1840","xsd_string") .
-rdf_rest("node1hgd7v9f9x1839","node1hgd7v9f9x1841") .
-rdf_first("node1hgd7v9f9x1841","node1hgd7v9f9x1842") .
-sh_class("node1hgd7v9f9x1842","ex_Address") .
-rdf_rest("node1hgd7v9f9x1841","rdf_nil") .
+sh_or("ex_AddressShape_address","node1hmcimj6lx207") .
+rdf_first("node1hmcimj6lx207","node1hmcimj6lx208") .
+sh_datatype("node1hmcimj6lx208","xsd_string") .
+rdf_rest("node1hmcimj6lx207","node1hmcimj6lx209") .
+rdf_first("node1hmcimj6lx209","node1hmcimj6lx210") .
+sh_class("node1hmcimj6lx210","ex_Address") .
+rdf_rest("node1hmcimj6lx209","rdf_nil") .
 rdfs_Resource("ex_InvalidResource1") .
 ex_address("ex_InvalidResource1","true") .
 xsd_boolean("true") .
@@ -27,30 +27,30 @@ rdfs_Resource("ex_ValidResource1") .
 ex_address("ex_ValidResource1","Home") .
 xsd_string("Home") .
 rdfs_Resource("ex_ValidResource2") .
-ex_address("ex_ValidResource2","node1hgd7v9f9x1843") .
-ex_Address("node1hgd7v9f9x1843") .
+ex_address("ex_ValidResource2","node1hmcimj6lx211") .
+ex_Address("node1hmcimj6lx211") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1844") .
-rdf_first("node1hgd7v9f9x1844","http://repairs.shacl.org/or_001") .
-rdf_rest("node1hgd7v9f9x1844","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx212") .
+rdf_first("node1hmcimj6lx212","http://repairs.shacl.org/or_001") .
+rdf_rest("node1hmcimj6lx212","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/or_001") .
 rdfs_label("http://repairs.shacl.org/or_001","Test of sh:or at property shape 001") .
 xsd_string("Test of sh:or at property shape 001") .
-mf_action("http://repairs.shacl.org/or_001","node1hgd7v9f9x1845") .
-sht_dataGraph("node1hgd7v9f9x1845","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x1845","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/or_001","node1hgd7v9f9x1846") .
-sh_ValidationReport("node1hgd7v9f9x1846") .
-sh_conforms("node1hgd7v9f9x1846","false") .
+mf_action("http://repairs.shacl.org/or_001","node1hmcimj6lx213") .
+sht_dataGraph("node1hmcimj6lx213","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx213","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/or_001","node1hmcimj6lx214") .
+sh_ValidationReport("node1hmcimj6lx214") .
+sh_conforms("node1hmcimj6lx214","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x1846","node1hgd7v9f9x1847") .
-sh_ValidationResult("node1hgd7v9f9x1847") .
-sh_focusNode("node1hgd7v9f9x1847","ex_InvalidResource1") .
-sh_resultPath("node1hgd7v9f9x1847","ex_address") .
-sh_resultSeverity("node1hgd7v9f9x1847","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1847","sh_OrConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1847","ex_AddressShape_address") .
-sh_value("node1hgd7v9f9x1847","true") .
+sh_result("node1hmcimj6lx214","node1hmcimj6lx215") .
+sh_ValidationResult("node1hmcimj6lx215") .
+sh_focusNode("node1hmcimj6lx215","ex_InvalidResource1") .
+sh_resultPath("node1hmcimj6lx215","ex_address") .
+sh_resultSeverity("node1hmcimj6lx215","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx215","sh_OrConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx215","ex_AddressShape_address") .
+sh_value("node1hmcimj6lx215","true") .
 mf_status("http://repairs.shacl.org/or_001","sht_approved") .
 
 % Shape Targets
@@ -73,6 +73,7 @@ ex_AddressShape_("ex_ValidResource2","t*"):-actualTarget("ex_ValidResource2",ex_
 
 ex_address_(X,Y,"t*"):-ex_address(X,Y) .
 ex_address_(X,Y,"t*"):-ex_address_(X,Y,"t") .
+ex_AddressShape_address_st_(X,Y,"t*"):-ex_AddressShape_address_(X,_),ex_address_(X,Y,"t*") .
 xsd_string_(X,"t*"):-xsd_string(X) .
 xsd_string_(X,"t*"):-xsd_string_(X,"t") .
 ex_Address_(X,"t*"):-ex_Address(X) .
@@ -123,6 +124,7 @@ s0_(X,"f");s4_(X,"f"):-ex_AddressShape_address_(X,"f") .
 % Interpretation Rules
 
 ex_address_(X,Y,"t**"):-ex_address_(X,Y,"t*"),not ex_address_(X,Y,"f") .
+ex_AddressShape_address_st_(X,Y,"t**"):-ex_address_(X,Y,"t**"),ex_AddressShape_address_st_(X,Y,"t*"),not ex_AddressShape_address_st_(X,Y,"f") .
 xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 ex_Address_(X,"t**"):-ex_Address_(X,"t*"),not ex_Address_(X,"f") .
 
@@ -140,7 +142,7 @@ add(xsd_string(X)):-xsd_string_(X,"t**"),not xsd_string(X) .
 del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
 add(ex_Address(X)):-ex_Address_(X,"t**"),not ex_Address(X) .
 del(ex_Address(X)):-ex_Address_(X,"f"),ex_Address(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

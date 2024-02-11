@@ -1,18 +1,19 @@
 clingo version 5.6.2
 Reading from ...-strange-001/path-strange-001-rules.pl
 Solving...
-actualTarget("ex_i",ex_s1) actualTarget("ex_j",ex_s1) actualTarget("ex_ipq",ex_s1) del(ex_p("ex_j","ex_jp"))
+actualTarget("ex_i",ex_s1) actualTarget("ex_j",ex_s1) actualTarget("ex_ipq",ex_s1) add(ex_C("ex_jpq"))
 
 actualTarget("ex_i",ex_s1) actualTarget("ex_j",ex_s1) actualTarget("ex_ipq",ex_s1) del(ex_q("ex_jp","ex_jpq"))
 
-actualTarget("ex_i",ex_s1) actualTarget("ex_j",ex_s1) actualTarget("ex_ipq",ex_s1) add(ex_C("ex_jpq"))
+actualTarget("ex_i",ex_s1) actualTarget("ex_j",ex_s1) actualTarget("ex_ipq",ex_s1) del(ex_p("ex_j","ex_jp"))
 
 OPTIMUM FOUND
 
-Models       : 8
+Models       : 5
   Optimum    : yes
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
+Threads      : 3        (Winner: 1)

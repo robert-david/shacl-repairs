@@ -1,7 +1,7 @@
 clingo version 5.6.2
 Reading from ...path_15/test_property_path_15_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3467")) add(_hasId("3467","ID"))
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3473")) add(_hasId("3473","ID"))
 
 OPTIMUM FOUND
 
@@ -10,5 +10,6 @@ Models       : 10
   Optimal    : 8
 Optimization : 0 2 2
 Calls        : 1
-Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.017s
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.016s
+Threads      : 3        (Winner: 2)

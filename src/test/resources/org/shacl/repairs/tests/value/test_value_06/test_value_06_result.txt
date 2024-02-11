@@ -3,14 +3,15 @@ Reading from ...e/test_value_06/test_value_06_rules.pl
 Solving...
 actualTarget("_ann",_personShape) add(_name("_ann","1205"))
 
-actualTarget("_ann",_personShape) add(_name("_ann","1258"))
+actualTarget("_ann",_personShape) add(_name("_ann","1260"))
 
 OPTIMUM FOUND
 
-Models       : 34
+Models       : 35
   Optimum    : yes
   Optimal    : 32
 Optimization : 0 1 0
 Calls        : 1
 Time         : 0.013s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.013s
+Threads      : 3        (Winner: 2)

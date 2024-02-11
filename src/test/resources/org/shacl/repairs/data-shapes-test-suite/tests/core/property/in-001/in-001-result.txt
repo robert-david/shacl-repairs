@@ -5,10 +5,11 @@ actualTarget("ex_ValidInstance2",ex_ShapeClass) actualTarget("ex_ValidInstance1"
 
 OPTIMUM FOUND
 
-Models       : 68
+Models       : 70
   Optimum    : yes
   Optimal    : 64
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.013s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.015s
+Threads      : 3        (Winner: 0)

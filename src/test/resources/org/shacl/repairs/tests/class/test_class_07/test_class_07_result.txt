@@ -1,16 +1,17 @@
 clingo version 5.6.2
 Reading from ...s/test_class_07/test_class_07_rules.pl
 Solving...
-actualTarget("_ann",_personShape) add(_organization("_ann"))
-
 actualTarget("_ann",_personShape) add(_person("_ann"))
+
+actualTarget("_ann",_personShape) add(_organization("_ann"))
 
 OPTIMUM FOUND
 
-Models       : 4
+Models       : 3
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
 Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.002s
+Threads      : 3        (Winner: 0)

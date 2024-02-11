@@ -3,9 +3,9 @@ Reading from ..._2_10/test_property_path_2_10_rules.pl
 Solving...
 actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1"))
 
-actualTarget("_ben",_studentShape) del(_hasId("_bn2","Math 1"))
-
 actualTarget("_ben",_studentShape) del(_hasLecture("_bn1","_bn2"))
+
+actualTarget("_ben",_studentShape) del(_hasId("_bn2","Math 1"))
 
 OPTIMUM FOUND
 
@@ -14,5 +14,6 @@ Models       : 8
   Optimal    : 6
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
+Threads      : 3        (Winner: 2)

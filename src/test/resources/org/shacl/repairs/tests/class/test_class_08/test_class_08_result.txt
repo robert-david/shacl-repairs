@@ -7,10 +7,11 @@ actualTarget("_ann",_personShape) add(_worksFor("_ann","1649")) add(_organizatio
 
 OPTIMUM FOUND
 
-Models       : 4
+Models       : 3
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 2
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
+Threads      : 3        (Winner: 1)

@@ -1,18 +1,19 @@
 clingo version 5.6.2
 Reading from ...e/test_value_04/test_value_04_rules.pl
 Solving...
-actualTarget("_ann",_personShape) add(_name("_ann","1262")) add(_name("_ann","Ann"))
-
-actualTarget("_ann",_personShape) add(_name("_ann","1253")) add(_name("_ann","Ann"))
-
 actualTarget("_ann",_personShape) add(_name("_ann","1205")) add(_name("_ann","Ann"))
+
+actualTarget("_ann",_personShape) add(_name("_ann","1212")) add(_name("_ann","Ann"))
+
+actualTarget("_ann",_personShape) add(_name("_ann","1260")) add(_name("_ann","Ann"))
 
 OPTIMUM FOUND
 
-Models       : 103+
+Models       : 102+
   Optimum    : yes
   Optimal    : 100
 Optimization : 0 2 1
 Calls        : 1
-Time         : 0.015s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.015s
+Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.019s
+Threads      : 3        (Winner: 1)

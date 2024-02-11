@@ -3,14 +3,15 @@ Reading from ...rty/minCount-001/minCount-001-rules.pl
 Solving...
 actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3192")) add(xsd_string("3192"))
 
-actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3199")) add(xsd_string("3199"))
+actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3243")) add(xsd_string("3243"))
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 4
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 2
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.012s
+Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.018s
+Threads      : 3        (Winner: 1)

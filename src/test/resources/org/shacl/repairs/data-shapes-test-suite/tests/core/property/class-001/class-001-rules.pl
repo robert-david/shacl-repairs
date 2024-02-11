@@ -23,40 +23,40 @@ rdfs_Resource("ex_ValidResource1") .
 ex_testProperty("ex_ValidResource1","ex_SubClassInstance") .
 ex_testProperty("ex_ValidResource1","ex_SuperClassInstance") .
 rdfs_Resource("ex_ValidResource2") .
-ex_testProperty("ex_ValidResource2","node1hgd7v9f9x1812") .
-ex_SubClass("node1hgd7v9f9x1812") .
-ex_testProperty("ex_ValidResource2","node1hgd7v9f9x1813") .
-ex_SuperClass("node1hgd7v9f9x1813") .
+ex_testProperty("ex_ValidResource2","node1hmcimj6lx180") .
+ex_SubClass("node1hmcimj6lx180") .
+ex_testProperty("ex_ValidResource2","node1hmcimj6lx181") .
+ex_SuperClass("node1hmcimj6lx181") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hgd7v9f9x1814") .
-rdf_first("node1hgd7v9f9x1814","http://repairs.shacl.org/class_001") .
-rdf_rest("node1hgd7v9f9x1814","rdf_nil") .
+mf_entries("http://repairs.shacl.org","node1hmcimj6lx182") .
+rdf_first("node1hmcimj6lx182","http://repairs.shacl.org/class_001") .
+rdf_rest("node1hmcimj6lx182","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_001") .
 rdfs_label("http://repairs.shacl.org/class_001","Test of sh:class at property shape 001") .
 xsd_string("Test of sh:class at property shape 001") .
-mf_action("http://repairs.shacl.org/class_001","node1hgd7v9f9x1815") .
-sht_dataGraph("node1hgd7v9f9x1815","http://repairs.shacl.org") .
-sht_shapesGraph("node1hgd7v9f9x1815","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_001","node1hgd7v9f9x1816") .
-sh_ValidationReport("node1hgd7v9f9x1816") .
-sh_conforms("node1hgd7v9f9x1816","false") .
+mf_action("http://repairs.shacl.org/class_001","node1hmcimj6lx183") .
+sht_dataGraph("node1hmcimj6lx183","http://repairs.shacl.org") .
+sht_shapesGraph("node1hmcimj6lx183","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_001","node1hmcimj6lx184") .
+sh_ValidationReport("node1hmcimj6lx184") .
+sh_conforms("node1hmcimj6lx184","false") .
 xsd_boolean("false") .
-sh_result("node1hgd7v9f9x1816","node1hgd7v9f9x1817") .
-sh_ValidationResult("node1hgd7v9f9x1817") .
-sh_focusNode("node1hgd7v9f9x1817","ex_InvalidResource1") .
-sh_resultPath("node1hgd7v9f9x1817","ex_testProperty") .
-sh_resultSeverity("node1hgd7v9f9x1817","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1817","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1817","ex_TestShape_testProperty") .
-sh_value("node1hgd7v9f9x1817","ex_InvalidResource1") .
-sh_result("node1hgd7v9f9x1816","node1hgd7v9f9x1818") .
-sh_ValidationResult("node1hgd7v9f9x1818") .
-sh_focusNode("node1hgd7v9f9x1818","ex_InvalidResource1") .
-sh_resultPath("node1hgd7v9f9x1818","ex_testProperty") .
-sh_resultSeverity("node1hgd7v9f9x1818","sh_Violation") .
-sh_sourceConstraintComponent("node1hgd7v9f9x1818","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hgd7v9f9x1818","ex_TestShape_testProperty") .
-sh_value("node1hgd7v9f9x1818","A string") .
+sh_result("node1hmcimj6lx184","node1hmcimj6lx185") .
+sh_ValidationResult("node1hmcimj6lx185") .
+sh_focusNode("node1hmcimj6lx185","ex_InvalidResource1") .
+sh_resultPath("node1hmcimj6lx185","ex_testProperty") .
+sh_resultSeverity("node1hmcimj6lx185","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx185","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx185","ex_TestShape_testProperty") .
+sh_value("node1hmcimj6lx185","ex_InvalidResource1") .
+sh_result("node1hmcimj6lx184","node1hmcimj6lx186") .
+sh_ValidationResult("node1hmcimj6lx186") .
+sh_focusNode("node1hmcimj6lx186","ex_InvalidResource1") .
+sh_resultPath("node1hmcimj6lx186","ex_testProperty") .
+sh_resultSeverity("node1hmcimj6lx186","sh_Violation") .
+sh_sourceConstraintComponent("node1hmcimj6lx186","sh_ClassConstraintComponent") .
+sh_sourceShape("node1hmcimj6lx186","ex_TestShape_testProperty") .
+sh_value("node1hmcimj6lx186","A string") .
 mf_status("http://repairs.shacl.org/class_001","sht_approved") .
 
 % Shape Targets
@@ -79,6 +79,7 @@ ex_TestShape_("ex_ValidResource1","t*"):-actualTarget("ex_ValidResource1",ex_Tes
 
 ex_testProperty_(X,Y,"t*"):-ex_testProperty(X,Y) .
 ex_testProperty_(X,Y,"t*"):-ex_testProperty_(X,Y,"t") .
+ex_TestShape_testProperty_st_(X,Y,"t*"):-ex_TestShape_testProperty_(X,_),ex_testProperty_(X,Y,"t*") .
 ex_SuperClass_(X,"t*"):-ex_SuperClass(X) .
 ex_SuperClass_(X,"t*"):-ex_SuperClass_(X,"t") .
 
@@ -117,6 +118,7 @@ s0_(X,"f");s2_(X,"f"):-ex_TestShape_testProperty_(X,"f") .
 % Interpretation Rules
 
 ex_testProperty_(X,Y,"t**"):-ex_testProperty_(X,Y,"t*"),not ex_testProperty_(X,Y,"f") .
+ex_TestShape_testProperty_st_(X,Y,"t**"):-ex_testProperty_(X,Y,"t**"),ex_TestShape_testProperty_st_(X,Y,"t*"),not ex_TestShape_testProperty_st_(X,Y,"f") .
 ex_SuperClass_(X,"t**"):-ex_SuperClass_(X,"t*"),not ex_SuperClass_(X,"f") .
 
 % Program Constraints
@@ -130,7 +132,7 @@ add(ex_testProperty(X,Y)):-ex_testProperty_(X,Y,"t**"),not ex_testProperty(X,Y) 
 del(ex_testProperty(X,Y)):-ex_testProperty_(X,Y,"f"),ex_testProperty(X,Y) .
 add(ex_SuperClass(X)):-ex_SuperClass_(X,"t**"),not ex_SuperClass(X) .
 del(ex_SuperClass(X)):-ex_SuperClass_(X,"f"),ex_SuperClass(X) .
-% Get all optimal models: --opt-mode=optN -n 100 --quiet=1
+% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
 #minimize { 1@3,X,S: skipTarget(X,S) } .

@@ -3,9 +3,9 @@ Reading from ...path_07/test_property_path_07_rules.pl
 Solving...
 skipTarget("_ben",_studentShape) actualTarget("_ben",_cutShape) del(_enrolledIn("_ben","_bn1"))
 
-actualTarget("_ben",_studentShape) skipTarget("_ben",_cutShape) del(_hasId("_bn1","Math 2"))
-
 actualTarget("_ben",_studentShape) skipTarget("_ben",_cutShape) del(_hasId("_bn1","Math 1"))
+
+actualTarget("_ben",_studentShape) skipTarget("_ben",_cutShape) del(_hasId("_bn1","Math 2"))
 
 OPTIMUM FOUND
 
@@ -14,5 +14,6 @@ Models       : 7
   Optimal    : 5
 Optimization : 1 1
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.012s
+Time         : 0.013s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s
+Threads      : 3        (Winner: 2)
