@@ -1049,9 +1049,9 @@ public class RepairGenerator {
         if (path instanceof SequencePath) {
 
             RepairData.get().getRepairRules().add(equalsName + "_(X,Y,\"t\"):-" +
-                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\") .\n");
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t**\") .\n");
             RepairData.get().getRepairRules().add(st + "_(X,Y,\"t\"):-" +
-                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
+                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t**\") .\n");
 
             RepairData.get().getRepairRules().add("1 {" + st + "_(X,Y,\"f\");" + equalsName + "_(X,Y,\"f\")} 1:-" +
                     shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
