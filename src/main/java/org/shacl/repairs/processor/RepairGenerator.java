@@ -1056,6 +1056,9 @@ public class RepairGenerator {
             RepairData.get().getRepairRules().add("1 {" + st + "_(X,Y,\"f\");" + equalsName + "_(X,Y,\"f\")} 1:-" +
                     shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
 
+            RepairData.get().getProgramConstraints().add(":-" + equalsName + "_(X,Y,\"t**\"),not " + st + "_(X,Y,\"t**\") .\n");
+            RepairData.get().getProgramConstraints().add(":-" + st + "_(X,Y,\"t**\"),not " + equalsName + "_(X,Y,\"t**\") .\n");
+
         } else if (path instanceof SimplePath) {
 
             String property = ns(nss, path.getId());
