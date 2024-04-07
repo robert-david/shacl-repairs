@@ -2212,75 +2212,75 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_d3769ce4-545a-11ed-a573-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusViolated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_04f04514-545f-11ed-9e89-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_e799e588-6efd-11ed-ad04-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_f962b7fe-717d-11ed-b268-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_2e472030-7189-11ed-8a76-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_946cf65e-722f-11ed-aa0e-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_570045be-7248-11ed-b6c2-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_7d95e6aa-724a-11ed-b527-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_0e7e6174-7255-11ed-89c5-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_96e2103a-77a8-11ed-8786-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_cf34301e-77ab-11ed-b55d-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#hasCreated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusCreated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_81fddd0c-e021-11ed-b65a-0242ac150004">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusViolated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusViolated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004">
-	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasContractStatus rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statusViolated"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2b_6d36ca8a-3820-11ee-b1f4-0242ac150002">
@@ -3056,87 +3056,87 @@
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_d4d1d70c-545a-11ed-bc75-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_06367f7e-545f-11ed-8eb2-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_85e7ae2a-6c22-11ed-ae1e-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_3009ae4e-6c23-11ed-9d94-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_e8f2e8d0-6efd-11ed-9e59-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_fadd774a-717d-11ed-91cf-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_3061c6b8-7189-11ed-a366-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_95f9261e-722f-11ed-a8b0-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_5891312c-7248-11ed-a60a-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_7f10e2d2-724a-11ed-b092-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_0ff49640-7255-11ed-9bb5-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_f021142a-74c4-11ed-912b-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_98ceb1fa-77a8-11ed-b6de-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_d1323172-77ab-11ed-ba79-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_31488e04-7fbc-11ed-bcfb-0242ac150003">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_83782890-e021-11ed-8b5d-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_837fb1fa-e021-11ed-a600-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ViolatedState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_b0237eac-e2cf-11ed-a642-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_b0247500-e2cf-11ed-afa0-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ViolatedState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_290b85d8-ec41-11ed-ad76-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#statePending"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#PendingState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#ob_29143200-ec41-11ed-bd52-0242ac150004">
-	<hasStates rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#stateViolated"/>
+	<hasState rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ViolatedState"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#c_370c40d4-4e1a-11ed-9fb9-0242ac150003">
@@ -3917,10 +3917,6 @@
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_04f04514-545f-11ed-9e89-0242ac150003">
 	<hasObligations rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#ob_06367f7e-545f-11ed-8eb2-0242ac150003"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003">
-	<hasObligations rdf:resource="http://ontologies.atb-bremen.de/smashHitCore#string"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://ontologies.atb-bremen.de/smashHitCore#contb2c_e799e588-6efd-11ed-ad04-0242ac150003">
