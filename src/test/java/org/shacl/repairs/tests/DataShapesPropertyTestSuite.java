@@ -68,6 +68,35 @@ public class DataShapesPropertyTestSuite {
     }
 
     @Test
+    public void property_equals_001() throws IOException {
+
+        String testPath = path + "/data-shapes-test-suite/tests/core/property/equals-001";
+        r.createRepairProgram(
+                testPath + "/equals-001.ttl",
+                testPath + "/equals-001.ttl",
+                testPath + "/equals-001-rules.pl");
+
+        String result = r.runProgram(testPath + "/equals-001-rules.pl");
+
+        // assertTrue(result.contains("Models       : 14"));
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource2\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource3\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource4\",ex_TestShape)") == 1);
+
+        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource1\",\"B\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource3\",\"A\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource1\",\"A\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource2\",\"A\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource4\",\"B\"))") == 1);
+
+        r.writeResult(testPath + "/equals-001-result.txt", result);
+    }
+
+    @Test
     public void property_hasValue_001() throws IOException {
 
         String testPath = path + "/data-shapes-test-suite/tests/core/property/hasValue-001";
@@ -83,6 +112,7 @@ public class DataShapesPropertyTestSuite {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidMalePerson\",ex_PersonShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson1\",ex_PersonShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidMalePerson2\",ex_PersonShape)") == 1);
+
         assertTrue(StringUtils.countMatches(result,"add(ex_gender(\"ex_InvalidMalePerson\",\"male\"))") == 1);
 
         r.writeResult(testPath + "/hasValue-001-result.txt", result);
