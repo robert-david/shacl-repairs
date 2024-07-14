@@ -1,18 +1,20 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-#@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 
 :FunctionalContractStatusStrategy
-    a sh:RepairStrategy;
-    sh:repair [
+    a shr:RepairStrategy;
+    shr:preference [
         sh:path :hasContractStatus;
-        sh:action sh:delete;
-        sh:preferenceOrder (
+        shr:action shr:delete;
+        shr:values (
             :statusPending :statusFulfilled :statusViolated
         )
     ];
-    sh:repair [
+    shr:preference [
         sh:path :hasContractStatus;
-        sh:action sh:add;
-        sh:value :statusPending
+        shr:action shr:add;
+        shr:values (
+            :statusPending
+        )
     ] .

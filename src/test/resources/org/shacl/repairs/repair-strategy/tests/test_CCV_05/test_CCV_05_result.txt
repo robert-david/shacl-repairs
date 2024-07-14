@@ -5,11 +5,11 @@ actualTarget("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",_obligationShape) actual
 
 OPTIMUM FOUND
 
-Models       : 102+
+Models       : 101+
   Optimum    : yes
   Optimal    : 100
 Optimization : 0 1 0 0
 Calls        : 1
-Time         : 0.077s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.078s
-Threads      : 3        (Winner: 2)
+Time         : 0.054s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.055s
+Threads      : 3        (Winner: 0)

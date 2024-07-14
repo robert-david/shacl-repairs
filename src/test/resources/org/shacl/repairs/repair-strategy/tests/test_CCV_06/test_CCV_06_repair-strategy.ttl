@@ -1,12 +1,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-#@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 @prefix fibo-fnd-agr-ctr: <https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/> .
 
 :FunctionalEndDateStrategy
-    a sh:RepairStrategy;
-    sh:repair [
+    a shr:RepairStrategy;
+    shr:preference [
         sh:path :hasEndDate;
-        sh:action sh:delete;
-        sh:preferenceOrder sh:minValue
+        shr:action shr:delete;
+        shr:function shr:minValue
     ] .

@@ -1,15 +1,15 @@
 clingo version 5.6.2
 Reading from ...tests/test_CCV_04/test_CCV_04_rules.pl
 Solving...
-actualTarget("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",_obligationStateShape) del(_hasState("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","_unknownState")) add(_hasState("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","_pendingState"))
+actualTarget("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",_obligationStateShape) add(_hasState("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","_pendingState")) del(_hasState("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","_unknownState"))
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 7
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 2 1 -1
 Calls        : 1
-Time         : 0.020s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.020s
-Threads      : 3        (Winner: 1)
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.012s
+Threads      : 3        (Winner: 2)

@@ -1,18 +1,20 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-#@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 
 :FunctionalStateStrategy
-    a sh:RepairStrategy;
-    sh:repair [
+    a shr:RepairStrategy;
+    shr:preference [
         sh:path :hasState;
-        sh:action sh:delete;
-        sh:preferenceOrder (
+        shr:action shr:delete;
+        shr:values (
             :PendingState :FulfilledState :ViolatedState
         )
     ];
-    sh:repair [
+    shr:preference [
         sh:path :hasState;
-        sh:action sh:add;
-        sh:value :PendingState
+        shr:action shr:add;
+        shr:values (
+            :PendingState
+        )
     ] .
