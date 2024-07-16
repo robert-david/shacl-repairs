@@ -1,19 +1,19 @@
 clingo version 5.6.2
 Reading from ..._2_08/test_property_path_2_08_rules.pl
 Solving...
+actualTarget("_ben",_studentShape) del(_isIdOf("_value","_bn2"))
+
 actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1"))
 
 actualTarget("_ben",_studentShape) del(_hasLecture("_bn1","_bn2"))
 
-actualTarget("_ben",_studentShape) del(_isIdOf("_value","_bn2"))
-
 OPTIMUM FOUND
 
-Models       : 5
+Models       : 4
   Optimum    : yes
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
-Threads      : 3        (Winner: 2)
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
+Threads      : 3        (Winner: 1)

@@ -1,19 +1,19 @@
 clingo version 5.6.2
 Reading from ...s/core/property/or-001/or-001-rules.pl
 Solving...
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) add(xsd_string("true"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","true"))
 
 actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) add(ex_Address("true"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","true"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_ValidResource2",ex_AddressShape) add(xsd_string("true"))
 
 OPTIMUM FOUND
 
-Models       : 5
+Models       : 4
   Optimum    : yes
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.008s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s
 Threads      : 3        (Winner: 0)

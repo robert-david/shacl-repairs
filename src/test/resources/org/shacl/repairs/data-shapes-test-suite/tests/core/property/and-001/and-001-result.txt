@@ -1,23 +1,23 @@
 clingo version 5.6.2
 Reading from ...core/property/and-001/and-001-rules.pl
 Solving...
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","b61065")) del(ex_address("ex_InvalidResource2","b31477")) del(ex_address("ex_InvalidResource3","b94057"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660")) add(ex_suburb("bnode_b61065","2275"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","b61065")) del(ex_address("ex_InvalidResource3","b94057")) add(ex_postalCode("b31477","2043"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612")) add(ex_suburb("bnode_b61065","2275"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","b61065")) del(ex_address("ex_InvalidResource3","b94057")) add(ex_postalCode("b31477","2052"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","2275"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1662")) add(ex_postalCode("b31477","2052"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660")) add(ex_suburb("bnode_b61065","2284"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","b31477")) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1662"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612")) add(ex_suburb("bnode_b61065","2284"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","b31477")) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1614"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","2284"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1614")) add(ex_postalCode("b31477","2043"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1662")) add(ex_postalCode("b31477","2043"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","b94057")) add(ex_suburb("b61065","1614")) add(ex_postalCode("b31477","2052"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660"))
 
 OPTIMUM FOUND
 
@@ -26,6 +26,6 @@ Models       : 11
   Optimal    : 9
 Optimization : 0 3
 Calls        : 1
-Time         : 0.027s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.029s
-Threads      : 3        (Winner: 1)
+Time         : 0.020s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.021s
+Threads      : 3        (Winner: 0)

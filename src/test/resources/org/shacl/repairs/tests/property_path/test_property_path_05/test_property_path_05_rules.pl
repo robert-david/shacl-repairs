@@ -5,6 +5,27 @@ _enrolledIn("_ben","_bn1") .
 _enrolledIn("_ben","_bn2") .
 _hasId("_bn1","_math1") .
 _hasId("_bn2","_math2") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
+rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
 
 % Shape Targets
 
@@ -24,110 +45,102 @@ _enrolledIn_(X,Y,"t*"):-_enrolledIn(X,Y) .
 _enrolledIn_(X,Y,"t*"):-_enrolledIn_(X,Y,"t") .
 _hasId_(X,Y,"t*"):-_hasId(X,Y) .
 _hasId_(X,Y,"t*"):-_hasId_(X,Y,"t") .
-node1hmcis5g7x58_st_(X,X1,"t*"):-node1hmcis5g7x58_(X,_),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,X1,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,_),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*") .
 _course_(X,"t*"):-_course(X) .
 _course_(X,"t*"):-_course_(X,"t") .
 
 % Repair Rules
 
 s0_(X,"t*"):-_studentShape_(X,"t*") .
-node1hmcis5g7x58_(X,"t*"):-s0_(X,"t*") .
-node1hmcis5g7x58_(X,"f"):-s0_(X,"f") .
+bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*"):-s0_(X,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_(X,"f"):-s0_(X,"f") .
 
 
-% sh:qualifiedMaxCount 1 for node1hmcis5g7x58
-s1_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
-s2_(X,"f"):-s1_(X,"t*") .
-s2_(X,"t*"):-s1_(X,"f") .
-node1hmcis5g7x58_st_(X,@new(s2,X,node1hmcis5g7x58_st,1..1),"t"):-choose(s2,X,node1hmcis5g7x58_st,1) .
-node1hmcis5g7x58_st_(X,@new(s2,X,node1hmcis5g7x58_st,1..2),"t"):-choose(s2,X,node1hmcis5g7x58_st,2) .
-choose(s2,X,node1hmcis5g7x58_st,2);choose(s2,X,node1hmcis5g7x58_st,1);choose(s2,X,node1hmcis5g7x58_st,0):-s2_(X,"t*") .
-choose(node1hmcis5g7x58_st,X,_enrolledIn,1);choose(node1hmcis5g7x58_st,X,_enrolledIn,0):-node1hmcis5g7x58_st_(X,Y,"t") .
-_enrolledIn_(X,@new(node1hmcis5g7x58_st,X,_enrolledIn,1),"t"):-choose(node1hmcis5g7x58_st,X,_enrolledIn,1),node1hmcis5g7x58_st_(X,Y,"t") .
-0 {_hasId_(X0,Y,"t")} 2:-_enrolledIn_(X,X0,"t**"),node1hmcis5g7x58_st_(X,Y,"t") .
-(C-1) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s3_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-1):-s2_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>1 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s2_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-2 {s3_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 2:-s2_(X,"t*") .
+% sh:qualifiedMinCount 1 for bnode_a32d7a7262844001b8708be5540d65dd54
+s1_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,@new(s1,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1..1),"t"):-choose(s1,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1) .
+choose(s1,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1);choose(s1,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,0):-s1_(X,"t*") .
+choose(bnode_a32d7a7262844001b8708be5540d65dd54_st,X,_enrolledIn,1);choose(bnode_a32d7a7262844001b8708be5540d65dd54_st,X,_enrolledIn,0):-bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t") .
+_enrolledIn_(X,@new(bnode_a32d7a7262844001b8708be5540d65dd54_st,X,_enrolledIn,1),"t"):-choose(bnode_a32d7a7262844001b8708be5540d65dd54_st,X,_enrolledIn,1),bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t") .
+0 {_hasId_(X0,Y,"t")} 1:-_enrolledIn_(X,X0,"t**"),bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t") .
+(C-0) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s2_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>0 .
+_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,X1,"f") .
+1 {s2_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
-_course_(X,"t"):-s3_(X,"t*") .
-_course_(X,"f"):-s3_(X,"f") .
+_course_(X,"t"):-s2_(X,"t*") .
+_course_(X,"f"):-s2_(X,"f") .
 
-% sh:minCount 0 for node1hmcis5g7x58
-s4_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
-choose(s4,X,node1hmcis5g7x58_st,0):-s4_(X,"t*") .
-(C-0) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s5_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s4_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-0 {s5_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 0:-s4_(X,"t*") .
+% sh:minCount 0 for bnode_a32d7a7262844001b8708be5540d65dd54
+s3_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
+(C-0) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s4_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>0 .
+0 {s4_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 0:-s3_(X,"t*") .
 
 
-% universal for node1hmcis5g7x58
-s6_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
-s7_(X,"f"):-s6_(X,"t*") .
-s7_(X,"t*"):-s6_(X,"f") .
-node1hmcis5g7x58_st_(X,@new(s7,X,node1hmcis5g7x58_st,1..1),"t"):-choose(s7,X,node1hmcis5g7x58_st,1) .
-choose(s7,X,node1hmcis5g7x58_st,1);choose(s7,X,node1hmcis5g7x58_st,0):-s7_(X,"t*") .
-0 {_hasId_(X0,Y,"t")} 1:-_enrolledIn_(X,X0,"t**"),node1hmcis5g7x58_st_(X,Y,"t") .
-(C-0) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s8_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-0):-s7_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s7_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-1 {s8_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 1:-s7_(X,"t*") .
-s9_(X,"f"):-s8_(X,"t*") .
-s9_(X,"t*"):-s8_(X,"f") .
+% universal for bnode_a32d7a7262844001b8708be5540d65dd54
+s5_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
+s6_(X,"f"):-s5_(X,"t*") .
+s6_(X,"t*"):-s5_(X,"f") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,@new(s6,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1..1),"t"):-choose(s6,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1) .
+choose(s6,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1);choose(s6,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,0):-s6_(X,"t*") .
+(C-0) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s7_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>0 .
+1 {s7_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 1:-s6_(X,"t*") .
+s8_(X,"f"):-s7_(X,"t*") .
+s8_(X,"t*"):-s7_(X,"f") .
 
 
-s1_(X,"f");s4_(X,"f");s6_(X,"f"):-node1hmcis5g7x58_(X,"f") .
-s10_(X,"t*"):-_studentShape_(X,"t*") .
-node1hmcis5g7x58_(X,"t*"):-s10_(X,"t*") .
-node1hmcis5g7x58_(X,"f"):-s10_(X,"f") .
+s1_(X,"f");s3_(X,"f");s5_(X,"f"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"f") .
+s9_(X,"t*"):-_studentShape_(X,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*"):-s9_(X,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_(X,"f"):-s9_(X,"f") .
 
 
-% sh:qualifiedMinCount 1 for node1hmcis5g7x58
-s11_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
-node1hmcis5g7x58_st_(X,@new(s11,X,node1hmcis5g7x58_st,1..1),"t"):-choose(s11,X,node1hmcis5g7x58_st,1) .
-choose(s11,X,node1hmcis5g7x58_st,1);choose(s11,X,node1hmcis5g7x58_st,0):-s11_(X,"t*") .
-(C-0) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s12_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-0):-s11_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s11_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-1 {s12_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 1:-s11_(X,"t*") .
+% sh:qualifiedMaxCount 1 for bnode_a32d7a7262844001b8708be5540d65dd54
+s10_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
+s11_(X,"f"):-s10_(X,"t*") .
+s11_(X,"t*"):-s10_(X,"f") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,@new(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1..1),"t"):-choose(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1) .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,@new(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1..2),"t"):-choose(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,2) .
+choose(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,2);choose(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1);choose(s11,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,0):-s11_(X,"t*") .
+(C-1) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s12_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-1):-s11_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>1 .
+2 {s12_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 2:-s11_(X,"t*") .
 
 _course_(X,"t"):-s12_(X,"t*") .
 _course_(X,"f"):-s12_(X,"f") .
 
-s13_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
-choose(s13,X,node1hmcis5g7x58_st,0):-s13_(X,"t*") .
-(C-0) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s14_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-0):-s13_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s13_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-0 {s14_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 0:-s13_(X,"t*") .
+s13_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
+(C-0) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s14_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-0):-s13_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>0 .
+0 {s14_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 0:-s13_(X,"t*") .
 
 
-s15_(X,"t*"):-node1hmcis5g7x58_(X,"t*") .
+s15_(X,"t*"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"t*") .
 s16_(X,"f"):-s15_(X,"t*") .
 s16_(X,"t*"):-s15_(X,"f") .
-node1hmcis5g7x58_st_(X,@new(s16,X,node1hmcis5g7x58_st,1..1),"t"):-choose(s16,X,node1hmcis5g7x58_st,1) .
-choose(s16,X,node1hmcis5g7x58_st,1);choose(s16,X,node1hmcis5g7x58_st,0):-s16_(X,"t*") .
-(C-0) {node1hmcis5g7x58_st_(X,Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*");s17_(Y,"f"):node1hmcis5g7x58_st_(X,Y,"t*"),not node1hmcis5g7x58_st_(X,Y,"f")} (C-0):-s16_(X,"f"),#count {Y:node1hmcis5g7x58_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasId_(X0,X1,"f"):-s16_(X,"f"),_enrolledIn_(X,X0,"t*"),_hasId_(X0,X1,"t*"),node1hmcis5g7x58_st_(X,X1,"f") .
-1 {s17_(Y,"t*"):node1hmcis5g7x58_st_(X,Y,"t**")} 1:-s16_(X,"t*") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,@new(s16,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1..1),"t"):-choose(s16,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1) .
+choose(s16,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,1);choose(s16,X,bnode_a32d7a7262844001b8708be5540d65dd54_st,0):-s16_(X,"t*") .
+(C-0) {bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*");s17_(Y,"f"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f")} (C-0):-s16_(X,"f"),#count {Y:bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t*")}=C,C>0 .
+1 {s17_(Y,"t*"):bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t**")} 1:-s16_(X,"t*") .
 s18_(X,"f"):-s17_(X,"t*") .
 s18_(X,"t*"):-s17_(X,"f") .
 
 
-s11_(X,"f");s13_(X,"f");s15_(X,"f"):-node1hmcis5g7x58_(X,"f") .
-s0_(X,"f");s10_(X,"f"):-_studentShape_(X,"f") .
+s10_(X,"f");s13_(X,"f");s15_(X,"f"):-bnode_a32d7a7262844001b8708be5540d65dd54_(X,"f") .
+s0_(X,"f");s9_(X,"f"):-_studentShape_(X,"f") .
 
 % Interpretation Rules
 
 _enrolledIn_(X,Y,"t**"):-_enrolledIn_(X,Y,"t*"),not _enrolledIn_(X,Y,"f") .
 _hasId_(X,Y,"t**"):-_hasId_(X,Y,"t*"),not _hasId_(X,Y,"f") .
-node1hmcis5g7x58_st_(X,X1,"t**"):-node1hmcis5g7x58_st_(X,X1,"t*"),not node1hmcis5g7x58_st_(X,X1,"f"),_enrolledIn_(X,X0,"t**"),_hasId_(X0,X1,"t**") .
+bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,X1,"t**"):-bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,X1,"t*"),not bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,X1,"f"),_enrolledIn_(X,X0,"t**"),_hasId_(X0,X1,"t**") .
 _course_(X,"t**"):-_course_(X,"t*"),not _course_(X,"f") .
 
 % Program Constraints
 
 :-_enrolledIn_(X,Y,"t"),_enrolledIn_(X,Y,"f") .
 :-_hasId_(X,Y,"t"),_hasId_(X,Y,"f") .
-:-node1hmcis5g7x58_st_(X,Y,"t"),node1hmcis5g7x58_st_(X,Y,"f") .
+:-bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"t"),bnode_a32d7a7262844001b8708be5540d65dd54_st_(X,Y,"f") .
 :-_course_(X,"t"),_course_(X,"f") .
-:-s5_(X,"f") .
-:-s9_(X,"f") .
+:-s4_(X,"f") .
+:-s8_(X,"f") .
 :-s14_(X,"f") .
 :-s18_(X,"f") .
 
@@ -142,7 +155,7 @@ del(_course(X)):-_course_(X,"f"),_course(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

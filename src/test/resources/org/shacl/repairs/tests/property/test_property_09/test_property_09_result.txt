@@ -1,17 +1,21 @@
 clingo version 5.6.2
 Reading from ..._property_09/test_property_09_rules.pl
 Solving...
-actualTarget("_ann",_personShape) del(_firstName("_ann","ANN")) del(_givenName("_ann","Ann"))
+actualTarget("_ann",_personShape) del(_firstName("_ann","Ann"))
 
-actualTarget("_ann",_personShape) del(_firstName("_ann","Ann")) del(_givenName("_ann","ANN"))
+actualTarget("_ann",_personShape) del(_firstName("_ann","ANN"))
+
+actualTarget("_ann",_personShape) del(_givenName("_ann","ANN"))
+
+actualTarget("_ann",_personShape) del(_givenName("_ann","Ann"))
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 7
   Optimum    : yes
-  Optimal    : 2
-Optimization : 0 2
+  Optimal    : 6
+Optimization : 0 1
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 2)
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s
+Threads      : 3        (Winner: 1)

@@ -1,20 +1,20 @@
 clingo version 5.6.2
 Reading from ..._repair/test_or_01/test_or_01_rules.pl
 Solving...
-actualTarget("_p1",_property) actualTarget("_p2",_property) del(owl_ObjectProperty("_p2")) add(owl_ObjectProperty("_p1"))
+actualTarget("_p1",_property) actualTarget("_p2",_property) add(owl_ObjectProperty("_p1")) del(owl_ObjectProperty("_p2"))
 
-actualTarget("_p1",_property) actualTarget("_p2",_property) del(owl_DatatypeProperty("_p2")) add(owl_ObjectProperty("_p1"))
+actualTarget("_p1",_property) actualTarget("_p2",_property) add(owl_ObjectProperty("_p1")) del(owl_DatatypeProperty("_p2"))
 
-actualTarget("_p1",_property) actualTarget("_p2",_property) del(owl_ObjectProperty("_p2")) add(owl_DatatypeProperty("_p1"))
+actualTarget("_p1",_property) actualTarget("_p2",_property) add(owl_DatatypeProperty("_p1")) del(owl_ObjectProperty("_p2"))
 
-actualTarget("_p1",_property) actualTarget("_p2",_property) del(owl_DatatypeProperty("_p2")) add(owl_DatatypeProperty("_p1"))
+actualTarget("_p1",_property) actualTarget("_p2",_property) add(owl_DatatypeProperty("_p1")) del(owl_DatatypeProperty("_p2"))
 
 OPTIMUM FOUND
 
 Models       : 6
   Optimum    : yes
   Optimal    : 4
-Optimization : 0 2
+Optimization : 0
 Calls        : 1
 Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.003s

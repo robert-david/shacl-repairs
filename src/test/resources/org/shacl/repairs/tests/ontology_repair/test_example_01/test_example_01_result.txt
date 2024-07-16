@@ -1,14 +1,14 @@
 clingo version 5.6.2
 Reading from ...st_example_01/test_example_01_rules.pl
 Solving...
-actualTarget("_p1",_property) actualTarget("_p1",_subProperty) actualTarget("_p2",_property) del(owl_ObjectProperty("_p1")) del(rdfs_subPropertyOf("_p1","_p2")) add(rdfs_range("_p2","1647")) add(owl_Class("1647"))
+actualTarget("_p1",_property) actualTarget("_p1",_subProperty) actualTarget("_p2",_property) del(owl_ObjectProperty("_p1")) del(owl_ObjectProperty("_p2")) add(owl_DatatypeProperty("_p2")) add(rdfs_range("_p2","xsd_string"))
 
 OPTIMUM FOUND
 
-Models       : 108+
+Models       : 107+
   Optimum    : yes
   Optimal    : 100
-Optimization : 0 4 0
+Optimization : 0 4 1
 Calls        : 1
-Time         : 0.223s (Solving: 0.04s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.222s
+Time         : 0.279s (Solving: 0.03s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.276s

@@ -1,14 +1,29 @@
 clingo version 5.6.2
 Reading from ...roperty/equals-001/equals-001-rules.pl
 Solving...
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource4","B")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource1","A")) add(ex_property2("ex_InvalidResource2","A"))
+
 actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource1","A")) add(ex_property2("ex_InvalidResource2","A")) add(ex_property2("ex_InvalidResource4","B"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource1","A")) del(ex_property1("ex_InvalidResource4","B")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource2","A"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource1","A")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource2","A")) add(ex_property2("ex_InvalidResource4","B"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource2","A")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource1","A")) add(ex_property2("ex_InvalidResource4","B"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource1","A")) del(ex_property1("ex_InvalidResource2","A")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource4","B"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource2","A")) del(ex_property1("ex_InvalidResource4","B")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A")) add(ex_property2("ex_InvalidResource1","A"))
+
+actualTarget("ex_InvalidResource2",ex_TestShape) actualTarget("ex_InvalidResource3",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_InvalidResource4",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_ValidResource2",ex_TestShape) del(ex_property1("ex_InvalidResource1","A")) del(ex_property1("ex_InvalidResource2","A")) del(ex_property1("ex_InvalidResource4","B")) add(ex_property1("ex_InvalidResource1","B")) add(ex_property1("ex_InvalidResource3","A"))
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 9
   Optimum    : yes
+  Optimal    : 8
 Optimization : 0 5
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
 CPU Time     : 0.008s
-Threads      : 3        (Winner: 0)
+Threads      : 3        (Winner: 1)

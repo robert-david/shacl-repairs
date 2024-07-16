@@ -1,4 +1,30 @@
-@prefix : <http://org.shacl.repairs.tests/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
 
-:ben :enrolledIn :C1 .
+#:Ben :enrolledIn :C1 .
+#:C1 :hasID "1" .
+#:Ben :p1 "1" .
+
+#:Ben :p1 "2" .
+
+#:Rev1 :reviews :Pub1 .
+#:Rev2 :reviews :Pub1 .
+#:Rev3 :reviews :Pub1 .
+
+#:Rev1 :worksFor "WUWien" .
+#:Rev2 :worksFor "TUWien" .
+#:Rev3 :worksFor "TUWien" .
+
+:Ann :enrolledIn :Course1 .
+:Ben :enrolledIn :Course1 .
+:Bob :enrolledIn :Course1 .
+
+:Ann :hasStudentID "2119110" .
+:Ben :hasStudentID "1716110" .
+:Bob :hasStudentID "9427084" .
+
+:Course1 :participantID "2119110" .

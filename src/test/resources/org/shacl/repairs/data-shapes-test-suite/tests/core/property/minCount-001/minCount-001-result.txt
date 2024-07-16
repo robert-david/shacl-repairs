@@ -1,9 +1,9 @@
 clingo version 5.6.2
 Reading from ...rty/minCount-001/minCount-001-rules.pl
 Solving...
-actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3192")) add(xsd_string("3192"))
-
 actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3243")) add(xsd_string("3243"))
+
+actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) add(ex_firstName("ex_InvalidPerson","3245")) add(xsd_string("3245"))
 
 OPTIMUM FOUND
 
@@ -12,6 +12,6 @@ Models       : 4
   Optimal    : 2
 Optimization : 0 2
 Calls        : 1
-Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.018s
-Threads      : 3        (Winner: 1)
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.012s
+Threads      : 3        (Winner: 0)

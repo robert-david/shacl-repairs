@@ -5,11 +5,11 @@ actualTarget("ex_Observation1",ex_APGARObservationShape) add(ex_related("ex_Obse
 
 OPTIMUM FOUND
 
-Models       : 106+
+Models       : 103+
   Optimum    : yes
   Optimal    : 100
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.438s (Solving: 0.02s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.464s
+Time         : 0.397s (Solving: 0.02s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.421s
 Threads      : 3        (Winner: 1)

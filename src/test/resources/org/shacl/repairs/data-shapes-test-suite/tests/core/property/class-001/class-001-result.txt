@@ -1,21 +1,45 @@
 clingo version 5.6.2
 Reading from .../property/class-001/class-001-rules.pl
 Solving...
-actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string"))
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) add(ex_SuperClass("A string")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
 
-actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) add(ex_SuperClass("A string"))
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
 
-actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) add(ex_SuperClass("ex_InvalidResource1"))
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string")) add(ex_SuperClass("ex_SubClassInstance")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
 
-actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string"))
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) add(ex_SuperClass("A string")) add(ex_SuperClass("ex_SubClassInstance")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("ex_InvalidResource1"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("A string")) add(ex_SuperClass("ex_SubClassInstance"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("ex_SubClassInstance"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("A string"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","A string")) add(ex_SuperClass("ex_InvalidResource1")) add(ex_SuperClass("ex_SubClassInstance")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("A string")) add(ex_SuperClass("ex_SubClassInstance"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource1","ex_SubClassInstance")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string")) del(ex_testProperty("ex_ValidResource2","bnode_6e957a6331f648adaec55884eab70e68192")) add(ex_SuperClass("ex_SubClassInstance"))
+
+actualTarget("ex_ValidResource2",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) actualTarget("ex_ValidResource1",ex_TestShape) del(ex_testProperty("ex_InvalidResource1","ex_InvalidResource1")) del(ex_testProperty("ex_InvalidResource1","A string")) add(ex_SuperClass("ex_SubClassInstance")) add(ex_SuperClass("bnode_6e957a6331f648adaec55884eab70e68192"))
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 18
   Optimum    : yes
-  Optimal    : 4
-Optimization : 0 2
+  Optimal    : 16
+Optimization : 0 4
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
 Threads      : 3        (Winner: 2)

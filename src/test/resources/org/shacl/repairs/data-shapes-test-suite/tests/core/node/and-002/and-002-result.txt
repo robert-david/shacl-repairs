@@ -7,11 +7,11 @@ actualTarget("ex_ValidInstance1",ex_AndShape) actualTarget("ex_InvalidInstance1"
 
 OPTIMUM FOUND
 
-Models       : 4
+Models       : 3
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 2
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.013s
-Threads      : 3        (Winner: 2)
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s
+Threads      : 3        (Winner: 1)

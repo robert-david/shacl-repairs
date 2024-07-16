@@ -3,9 +3,9 @@
 
 ex_MalePerson("ex_John") .
 rdfs_Class("ex_MalePerson") .
-ex_Person(X):-ex_MalePerson(X) .
+rdfs_subClassOf("ex_MalePerson","ex_Person") .
 rdfs_Class("ex_Person") .
-rdfs_Resource(X):-ex_Person(X) .
+rdfs_subClassOf("ex_Person","rdfs_Resource") .
 ex_Animal("ex_Quokki") .
 ex_Person("ex_Someone") .
 sh_NodeShape("ex_TestShape") .
@@ -15,34 +15,55 @@ sh_targetNode("ex_TestShape","ex_Quokki") .
 sh_targetNode("ex_TestShape","ex_Someone") .
 sh_targetNode("ex_TestShape","ex_Typeless") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hmcimj6lx109") .
-rdf_first("node1hmcimj6lx109","http://repairs.shacl.org/class_001") .
-rdf_rest("node1hmcimj6lx109","rdf_nil") .
+mf_entries("http://repairs.shacl.org","bnode_6e957a6331f648adaec55884eab70e68114") .
+rdf_first("bnode_6e957a6331f648adaec55884eab70e68114","http://repairs.shacl.org/class_001") .
+rdf_rest("bnode_6e957a6331f648adaec55884eab70e68114","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/class_001") .
 rdfs_label("http://repairs.shacl.org/class_001","Test of sh:class at node shape 001") .
 xsd_string("Test of sh:class at node shape 001") .
-mf_action("http://repairs.shacl.org/class_001","node1hmcimj6lx110") .
-sht_dataGraph("node1hmcimj6lx110","http://repairs.shacl.org") .
-sht_shapesGraph("node1hmcimj6lx110","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/class_001","node1hmcimj6lx111") .
-sh_ValidationReport("node1hmcimj6lx111") .
-sh_conforms("node1hmcimj6lx111","false") .
+mf_action("http://repairs.shacl.org/class_001","bnode_6e957a6331f648adaec55884eab70e68115") .
+sht_dataGraph("bnode_6e957a6331f648adaec55884eab70e68115","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_6e957a6331f648adaec55884eab70e68115","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/class_001","bnode_6e957a6331f648adaec55884eab70e68116") .
+sh_ValidationReport("bnode_6e957a6331f648adaec55884eab70e68116") .
+sh_conforms("bnode_6e957a6331f648adaec55884eab70e68116","false") .
 xsd_boolean("false") .
-sh_result("node1hmcimj6lx111","node1hmcimj6lx112") .
-sh_ValidationResult("node1hmcimj6lx112") .
-sh_focusNode("node1hmcimj6lx112","ex_Quokki") .
-sh_resultSeverity("node1hmcimj6lx112","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcimj6lx112","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hmcimj6lx112","ex_TestShape") .
-sh_value("node1hmcimj6lx112","ex_Quokki") .
-sh_result("node1hmcimj6lx111","node1hmcimj6lx113") .
-sh_ValidationResult("node1hmcimj6lx113") .
-sh_focusNode("node1hmcimj6lx113","ex_Typeless") .
-sh_resultSeverity("node1hmcimj6lx113","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcimj6lx113","sh_ClassConstraintComponent") .
-sh_sourceShape("node1hmcimj6lx113","ex_TestShape") .
-sh_value("node1hmcimj6lx113","ex_Typeless") .
+sh_result("bnode_6e957a6331f648adaec55884eab70e68116","bnode_6e957a6331f648adaec55884eab70e68117") .
+sh_ValidationResult("bnode_6e957a6331f648adaec55884eab70e68117") .
+sh_focusNode("bnode_6e957a6331f648adaec55884eab70e68117","ex_Quokki") .
+sh_resultSeverity("bnode_6e957a6331f648adaec55884eab70e68117","sh_Violation") .
+sh_sourceConstraintComponent("bnode_6e957a6331f648adaec55884eab70e68117","sh_ClassConstraintComponent") .
+sh_sourceShape("bnode_6e957a6331f648adaec55884eab70e68117","ex_TestShape") .
+sh_value("bnode_6e957a6331f648adaec55884eab70e68117","ex_Quokki") .
+sh_result("bnode_6e957a6331f648adaec55884eab70e68116","bnode_6e957a6331f648adaec55884eab70e68118") .
+sh_ValidationResult("bnode_6e957a6331f648adaec55884eab70e68118") .
+sh_focusNode("bnode_6e957a6331f648adaec55884eab70e68118","ex_Typeless") .
+sh_resultSeverity("bnode_6e957a6331f648adaec55884eab70e68118","sh_Violation") .
+sh_sourceConstraintComponent("bnode_6e957a6331f648adaec55884eab70e68118","sh_ClassConstraintComponent") .
+sh_sourceShape("bnode_6e957a6331f648adaec55884eab70e68118","ex_TestShape") .
+sh_value("bnode_6e957a6331f648adaec55884eab70e68118","ex_Typeless") .
 mf_status("http://repairs.shacl.org/class_001","sht_approved") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -87,7 +108,7 @@ del(ex_Person(X)):-ex_Person_(X,"f"),ex_Person(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

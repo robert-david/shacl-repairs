@@ -1,9 +1,9 @@
 clingo version 5.6.2
 Reading from ...re/property/node-002/node-002-rules.pl
 Solving...
-actualTarget("ex_Bob",ex_PersonShape) actualTarget("ex_Reto",ex_PersonShape) del(ex_postalCode("ex_RetosAddress","5678"))
-
 actualTarget("ex_Bob",ex_PersonShape) actualTarget("ex_Reto",ex_PersonShape) add(xsd_string("5678"))
+
+actualTarget("ex_Bob",ex_PersonShape) actualTarget("ex_Reto",ex_PersonShape) del(ex_postalCode("ex_RetosAddress","5678"))
 
 OPTIMUM FOUND
 
@@ -12,6 +12,6 @@ Models       : 4
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
-Time         : 0.024s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.024s
-Threads      : 3        (Winner: 1)
+Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.017s
+Threads      : 3        (Winner: 0)

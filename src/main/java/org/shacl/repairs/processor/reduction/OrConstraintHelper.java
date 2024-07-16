@@ -1,6 +1,7 @@
 package org.shacl.repairs.processor.reduction;
 
 import org.eclipse.rdf4j.model.IRI;
+import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
 import org.eclipse.rdf4j.sail.shacl.SourceConstraintComponent;
@@ -34,6 +35,11 @@ public class OrConstraintHelper extends LogicalOperatorConstraintComponent {
 
     @Override
     public ConstraintComponent deepClone() {
+        return null;
+    }
+
+    @Override
+    public List<Literal> getDefaultMessage() {
         return null;
     }
 

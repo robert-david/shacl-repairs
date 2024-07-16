@@ -1,7 +1,7 @@
 clingo version 5.6.2
 Reading from ...path_08/test_property_path_08_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3426")) add(_p1("3426","2354")) add(_hasId("2354","2458")) add(_hasId("2354","2459"))
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4792")) add(_p1("4792","3727")) add(_hasId("3727","3824")) add(_hasId("3727","3825"))
 
 OPTIMUM FOUND
 

@@ -5,11 +5,11 @@ actualTarget("_ann",_personShape) add(_name("_ann","1205"))
 
 OPTIMUM FOUND
 
-Models       : 13
+Models       : 14
   Optimum    : yes
   Optimal    : 12
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.015s
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.009s
 Threads      : 3        (Winner: 1)

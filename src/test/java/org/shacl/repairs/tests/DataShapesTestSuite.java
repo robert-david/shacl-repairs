@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -74,11 +75,11 @@ public class DataShapesTestSuite {
         //assertTrue(result.contains("Models       : 5") || result.contains("Models       : 6"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_NamedInstance\",ex_TestShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"b9751\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"bnode_b9751\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"String\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget") == 4);
 
-        assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"b9751\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"bnode_b9751\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"String\"))") == 1);
 
         r.writeResult(testPath + "/class-002-result.txt", result);
@@ -240,11 +241,11 @@ public class DataShapesTestSuite {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource3\",ex_AddressShape)") == 9);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource2\",ex_AddressShape)") == 9);
 
-        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource2\",\"b31477\"))") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource3\",\"b94057\"))") == 9);
-        assertTrue(StringUtils.countMatches(result,"add(ex_suburb(\"b61065\",\"") == 6);
-        assertTrue(StringUtils.countMatches(result,"add(ex_postalCode(\"b31477\",\"") == 6);
-        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource1\",\"b61065\"))") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource2\",\"bnode_b31477\"))") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource3\",\"bnode_b94057\"))") == 9);
+        assertTrue(StringUtils.countMatches(result,"add(ex_suburb(\"bnode_b61065\",\"") == 6);
+        assertTrue(StringUtils.countMatches(result,"add(ex_postalCode(\"bnode_b31477\",\"") == 6);
+        assertTrue(StringUtils.countMatches(result,"del(ex_address(\"ex_InvalidResource1\",\"bnode_b61065\"))") == 3);
 
         r.writeResult(testPath + "/and-001-result.txt", result);
     }
@@ -261,16 +262,16 @@ public class DataShapesTestSuite {
         String result = r.runProgram(testPath + "/class-001-rules.pl");
 
         //assertTrue(result.contains("Models       : 10"));
-        assertTrue(result.contains("Optimal    : 4"));
+        assertTrue(result.contains("Optimal    : 16"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 16);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 16);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 16);
 
-        assertTrue(StringUtils.countMatches(result,"del(ex_testProperty(\"ex_InvalidResource1\",\"ex_InvalidResource1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(ex_testProperty(\"ex_InvalidResource1\",\"A string\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(ex_SuperClass(\"ex_InvalidResource1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(ex_SuperClass(\"A string\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(ex_testProperty(\"ex_InvalidResource1\",\"ex_InvalidResource1\"))") == 8);
+        assertTrue(StringUtils.countMatches(result,"del(ex_testProperty(\"ex_InvalidResource1\",\"A string\"))") == 8);
+        assertTrue(StringUtils.countMatches(result,"add(ex_SuperClass(\"ex_InvalidResource1\"))") == 8);
+        assertTrue(StringUtils.countMatches(result,"add(ex_SuperClass(\"A string\"))") == 8);
 
         r.writeResult(testPath + "/class-001-result.txt", result);
     }
@@ -488,7 +489,7 @@ public class DataShapesTestSuite {
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 1);
 
-        assertTrue(StringUtils.countMatches(result,"add(ex_related(\"ex_Observation1\",\"") == 1);
+        assertTrue(Pattern.compile("add\\(ex_related\\(\"ex_Observation1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "//qualifiedValueShape-001-result.txt", result);
     }

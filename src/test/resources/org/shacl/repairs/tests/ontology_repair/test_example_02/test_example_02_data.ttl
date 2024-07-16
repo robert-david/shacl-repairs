@@ -11,14 +11,15 @@
 #:C a rdfs:Class .
 ##:C a owl:Class .
 
-:node1 :p1 :node2 .
+#:node1 :p1 :node2 .
 
 
 :p1 a owl:ObjectProperty ;
 rdfs:range :C .
 :C a owl:Class .
 
-:p1 rdfs:subPropertyOf :p2 .
+:p2 rdfs:subPropertyOf :p1 .
 
 :p2 a owl:DatatypeProperty ;
 rdfs:range xsd:string .
+xsd:string a rdfs:Datatype .

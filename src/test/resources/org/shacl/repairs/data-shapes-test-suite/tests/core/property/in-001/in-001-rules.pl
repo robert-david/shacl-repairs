@@ -11,16 +11,16 @@ sh_NodeShape("ex_ShapeClass") .
 sh_property("ex_ShapeClass","ex_ShapeClass_property") .
 sh_path("ex_ShapeClass_property","ex_property") .
 sh_datatype("ex_ShapeClass_property","xsd_string") .
-sh_in("ex_ShapeClass_property","node1hmcigh0gx32") .
-rdf_first("node1hmcigh0gx32","A") .
+sh_in("ex_ShapeClass_property","bnode_93bae9fcdb8546b6979dd4d3b375f4a832") .
+rdf_first("bnode_93bae9fcdb8546b6979dd4d3b375f4a832","A") .
 xsd_string("A") .
-rdf_rest("node1hmcigh0gx32","node1hmcigh0gx33") .
-rdf_first("node1hmcigh0gx33","B") .
+rdf_rest("bnode_93bae9fcdb8546b6979dd4d3b375f4a832","bnode_93bae9fcdb8546b6979dd4d3b375f4a833") .
+rdf_first("bnode_93bae9fcdb8546b6979dd4d3b375f4a833","B") .
 xsd_string("B") .
-rdf_rest("node1hmcigh0gx33","node1hmcigh0gx34") .
-rdf_first("node1hmcigh0gx34","C") .
+rdf_rest("bnode_93bae9fcdb8546b6979dd4d3b375f4a833","bnode_93bae9fcdb8546b6979dd4d3b375f4a834") .
+rdf_first("bnode_93bae9fcdb8546b6979dd4d3b375f4a834","C") .
 xsd_string("C") .
-rdf_rest("node1hmcigh0gx34","rdf_nil") .
+rdf_rest("bnode_93bae9fcdb8546b6979dd4d3b375f4a834","rdf_nil") .
 ex_ShapeClass("ex_ValidInstance1") .
 ex_property("ex_ValidInstance1","A") .
 rdfs_label("ex_ValidInstance1","Valid instance1") .
@@ -32,28 +32,49 @@ ex_property("ex_ValidInstance2","C") .
 rdfs_label("ex_ValidInstance2","Valid instance2") .
 xsd_string("Valid instance2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hmcigh0gx35") .
-rdf_first("node1hmcigh0gx35","http://repairs.shacl.org/in_001") .
-rdf_rest("node1hmcigh0gx35","rdf_nil") .
+mf_entries("http://repairs.shacl.org","bnode_93bae9fcdb8546b6979dd4d3b375f4a835") .
+rdf_first("bnode_93bae9fcdb8546b6979dd4d3b375f4a835","http://repairs.shacl.org/in_001") .
+rdf_rest("bnode_93bae9fcdb8546b6979dd4d3b375f4a835","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/in_001") .
 rdfs_label("http://repairs.shacl.org/in_001","Test of sh:in at property shape 001") .
 xsd_string("Test of sh:in at property shape 001") .
-mf_action("http://repairs.shacl.org/in_001","node1hmcigh0gx36") .
-sht_dataGraph("node1hmcigh0gx36","http://repairs.shacl.org") .
-sht_shapesGraph("node1hmcigh0gx36","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/in_001","node1hmcigh0gx37") .
-sh_ValidationReport("node1hmcigh0gx37") .
-sh_conforms("node1hmcigh0gx37","false") .
+mf_action("http://repairs.shacl.org/in_001","bnode_93bae9fcdb8546b6979dd4d3b375f4a836") .
+sht_dataGraph("bnode_93bae9fcdb8546b6979dd4d3b375f4a836","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_93bae9fcdb8546b6979dd4d3b375f4a836","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/in_001","bnode_93bae9fcdb8546b6979dd4d3b375f4a837") .
+sh_ValidationReport("bnode_93bae9fcdb8546b6979dd4d3b375f4a837") .
+sh_conforms("bnode_93bae9fcdb8546b6979dd4d3b375f4a837","false") .
 xsd_boolean("false") .
-sh_result("node1hmcigh0gx37","node1hmcigh0gx38") .
-sh_ValidationResult("node1hmcigh0gx38") .
-sh_focusNode("node1hmcigh0gx38","ex_InvalidInstance1") .
-sh_resultPath("node1hmcigh0gx38","ex_property") .
-sh_resultSeverity("node1hmcigh0gx38","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcigh0gx38","sh_InConstraintComponent") .
-sh_sourceShape("node1hmcigh0gx38","ex_ShapeClass_property") .
-sh_value("node1hmcigh0gx38","D") .
+sh_result("bnode_93bae9fcdb8546b6979dd4d3b375f4a837","bnode_93bae9fcdb8546b6979dd4d3b375f4a838") .
+sh_ValidationResult("bnode_93bae9fcdb8546b6979dd4d3b375f4a838") .
+sh_focusNode("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","ex_InvalidInstance1") .
+sh_resultPath("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","ex_property") .
+sh_resultSeverity("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","sh_Violation") .
+sh_sourceConstraintComponent("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","sh_InConstraintComponent") .
+sh_sourceShape("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","ex_ShapeClass_property") .
+sh_value("bnode_93bae9fcdb8546b6979dd4d3b375f4a838","D") .
 mf_status("http://repairs.shacl.org/in_001","sht_approved") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -90,83 +111,78 @@ ex_ShapeClass_property_(X,"f"):-s0_(X,"f") .
 
 % sh:minCount 0 for ex_ShapeClass_property
 s1_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
-choose(s1,X,ex_property,0):-s1_(X,"t*") .
 0 {ex_property_(X,Y,"t"):const(Y)} 3:-s1_(X,"t*") .
 (C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s2_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-ex_property_(X,Y,"f"):-s1_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
+ex_property_(X,Y,"f"):-ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 0 {s2_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s1_(X,"t*") .
 
-s3_(X,"f"):-s2_(X,"t*") .
-s3_(X,"t*"):-s2_(X,"f") .
-s4_(X,"t*"):-s3_(X,"t*") .
-s5_(X,"f"):-s4_(X,"t*") .
-s5_(X,"t*"):-s4_(X,"f") .
-s6_(X,"t*"):-s3_(X,"t*") .
-s7_(X,"f"):-s6_(X,"t*") .
-s7_(X,"t*"):-s6_(X,"f") .
-s8_(X,"t*"):-s3_(X,"t*") .
-s9_(X,"f"):-s8_(X,"t*") .
-s9_(X,"t*"):-s8_(X,"f") .
-s4_(X,"f");s6_(X,"f");s8_(X,"f"):-s3_(X,"f") .
+xsd_string_(X,"t"):-s2_(X,"t*") .
+xsd_string_(X,"f"):-s2_(X,"f") .
 
 % universal for ex_ShapeClass_property
-s10_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
-s11_(X,"f"):-s10_(X,"t*") .
-s11_(X,"t*"):-s10_(X,"f") .
-ex_property_(X,@new(s11,X,ex_property,1..1),"t"):-choose(s11,X,ex_property,1) .
-choose(s11,X,ex_property,1);choose(s11,X,ex_property,0):-s11_(X,"t*") .
-0 {ex_property_(X,Y,"t"):const(Y)} 3:-s11_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s12_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s11_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-ex_property_(X,Y,"f"):-s11_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
-1 {s12_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s11_(X,"t*") .
-s13_(X,"f"):-s12_(X,"t*") .
-s13_(X,"t*"):-s12_(X,"f") .
+s3_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
+s4_(X,"f"):-s3_(X,"t*") .
+s4_(X,"t*"):-s3_(X,"f") .
+ex_property_(X,@new(s4,X,ex_property,1..1),"t"):-choose(s4,X,ex_property,1) .
+choose(s4,X,ex_property,1);choose(s4,X,ex_property,0):-s4_(X,"t*") .
+0 {ex_property_(X,Y,"t"):const(Y)} 3:-s4_(X,"t*") .
+(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s5_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s4_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+1 {s5_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s4_(X,"t*") .
+s6_(X,"f"):-s5_(X,"t*") .
+s6_(X,"t*"):-s5_(X,"f") .
 
+xsd_string_(X,"t"):-s6_(X,"t*") .
+xsd_string_(X,"f"):-s6_(X,"f") .
+
+s1_(X,"f");s3_(X,"f"):-ex_ShapeClass_property_(X,"f") .
+s7_(X,"t*"):-ex_ShapeClass_(X,"t*") .
+ex_ShapeClass_property_(X,"t*"):-s7_(X,"t*") .
+ex_ShapeClass_property_(X,"f"):-s7_(X,"f") .
+
+s8_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
+0 {ex_property_(X,Y,"t"):const(Y)} 3:-s8_(X,"t*") .
+(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s9_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s8_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+0 {s9_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s8_(X,"t*") .
+
+s10_(X,"f"):-s9_(X,"t*") .
+s10_(X,"t*"):-s9_(X,"f") .
+s11_(X,"t*"):-s10_(X,"t*") .
+s12_(X,"f"):-s11_(X,"t*") .
+s12_(X,"t*"):-s11_(X,"f") .
+s13_(X,"t*"):-s10_(X,"t*") .
 s14_(X,"f"):-s13_(X,"t*") .
 s14_(X,"t*"):-s13_(X,"f") .
-s15_(X,"t*"):-s14_(X,"t*") .
+s15_(X,"t*"):-s10_(X,"t*") .
 s16_(X,"f"):-s15_(X,"t*") .
 s16_(X,"t*"):-s15_(X,"f") .
-s17_(X,"t*"):-s14_(X,"t*") .
+s11_(X,"f");s13_(X,"f");s15_(X,"f"):-s10_(X,"f") .
+
+s17_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
 s18_(X,"f"):-s17_(X,"t*") .
 s18_(X,"t*"):-s17_(X,"f") .
-s19_(X,"t*"):-s14_(X,"t*") .
+ex_property_(X,@new(s18,X,ex_property,1..1),"t"):-choose(s18,X,ex_property,1) .
+choose(s18,X,ex_property,1);choose(s18,X,ex_property,0):-s18_(X,"t*") .
+0 {ex_property_(X,Y,"t"):const(Y)} 3:-s18_(X,"t*") .
+(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s19_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s18_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
+1 {s19_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s18_(X,"t*") .
 s20_(X,"f"):-s19_(X,"t*") .
 s20_(X,"t*"):-s19_(X,"f") .
-s15_(X,"f");s17_(X,"f");s19_(X,"f"):-s14_(X,"f") .
 
-s1_(X,"f");s10_(X,"f"):-ex_ShapeClass_property_(X,"f") .
-s21_(X,"t*"):-ex_ShapeClass_(X,"t*") .
-ex_ShapeClass_property_(X,"t*"):-s21_(X,"t*") .
-ex_ShapeClass_property_(X,"f"):-s21_(X,"f") .
-
-s22_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
-choose(s22,X,ex_property,0):-s22_(X,"t*") .
-0 {ex_property_(X,Y,"t"):const(Y)} 3:-s22_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s23_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s22_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-ex_property_(X,Y,"f"):-s22_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
-0 {s23_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s22_(X,"t*") .
-
-xsd_string_(X,"t"):-s23_(X,"t*") .
-xsd_string_(X,"f"):-s23_(X,"f") .
-
-s24_(X,"t*"):-ex_ShapeClass_property_(X,"t*") .
+s21_(X,"f"):-s20_(X,"t*") .
+s21_(X,"t*"):-s20_(X,"f") .
+s22_(X,"t*"):-s21_(X,"t*") .
+s23_(X,"f"):-s22_(X,"t*") .
+s23_(X,"t*"):-s22_(X,"f") .
+s24_(X,"t*"):-s21_(X,"t*") .
 s25_(X,"f"):-s24_(X,"t*") .
 s25_(X,"t*"):-s24_(X,"f") .
-ex_property_(X,@new(s25,X,ex_property,1..1),"t"):-choose(s25,X,ex_property,1) .
-choose(s25,X,ex_property,1);choose(s25,X,ex_property,0):-s25_(X,"t*") .
-0 {ex_property_(X,Y,"t"):const(Y)} 3:-s25_(X,"t*") .
-(C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s26_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s25_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
-ex_property_(X,Y,"f"):-s25_(X,"f"),ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
-1 {s26_(Y,"t*"):ex_property_(X,Y,"t**")} 3:-s25_(X,"t*") .
+s26_(X,"t*"):-s21_(X,"t*") .
 s27_(X,"f"):-s26_(X,"t*") .
 s27_(X,"t*"):-s26_(X,"f") .
+s22_(X,"f");s24_(X,"f");s26_(X,"f"):-s21_(X,"f") .
 
-xsd_string_(X,"t"):-s27_(X,"t*") .
-xsd_string_(X,"f"):-s27_(X,"f") .
-
-s22_(X,"f");s24_(X,"f"):-ex_ShapeClass_property_(X,"f") .
-s0_(X,"f");s21_(X,"f"):-ex_ShapeClass_(X,"f") .
+s8_(X,"f");s17_(X,"f"):-ex_ShapeClass_property_(X,"f") .
+s0_(X,"f");s7_(X,"f"):-ex_ShapeClass_(X,"f") .
 
 % Interpretation Rules
 
@@ -177,19 +193,19 @@ xsd_string_(X,"t**"):-xsd_string_(X,"t*"),not xsd_string_(X,"f") .
 % Program Constraints
 
 :-ex_property_(X,Y,"t"),ex_property_(X,Y,"f") .
-:-s5_(X,"t*"),X!="A" .
-:-s5_(X,"f"),X="A" .
-:-s7_(X,"t*"),X!="B" .
-:-s7_(X,"f"),X="B" .
-:-s9_(X,"t*"),X!="C" .
-:-s9_(X,"f"),X="C" .
-:-s16_(X,"t*"),X!="A" .
-:-s16_(X,"f"),X="A" .
-:-s18_(X,"t*"),X!="B" .
-:-s18_(X,"f"),X="B" .
-:-s20_(X,"t*"),X!="C" .
-:-s20_(X,"f"),X="C" .
 :-xsd_string_(X,"t"),xsd_string_(X,"f") .
+:-s12_(X,"t*"),X!="A" .
+:-s12_(X,"f"),X="A" .
+:-s14_(X,"t*"),X!="B" .
+:-s14_(X,"f"),X="B" .
+:-s16_(X,"t*"),X!="C" .
+:-s16_(X,"f"),X="C" .
+:-s23_(X,"t*"),X!="A" .
+:-s23_(X,"f"),X="A" .
+:-s25_(X,"t*"),X!="B" .
+:-s25_(X,"f"),X="B" .
+:-s27_(X,"t*"),X!="C" .
+:-s27_(X,"f"),X="C" .
 
 % Change Set Rules
 
@@ -201,7 +217,7 @@ del(xsd_string(X)):-xsd_string_(X,"f"),xsd_string(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

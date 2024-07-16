@@ -18,7 +18,7 @@
         [ sh:property [
             sh:path rdfs:range ;
             sh:minCount 1 ;
-            sh:not [ sh:node :LiteralShape ] ;
+            sh:not [ sh:node :DatatypeShape ] ;
             sh:node :ClassShape
 #            sh:or (
 #                [ sh:node :ClassShape ]
@@ -38,7 +38,7 @@
             sh:path rdfs:range ;
             sh:minCount 1 ;
             sh:not [ sh:node :ClassShape ] ;
-            sh:node :LiteralShape
+            sh:node :DatatypeShape
 #            sh:or (
 #                [ sh:hasValue xsd:string ]
 #                [ sh:hasValue xsd:int ]
@@ -48,8 +48,8 @@
 
 :Property a sh:NodeShape ;
     sh:targetClass rdf:Property , owl:ObjectProperty , owl:DatatypeProperty ;
-    sh:targetSubjectsOf rdfs:domain , rdfs:subPropertyOf ;
-    sh:targetSubjectsOf rdfs:range , rdfs:subPropertyOf ;
+    sh:targetSubjectsOf rdfs:domain , rdfs:range , rdfs:subPropertyOf ;
+    sh:targetObjectsOf rdfs:subPropertyOf ;
     sh:xone (
         [ sh:node :ObjectPropertyShape ]
         [ sh:node :DatatypePropertyShape ]
@@ -63,19 +63,20 @@
                 sh:path rdfs:subPropertyOf ;
                 sh:class owl:ObjectProperty
             ]
-         ]
+        ]
         [   sh:class owl:DatatypeProperty ;
             sh:property [
                 sh:path rdfs:subPropertyOf ;
                 sh:class owl:DatatypeProperty
             ]
-         ]
+        ]
     ) .
 
 :ClassShape a sh:NodeShape ;
 #    sh:targetClass rdfs:Class, owl:Class ;
     sh:class owl:Class .
 
-:LiteralShape a :NodeShape ;
+:DatatypeShape a :NodeShape ;
 #sh:targetObjectsOf rdfs:range ;
-sh:hasValue xsd:string .
+#sh:hasValue xsd:string ;
+    sh:class rdfs:Datatype .

@@ -9,8 +9,6 @@ import org.eclipse.rdf4j.model.vocabulary.SHACL;
 import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
 
-import java.io.IOException;
-
 import static org.shacl.repairs.processor.Utils.ns;
 import static org.shacl.repairs.processor.Utils.nss;
 
@@ -18,7 +16,7 @@ public class ShapesParser {
 
     public static void collectConstants(
             Model shapesModel,
-            SHACLData parserData) throws IOException {
+            SHACLData parserData) {
 
         if (shapesModel.size() == 0) throw new RuntimeException("Shape data is 0");
 

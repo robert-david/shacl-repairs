@@ -5,10 +5,10 @@ skipTarget("Invalid String",ex_TestShape) actualTarget("Test",ex_TestShape)
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 3
   Optimum    : yes
 Optimization : 1
 Calls        : 1
 Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.003s
-Threads      : 3        (Winner: 1)
+CPU Time     : 0.002s
+Threads      : 3        (Winner: 2)

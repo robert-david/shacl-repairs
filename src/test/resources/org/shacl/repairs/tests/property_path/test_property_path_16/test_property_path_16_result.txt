@@ -3,19 +3,19 @@ Reading from ...path_16/test_property_path_16_rules.pl
 Solving...
 actualTarget("_ben",_studentShape) del(_hasId("_bn1","Math 1")) del(_hasId("_bn2","Math 2")) add(_hasId("_bn2","ID"))
 
+actualTarget("_ben",_studentShape) del(_hasId("_bn1","Math 1")) del(_hasId("_bn2","Math 2")) add(_hasId("_bn1","ID"))
+
 actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1")) del(_hasId("_bn2","Math 2")) add(_hasId("_bn2","ID"))
 
 actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn2")) del(_hasId("_bn1","Math 1")) add(_hasId("_bn1","ID"))
-
-actualTarget("_ben",_studentShape) del(_hasId("_bn1","Math 1")) del(_hasId("_bn2","Math 2")) add(_hasId("_bn1","ID"))
 
 OPTIMUM FOUND
 
 Models       : 35
   Optimum    : yes
   Optimal    : 32
-Optimization : 0 3 2
+Optimization : 0 3 1
 Calls        : 1
-Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.018s
+Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s
 Threads      : 3        (Winner: 0)

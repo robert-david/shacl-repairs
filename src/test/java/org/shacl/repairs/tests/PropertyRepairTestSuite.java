@@ -180,8 +180,8 @@ public class PropertyRepairTestSuite {
         String result = r.runProgram(testPath + "/test_property_09_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
+        assertTrue(result.contains("Optimal    : 6"));
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 4);
         assertTrue(StringUtils.countMatches(result,"del(_firstName(\"_ann\",\"Ann\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_firstName(\"_ann\",\"ANN\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(_givenName(\"_ann\",\"Ann\"))") == 1);

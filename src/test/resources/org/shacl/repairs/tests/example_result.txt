@@ -1,13 +1,21 @@
 clingo version 5.6.2
 Reading from .../shacl/repairs/tests//example_rules.pl
 Solving...
-skipTarget("_ben",_teacher) actualTarget("_ben",_student) add(_course("_c1"))
+actualTarget("_course1",_courseLimitShape) del(_hasStudentID("_ben","1716110")) add(_participantID("_course1","9427084"))
+
+actualTarget("_course1",_courseLimitShape) del(_enrolledIn("_ben","_course1")) add(_participantID("_course1","9427084"))
+
+actualTarget("_course1",_courseLimitShape) del(_enrolledIn("_bob","_course1")) add(_participantID("_course1","1716110"))
+
+actualTarget("_course1",_courseLimitShape) del(_hasStudentID("_bob","9427084")) add(_participantID("_course1","1716110"))
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 20
   Optimum    : yes
-Optimization : 1 1
+  Optimal    : 16
+Optimization : 0 2
 Calls        : 1
-Time         : 0.015s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.015s
+Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.014s
+Threads      : 3        (Winner: 0)

@@ -1,19 +1,19 @@
 clingo version 5.6.2
 Reading from ..._property_06/test_property_06_rules.pl
 Solving...
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
+actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
 
 actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company1")) add(_organization("_company2"))
 
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
+actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
 
 OPTIMUM FOUND
 
-Models       : 11
+Models       : 12
   Optimum    : yes
   Optimal    : 10
 Optimization : 0 2
 Calls        : 1
 Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.011s
-Threads      : 3        (Winner: 0)
+CPU Time     : 0.010s
+Threads      : 3        (Winner: 1)

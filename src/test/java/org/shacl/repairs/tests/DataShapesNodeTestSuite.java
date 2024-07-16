@@ -2,8 +2,6 @@ package org.shacl.repairs.tests;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
-import org.shacl.repairs.tests.PathConfig;
-import org.shacl.repairs.tests.RepairTestRunner;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -102,11 +100,11 @@ public class DataShapesNodeTestSuite {
         // assertTrue(result.contains("Models       : 5") || result.contains("Models       : 6"));
 
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_NamedInstance\",ex_TestShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"b9751\",ex_TestShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"bnode_b9751\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"String\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget") == 4);
 
-        assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"b9751\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"bnode_b9751\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"add(ex_TestClass(\"String\"))") == 1);
 
         r.writeResult(testPath + "/class-002-result.txt", result);

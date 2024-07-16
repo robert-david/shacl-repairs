@@ -26,7 +26,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_01_rules.pl");
 
-        // assertTrue(result.contains("Models       : 7"));
+        //assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 8"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
         assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 2);
@@ -46,7 +46,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_02_rules.pl");
 
-        // assertTrue(result.contains("Models       : 4"));
+        //assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
         assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
@@ -209,7 +209,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_10_rules.pl");
 
-        // assertTrue(result.contains("Models       : 4"));
+        //assertTrue(result.contains("Models       : 4"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
 
         r.writeResult(testPath + "/test_value_10_result.txt", result);
@@ -226,7 +226,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_11_rules.pl");
 
-        // assertTrue(result.contains("Models       : 2"));
+        //assertTrue(result.contains("Models       : 2"));
         assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
 
         r.writeResult(testPath + "/test_value_11_result.txt", result);
@@ -243,7 +243,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_12_rules.pl");
 
-        // assertTrue(result.contains("Models       : 2"));
+        //assertTrue(result.contains("Models       : 2"));
         assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
 
         r.writeResult(testPath + "/test_value_12_result.txt", result);
@@ -318,7 +318,7 @@ public class ValueRepairTestSuite {
 
         String result = r.runProgram(testPath + "/test_value_16_rules.pl");
 
-        // assertTrue(result.contains("Models       : 5"));
+        //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 3"));
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
         assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);

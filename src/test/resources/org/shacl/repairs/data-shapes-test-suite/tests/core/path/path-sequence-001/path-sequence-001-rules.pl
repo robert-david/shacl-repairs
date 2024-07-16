@@ -8,11 +8,11 @@ xsd_string("One") .
 ex_property2("ex_Node2","Two") .
 xsd_string("Two") .
 sh_PropertyShape("ex_TestShape") .
-sh_path("ex_TestShape","node1hmcia2oqx66") .
-rdf_first("node1hmcia2oqx66","ex_property1") .
-rdf_rest("node1hmcia2oqx66","node1hmcia2oqx67") .
-rdf_first("node1hmcia2oqx67","ex_property2") .
-rdf_rest("node1hmcia2oqx67","rdf_nil") .
+sh_path("ex_TestShape","bnode_3192f5e3ab9a46dfac026bfecdcd745372") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745372","ex_property1") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745372","bnode_3192f5e3ab9a46dfac026bfecdcd745373") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745373","ex_property2") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745373","rdf_nil") .
 sh_minCount("ex_TestShape","1") .
 xsd_integer("1") .
 sh_targetNode("ex_TestShape","ex_InvalidResource1") .
@@ -23,42 +23,63 @@ ex_property1("ex_ValidResource1","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hmcia2oqx68") .
-rdf_first("node1hmcia2oqx68","http://repairs.shacl.org/path_sequence_001") .
-rdf_rest("node1hmcia2oqx68","rdf_nil") .
+mf_entries("http://repairs.shacl.org","bnode_3192f5e3ab9a46dfac026bfecdcd745374") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745374","http://repairs.shacl.org/path_sequence_001") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745374","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/path_sequence_001") .
 rdfs_label("http://repairs.shacl.org/path_sequence_001","Test of path sequence 001") .
 xsd_string("Test of path sequence 001") .
-mf_action("http://repairs.shacl.org/path_sequence_001","node1hmcia2oqx69") .
-sht_dataGraph("node1hmcia2oqx69","http://repairs.shacl.org") .
-sht_shapesGraph("node1hmcia2oqx69","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_sequence_001","node1hmcia2oqx70") .
-sh_ValidationReport("node1hmcia2oqx70") .
-sh_conforms("node1hmcia2oqx70","false") .
+mf_action("http://repairs.shacl.org/path_sequence_001","bnode_3192f5e3ab9a46dfac026bfecdcd745375") .
+sht_dataGraph("bnode_3192f5e3ab9a46dfac026bfecdcd745375","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_3192f5e3ab9a46dfac026bfecdcd745375","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path_sequence_001","bnode_3192f5e3ab9a46dfac026bfecdcd745376") .
+sh_ValidationReport("bnode_3192f5e3ab9a46dfac026bfecdcd745376") .
+sh_conforms("bnode_3192f5e3ab9a46dfac026bfecdcd745376","false") .
 xsd_boolean("false") .
-sh_result("node1hmcia2oqx70","node1hmcia2oqx71") .
-sh_ValidationResult("node1hmcia2oqx71") .
-sh_focusNode("node1hmcia2oqx71","ex_InvalidResource1") .
-sh_resultPath("node1hmcia2oqx71","node1hmcia2oqx72") .
-rdf_first("node1hmcia2oqx72","ex_property1") .
-rdf_rest("node1hmcia2oqx72","node1hmcia2oqx73") .
-rdf_first("node1hmcia2oqx73","ex_property2") .
-rdf_rest("node1hmcia2oqx73","rdf_nil") .
-sh_resultSeverity("node1hmcia2oqx71","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcia2oqx71","sh_MinCountConstraintComponent") .
-sh_sourceShape("node1hmcia2oqx71","ex_TestShape") .
-sh_result("node1hmcia2oqx70","node1hmcia2oqx74") .
-sh_ValidationResult("node1hmcia2oqx74") .
-sh_focusNode("node1hmcia2oqx74","ex_InvalidResource2") .
-sh_resultPath("node1hmcia2oqx74","node1hmcia2oqx75") .
-rdf_first("node1hmcia2oqx75","ex_property1") .
-rdf_rest("node1hmcia2oqx75","node1hmcia2oqx76") .
-rdf_first("node1hmcia2oqx76","ex_property2") .
-rdf_rest("node1hmcia2oqx76","rdf_nil") .
-sh_resultSeverity("node1hmcia2oqx74","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcia2oqx74","sh_MinCountConstraintComponent") .
-sh_sourceShape("node1hmcia2oqx74","ex_TestShape") .
+sh_result("bnode_3192f5e3ab9a46dfac026bfecdcd745376","bnode_3192f5e3ab9a46dfac026bfecdcd745377") .
+sh_ValidationResult("bnode_3192f5e3ab9a46dfac026bfecdcd745377") .
+sh_focusNode("bnode_3192f5e3ab9a46dfac026bfecdcd745377","ex_InvalidResource1") .
+sh_resultPath("bnode_3192f5e3ab9a46dfac026bfecdcd745377","bnode_3192f5e3ab9a46dfac026bfecdcd745378") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745378","ex_property1") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745378","bnode_3192f5e3ab9a46dfac026bfecdcd745379") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745379","ex_property2") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745379","rdf_nil") .
+sh_resultSeverity("bnode_3192f5e3ab9a46dfac026bfecdcd745377","sh_Violation") .
+sh_sourceConstraintComponent("bnode_3192f5e3ab9a46dfac026bfecdcd745377","sh_MinCountConstraintComponent") .
+sh_sourceShape("bnode_3192f5e3ab9a46dfac026bfecdcd745377","ex_TestShape") .
+sh_result("bnode_3192f5e3ab9a46dfac026bfecdcd745376","bnode_3192f5e3ab9a46dfac026bfecdcd745380") .
+sh_ValidationResult("bnode_3192f5e3ab9a46dfac026bfecdcd745380") .
+sh_focusNode("bnode_3192f5e3ab9a46dfac026bfecdcd745380","ex_InvalidResource2") .
+sh_resultPath("bnode_3192f5e3ab9a46dfac026bfecdcd745380","bnode_3192f5e3ab9a46dfac026bfecdcd745381") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745381","ex_property1") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745381","bnode_3192f5e3ab9a46dfac026bfecdcd745382") .
+rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd745382","ex_property2") .
+rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd745382","rdf_nil") .
+sh_resultSeverity("bnode_3192f5e3ab9a46dfac026bfecdcd745380","sh_Violation") .
+sh_sourceConstraintComponent("bnode_3192f5e3ab9a46dfac026bfecdcd745380","sh_MinCountConstraintComponent") .
+sh_sourceShape("bnode_3192f5e3ab9a46dfac026bfecdcd745380","ex_TestShape") .
 mf_status("http://repairs.shacl.org/path_sequence_001","sht_approved") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -100,7 +121,7 @@ choose(ex_TestShape_st,X,ex_property1,1);choose(ex_TestShape_st,X,ex_property1,0
 ex_property1_(X,@new(ex_TestShape_st,X,ex_property1,1),"t"):-choose(ex_TestShape_st,X,ex_property1,1),ex_TestShape_st_(X,Y,"t") .
 0 {ex_property2_(X0,Y,"t")} 1:-ex_property1_(X,X0,"t**"),ex_TestShape_st_(X,Y,"t") .
 (C-0) {ex_TestShape_st_(X,Y,"f"):ex_TestShape_st_(X,Y,"t*");s1_(Y,"f"):ex_TestShape_st_(X,Y,"t*"),not ex_TestShape_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_TestShape_st_(X,Y,"t*")}=C,C>0 .
-ex_property1_(X,X0,"f");ex_property2_(X0,X1,"f"):-s0_(X,"f"),ex_property1_(X,X0,"t*"),ex_property2_(X0,X1,"t*"),ex_TestShape_st_(X,X1,"f") .
+ex_property1_(X,X0,"f");ex_property2_(X0,X1,"f"):-ex_property1_(X,X0,"t*"),ex_property2_(X0,X1,"t*"),ex_TestShape_st_(X,X1,"f") .
 1 {s1_(Y,"t*"):ex_TestShape_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
 
 
@@ -111,7 +132,6 @@ s3_(X,"t*"):-s2_(X,"f") .
 ex_TestShape_st_(X,@new(s3,X,ex_TestShape_st,1..1),"t"):-choose(s3,X,ex_TestShape_st,1) .
 choose(s3,X,ex_TestShape_st,1);choose(s3,X,ex_TestShape_st,0):-s3_(X,"t*") .
 (C-0) {ex_TestShape_st_(X,Y,"f"):ex_TestShape_st_(X,Y,"t*");s4_(Y,"f"):ex_TestShape_st_(X,Y,"t*"),not ex_TestShape_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:ex_TestShape_st_(X,Y,"t*")}=C,C>0 .
-ex_property1_(X,X0,"f");ex_property2_(X0,X1,"f"):-s3_(X,"f"),ex_property1_(X,X0,"t*"),ex_property2_(X0,X1,"t*"),ex_TestShape_st_(X,X1,"f") .
 1 {s4_(Y,"t*"):ex_TestShape_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
@@ -142,7 +162,7 @@ del(ex_property2(X,Y)):-ex_property2_(X,Y,"f"),ex_property2(X,Y) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

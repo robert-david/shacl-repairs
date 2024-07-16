@@ -1,7 +1,7 @@
 clingo version 5.6.2
 Reading from ...core/node/class-002/class-002-rules.pl
 Solving...
-actualTarget("ex_NamedInstance",ex_TestShape) actualTarget("b9751",ex_TestShape) actualTarget("node1hmcimj6lx134",ex_TestShape) actualTarget("String",ex_TestShape) add(ex_TestClass("b9751")) add(ex_TestClass("String"))
+actualTarget("ex_NamedInstance",ex_TestShape) actualTarget("bnode_b9751",ex_TestShape) actualTarget("bnode_6e957a6331f648adaec55884eab70e68140",ex_TestShape) actualTarget("String",ex_TestShape) add(ex_TestClass("bnode_b9751")) add(ex_TestClass("String"))
 
 OPTIMUM FOUND
 

@@ -18,7 +18,7 @@
         [ sh:property [
             sh:path rdfs:range ;
             sh:minCount 1 ;
-            sh:not [ sh:node :LiteralShape ] ;
+            sh:not [ sh:node :DatatypeShape ] ;
             sh:node :ClassShape
 #            sh:or (
 #                [ sh:node :ClassShape ]
@@ -38,7 +38,7 @@
             sh:path rdfs:range ;
             sh:minCount 1 ;
             sh:not [ sh:node :ClassShape ] ;
-            sh:node :LiteralShape
+            sh:node :DatatypeShape
 #            sh:or (
 #                [ sh:hasValue xsd:string ]
 #                [ sh:hasValue xsd:int ]
@@ -76,6 +76,6 @@
 #    sh:targetClass rdfs:Class, owl:Class ;
     sh:class owl:Class .
 
-:LiteralShape a :NodeShape ;
+:DatatypeShape a :NodeShape ;
 #sh:targetObjectsOf rdfs:range ;
 sh:hasValue xsd:string .

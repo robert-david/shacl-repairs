@@ -14,38 +14,59 @@ rdfs_Class("ex_TestShape") .
 sh_NodeShape("ex_TestShape") .
 rdfs_label("ex_TestShape","Test shape") .
 xsd_string("Test shape") .
-sh_in("ex_TestShape","node1hmci9mjqx275") .
-rdf_first("node1hmci9mjqx275","ex_Green") .
-rdf_rest("node1hmci9mjqx275","node1hmci9mjqx276") .
-rdf_first("node1hmci9mjqx276","ex_Red") .
-rdf_rest("node1hmci9mjqx276","node1hmci9mjqx277") .
-rdf_first("node1hmci9mjqx277","ex_Yellow") .
-rdf_rest("node1hmci9mjqx277","rdf_nil") .
+sh_in("ex_TestShape","bnode_31316dda75104524af7c5e1311ab4790307") .
+rdf_first("bnode_31316dda75104524af7c5e1311ab4790307","ex_Green") .
+rdf_rest("bnode_31316dda75104524af7c5e1311ab4790307","bnode_31316dda75104524af7c5e1311ab4790308") .
+rdf_first("bnode_31316dda75104524af7c5e1311ab4790308","ex_Red") .
+rdf_rest("bnode_31316dda75104524af7c5e1311ab4790308","bnode_31316dda75104524af7c5e1311ab4790309") .
+rdf_first("bnode_31316dda75104524af7c5e1311ab4790309","ex_Yellow") .
+rdf_rest("bnode_31316dda75104524af7c5e1311ab4790309","rdf_nil") .
 ex_TestShape("ex_Yellow") .
 rdfs_label("ex_Yellow","Yellow") .
 xsd_string("Yellow") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hmci9mjqx278") .
-rdf_first("node1hmci9mjqx278","http://repairs.shacl.org/in_001") .
-rdf_rest("node1hmci9mjqx278","rdf_nil") .
+mf_entries("http://repairs.shacl.org","bnode_31316dda75104524af7c5e1311ab4790310") .
+rdf_first("bnode_31316dda75104524af7c5e1311ab4790310","http://repairs.shacl.org/in_001") .
+rdf_rest("bnode_31316dda75104524af7c5e1311ab4790310","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/in_001") .
 rdfs_label("http://repairs.shacl.org/in_001","Test of sh:in at node shape 001") .
 xsd_string("Test of sh:in at node shape 001") .
-mf_action("http://repairs.shacl.org/in_001","node1hmci9mjqx279") .
-sht_dataGraph("node1hmci9mjqx279","http://repairs.shacl.org") .
-sht_shapesGraph("node1hmci9mjqx279","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/in_001","node1hmci9mjqx280") .
-sh_ValidationReport("node1hmci9mjqx280") .
-sh_conforms("node1hmci9mjqx280","false") .
+mf_action("http://repairs.shacl.org/in_001","bnode_31316dda75104524af7c5e1311ab4790311") .
+sht_dataGraph("bnode_31316dda75104524af7c5e1311ab4790311","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_31316dda75104524af7c5e1311ab4790311","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/in_001","bnode_31316dda75104524af7c5e1311ab4790312") .
+sh_ValidationReport("bnode_31316dda75104524af7c5e1311ab4790312") .
+sh_conforms("bnode_31316dda75104524af7c5e1311ab4790312","false") .
 xsd_boolean("false") .
-sh_result("node1hmci9mjqx280","node1hmci9mjqx281") .
-sh_ValidationResult("node1hmci9mjqx281") .
-sh_focusNode("node1hmci9mjqx281","ex_InvalidInstance") .
-sh_resultSeverity("node1hmci9mjqx281","sh_Violation") .
-sh_sourceConstraintComponent("node1hmci9mjqx281","sh_InConstraintComponent") .
-sh_sourceShape("node1hmci9mjqx281","ex_TestShape") .
-sh_value("node1hmci9mjqx281","ex_InvalidInstance") .
+sh_result("bnode_31316dda75104524af7c5e1311ab4790312","bnode_31316dda75104524af7c5e1311ab4790313") .
+sh_ValidationResult("bnode_31316dda75104524af7c5e1311ab4790313") .
+sh_focusNode("bnode_31316dda75104524af7c5e1311ab4790313","ex_InvalidInstance") .
+sh_resultSeverity("bnode_31316dda75104524af7c5e1311ab4790313","sh_Violation") .
+sh_sourceConstraintComponent("bnode_31316dda75104524af7c5e1311ab4790313","sh_InConstraintComponent") .
+sh_sourceShape("bnode_31316dda75104524af7c5e1311ab4790313","ex_TestShape") .
+sh_value("bnode_31316dda75104524af7c5e1311ab4790313","ex_InvalidInstance") .
 mf_status("http://repairs.shacl.org/in_001","sht_approved") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -103,7 +124,7 @@ s1_(X,"f");s3_(X,"f");s5_(X,"f"):-s0_(X,"f") .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

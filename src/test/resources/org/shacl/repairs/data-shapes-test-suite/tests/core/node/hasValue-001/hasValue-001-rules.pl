@@ -10,26 +10,47 @@ sh_targetNode("ex_TestShape","Invalid String") .
 xsd_string("Invalid String") .
 sh_targetNode("ex_TestShape","Test") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","node1hmcimj6lx48") .
-rdf_first("node1hmcimj6lx48","http://repairs.shacl.org/hasValue_001") .
-rdf_rest("node1hmcimj6lx48","rdf_nil") .
+mf_entries("http://repairs.shacl.org","bnode_6e957a6331f648adaec55884eab70e6849") .
+rdf_first("bnode_6e957a6331f648adaec55884eab70e6849","http://repairs.shacl.org/hasValue_001") .
+rdf_rest("bnode_6e957a6331f648adaec55884eab70e6849","rdf_nil") .
 sht_Validate("http://repairs.shacl.org/hasValue_001") .
 rdfs_label("http://repairs.shacl.org/hasValue_001","Test of sh:hasValue at node shape 001") .
 xsd_string("Test of sh:hasValue at node shape 001") .
-mf_action("http://repairs.shacl.org/hasValue_001","node1hmcimj6lx49") .
-sht_dataGraph("node1hmcimj6lx49","http://repairs.shacl.org") .
-sht_shapesGraph("node1hmcimj6lx49","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/hasValue_001","node1hmcimj6lx50") .
-sh_ValidationReport("node1hmcimj6lx50") .
-sh_conforms("node1hmcimj6lx50","false") .
+mf_action("http://repairs.shacl.org/hasValue_001","bnode_6e957a6331f648adaec55884eab70e6850") .
+sht_dataGraph("bnode_6e957a6331f648adaec55884eab70e6850","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_6e957a6331f648adaec55884eab70e6850","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/hasValue_001","bnode_6e957a6331f648adaec55884eab70e6851") .
+sh_ValidationReport("bnode_6e957a6331f648adaec55884eab70e6851") .
+sh_conforms("bnode_6e957a6331f648adaec55884eab70e6851","false") .
 xsd_boolean("false") .
-sh_result("node1hmcimj6lx50","node1hmcimj6lx51") .
-sh_ValidationResult("node1hmcimj6lx51") .
-sh_focusNode("node1hmcimj6lx51","Invalid String") .
-sh_resultSeverity("node1hmcimj6lx51","sh_Violation") .
-sh_sourceConstraintComponent("node1hmcimj6lx51","sh_HasValueConstraintComponent") .
-sh_sourceShape("node1hmcimj6lx51","ex_TestShape") .
+sh_result("bnode_6e957a6331f648adaec55884eab70e6851","bnode_6e957a6331f648adaec55884eab70e6852") .
+sh_ValidationResult("bnode_6e957a6331f648adaec55884eab70e6852") .
+sh_focusNode("bnode_6e957a6331f648adaec55884eab70e6852","Invalid String") .
+sh_resultSeverity("bnode_6e957a6331f648adaec55884eab70e6852","sh_Violation") .
+sh_sourceConstraintComponent("bnode_6e957a6331f648adaec55884eab70e6852","sh_HasValueConstraintComponent") .
+sh_sourceShape("bnode_6e957a6331f648adaec55884eab70e6852","ex_TestShape") .
 mf_status("http://repairs.shacl.org/hasValue_001","sht_approved") .
+rdfs_Datatype("xsd_byte") .
+rdfs_Datatype("xsd_date") .
+rdfs_Datatype("xsd_decimal") .
+rdfs_Datatype("xsd_double") .
+rdfs_Datatype("xsd_float") .
+rdfs_Datatype("xsd_int") .
+rdfs_Datatype("xsd_integer") .
+rdfs_Datatype("xsd_language") .
+rdfs_Datatype("xsd_long") .
+rdfs_Datatype("xsd_negativeInteger") .
+rdfs_Datatype("xsd_nonNegativeInteger") .
+rdfs_Datatype("xsd_nonPositiveInteger") .
+rdfs_Datatype("xsd_positiveInteger") .
+rdfs_Datatype("xsd_short") .
+rdfs_Datatype("xsd_string") .
+rdfs_Datatype("xsd_unsignedByte") .
+rdfs_Datatype("xsd_unsignedInt") .
+rdfs_Datatype("xsd_unsignedLong") .
+rdfs_Datatype("xsd_unsignedShort") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -65,7 +86,7 @@ ex_TestShape_("Test","t*"):-actualTarget("Test",ex_TestShape) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@5,X,S: skipTarget(X,S) } .
 
 % Program Functions
 

@@ -5,10 +5,10 @@ actualTarget("_company1",_organizationShape) actualTarget("_ann",_unemployedShap
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 2
   Optimum    : yes
 Optimization : 0 2
 Calls        : 1
-Time         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.004s
-Threads      : 3        (Winner: 2)
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
+Threads      : 3        (Winner: 1)

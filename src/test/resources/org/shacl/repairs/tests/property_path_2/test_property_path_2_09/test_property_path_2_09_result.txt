@@ -1,19 +1,19 @@
 clingo version 5.6.2
 Reading from ..._2_09/test_property_path_2_09_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3589")) add(_hasLecture("3589","3406")) add(_hasId("3406","2629")) add(_hasId("3406","Math 1"))
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","4013")) add(_hasId("4740","Math 1"))
 
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3589")) add(_hasLecture("3589","3406")) add(_hasId("3406","2622")) add(_hasId("3406","Math 1"))
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","4012")) add(_hasId("4740","Math 1"))
 
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","3589")) add(_hasLecture("3589","3406")) add(_hasId("3406","2623")) add(_hasId("3406","Math 1"))
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","3964")) add(_hasId("4740","Math 1"))
 
 OPTIMUM FOUND
 
-Models       : 31
+Models       : 30
   Optimum    : yes
   Optimal    : 27
-Optimization : 0 4 2
+Optimization : 0 4 1
 Calls        : 1
-Time         : 0.012s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.013s
-Threads      : 3        (Winner: 2)
+Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.017s
+Threads      : 3        (Winner: 1)

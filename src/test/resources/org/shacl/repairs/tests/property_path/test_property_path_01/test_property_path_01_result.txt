@@ -5,17 +5,17 @@ actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrol
 
 actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_hasId("_bn2","Math 2"))
 
-actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1"))
-
 actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_hasId("_bn1","Math 1"))
+
+actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1"))
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 5
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 2)
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
+Threads      : 3        (Winner: 0)
