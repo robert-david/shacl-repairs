@@ -1,0 +1,21 @@
+clingo version 5.7.1
+Reading from ...test_equals_01/test_equals_01_rules.pl
+Solving...
+actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","Math 1")) add(_enrolledIn("_ann","Math 2"))
+
+actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) add(_enrolledIn("_ann","Math 2")) add(_hasCourse("_ben","Math 1"))
+
+actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","Math 1")) del(_hasCourse("_ann","Math 2"))
+
+actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_hasCourse("_ann","Math 2")) add(_hasCourse("_ben","Math 1"))
+
+OPTIMUM FOUND
+
+Models       : 5
+  Optimum    : yes
+  Optimal    : 4
+Optimization : 0 2
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+Threads      : 3        (Winner: 1)

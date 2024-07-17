@@ -1,0 +1,21 @@
+clingo version 5.7.1
+Reading from ...test_equals_04/test_equals_04_rules.pl
+Solving...
+actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","1819"))
+
+actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_n1"))
+
+actualTarget("_ben",_studentShape) del(_hasCourse("_ben","_n1"))
+
+actualTarget("_ben",_studentShape) del(_course("_n1"))
+
+OPTIMUM FOUND
+
+Models       : 7
+  Optimum    : yes
+  Optimal    : 6
+Optimization : 0 1
+Calls        : 1
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
+Threads      : 3        (Winner: 1)

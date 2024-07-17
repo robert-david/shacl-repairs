@@ -1,0 +1,14 @@
+clingo version 5.7.1
+Reading from ...test_equals_06/test_equals_06_rules.pl
+Solving...
+actualTarget("_ben",_studentShape) actualTarget("_ben",_scheduledCourseShape) add(_hasCourse("_ben","1727"))
+
+OPTIMUM FOUND
+
+Models       : 4
+  Optimum    : yes
+Optimization : 0 1
+Calls        : 1
+Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s
+Threads      : 3        (Winner: 0)
