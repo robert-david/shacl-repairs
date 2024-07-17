@@ -80,20 +80,20 @@ public class DataShapesPropertyTestSuite {
         String result = r.runProgram(testPath + "/equals-001-rules.pl");
 
         // assertTrue(result.contains("Models       : 14"));
-        assertTrue(result.contains("Optimal    : 8"));
+        assertTrue(result.contains("Optimal    : 32"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 8);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 8);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 8);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource2\",ex_TestShape)") == 8);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource3\",ex_TestShape)") == 8);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource4\",ex_TestShape)") == 8);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 32);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 32);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 32);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource2\",ex_TestShape)") == 32);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource3\",ex_TestShape)") == 32);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource4\",ex_TestShape)") == 32);
 
-        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource1\",\"B\"))") == 8);
-        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource3\",\"A\"))") == 8);
-        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource1\",\"A\"))") == 4);
-        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource2\",\"A\"))") == 4);
-        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource4\",\"B\"))") == 4);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource1\",\"B\"))") == 16);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property1(\"ex_InvalidResource3\",\"A\"))") == 16);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource1\",\"A\"))") == 16);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource2\",\"A\"))") == 16);
+        assertTrue(StringUtils.countMatches(result,"add(ex_property2(\"ex_InvalidResource4\",\"B\"))") == 16);
 
         r.writeResult(testPath + "/equals-001-result.txt", result);
     }
