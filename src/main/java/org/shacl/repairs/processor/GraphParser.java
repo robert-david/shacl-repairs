@@ -24,6 +24,12 @@ public class GraphParser {
 
         Set<Namespace> instances_nss = dataModel.getNamespaces();
 
+        for (Namespace instancesNss : instances_nss) {
+            if ("d".equals(instancesNss.getPrefix())) {
+                throw new RuntimeException("d is used as a clingo rule prefix for the default namespace");
+            }
+        }
+
         for (Statement statement : dataModel) {
 
             if (statement.getPredicate().equals(RDF.TYPE)) {

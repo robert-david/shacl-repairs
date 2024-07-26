@@ -17,19 +17,24 @@ public class Utils {
                 value instanceof SimpleBNode ? "bnode_" + ((SimpleBNode) value).getID() :
                 ns(ns, value.stringValue());
     }
+
     public static String ns(Set<Namespace> ns, String id) {
 
         for (Namespace n : ns) {
             if (id.contains(n.getName())) {
                 id = id.replaceAll(n.getName(), "");
                 if (n.getPrefix().equals("")) {
-                    id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).toLowerCase().charAt(0));
+                    //id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).toLowerCase().charAt(0));
+                    id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).charAt(0));
                     if (id.length() == 0) {
                         id = n.getName();
                     }
                     id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).charAt(0));
+
+                    id = "d_" + id;
+                } else {
+                    id = n.getPrefix() + "_" + id;
                 }
-                id = n.getPrefix() + "_" + id;
             }
         }
 
