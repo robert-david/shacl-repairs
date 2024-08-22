@@ -24,13 +24,10 @@ public class Utils {
             if (id.contains(n.getName())) {
                 id = id.replaceAll(n.getName(), "");
                 if (n.getPrefix().equals("")) {
-                    //id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).toLowerCase().charAt(0));
-                    id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).charAt(0));
                     if (id.length() == 0) {
                         id = n.getName();
                     }
                     id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).charAt(0));
-
                     id = "d_" + id;
                 } else {
                     id = n.getPrefix() + "_" + id;
@@ -52,6 +49,9 @@ public class Utils {
 
         for (Namespace n : ns) {
             if (id.equals(n.getPrefix())) {
+                return n.getName();
+            }
+            if ("".equals(n.getPrefix()) && "d".equals(id)) {
                 return n.getName();
             }
         }
