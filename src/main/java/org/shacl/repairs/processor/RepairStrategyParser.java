@@ -3,6 +3,7 @@ package org.shacl.repairs.processor;
 import org.eclipse.rdf4j.model.*;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.SHACL;
+import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
@@ -16,17 +17,18 @@ import static org.shacl.repairs.processor.Utils.ns;
 public class RepairStrategyParser {
 
     public static void createRepairStrategyRules(
+            Model repairStrategiesModel,
             Model dataModel,
             RepairData repairData) {
 
         RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
-        Set<Namespace> rss_nss = dataModel.getNamespaces();
+        Set<Namespace> rss_nss = repairStrategiesModel.getNamespaces();
 
         Map<Value, RepairStrategy> repairStrategies = new HashMap();
 
-        for (Statement statement : dataModel) {
+        for (Statement statement : repairStrategiesModel) {
 
             if (statement.getPredicate().equals(RDF.TYPE) &&
                     statement.getObject().toString().equals("http://www.w3.org/ns/shacl/repairs#RepairStrategy")) {
@@ -37,15 +39,15 @@ public class RepairStrategyParser {
 
         for (Value iri : repairStrategies.keySet()) {
 
-            for (Statement statement : dataModel.getStatements(repairStrategies.get(iri).iri, null, null)) {
+            for (Statement statement : repairStrategiesModel.getStatements(repairStrategies.get(iri).iri, null, null)) {
 
-                if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#read-only")) {
+                if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#hasConstraint")) {
 
-                    repairStrategies.get(iri).readonly.add(new Repair((Resource) statement.getObject()));
+                    repairStrategies.get(iri).constraint.add(new Repair((Resource) statement.getObject()));
 
-                } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#preference")) {
+                } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#hasPreference")) {
 
-                        repairStrategies.get(iri).preferences.add(new Repair((Resource) statement.getObject()));
+                    repairStrategies.get(iri).preference.add(new Repair((Resource) statement.getObject()));
 
                 } else if (statement.getPredicate().equals(RDF.TYPE)) {
                     // do nothing
@@ -54,21 +56,35 @@ public class RepairStrategyParser {
                 }
             }
 
-            for (Repair repair : repairStrategies.get(iri).readonly) {
+            for (Repair repair : repairStrategies.get(iri).constraint) {
 
-                for (Statement statement : dataModel.getStatements(repair.iri, null, null)) {
+                for (Statement statement : repairStrategiesModel.getStatements(repair.iri, null, null)) {
 
                     if (statement.getPredicate().equals(SHACL.PATH)) {
 
                         if (repair.path != null) {
-                            throw new RuntimeException("sh:path " + repair.path + " for shr:read-only already defined. Cannot add  " + statement.getObject().toString());
+                            throw new RuntimeException("sh:path " + repair.path + " for shr:hasConstraint already defined. Cannot add  " + statement.getObject().toString());
                         }
                         repair.path = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().equals(SHACL.CLASS)) {
+
+                        if (repair.clazz != null) {
+                            throw new RuntimeException("sh:class " + repair.clazz + " for shr:hasConstraint already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        repair.clazz = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#condition")) {
+
+                        if (repair.condition != null) {
+                            throw new RuntimeException("shr:condition " + repair.condition + " for shr:hasConstraint already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        repair.condition = (Resource) statement.getObject();
 
                     } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#action")) {
 
                         if (repair.action != null) {
-                            throw new RuntimeException("shr:action " + repair.action + " for shr:read-only already defined. Cannot add  " + statement.getObject().toString());
+                            throw new RuntimeException("shr:action " + repair.action + " for shr:hasConstraint already defined. Cannot add  " + statement.getObject().toString());
                         }
                         repair.action = (Resource) statement.getObject();
 
@@ -82,45 +98,76 @@ public class RepairStrategyParser {
                             while (rest.isBNode()) {
 
                                 if (!RDF.NIL.equals(rest)) {
-                                    Statement first = dataModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
+                                    Statement first = repairStrategiesModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
                                     repair.values.add(first.getObject());
                                 }
-                                rest = dataModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
+                                rest = repairStrategiesModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
                             }
                         } else {
                             repair.values.add(rest);
                         }
-
                     } else {
                         throw new RuntimeException("Unknown repair strategy predicate " + statement.getPredicate());
                     }
                 }
 
-                if (repair.path == null) {
-                    throw new RuntimeException("Missing sh:path for shr:read-only");
+                if (repair.path == null && repair.clazz == null) {
+                    throw new RuntimeException("Missing sh:class or sh:path for shr:hasConstraint");
                 }
                 if (repair.action == null) {
-                    throw new RuntimeException("Missing shr:action for shr:read-only");
+                    throw new RuntimeException("Missing shr:action for shr:hasConstraint");
                 }
             }
 
-            for (Repair repair : repairStrategies.get(iri).preferences) {
+            for (Repair repair : repairStrategies.get(iri).preference) {
 
-                for (Statement statement : dataModel.getStatements(repair.iri, null, null)) {
+                for (Statement statement : repairStrategiesModel.getStatements(repair.iri, null, null)) {
 
                     if (statement.getPredicate().equals(SHACL.PATH)) {
 
                         if (repair.path != null) {
-                            throw new RuntimeException("sh:path " + repair.path + " for shr:preference already defined. Cannot add  " + statement.getObject().toString());
+                            throw new RuntimeException("sh:path " + repair.path + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
                         }
                         repair.path = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().equals(SHACL.CLASS)) {
+
+                        if (repair.clazz != null) {
+                            throw new RuntimeException("sh:class " + repair.clazz + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        repair.clazz = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#condition")) {
+
+                        if (repair.condition != null) {
+                            throw new RuntimeException("sh:condition " + repair.condition + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        repair.condition = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#weight")) {
+
+                        if (repair.weight != null) {
+                            throw new RuntimeException("shr:weight " + repair.weight + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        if (!statement.getObject().isLiteral() ||
+                                !XSD.INT.equals(((Literal) statement.getObject()).getDatatype())){
+                            throw new RuntimeException("shr:weight for shr:hasPreference must be specified as xsd:int. Cannot use  " + statement.getObject().toString());
+                        }
+                        repair.weight = ((Literal) statement.getObject()).intValue();
 
                     } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#action")) {
 
                         if (repair.action != null) {
-                            throw new RuntimeException("shr:action " + repair.action + " for shr:preference already defined. Cannot add  " + statement.getObject().toString());
+                            throw new RuntimeException("shr:action " + repair.action + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
                         }
                         repair.action = (Resource) statement.getObject();
+
+                    } else if (statement.getPredicate().toString().equals("http://www.w3.org/ns/shacl/repairs#preferenceType")) {
+
+                        if (repair.type != null) {
+                            throw new RuntimeException("shr:preferenceType " + repair.type + " for shr:hasPreference already defined. Cannot add  " + statement.getObject().toString());
+                        }
+                        repair.type = (Resource) statement.getObject();
 
                     } else if (statement.getPredicate().stringValue().equals("http://www.w3.org/ns/shacl/repairs#values")) {
 
@@ -132,10 +179,10 @@ public class RepairStrategyParser {
                             while (rest.isBNode()) {
 
                                 if (!RDF.NIL.equals(rest)) {
-                                    Statement first = dataModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
+                                    Statement first = repairStrategiesModel.getStatements((Resource) rest, RDF.FIRST, null).iterator().next();
                                     repair.values.add(first.getObject());
                                 }
-                                rest = dataModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
+                                rest = repairStrategiesModel.getStatements((Resource) rest, RDF.REST, null).iterator().next().getObject();
                             }
                         } else {
                             repair.values.add(rest);
@@ -150,19 +197,15 @@ public class RepairStrategyParser {
                     }
                 }
 
-                if (repair.path == null) {
-                    throw new RuntimeException("Missing sh:path for shr:preference");
+                if (repair.path == null && repair.clazz == null) {
+                    throw new RuntimeException("Missing sh:class or sh:path for shr:hasConstraint");
                 }
                 if (repair.action == null) {
-                    throw new RuntimeException("Missing shr:action for shr:preference");
-                }
-
-                if (repair.values == null && repair.function == null) {
-                    throw new RuntimeException("No values or function defined for shr:preference");
+                    throw new RuntimeException("Missing shr:action for shr:hasPreference");
                 }
 
                 if (repair.values != null && repair.function != null) {
-                    throw new RuntimeException("Both values and function defined for shr:preference");
+                    throw new RuntimeException("Both values and function defined for shr:hasPreference");
                 }
             }
         }
@@ -171,99 +214,113 @@ public class RepairStrategyParser {
 
             RepairStrategy rs = repairStrategies.get(iri);
 
-            for (Repair repair : rs.readonly) {
+            for (Repair repair : rs.constraint) {
 
-                    if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#add")) {
+                String action;
+                if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#add")) {
+                    action = "add";
+                } else if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#delete")) {
+                    action = "del";
+                } else {
+                    throw new RuntimeException("Unknown shr:action " + repair.action + " for shr:hasConstraint");
+                }
 
-                        if (repair.values != null) {
-                            for (Value value : repair.values) {
-                                repairData.getRepairStrategyRules().add(
-                                        ":-add(" + ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, value) + "\")) .\n"
-                                );
-                            }
-                        } else {
+                String condition = "";
+                if (repair.condition != null) {
+                    condition = "," + ns(rss_nss, repair.condition) + "(X)";
+                }
+
+                if (repair.clazz != null) {
+
+                    repairData.getRepairStrategyRules().add(
+                            ":-" + action + "(" + ns(rss_nss, repair.clazz) + "(X))" + condition + " .\n"
+                    );
+
+                } else if (repair.path != null) {
+                    if (repair.values != null) {
+                        for (Value value : repair.values) {
                             repairData.getRepairStrategyRules().add(
-                                    ":-add(" + ns(rss_nss, repair.path) + "(X,Y)) .\n"
+                                    ":-" + action + "(" + ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, value) + "\"))" + condition + " .\n"
                             );
                         }
-
-                    } else if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#delete")) {
-
-                        if (repair.values != null) {
-                            for (Value value : repair.values) {
-                                repairData.getRepairStrategyRules().add(
-                                        ":-del(" + ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, value) + "\")) .\n"
-                                );
-                            }
-                        } else {
-                            repairData.getRepairStrategyRules().add(
-                                    ":-del(" + ns(rss_nss, repair.path) + "(X,Y)) .\n"
-                            );
-                        }
-
                     } else {
-                        throw new RuntimeException("Unknown shr:action " + repair.action + " for shr:read-only");
+                        repairData.getRepairStrategyRules().add(
+                                ":-" + action + "(" + ns(rss_nss, repair.path) + "(X,Y))" + condition + " .\n"
+                        );
                     }
+                }
             }
 
-            for (Repair repair : rs.preferences) {
+            for (Repair repair : rs.preference) {
 
-                    if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#add")) {
+                String action;
+                if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#add")) {
+                    action = "add";
+                } else if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#delete")) {
+                    action = "del";
+                } else {
+                    throw new RuntimeException("Unknown shr:action " + repair.action + " for shr:hasPreference");
+                }
 
-                        if (repair.values != null) {
-                            for (int i = 0; i < repair.values.size(); i++) {
-                                repairData.getRepairStrategyRules().add(
-                                        "#maximize { " + (repair.values.size() - i) + "@0,X: add(" +
-                                                ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.values.get(i)) + "\")) } .\n"
-                                );
-                            }
-                        }
+                String condition = "";
+                if (repair.condition != null) {
+                    condition = "," + ns(rss_nss, repair.condition) + "(X)";
+                }
 
-                        if (repair.function != null) {
-                            // T'OD'O: makes sense to have function for add ??
-//                            if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#minValue")) {
-//
-//                                repairData.getRepairStrategyRules().add(
-//                                        "#maximize { 1@0,X,Y: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y<Z } .\n");
-//
-//                            } else if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#maxValue")) {
-//
-//                                repairData.getRepairStrategyRules().add(
-//                                        "#maximize { 1@0,X,Y: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y>Z } .\n");
-//
-//                            } else {
-//                                throw new RuntimeException("Unkown shr:function " + repair.function.toString() + " for shr:preference");
-//                            }
-                        }
+                Integer weight = 1;
+                if (repair.weight != null) {
+                    weight = repair.weight;
+                }
 
-                    } else if (repair.action.toString().equals("http://www.w3.org/ns/shacl/repairs#delete")) {
+                String preferenceType;
+                if (repair.type.toString().equals("http://www.w3.org/ns/shacl/repairs#change")) {
+                    preferenceType = "maximize";
+                } else if (repair.type.toString().equals("http://www.w3.org/ns/shacl/repairs#read-only")) {
+                    preferenceType = "minimize";
+                } else {
+                    throw new RuntimeException("Unknown shr:preferenceType " + repair.type + " for shr:hasPreference");
+                }
 
-                        if (repair.values != null) {
-                            for (int i = 0; i < repair.values.size(); i++) {
-                                repairData.getRepairStrategyRules().add(
-                                        "#minimize { " + (i + 1) + "@0,X: del(" +
-                                                ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.values.get(i)) + "\")) } .\n"
-                                );
-                            }
-                        }
+                if (repair.clazz != null) {
 
-                        if (repair.function != null) {
-                            if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#minValue")) {
+                    repairData.getRepairStrategyRules().add(
+                            "#" + preferenceType + " { " + weight + "@3,X: " + action + "(" +
+                                    ns(rss_nss, repair.clazz) + "(X))" + condition + " } .\n"
+                    );
 
-                                repairData.getRepairStrategyRules().add(
-                                        "#maximize { 1@0,X,Y: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y<Z } .\n");
+                } else if (repair.path != null) {
+                    if (repair.values == null && repair.function == null) {
+                        repairData.getRepairStrategyRules().add(
+                                "#" + preferenceType + " { " + weight + "@3,X,Y: " + action + "(" +
+                                        ns(rss_nss, repair.path) + "(X,Y))" + condition + " } .\n"
+                        );
+                    }
 
-                            } else if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#maxValue")) {
-
-                                repairData.getRepairStrategyRules().add(
-                                        "#maximize { 1@0,X,Y: del(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y>Z } .\n");
-
-                            } else {
-                                throw new RuntimeException("Unkown shr:function " + repair.function.toString() + " for shr:preference");
-                            }
+                    if (repair.values != null) {
+                        for (int i = 0; i < repair.values.size(); i++) {
+                            repairData.getRepairStrategyRules().add(
+                                    "#" + preferenceType + " { " + (weight + i) + "@3,X: " + action + "(" +
+                                            ns(rss_nss, repair.path) + "(X,\"" + ns(rss_nss, repair.values.get(i)) + "\"))" + condition + " } .\n"
+                            );
                         }
                     }
 
+                    if (repair.function != null) {
+                        if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#minValue")) {
+
+                            repairData.getRepairStrategyRules().add(
+                                    "#" + preferenceType + " { " + weight + "@3,X,Y: " + action + "(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y<=Z" + condition + " } .\n");
+
+                        } else if (repair.function.toString().equals("http://www.w3.org/ns/shacl/repairs#maxValue")) {
+
+                            repairData.getRepairStrategyRules().add(
+                                    "#" + preferenceType + " { " + weight + "@3,X,Y: " + action + "(" + ns(rss_nss, repair.path) + "(X,Y))," + ns(rss_nss, repair.path) + "_(X,Z,\"t**\"),Y>=Z" + condition + " } .\n");
+
+                        } else {
+                            throw new RuntimeException("Unkown shr:function " + repair.function.toString() + " for shr:hasPreference");
+                        }
+                    }
+                }
             }
         }
     }
@@ -275,8 +332,8 @@ public class RepairStrategyParser {
         }
 
         Resource iri;
-        Set<Repair> readonly = new HashSet();
-        Set<Repair> preferences = new HashSet();
+        Set<Repair> constraint = new HashSet();
+        Set<Repair> preference = new HashSet();
     }
 
     private static class Repair {
@@ -287,9 +344,12 @@ public class RepairStrategyParser {
 
         Resource iri;
         Resource path;
+        public Resource clazz;
+        public Resource condition;
+        public Integer weight;
         Resource action;
+        public Resource type;
         public List<Value> values;
         public IRI function;
-
     }
 }

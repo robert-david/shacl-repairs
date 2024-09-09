@@ -4,16 +4,18 @@
 
 :FunctionalContractStatusStrategy
     a shr:RepairStrategy;
-    shr:preference [
+    shr:hasPreference [
         sh:path :hasContractStatus;
         shr:action shr:delete;
+        shr:preferenceType shr:read-only;
         shr:values (
             :statusPending :statusFulfilled :statusViolated
         )
     ];
-    shr:preference [
+    shr:hasPreference [
         sh:path :hasContractStatus;
         shr:action shr:add;
+        shr:preferenceType shr:change;
         shr:values (
             :statusPending
         )

@@ -1,15 +1,15 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...tests/test_CCV_01/test_CCV_01_rules.pl
 Solving...
-actualTarget("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",_contractStatusShape) del(_hasContractStatus("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","_statusPending")) del(_hasContractStatus("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","_statusFulfilled"))
+actualTarget("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",d_ContractStatusShape) del(d_hasContractStatus("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","d_statusPending")) del(d_hasContractStatus("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","d_statusFulfilled"))
 
 OPTIMUM FOUND
 
-Models       : 5
+Models       : 6
   Optimum    : yes
   Optimal    : 4
-Optimization : 0 2 0 3
+Optimization : 0 3 2 0
 Calls        : 1
 Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.011s
-Threads      : 3        (Winner: 2)
+CPU Time     : 0.012s
+Threads      : 3        (Winner: 1)

@@ -5,11 +5,11 @@
 
 :ViolatedContractStrategy
     a shr:RepairStrategy;
-    shr:read-only [
+    shr:hasConstraint [
         sh:path :hasObligations;
         shr:action shr:delete
     ];
-    shr:read-only [
+    shr:hasConstraint [
         sh:path :hasState;
         shr:action shr:delete;
         shr:values (

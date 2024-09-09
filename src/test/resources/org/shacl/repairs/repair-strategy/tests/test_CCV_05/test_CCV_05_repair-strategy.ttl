@@ -5,8 +5,21 @@
 
 :FunctionalEndDateStrategy
     a shr:RepairStrategy;
-    shr:preference [
+    shr:hasConstraint [
+        shr:condition fibo-fnd-agr-ctr:Contract;
+        sh:path :hasEndDate;
+        shr:action shr:delete
+    ];
+    shr:hasPreference [
         sh:path :hasEndDate;
         shr:action shr:delete;
-        shr:function shr:minValue
+        shr:preferenceType shr:read-only;
+        shr:function shr:maxValue
+    ] .
+
+:PreserveObligationsStrategy
+    a shr:RepairStrategy;
+    shr:hasConstraint [
+        sh:path :hasObligations;
+        shr:action shr:delete
     ] .

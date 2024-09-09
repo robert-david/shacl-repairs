@@ -1,0 +1,1471 @@
+@prefix : <http://ontologies.atb-bremen.de/smashHitCore#> .
+@prefix grddl: <http://www.w3.org/2003/g/data-view#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix OntoSensor: <http://mmisw.org/ont/univmemphis/sensor#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fibo-fbc-fe-fse: <https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/> .
+@prefix prov-o: <%20https://www.w3.org/TR/prov-o#> .
+@prefix security: <http://ontologies.atb-bremen.de/security#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dpv-gdpr: <http://www.w3.org/ns/dpv-gdpr#> .
+@prefix fibo-fnd-agr-ctr: <https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix gconsent: <https://w3id.org/GConsent#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix fibo-der-dc-dma: <https://spec.edmcouncil.org/fibo/ontology/DER/DerivativesContracts/DerivativesMasterAgreements/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix fibo-fnd-trext-reatr: <https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix dpv: <http://www.w3.org/ns/dpv#> .
+@prefix consent: <http://purl.org/adaptcentre/openscience/ontologies/consent#> .
+@prefix fibo-loan-loant-mloan: <https://spec.edmcouncil.org/fibo/ontology/LOAN/LoanTypes/MortgageLoans/> .
+@prefix LCC: <https://www.omg.org/spec/LCC/Countries/CountryRepresentation/> .
+@prefix campaneo: <http://www.semanticweb.org/CampaNeo/ontologies/2020/4/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fibo-fnd-plc-loc: <https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix fibo-fbc-dae-dbt: <https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+:c_370c40d4-4e1a-11ed-9fb9-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "FXqdeL/xt3plpyrOr0KMXQQWS4wIOSg1KPmmD+VJHfA=";
+  :hasRole :string;
+  :hasCountry "BdXWQ8mnv/dhNsW9twG4VWxK6oiABnyQl55FXJPhVPM=";
+  :hasCreationDate "2022-12-01T13:44:22.704238^^xsd:dateTime";
+  :hasEmail "UIe9x1Dfib+M3KZnwC3OmDpJIbLDY9eManc0Hxkkgv1IXVV7/I135KZjc0/76IQb";
+  :hasPostalAddress "qNcqSyVRoA94drzDJGfdFa9fdbI/f0CHA8PK6EZH/v4=";
+  :hasTelephone "IL/rxvTa1DYttxMb9CYcteDhLQHNd4KEFefAWaPfLG8=";
+  :hasTerritory "+1uK/Id+liHO3T7uOTrLAEV+/OywHg58+6a88FO2MM0=" .
+
+:c_38d5d658-4e35-11ed-bb4b-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "VzPNs91FZvy2cayd8R/2bwA7VkPFBbD1zJRp1O7t0EY=";
+  :hasRole :DataProcessor;
+  :hasCountry "jozWylmH+5DvtpS4Nz08m7x/XsVgu2VBuERrt43oFzs=";
+  :hasCreationDate "2022-10-17T16:03:21.215957^^xsd:dateTime";
+  :hasEmail "YRCtXv+g9s8o1IdBxOGzSABob2U46Y6ZcylOc+h2znc=";
+  :hasPostalAddress "FBi8NTFjQXrYmcGBXdCMHlq71JhRW9rye4JORIfrjWU=";
+  :hasTelephone "cOizvVxrrT6qJVI9Uf5a8Y6mciCp5Qu8Hbnub7HdGa8=";
+  :hasTerritory "JsGztdPJPVe4A35Wr3orZjEjeu9d1djoQvADKfeXVyg=" .
+
+:c_af45d8e2-5371-11ed-9a79-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "XBxRKJJuSIH7Rz+lW53wytofvOPOYiwvwBqT3P8H/KM=";
+  :hasRole :string;
+  :hasCountry "tCNNgg3oSqwZcZjO45kCFgH+3401E7489EcBcp3YLs8=";
+  :hasCreationDate "2022-11-07T15:33:18.536797^^xsd:dateTime";
+  :hasEmail "xrUjevhWfCKVXeeVnYNWN8K3uUsE56/YvR/7KjV/jACuHy+dPUCqHDTZ4/K5pAt1";
+  :hasPostalAddress "iyeFyR0XE+LVXoH29GzNiWVuANvyoZLGAx3H/3JSQ1k=";
+  :hasTelephone "+CIeQ5DXBCM8XmD2NtZOTSxa3dW9WQy/6eMb0MhHaP0=";
+  :hasTerritory "qYW4aPrLTUN0sBb23Gdr0utFynInQGE4veLl9nZmSUw=" .
+
+:c_30fa965c-5372-11ed-af4a-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "ZlnMOGRK2dlXM2SEY/hQzStGC6ZyZrR16PI+/huHcMY=";
+  :hasRole :string2;
+  :hasCountry "aYq1SqTv0QN/ImTR01J1fEdClWNWH4LT8tbeTVVa/DU=";
+  :hasCreationDate "2022-10-24T08:02:23.149135^^xsd:dateTime";
+  :hasEmail "MZev+Aq+M+1MVmhPezWoGB4+mGNx75piizrFRf5LKfQit4Mbp1m4o9i3cLQL/Dn6";
+  :hasPostalAddress "cuG8N4g1sDHk7mz6FLt/Rn+qOS1xB5JhdV3xUGmdE34=";
+  :hasTelephone "HW3fqf8SCciHz/FsGPTHScdk3bBLa3HmJarlJ1qAE2k=";
+  :hasTerritory "SVqVVYo2PMlJKr+tAZ7j427iKi9p6gZpKlx26ZmQ8NA=" .
+
+:term_2741b7d8-5388-11ed-8cd9-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "This is the description";
+  dct:identifier :contractid;
+  :hasCreationDate "2022-10-24T10:39:35.763255^^xsd:dateTime";
+  :hasTermTypes :id1 .
+
+:term_type_babeb258-5389-11ed-b0eb-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_babeb258-5389-11ed-b0eb-0242ac150003";
+  :hasName "Ar3Qg0hY3EFKOtBNNLEy6SQS8yTnO37J+BWYn4/ib4a2sLwmdI/yClSbpM5Lsjxt";
+  dct:description "S+nkz1sPN3YU2jvQ+h0oIwacejF9F4JBMtjFpWCctBiFyH/mHwUsxDr092sR5vA3SCP/E6mmHVXzhFWpqamQZZ+o8zoKFVi8l47cNzVicpD1yA5YbWv/5zzUVXH4fE12dlUF1WxUmVkS960HowPOz6h+0lsUZTglkg8nPVg2AAl4EsPt/DU9tw5P9o5aQFsnh4vJjW7l8OzMjEsXICeT6luBH8Ue3vCEPdnjuVwU4FQ=" .
+
+:term_type_48deca5c-538d-11ed-9121-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_48deca5c-538d-11ed-9121-0242ac150003";
+  :hasName "+kjR2QUyksKqcVxW5K+PyziZzElNYXKU40m6Q+tx4bE=";
+  dct:description "M6NavtK93ZD0pMHFHSnh5RO4tyef1gGRQ2myuW/PhLN6XrcUDGQlGdhyPuigXSsm" .
+
+:contb2c_d3769ce4-545a-11ed-a573-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration 1";
+  :contractType :Written;
+  :forPurpose "Contract 1";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-10-29T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusViolated;
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime" .
+
+:sig_d3f99eb4-545a-11ed-9f53-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-10-25T11:47:39.852420^^xsd:dateTime" .
+
+:term_d44750aa-545a-11ed-8015-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-10-25T11:47:40.358873^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_d4d1d70c-545a-11ed-bc75-0242ac150003 a :Obligation, :obligationID;
+  dct:description "FjRQkfwLEOlzZqlL61hsOUxWC3Cfy3YmhJXy832Sljw9rYj+d3bUjDzLnF6ZfpIV2h1ZNNy7CWS5ZHyFC1fjZg==";
+  dct:identifier :string, :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003,
+    :term_d44750aa-545a-11ed-8015-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-10-27T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-10-31T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:contb2c_04f04514-545f-11ed-9e89-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1200;
+  dct:description "Consideration 2";
+  :contractType :Written;
+  :forPurpose "Contract 2";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-04T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-11-26T00:00:00^^xsd:dateTime" .
+
+:sig_056cbb80-545f-11ed-980e-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_04f04514-545f-11ed-9e89-0242ac150003;
+  :hasCreationDate "2022-10-25T12:17:40.804288^^xsd:dateTime" .
+
+:term_05b39b40-545f-11ed-9284-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "A late fee will not be charged.";
+  dct:identifier :contb2c_04f04514-545f-11ed-9e89-0242ac150003;
+  :hasCreationDate "2022-10-25T12:17:41.263793^^xsd:dateTime";
+  :hasTermTypes :term_type_48deca5c-538d-11ed-9121-0242ac150003 .
+
+:ob_06367f7e-545f-11ed-8eb2-0242ac150003 a :Obligation, :obligationID;
+  dct:description "1ttORj2c0u+zw7BC/ap5uC+pfzB0aZ2PgU8GluWdhWVm8g5XYK0lPfiVLNZDFSq0";
+  dct:identifier :string, :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_04f04514-545f-11ed-9e89-0242ac150003,
+    :term_05b39b40-545f-11ed-9284-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-10-27T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-11-05T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:cm_a4557c08-56af-11ed-ae80-0242ac150003 a prov:Organization, :companyID;
+  :hasName "FVH";
+  :hasCountry "Finland";
+  :hasCreationDate "2022-10-28T10:59:49.469856^^xsd:dateTime";
+  :hasEmail "not@real.email";
+  :hasPostalAddress "Unioninkatu 24";
+  :hasTelephone "000 0000-000" .
+
+:c_84af0486-56ba-11ed-ad5b-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "TErkWI0j0NEyxX8ZxkwMRsZDEf3PLZVjw1HCU/Om32s=";
+  :hasRole :Boss;
+  :hasCountry "hbCXFjq8DWe7QFC22slAM+rR7gqbb0IhPQYMwBv4/WY=";
+  :hasCreationDate "2022-10-28T12:17:40.836483^^xsd:dateTime";
+  :hasEmail "2XF+c8vOD3LJza9MPBmCGmPHwhRzQWI/n8Fv51EaRe8KB7Vy0RcVK5L63kQEF5Zp";
+  :hasPostalAddress "uEiUBcHIfHT8nZK+0gET0dc7AR05igxK0NDbFrv8Cgg=";
+  :hasTelephone "b5i9jB+P7pm1iC3y6nIfyvLs92d/FSD3Bo1HdeIcsxw=" .
+
+:term_type_c6d3634a-5929-11ed-9c56-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_c6d3634a-5929-11ed-9c56-0242ac150003";
+  :hasName "eep3/0HNqwFhfYueQP/SucjLF9PVnluQskR+8CpYotQ=";
+  dct:description "3REXuV1ENomDnf6z9ku19Y74ik/y5bnJ0VRVeaBx5mVB8Yp6kEwmo9aeddL4AiFx" .
+
+:c_048dab98-5e87-11ed-bc7b-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "e3aYtmV8k6PofM9sREYWkPt1ejmzD8E4NvbYU9+KVMs=";
+  :hasRole :string;
+  :hasCountry "99pLWRX/h0zOUVm6lrreZWYdXcTT6osGFy6/VurH3tA=";
+  :hasCreationDate "2022-11-07T10:29:10.860471^^xsd:dateTime";
+  :hasEmail "oHljay5MvAMWFrzrdD+GHBW0lhDLOXtxr+o2nSARxgI=";
+  :hasPostalAddress "eGB5OHhxkcfgoW7OxHLBd4x2/JWTLNbZVapsbQ9mtXo=";
+  :hasTelephone "bUQi8CS8czGp6/qEyIfhZGdHcy8JHvEzTGHld2Codok=" .
+
+:c_895bb5b2-5e92-11ed-bc3f-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "6fu1TPCrG8RK2wdcIyI9+iKXtzDfHhKrBuJ95o5tYaU=";
+  :hasRole :DataSubject;
+  :hasCountry "PgWtLvqQgiFUhZd2rlV66VhJpkwi3RIo7th+aW4w8ho=";
+  :hasCreationDate "2022-11-07T11:51:38.112327^^xsd:dateTime";
+  :hasEmail "i4AOKGfg6vFwgPAG8u4Aw3ujhRRzfMutEDzOaoxdauo=";
+  :hasPostalAddress "Syl8qeC4Lqm3uuyZh6GuOwgPTJVixBFrzX26WXVBnlw=";
+  :hasTelephone "+178WO++B/EbFzScThMe4mZH9lHvRk+9VhthGMvEWLw=" .
+
+:c_3e252186-5e93-11ed-a5b2-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "Mo5JncP+Jkncewos/CG6PbvopILWTvn/kMEA+n3gHR4=";
+  :hasRole :string;
+  :hasCountry "2BRUncIOMIetw94hntYz1Oku9kjxnvNRNwgTjRZL/M0=";
+  :hasCreationDate "2022-11-07T11:56:41.423950^^xsd:dateTime";
+  :hasEmail "XAaGATohQyw3iCY3pdePqQcEpt5TklsASDFSd683kpY=";
+  :hasPostalAddress "puqrEDU+BaCijmpl4R7wl3lAeCOZppFWOi7p4k11eqA=";
+  :hasTelephone "GiKWfWD6t4dwo4MAGmWLXu2pmE8WKycyzA1gG6bw2s0=" .
+
+:c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "2p3Ee4zznQJ+4A3X3FkJdCEU1Y/ci0OIBcO4yje4BRI=";
+  :hasRole :DataController;
+  :hasCountry "mYIpzjW3emn1RntExKb3Wsys4s3lAsHJJKPyedE7EEw=";
+  :hasCreationDate "2022-11-08T11:38:04.905301^^xsd:dateTime";
+  :hasEmail "/Lr/lLWMujRHayhFIh1o1VRIv3vf4cKMGVjku1l7UBOQZxxl+qcaxI2eu4DVZzqp";
+  :hasPostalAddress "nYH/BeESdfytYoJb33c+fmvHxYG3NQuPjxoFZqqFH22g5lxPkFVTC+RKvuvI7aOX";
+  :hasTelephone "Sky+nKplV6lFi6dxoHQSCClVVmuJnH2nuzYSIAWjeZI=" .
+
+:c_46643de4-60e3-11ed-b4c5-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "N9qXKrvAQwTywAcCPK/uo2LVR2yQ4no9R5mysnMFEYs=";
+  :hasRole :DataSubject;
+  :hasCountry "H2RcY7uoBLGPY1XOiV6I3lV/vr59HSzsRn+k8sZicDc=";
+  :hasCreationDate "2022-11-10T10:34:37.325534^^xsd:dateTime";
+  :hasEmail "vlwc/51m3MNrR81yDmivxNrh3ZsJkv5GEp36fDlZ3e4=";
+  :hasPostalAddress "fhTVT4tVV1pybOA5YSzBSTvxgDYoQKbREPl7SFD0eIg=";
+  :hasTelephone "gkDtSJO/sX6slyiBXLdhoUYZn1it7LWf6/PQf0vXxHo=" .
+
+:c_7de901e6-60e3-11ed-9929-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "4dJA7j3Yxy7G/bgeqhzOLxkLTOwsTYTAy4wMR8scnRg=";
+  :hasRole :DataSubject;
+  :hasCountry "PuF5QNL/oSkuPMOkI1vTxIcfsZUzPPRyUNHRI/hI0ho=";
+  :hasCreationDate "2022-11-10T10:36:10.465122^^xsd:dateTime";
+  :hasEmail "R5oLh+YySDTIbKdc9w8xaIQacmSjVWVLCaAS7ND7UpQ=";
+  :hasPostalAddress "9NLOZEKOHWedufme2sJVrXU9nr+JvPnpxgZzaT8IPiE=";
+  :hasTelephone "UDr5GNaafxFAP51PNEdA6ngMiergfXLd0wAT7ZDzql0=" .
+
+:c_6a636410-64ce-11ed-818c-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "PJbN6JrY2GPEVl4WAF3p6eGacKI5htiFQijvQLwTa5c=";
+  :hasRole :DataSubject;
+  :hasCountry "Ov0H093nBo63pr2iKB9F2EADgmOIJ9/9zsCHCMQFk6o=";
+  :hasCreationDate "2022-11-15T10:15:22.935640^^xsd:dateTime";
+  :hasEmail "zTE0phmWTj9JI51jbgbNqnett3el/AGkbLKH/7KTgioWrtP9LJFE6vrY4uwuaMy+";
+  :hasPostalAddress "/xTv9fABarroV1almDioBseqywx3GT6DpoC9fpmf10k=";
+  :hasTelephone "2WowtWZGkx/wj+qLFxQphRs7mPjMY2WUuLl7CR39wig=" .
+
+:contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 11100;
+  dct:description "Consideration";
+  :contractType :Written;
+  :forPurpose "Contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-30T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-03T00:00:00^^xsd:dateTime" .
+
+:term_854091d0-6c22-11ed-bdbf-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:05:03.865662^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_85e7ae2a-6c22-11ed-ae1e-0242ac150003 a :Obligation, :obligationID;
+  dct:description "RdoPsq2BvK825cC+nGHakXNU2QK35N4zjr42kpZbN/U=";
+  dct:identifier :string, :c_84af0486-56ba-11ed-ad5b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003,
+    :term_854091d0-6c22-11ed-bdbf-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-30T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1100;
+  dct:description "Consideration";
+  :contractType :Written;
+  :forPurpose "Contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-29T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2023-02-04T00:00:00^^xsd:dateTime" .
+
+:term_2f6269ea-6c23-11ed-92c7-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003;
+  :hasCreationDate "2022-11-24T18:09:49.298892^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_3009ae4e-6c23-11ed-9d94-0242ac150003 a :Obligation, :obligationID;
+  dct:description "dSXYX6PgJbaA8xEBXgGyKLWGm++LMer345WUuY3EREE=";
+  dct:identifier :string, :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003,
+    :term_2f6269ea-6c23-11ed-92c7-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-26T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-11-30T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:sig_63228eb8-6c23-11ed-897f-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:11:16.124551^^xsd:dateTime" .
+
+:sig_a074b1ec-6c23-11ed-8bae-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:12:59.003931^^xsd:dateTime" .
+
+:sig_de7ea22c-6c23-11ed-8b01-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:14:43.087553^^xsd:dateTime" .
+
+:sig_6aa2b464-6c24-11ed-9340-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:18:38.204756^^xsd:dateTime" .
+
+:sig_b132aab0-6c24-11ed-b8aa-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-11-24T18:20:36.589083^^xsd:dateTime" .
+
+:term_type_f110fd22-6ca5-11ed-84ec-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_f110fd22-6ca5-11ed-84ec-0242ac150003";
+  :hasName "AQZ0xXg+6D87Uh9fMJb4/qJz02GdZ/vO55W/vHKRQl2WLTXjf8LjiTC+ks2UnzIY";
+  dct:description "LR8e2qt1wn41U8H74ACpxkRV6FV1foaozyrpP+Qzrv4OcBqnXpTxyaC/G4DMTSwVWJ/J4hl7iPX5kZv+R/PMcuNdCLTQFzQQ0nJl/LYGTiQEAvJYUbOyvt3F63dvGlLKhn1qr6PRTM1wQN1W93xHIv1nP9/hjLmdQCAlp4DGWRtiF5o/qtn6BAoi8bX0+dtAUKJYdGzHmpUo/7vDTjM+Lg6lJn/xa/TxMdXorOHwUi0=" .
+
+:sig_02800cba-6ca6-11ed-a1ec-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_8fac39ca-5468-11ed-bbff-0242ac150003;
+  :hasCreationDate "2022-11-25T09:46:18.071229^^xsd:dateTime" .
+
+:sig_7394ae62-6cbd-11ed-9ffc-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T12:34:06.211774^^xsd:dateTime" .
+
+:sig_95d205da-6cc0-11ed-b7b2-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_04f04514-545f-11ed-9e89-0242ac150003;
+  :hasCreationDate "2022-11-25T12:56:32.146513^^xsd:dateTime" .
+
+:sig_b2af5ffa-6cc4-11ed-ac2a-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:25:58.560798^^xsd:dateTime" .
+
+:sig_7240465e-6cc5-11ed-b6dc-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:31:19.954638^^xsd:dateTime" .
+
+:sig_f1fad27e-6cc5-11ed-a698-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:34:54.248122^^xsd:dateTime" .
+
+:sig_086eb886-6cc6-11ed-8154-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:35:31.918491^^xsd:dateTime" .
+
+:sig_3760f924-6cc6-11ed-bbf7-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:36:50.687667^^xsd:dateTime" .
+
+:sig_8302f650-6cc8-11ed-9017-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:53:16.565205^^xsd:dateTime" .
+
+:sig_1a856bac-6cc9-11ed-ae7a-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T13:57:30.755345^^xsd:dateTime" .
+
+:sig_e741fb32-6cca-11ed-af1b-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T14:10:23.743455^^xsd:dateTime" .
+
+:sig_535fba84-6ccb-11ed-94ef-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T14:13:25.132727^^xsd:dateTime" .
+
+:sig_e2fd1438-6ccc-11ed-bbe5-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T14:24:35.574446^^xsd:dateTime" .
+
+:sig_391b20f8-6ccd-11ed-b8af-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T14:27:00.055679^^xsd:dateTime" .
+
+:sig_3f014728-6cd1-11ed-a397-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T14:55:47.939106^^xsd:dateTime" .
+
+:sig_36dd2280-6cd4-11ed-bbe8-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T15:17:02.771853^^xsd:dateTime" .
+
+:sig_cfbd8c18-6cd6-11ed-b369-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_d3769ce4-545a-11ed-a573-0242ac150003;
+  :hasCreationDate "2022-11-25T15:35:38.248587^^xsd:dateTime" .
+
+:contb2c_e799e588-6efd-11ed-ad04-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration 2";
+  :contractType :Written;
+  :forPurpose "Consideration";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-01T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-01T00:00:00^^xsd:dateTime" .
+
+:term_e84275f4-6efd-11ed-a8c8-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_e799e588-6efd-11ed-ad04-0242ac150003;
+  :hasCreationDate "2022-11-28T09:20:32.080615^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_e8f2e8d0-6efd-11ed-9e59-0242ac150003 a :Obligation, :obligationID;
+  dct:description "A7Iv28ieyJre5EnbhVAqvCNtBoPB4HaoSaVxjg3p3k4=";
+  dct:identifier :string, :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_e799e588-6efd-11ed-ad04-0242ac150003,
+    :term_e84275f4-6efd-11ed-a8c8-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-11-30T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-01T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:term_type_5a2f6634-70ae-11ed-b4a8-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_5a2f6634-70ae-11ed-b4a8-0242ac150003";
+  :hasName "aZ2XEfiJsg265NfQdEQz2jzm9CUGgEyurn3gTSsjdU8=";
+  dct:description "/B0bikujghbw6CE1y+zOhv/d5ppnNJSz0dgtAXjZiOk=" .
+
+:c_0c995bcc-7163-11ed-b947-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "tpFO6Vaijh/c5tFcP+DfGOCXZ2acTD9LLu6DwYYaG5g=";
+  :hasRole :DataSubject;
+  :hasCountry "jKN77xB7ySVmtBlV9lF6QlLr5z8ek76h4MeBxYSPJlQ=";
+  :hasCreationDate "2022-12-01T10:29:34.553102^^xsd:dateTime";
+  :hasEmail "gUxY2iNYH54qaWngUlxHwwj3nigAtkT7Ty2KeI5Yv7SD1INIkZLDZd1arMZ38s80";
+  :hasPostalAddress "AvKAWs/cEzGn9s2y+N44uLHfzYVHRSWN3c14JPz5rZA=";
+  :hasTelephone "Sx8D7WuOy1Pj5wNnCQtmcHt7gACIVRBfPtTM+9EqrAY=" .
+
+:contb2c_f962b7fe-717d-11ed-b268-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Updated";
+  :contractType :Written;
+  :forPurpose "Updated";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-05T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime" .
+
+:term_fa17c9c8-717d-11ed-a449-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_f962b7fe-717d-11ed-b268-0242ac150003;
+  :hasCreationDate "2022-12-01T13:42:19.906918^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_fadd774a-717d-11ed-91cf-0242ac150003 a :Obligation, :obligationID;
+  dct:description "TKiMu5BEDNzpkC2WXC1g7wDjf/mp3bLXSuXbdpTKTWc=";
+  dct:identifier :string, :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_f962b7fe-717d-11ed-b268-0242ac150003,
+    :term_fa17c9c8-717d-11ed-a449-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-03T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-07T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:contb2c_2e472030-7189-11ed-8a76-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration";
+  :contractType :Written;
+  :forPurpose "Contract 3";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-03T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-13T00:00:00^^xsd:dateTime" .
+
+:sig_2f06b206-7189-11ed-b1b2-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_2e472030-7189-11ed-8a76-0242ac150003;
+  :hasCreationDate "2022-12-01T15:02:33.180682^^xsd:dateTime" .
+
+:term_2f9174ea-7189-11ed-8ad6-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_2e472030-7189-11ed-8a76-0242ac150003;
+  :hasCreationDate "2022-12-01T15:02:34.087497^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_3061c6b8-7189-11ed-a366-0242ac150003 a :Obligation, :obligationID;
+  dct:description "x6AbptHiZzVcILDBF8HVgkf5tAY4qHksQFVro3hukAs=";
+  dct:identifier :string, :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :contb2c_2e472030-7189-11ed-8a76-0242ac150003,
+    :term_2f9174ea-7189-11ed-8ad6-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-07T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-13T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:sig_e2c27192-722c-11ed-a571-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-12-02T10:34:22.690704^^xsd:dateTime" .
+
+:sig_05743784-722d-11ed-ad63-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_84af0486-56ba-11ed-ad5b-0242ac150003, :contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003;
+  :hasCreationDate "2022-12-02T10:35:20.898259^^xsd:dateTime" .
+
+:sig_7e034050-722d-11ed-bf1e-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_84af0486-56ba-11ed-ad5b-0242ac150003, :contb2c_f962b7fe-717d-11ed-b268-0242ac150003;
+  :hasCreationDate "2022-12-02T10:38:43.161693^^xsd:dateTime" .
+
+:c_87697442-722e-11ed-83cb-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "ASVquuuu/J5srfdWLI2qGXmkGQrONtk0KDCRbtf1hOk=";
+  :hasRole :DataSubject;
+  :hasCountry "1FqT0SKjGl5FzU3gslu8/EtPaow2Q9PQRrZ7L/E4SXQ=";
+  :hasCreationDate "2022-12-02T10:46:08.429028^^xsd:dateTime";
+  :hasEmail "cj5Qxe8tcAmMgwhjwX1iaL1aqIhMSWUMuQr1N51JRJ4=";
+  :hasPostalAddress "1cp5Yp8CIbRQC7uxvX6A8BsKWdZg+TUBX/0TTSFHjFM=";
+  :hasTelephone "WziGWsqrByqGAWgPHjVzQa1LGzyhqyMjvaDAou/0iLE=" .
+
+:contb2c_946cf65e-722f-11ed-aa0e-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration Test";
+  :contractType :Written;
+  :forPurpose "Test Contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-09T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-24T00:00:00^^xsd:dateTime" .
+
+:term_952d0868-722f-11ed-a1ef-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_946cf65e-722f-11ed-aa0e-0242ac150003;
+  :hasCreationDate "2022-12-02T10:53:41.014105^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:term_952e2626-722f-11ed-a715-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "A late fee will not be charged.";
+  dct:identifier :contb2c_946cf65e-722f-11ed-aa0e-0242ac150003;
+  :hasCreationDate "2022-12-02T10:53:41.021363^^xsd:dateTime";
+  :hasTermTypes :term_type_48deca5c-538d-11ed-9121-0242ac150003 .
+
+:ob_95f9261e-722f-11ed-a8b0-0242ac150003 a :Obligation, :obligationID;
+  dct:description "B+oPGoFyvsDfLA/A2DX6ngJRQOzMLnghgaYzIhcCPpQ=";
+  dct:identifier :string, :c_46643de4-60e3-11ed-b4c5-0242ac150003, :contb2c_946cf65e-722f-11ed-aa0e-0242ac150003,
+    :term_952e2626-722f-11ed-a715-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-12T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-24T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:sig_c450201c-722f-11ed-8cdd-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_46643de4-60e3-11ed-b4c5-0242ac150003, :contb2c_946cf65e-722f-11ed-aa0e-0242ac150003;
+  :hasCreationDate "2022-12-02T10:55:00.099976^^xsd:dateTime" .
+
+:sig_08c4e5e8-7230-11ed-9a56-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_84af0486-56ba-11ed-ad5b-0242ac150003, :contb2c_946cf65e-722f-11ed-aa0e-0242ac150003;
+  :hasCreationDate "2022-12-02T10:56:54.950264^^xsd:dateTime" .
+
+:c_95f33746-7247-11ed-9610-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "qrb3iMzS0DrS64BmOlxddiAzWEoDTSNhdVw49N6w4es=";
+  :hasRole :DataSubject;
+  :hasCountry "lFTniuBbUxuF5hwHC5lMGlQqVTFzoyzOj97SR4TIXzQ=";
+  :hasCreationDate "2022-12-02T13:45:30.237780^^xsd:dateTime";
+  :hasEmail "OoU6mOq9ixpeoZQJVgrOsvAGc67uAq7FVvnVO4BVskQ=";
+  :hasPostalAddress "ZIw3x/myZVyIeYCRTUDFi3v9rQojgnNercYepOKR3II=";
+  :hasTelephone "9AnmkA2ncI9Kivzlr0dTfND5CX4Fa6sV2g+fZdHBDLs=" .
+
+:contb2c_570045be-7248-11ed-b6c2-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 10000;
+  dct:description "Consideration";
+  :contractType :Written;
+  :forPurpose "Title";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-12T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-31T00:00:00^^xsd:dateTime" .
+
+:term_57c83cea-7248-11ed-a958-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "A late fee will not be charged.";
+  dct:identifier :contb2c_570045be-7248-11ed-b6c2-0242ac150003;
+  :hasCreationDate "2022-12-02T13:50:55.430760^^xsd:dateTime";
+  :hasTermTypes :term_type_48deca5c-538d-11ed-9121-0242ac150003 .
+
+:ob_5891312c-7248-11ed-a60a-0242ac150003 a :Obligation, :obligationID;
+  dct:description "6OFaiB5CjQ4Ppi4emBLJ5o7/mTlzn9fgFQOBErecp7o=";
+  dct:identifier :string, :c_95f33746-7247-11ed-9610-0242ac150003, :contb2c_570045be-7248-11ed-b6c2-0242ac150003,
+    :term_57c83cea-7248-11ed-a958-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-09T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:contb2c_7d95e6aa-724a-11ed-b527-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1700;
+  dct:description "the consideration";
+  :contractType :Written;
+  :forPurpose "new contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-05T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-31T00:00:00^^xsd:dateTime" .
+
+:term_7e4e661c-724a-11ed-85e7-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_7d95e6aa-724a-11ed-b527-0242ac150003;
+  :hasCreationDate "2022-12-02T14:06:19.056855^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_7f10e2d2-724a-11ed-b092-0242ac150003 a :Obligation, :obligationID;
+  dct:description "7jUyk08JIGHMRpYBJRcukvMr8T/1riAi3SE77JXUGrx1IE0rTL683heUYqEhn+eKOVb0CeHy7Hysn9dzEENqzQ==";
+  dct:identifier :string, :c_87697442-722e-11ed-83cb-0242ac150003, :contb2c_7d95e6aa-724a-11ed-b527-0242ac150003,
+    :term_7e4e661c-724a-11ed-85e7-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-08T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:sig_89bdbf84-724a-11ed-86f5-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_95f33746-7247-11ed-9610-0242ac150003, :contb2c_7d95e6aa-724a-11ed-b527-0242ac150003;
+  :hasCreationDate "2022-12-02T14:06:38.244473^^xsd:dateTime" .
+
+:sig_beeac080-724a-11ed-91fd-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_87697442-722e-11ed-83cb-0242ac150003, :contb2c_7d95e6aa-724a-11ed-b527-0242ac150003;
+  :hasCreationDate "2022-12-02T14:08:07.459025^^xsd:dateTime" .
+
+:sig_b853605c-7253-11ed-bc79-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :contb2c_7d95e6aa-724a-11ed-b527-0242ac150003;
+  :hasCreationDate "2022-12-02T15:12:21.870963^^xsd:dateTime" .
+
+:contb2c_0e7e6174-7255-11ed-89c5-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 2000;
+  dct:description "Test";
+  :contractType :Written;
+  :forPurpose "Test";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-09T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime" .
+
+:term_0f3534ee-7255-11ed-a2b4-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_0e7e6174-7255-11ed-89c5-0242ac150003;
+  :hasCreationDate "2022-12-02T15:21:57.128682^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_0ff49640-7255-11ed-9bb5-0242ac150003 a :Obligation, :obligationID;
+  dct:description "H5UWkQUm+GEvXGfDdCEdSrU3NtRRR24z3nSyqI3sSIu93aBBdmB3+eAEBg/TwW/+";
+  dct:identifier :string, :c_87697442-722e-11ed-83cb-0242ac150003, :contb2c_0e7e6174-7255-11ed-89c5-0242ac150003,
+    :term_0f3534ee-7255-11ed-a2b4-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-09T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:sig_4d9d1148-7255-11ed-b2f1-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :contb2c_0e7e6174-7255-11ed-89c5-0242ac150003;
+  :hasCreationDate "2022-12-02T15:23:41.831173^^xsd:dateTime" .
+
+:sig_85b0f4fa-7255-11ed-ac79-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_87697442-722e-11ed-83cb-0242ac150003, :contb2c_0e7e6174-7255-11ed-89c5-0242ac150003;
+  :hasCreationDate "2022-12-02T15:25:15.914108^^xsd:dateTime" .
+
+:contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 124543;
+  dct:description "data sharing";
+  :contractType :Written;
+  :forPurpose "Test";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-06T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-08T00:00:00^^xsd:dateTime" .
+
+:term_ef5b79ae-74c4-11ed-952c-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Term 1 description";
+  dct:identifier :contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003;
+  :hasCreationDate "2022-12-05T17:47:49.651690^^xsd:dateTime";
+  :hasTermTypes :term_type_c6d3634a-5929-11ed-9c56-0242ac150003 .
+
+:term_ef647162-74c4-11ed-ae37-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003;
+  :hasCreationDate "2022-12-05T17:47:49.710455^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_f021142a-74c4-11ed-912b-0242ac150003 a :Obligation, :obligationID;
+  dct:description "DQ1NNftWdZAqihZBSbsQ+YsBrLPB/h8tYn2bHDOxj90=";
+  dct:identifier :string, :c_af45d8e2-5371-11ed-9a79-0242ac150003, :contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003,
+    :term_ef5b79ae-74c4-11ed-952c-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-05T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-08T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:c_1b0b8c9e-77a7-11ed-9134-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "inPsEdRo7PC8r3yWb4SlFZySApXOX2uxD397lHw5fIUNIldsdS1GrW3GgWxtVb1v";
+  :hasRole :DataSubject;
+  :hasCountry "xCXEQI3p61MO1gSGrl1MRBC+gQjAGZdda66rpNodfqw=";
+  :hasCreationDate "2022-12-09T09:51:51.550734^^xsd:dateTime";
+  :hasEmail "8bJArecn+NDJJBP7j+HgE39zlXFKM84OCOUsoNAa5yVPiRJLx1xVQotk03qXMcI/";
+  :hasPostalAddress "pqNeLAZXqcelR+3MnmafBqe4VN/VLtvHDzFSnQnpflo=";
+  :hasTelephone "q+dmgTHirqzpP3JPpqZK2LN0zoPLqZ+W/g476jVZHL8=" .
+
+:contb2c_96e2103a-77a8-11ed-8786-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Test";
+  :contractType :Written;
+  :forPurpose "Contract test";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-22T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-31T00:00:00^^xsd:dateTime" .
+
+:sig_979490b6-77a8-11ed-af6f-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_1b0b8c9e-77a7-11ed-9134-0242ac150003, :contb2c_96e2103a-77a8-11ed-8786-0242ac150003;
+  :hasCreationDate "2022-12-09T10:02:29.968620^^xsd:dateTime" .
+
+:term_98113238-77a8-11ed-b108-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_96e2103a-77a8-11ed-8786-0242ac150003;
+  :hasCreationDate "2022-12-09T10:02:30.783047^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_98ceb1fa-77a8-11ed-b6de-0242ac150003 a :Obligation, :obligationID;
+  dct:description "f4MHZx45/yySmMI7HDa9dBLcitQnXuAuHsZ/+uq7w+E8nL+7vJUBu2e50gjasqPK";
+  dct:identifier :string, :c_1b0b8c9e-77a7-11ed-9134-0242ac150003, :contb2c_96e2103a-77a8-11ed-8786-0242ac150003,
+    :term_98113238-77a8-11ed-b108-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-12T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:c_7b3f0682-77ab-11ed-b0d6-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "3ujJJoN4dnVR4R49rhiJD8hB+yjAnVKUJ+LXGehMlBmyDvjSLZOxOWcYk1Ig6om6";
+  :hasRole :DataSubject;
+  :hasCountry "1UJFBNHfUOLgYwSDTtmWE53b3CgtLelEJXVdaT8TtkE=";
+  :hasCreationDate "2022-12-09T10:23:10.923104^^xsd:dateTime";
+  :hasEmail "kF37zLhWHv4983G/yZzG6lTMr1xYHMSkFFCc4c+4t4Br4jUewA/dA1LOZswa5MYg";
+  :hasPostalAddress "jc4G0R+gf+fp++UzeT8JiYt22ivjviHk06q8efikLgQ=";
+  :hasTelephone "OAOsQBH9OJAvQ+gmbAvjGWYg6kCYPix+IN+kVMzuhVA=" .
+
+:contb2c_cf34301e-77ab-11ed-b55d-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration 4";
+  :contractType :Written;
+  :forPurpose "Contract 4";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-12T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-24T00:00:00^^xsd:dateTime" .
+
+:sig_cfeacd9c-77ab-11ed-afdd-0242ac150003 a :signatureID, :Signature;
+  dct:identifier :c_7b3f0682-77ab-11ed-b0d6-0242ac150003, :contb2c_cf34301e-77ab-11ed-b55d-0242ac150003;
+  :hasCreationDate "2022-12-09T10:25:32.976308^^xsd:dateTime" .
+
+:term_d06dbb4e-77ab-11ed-8eae-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_cf34301e-77ab-11ed-b55d-0242ac150003;
+  :hasCreationDate "2022-12-09T10:25:33.832025^^xsd:dateTime";
+  :hasTermTypes :term_type_f110fd22-6ca5-11ed-84ec-0242ac150003 .
+
+:ob_d1323172-77ab-11ed-ba79-0242ac150003 a :Obligation, :obligationID;
+  dct:description "/51zqgXQl6tmCQFri36asTV06gzYNKH1a3X0oTZojklA6inattG0meRgPTNIkohb";
+  dct:identifier :string, :c_7b3f0682-77ab-11ed-b0d6-0242ac150003, :contb2c_cf34301e-77ab-11ed-b55d-0242ac150003,
+    :term_d06dbb4e-77ab-11ed-8eae-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-12T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-17T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:term_type_2d74ace8-77ad-11ed-895e-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_2d74ace8-77ad-11ed-895e-0242ac150003";
+  :hasName "143sVpgsMzyz/QYgEjxlZsPpTSdGnPSCdnxf8X7yfEg=";
+  dct:description "Y4Dn+eVu9UxWoEq6MuRxJswgyDg4nLjY1bqToOElTtmXGhb8KUzTT173l0i7QkbW" .
+
+:c_7a650d58-796b-11ed-a8d3-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "wYAR7h3ms5J072G2bOEuvjgSyPEFbQTCbkVt4MjtNwk=";
+  :hasRole :DataController;
+  :hasCountry "QTtO/3C+OB34gIzmrswXv0gMXJYEwzZW9OoVIz8jQNE=";
+  :hasCreationDate "2022-12-11T15:50:04.042833^^xsd:dateTime";
+  :hasEmail "Rw8BEpx3ISXh0g4DHyRJeOvpYwJyxRRuF60rveK6VGg=";
+  :hasPostalAddress "EMbwuRXF+YkkAiE7RgltY8xwT9T5R0XDN4od+20v1yQ=";
+  :hasTelephone "utrhhfhszs6BggLdA+4qdPC93acB+WNLXaqH2ngS+zM=" .
+
+:term_type_1ddedaf8-796d-11ed-ad64-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_1ddedaf8-796d-11ed-ad64-0242ac150003";
+  :hasName "VJMJiGtf8n2cNE4sHd+5ZRDb7vSDbnMgvL5TRMEQ9BU=";
+  dct:description "1Vnjcjv+215xYaCjRDcn71QWSpOe994PS32n4pCbHkD83GYcel3D+MZI0l6qeo+Xz90YN4/ujl62Em0Hk9ashZIfGHUXRoF1bbe3Gn2DCj7Q08Htk118bVlcF0mRdd/Il6Fy6VJun21TDH6MADT/MJEXlCbXWglB5/XDbG1XmLVuRkMnxJzAtHlA8CSaiQ5rW632eLvAsCEX/bx6d+bTIJV+heciMPYULYxMf+bsWw82zteRLghGr5OgV6wLtfJCc5JIAlg7FJxai0Ke1E1kqPN+9OOb6N9K7ytMRm56wDVuPeaO1OrFMl30OtjUJus0vkJ1CQ69G5ydkWHtYlLIEh295Nc+Xkhj7T/ldVAlTks=" .
+
+:c_8b18c018-79fc-11ed-a617-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "UvOm1zS7tBIbkGfqQE29GbHoohp+ChRH9DLonCdgp/M=";
+  :hasRole :DataProcessor;
+  :hasCountry "cQcBHreKBWTDy0i9NykBnzi1mizq7tSeeu7nc1VrdxA=";
+  :hasCreationDate "2022-12-12T09:08:29.082141^^xsd:dateTime";
+  :hasEmail "fqz5kfpnBTjAM6fGwgKjNjsRS8fDhpblv/3cPuYZdpKBvwc1HH/YeobmpcxXBuuU";
+  :hasPostalAddress "2jSqJc2g3Fh+g2uD8WWWcNt3/M/bUcQG6Uhoxiz63LVf+vYrwhnW1/O0atgdIJkc";
+  :hasTelephone "NKJUXlhHYjDkjlBxXgrkGgfMLF+d/xdhOUHU9SuTTRluMROt6o9ERA6kPrccHpr6" .
+
+:c_8438a364-7a04-11ed-8755-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "IG2UW2/an6TWdovpwAazBnlTOvNR2ABz7FNsizXNtJM=";
+  :hasRole :DataController;
+  :hasCountry "OGaHeT7ToEwfBnd8IGxwldlXtcxP6fI2YkFWD70BZzg=";
+  :hasCreationDate "2022-12-12T10:05:33.516435^^xsd:dateTime";
+  :hasEmail "CMmFXv6YuzGGQshr7Za9tcCahwl/NiI7ht2XURBkbiD3twb89sNXDF7e3jfOwLio";
+  :hasPostalAddress "pn1MsrBDErunyUJdR3ue5WvyP0INEkdQHA4+J3czVhBWztWLgaeQdrWRJs3rU/DS";
+  :hasTelephone "ItvhrKnAsh2ZEys/A0/CvZv8RgJpBCyFem1otyijtYc=" .
+
+:term_type_0df4436a-7a05-11ed-8304-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_0df4436a-7a05-11ed-8304-0242ac150003";
+  :hasName "0bQM2zirKLbavzggJPz1rxdISnD1v/FtQ47HTlyWE/gpiGlJGqJ709eTIhmz1MOk";
+  dct:description "8k/CggNO5F6m8J8AEThNXsxpYzU9QDOfB02tfjovFSqNl4ewWWnddS9FGQBjcqxU2mrZX/jP3+6QAg0q06V1MVdmkTO82rzp0wOerCze8liGGFR3VjZUeqZYmNhxpnIU8kAD3CKRzY63oxNxX0/shehy/sm15EZ/JTrx1nyDGsL2KlbvFR9mP4fVyYvqRYh3HusY689+fStOpCBVJKjOecZXHUljFfs8jFrJfAYin2w=" .
+
+:term_type_bbd7eba2-7a06-11ed-9bc5-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_bbd7eba2-7a06-11ed-9bc5-0242ac150003";
+  :hasName "F1ZdfFxcw3CVbpv8GD1HchWUANai+lM4JNndfa7stUs=";
+  dct:description "E9pNI1OIZkqoxJv/nlmeP6Y4X3ELKaIJqFNG/R7mSvEEN8ZYmTcpf26+W4fE19sXa9pEeTTjVvr/O6ZYRLYnYnV2+W1vMVAaU8vK8ozXhiZe5fObctIditAsTNJt9Qk9mUP5IdYIuET1SNY368hZeA==" .
+
+:term_type_1c24fd64-7a17-11ed-aa34-0242ac150003 a :termTypeID, :TermTypes;
+  :termTypeID "term_type_1c24fd64-7a17-11ed-aa34-0242ac150003";
+  :hasName "BdH6q0eEnIhLuNBuzijg+XUAB/nPKeNQqCYyBRSwVIM=";
+  dct:description "Iw8233kB4axKidOiR+bsUE8EF1luargbVuqWqdKA5jSBVv71fUQUjFv3RK3DpsM2+vnRfBBoxz5QB1a5BvF9aWCPGYv0eoXVnDQaKdozg3uJEkVpQvkzuGnYnXaI6sZwhnoyiRrsAGPQD7c7avqhCqjDDMuO+YsLE0BXwyCHSuHtfVb5KiDPyYblqpj4KEmOBFjRLWhqjz6XLWDNsy4R8yc8vqKLtd3M26pXkzhklygJXOuGbXugNiF13wG6krbJZ38ZoqS+8cEknNUSdNRMZ+WuXxi99CsLf/+DUZ9MdrS/PRSOT4AS1iZ5Md1XzrBhEEgn4eCb6UcmZpOchACn9FMkR/ipl7o7qTJ/f4divK+IFUf15n8HLWVA8r4gUv1W" .
+
+:c_d65058a0-7a17-11ed-a116-0242ac150003 a prov:Agent, :contractorID;
+  :hasName "DluGEqbNcI5QJwBcJA+oMNKGzxo20BLZ5Lxg6A7Bkms=";
+  :hasRole :DataSubject;
+  :hasCountry "qUpunToVY2EZ2fK2fE0SjV/6jCNnPajI5ngfCgxTJJc=";
+  :hasCreationDate "2022-12-12T12:23:51.682549^^xsd:dateTime";
+  :hasEmail "Y9z83iSPE3L0ZT7NP5WDIOB/7aWqSUIPj8yIP7J7Zx4=";
+  :hasPostalAddress "Zd26wQWrTASZ+HeZEufTOVx2Za8PZfR7rbIQ5MCiDk9UQRJSrz4kS32fll42t8P8";
+  :hasTelephone "YOjdqKoX714VcSQEG0lvHcihxbHJo+8HOFOhjCKz6qQ=" .
+
+:contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 11;
+  dct:description "sds";
+  :contractType :Written;
+  :forPurpose "dsd";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-24T00:00:00^^xsd:dateTime";
+  :hasContractCategory :hasBusinessToConsumer;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2022-12-31T00:00:00^^xsd:dateTime" .
+
+:term_3086e1b4-7fbc-11ed-961a-0242ac150003 a :TermsAndConditions, :termID;
+  dct:description "A late fee will not be charged.";
+  dct:identifier :contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003;
+  :hasCreationDate "2022-12-19T16:42:56.308050^^xsd:dateTime";
+  :hasTermTypes :term_type_48deca5c-538d-11ed-9121-0242ac150003 .
+
+:ob_31488e04-7fbc-11ed-bcfb-0242ac150003 a :Obligation, :obligationID;
+  dct:description "6CrqDTFg/FVLlKGHFRm3zfsbBbAX4wvm9fIwyFL51BY=";
+  dct:identifier :string, :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003,
+    :term_3086e1b4-7fbc-11ed-961a-0242ac150003;
+  fibo-fnd-agr-ctr:hasExecutionDate "2022-12-21T00:00:00^^xsd:dateTime";
+  :hasEndDate "2022-12-31T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:c_9f2372ca-ab0b-11ed-86bb-02420a0a000b a prov:Agent, :contractorID;
+  :hasName "lLt7X7b+EDSExyajmrrMSwz/j+u/XTXRd9NAAbWB91Q=";
+  :hasRole :DataController;
+  :hasCountry "b56/TmXxOSmzHK6W0Vv8yILdCc1uw4E7ObPdikIrx2M=";
+  :hasCreationDate "2023-02-12T19:29:52.163486^^xsd:dateTime";
+  :hasEmail "XHWKttJ0RWGyjVCWVyE+2v8Eqv0voEVvuGqBK2HhlKLxqaeR4qZ4lLDkwYm6iO4R";
+  :hasPostalAddress "i3ZUFl3OPdQ7I/a0WR0SU31hKK4cBUhSa0KTenj3JEaPZ+Y0bKvz4V6tBuP+NEV5";
+  :hasTelephone "pXE+DrLnBSGKW6o9NtV70d3NMZQhokbjMls5u4YmvYM=" .
+
+:contb2c_81fddd0c-e021-11ed-b65a-0242ac150004 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 2000;
+  dct:description "Consideration";
+  :contractType :Written;
+  :forPurpose "Contract Test";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-04-30T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusViolated;
+  :hasEndDate "2023-05-06T00:00:00^^xsd:dateTime" .
+
+:sig_826ddd14-e021-11ed-acc4-0242ac150004 a :signatureID, :Signature;
+  dct:identifier :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_81fddd0c-e021-11ed-b65a-0242ac150004;
+  :hasCreationDate "2023-04-21T08:50:04.518496^^xsd:dateTime" .
+
+:term_82cd959c-e021-11ed-aedb-0242ac150004 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_81fddd0c-e021-11ed-b65a-0242ac150004;
+  :hasCreationDate "2023-04-21T08:50:05.140865^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_83782890-e021-11ed-8b5d-0242ac150004 a :Obligation, :obligationID;
+  dct:description "A5dYe+UZO0FqbDkI1QtRfCXjBhT9Rzi2B+4IC9qrOZ5czZO+iCoO6NY0FNTCRitu";
+  dct:identifier :string, :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_81fddd0c-e021-11ed-b65a-0242ac150004,
+    :term_82cd959c-e021-11ed-aedb-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-04-23T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-04-30T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:ob_837fb1fa-e021-11ed-a600-0242ac150004 a :Obligation, :obligationID;
+  dct:description "sy7LEJQAPlyHG9Lh2rAmMC6wiPESBI5PQzobHjv/XhIj8fntMv1RVNgnUCp42Lm5";
+  dct:identifier :string, :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :contb2c_81fddd0c-e021-11ed-b65a-0242ac150004,
+    :term_82cd959c-e021-11ed-aedb-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-04-26T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-05-05T00:00:00^^xsd:dateTime";
+  :hasState :ViolatedState .
+
+:contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 3000;
+  dct:description "Consideration of the contract";
+  :contractType :Mutual;
+  :forPurpose "Title of the contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-05-04T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusViolated;
+  :hasEndDate "2023-06-02T00:00:00^^xsd:dateTime" .
+
+:sig_af05df88-e2cf-11ed-8ea1-0242ac150004 a :signatureID, :Signature;
+  dct:identifier :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004;
+  :hasCreationDate "2023-04-24T18:41:54.089419^^xsd:dateTime" .
+
+:term_af7079f6-e2cf-11ed-a705-0242ac150004 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004;
+  :hasCreationDate "2023-04-24T18:41:54.784668^^xsd:dateTime";
+  :hasTermTypes :term_type_f110fd22-6ca5-11ed-84ec-0242ac150003 .
+
+:ob_b0237eac-e2cf-11ed-a642-0242ac150004 a :Obligation, :obligationID;
+  dct:description "ZnnUQgTa+OY/TYWTPKB0LrL/FmjKFNQHZo612sHnSma0S3QvN+AbrHJmfa6Cpb2jtA8CGRRZ4ajFxgjxGu+ONg==";
+  dct:identifier :string, :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004,
+    :term_af7079f6-e2cf-11ed-a705-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-05-25T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-05-31T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:ob_b0247500-e2cf-11ed-afa0-0242ac150004 a :Obligation, :obligationID;
+  dct:description "lVz7H/DPAHEm7PNwXzTDkT6wonFoupkTRqCkMLwY/uwHmVDXQbjrGMtBRKfyGFm13m6QUB8EDsw5ziDoS0iOTQ==";
+  dct:identifier :string, :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004,
+    :term_af7079f6-e2cf-11ed-a705-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-05-27T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-06-02T00:00:00^^xsd:dateTime";
+  :hasState :ViolatedState .
+
+:contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 4000;
+  dct:description "Data sharing";
+  :contractType :Written;
+  :forPurpose "Data sharing based contract";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-07-07T00:00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusViolated;
+  :hasEndDate "2023-10-06T00:00:00^^xsd:dateTime" .
+
+:term_286f1568-ec41-11ed-b9a3-0242ac150004 a :TermsAndConditions, :termID;
+  dct:description "Landlord agrees to lease to Tenant and Tenant agrees to lease from Landlord, according to the terms and conditions set forth herein, the Premises.";
+  dct:identifier :contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004;
+  :hasCreationDate "2023-05-06T19:06:51.375272^^xsd:dateTime";
+  :hasTermTypes :term_type_babeb258-5389-11ed-b0eb-0242ac150003 .
+
+:ob_290b85d8-ec41-11ed-ad76-0242ac150004 a :Obligation, :obligationID;
+  dct:description "zqicHx7+d2AnBBPP12gDuelLYYBZ4aRkPd4SD/4rHPfcawvvtLJWkS3DRlJdOYr6Cs3YqXY+j7++mTjKenAFfg==";
+  dct:identifier :string, :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004,
+    :term_286f1568-ec41-11ed-b9a3-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-05-20T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-07-15T00:00:00^^xsd:dateTime";
+  :hasState :PendingState .
+
+:ob_29143200-ec41-11ed-bd52-0242ac150004 a :Obligation, :obligationID;
+  dct:description "jMrUvm2eHvd1gJpx+2wOiKdaoMNMbFPV6h4v2O90fG/eLx4az9+t5+doNpfSRu9ZJGF+oaB1L/q8xHjGDjWpIA==";
+  dct:identifier :string, :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004,
+    :term_286f1568-ec41-11ed-b9a3-0242ac150004;
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-06-10T00:00:00^^xsd:dateTime";
+  :hasEndDate "2023-07-22T00:00:00^^xsd:dateTime";
+  :hasState :ViolatedState .
+
+:contb2b_6d36ca8a-3820-11ee-b1f4-0242ac150002 a fibo-fnd-agr-ctr:Contract, :contractID;
+  rdf:value 1000;
+  dct:description "Consideration 1";
+  :contractType :Written;
+  :forPurpose "Data processing between data controller and data processor";
+  dct:identifier "";
+  fibo-fnd-agr-ctr:hasExecutionDate "2023-08-11T08:20:52.663000+00:00^^xsd:dateTime";
+  :hasContractCategory :categoryBusinessToBusiness;
+  :hasContractStatus :statusCreated;
+  :hasEndDate "2023-08-11T08:20:52.663000+00:00^^xsd:dateTime" .
+
+:cm_a4557c08-56af-11ed-ae80-0242ac150003 :hasTerritory "Helsinki";
+  :companyID "cm_a4557c08-56af-11ed-ae80-0242ac150003";
+  :hasVATIN "yes_please" .
+
+:c_84af0486-56ba-11ed-ad5b-0242ac150003 :hasTerritory "1wFTsf9r7VfpIwVxBRuzLRDDdYViIwIJo5eo/MSF2EY=";
+  :contractorID "c_84af0486-56ba-11ed-ad5b-0242ac150003";
+  :hasCompany :cm_a4557c08-56af-11ed-ae80-0242ac150003;
+  :hasVATIN "zGD3NtnW95M55bbAq7LVpG/vrwqjYF62WqLi6QMQEzM=" .
+
+:c_048dab98-5e87-11ed-bc7b-0242ac150003 :hasTerritory "xO+aHadfApPYJ1OGCvkOeRfNLEKMAYm++bm7cKyiIJA=";
+  :contractorID "c_048dab98-5e87-11ed-bc7b-0242ac150003";
+  :hasCompany :string;
+  :hasVATIN "4VbndODyb53LtwDyztBpi2nqpQwMWH4mO0lnuM1iR7w=" .
+
+:c_895bb5b2-5e92-11ed-bc3f-0242ac150003 :hasTerritory "t+gfVdC0zxSHuMVREiEMQw9GEAiONss/KVH9supkKrw=";
+  :contractorID "c_895bb5b2-5e92-11ed-bc3f-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "I3S0m+hWbOLfcBCDg7ppgO4XUWEbJbii3Co/HB77rpU=" .
+
+:c_3e252186-5e93-11ed-a5b2-0242ac150003 :hasTerritory "1kwW9qzEqGzZrL1mROXUHb74kAavFsgbhVXEvR+Ya1Q=";
+  :contractorID "c_3e252186-5e93-11ed-a5b2-0242ac150003";
+  :hasCompany :string;
+  :hasVATIN "n/nWQXq8TcdEEeVfjXelf0iORfAbewzbCOfrasyTwzU=" .
+
+:c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003 :hasTerritory "kdlup2aga19Y1ewWmnOZ9cYtyj6s7y8p74Drumf+n3Q=";
+  :contractorID "c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "hggL2a2Pd6TT0fICD7yuFySxIE94GekuqBavz5iFH2s=" .
+
+:c_46643de4-60e3-11ed-b4c5-0242ac150003 :hasTerritory "fUq4Z/W25rA7g+TiPlPtSKPerkyzUANCJo0eVM0PYE0=";
+  :contractorID "c_46643de4-60e3-11ed-b4c5-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "xTauw+s53LlhOP7TEXXtB6LzhTHCDQXv/3LMs74NBkk=" .
+
+:c_7de901e6-60e3-11ed-9929-0242ac150003 :hasTerritory "1dzMAWWrpBTAGMdKYAi8xv91O1FccaVOYfnAFV5y14I=";
+  :contractorID "c_7de901e6-60e3-11ed-9929-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "5CGQvR7lLFyKEVuHCHEk2h2w1b3qKtYgMvb/tTvYMq4=" .
+
+:c_6a636410-64ce-11ed-818c-0242ac150003 :hasTerritory "6eDctQdqC+bxvISWX0fYiqKQGLnFhtJ/AFnjEVq5YKA=";
+  :contractorID "c_6a636410-64ce-11ed-818c-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "ct+QDVZ5JGd4u2+qsD5VdECgANN3fe8bTREvpDLkHoI=" .
+
+:c_0c995bcc-7163-11ed-b947-0242ac150003 :hasTerritory "JZeM6c4q2a523xSAAxdauJkTMjmItDzwLxZ7izdKv3Y=";
+  :contractorID "c_0c995bcc-7163-11ed-b947-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "LE21R4GsR+Dd7t5B4l28GIXNgUCY0xIncByFoy/Rpck=" .
+
+:c_87697442-722e-11ed-83cb-0242ac150003 :hasTerritory "429NB+S1+9FikADUEPzf3JDaU8QkrxWY31CvkgxYFoQ=";
+  :contractorID "c_87697442-722e-11ed-83cb-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "VRQJwfWVNCQRbTd7kYD+yeKh6wyPUnB3Lv7oqdSlbK4=" .
+
+:c_95f33746-7247-11ed-9610-0242ac150003 :hasTerritory "VCvagsIiMyirE24/sv8BzUCKnx3jtoKXaG/E/oCewVw=";
+  :contractorID "c_95f33746-7247-11ed-9610-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "WsPmIgDGewNHOf8Us3GHzBXSZp1tnkgpiquu56R5r3M=" .
+
+:c_1b0b8c9e-77a7-11ed-9134-0242ac150003 :hasTerritory "HD+B+kxuYy0RbET0jdNxfSVb3ZsnHS0MVlGYVO+5em0=";
+  :contractorID "c_1b0b8c9e-77a7-11ed-9134-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "YfUnFDiNI0l9yyNLgJCb/tx3NLgme6SpRnm5P3yB8+Y=" .
+
+:c_7b3f0682-77ab-11ed-b0d6-0242ac150003 :hasTerritory "pVJiqEwS9v8mxZsDwOl/0gp/ER5+dS1cu5bvmDLWEh8=";
+  :contractorID "c_7b3f0682-77ab-11ed-b0d6-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "Y8SZg5RpAOVw0iQJKNN7rQNRIMHHCQKrxZB9IgxqfAc=" .
+
+:c_7a650d58-796b-11ed-a8d3-0242ac150003 :hasTerritory "mA1lqEsaIreX7JuJ3Ar1DT9JZtXBqcWQzERaxjg/XDw=";
+  :contractorID "c_7a650d58-796b-11ed-a8d3-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "YcAvi1JPDPiwoXS/k7/PRjiqOU+wmvw0PX5QAsXIVfY=" .
+
+:c_8b18c018-79fc-11ed-a617-0242ac150003 :hasTerritory "CRG9aAfPEd81VUJAcnmuEatoeNz1fnYSYT4KsAEnth0=";
+  :contractorID "c_8b18c018-79fc-11ed-a617-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "U9SrQ9r8MyBLbB22bqIB5IMBaA6DrfIz6p7cfTEiDq0=" .
+
+:c_8438a364-7a04-11ed-8755-0242ac150003 :hasTerritory "uG3PACcK6I97xQsMnZRXq3jvhAx9RTbl84P6UQZWjOs=";
+  :contractorID "c_8438a364-7a04-11ed-8755-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "k0x4xgX1ydPjh79/dIsXAi8I3OD4zmcL/HMIpVNUjJk=" .
+
+:c_d65058a0-7a17-11ed-a116-0242ac150003 :hasTerritory "P7P9u/l7ibENy+5lJkDN+3O1RBc70D/+9lohUdZPE9w=";
+  :contractorID "c_d65058a0-7a17-11ed-a116-0242ac150003";
+  :hasCompany :123123;
+  :hasVATIN "ySK/AvksX9N4mmCdkuxVOAjhYnFlCccBoZOISzbY78w=" .
+
+:c_9f2372ca-ab0b-11ed-86bb-02420a0a000b :hasTerritory "/76/DN4ujkZHRi4oaGoFXE9WYJt6lbU+Um9X8SSQd/0=";
+  :contractorID "c_9f2372ca-ab0b-11ed-86bb-02420a0a000b";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "qWYanl/MOMLdlFbSa60jiHkVZFOHm5rrTn0kbK/IALA=" .
+
+:contb2c_d3769ce4-545a-11ed-a573-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-10-26T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_d3769ce4-545a-11ed-a573-0242ac150003";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasObligations :ob_d4d1d70c-545a-11ed-bc75-0242ac150003;
+  :hasSignatures :sig_d3f99eb4-545a-11ed-9f53-0242ac150003, :sig_cfbd8c18-6cd6-11ed-b369-0242ac150003;
+  :hasTerms :term_d44750aa-545a-11ed-8015-0242ac150003;
+  :hasContractStatus :statusPending .
+
+:contb2c_04f04514-545f-11ed-9e89-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-10-26T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_04f04514-545f-11ed-9e89-0242ac150003";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasObligations :ob_06367f7e-545f-11ed-8eb2-0242ac150003;
+  :hasSignatures :sig_056cbb80-545f-11ed-980e-0242ac150003;
+  :hasTerms :term_05b39b40-545f-11ed-9284-0242ac150003;
+  :hasContractStatus :statusFulfilled, :statusViolated, :statusPending .
+
+:contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-11-26T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_84a87a76-6c22-11ed-9a8f-0242ac150003";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_84af0486-56ba-11ed-ad5b-0242ac150003;
+  :hasSignatures :sig_e2c27192-722c-11ed-a571-0242ac150003, :sig_05743784-722d-11ed-ad63-0242ac150003;
+  :hasContractStatus :statusFulfilled, :statusPending, :statusViolated .
+
+:contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-11-25T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_2ecc68d2-6c23-11ed-8752-0242ac150003";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasSignatures :string;
+  :hasTerms :string .
+
+:contb2c_e799e588-6efd-11ed-ad04-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-11-29T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_e799e588-6efd-11ed-ad04-0242ac150003";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_048dab98-5e87-11ed-bc7b-0242ac150003;
+  :hasObligations :ob_e8f2e8d0-6efd-11ed-9e59-0242ac150003;
+  :hasTerms :term_e84275f4-6efd-11ed-a8c8-0242ac150003;
+  :hasContractStatus :statusFulfilled, :statusViolated .
+
+:contb2c_f962b7fe-717d-11ed-b268-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_f962b7fe-717d-11ed-b268-0242ac150003";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_84af0486-56ba-11ed-ad5b-0242ac150003;
+  :hasObligations :ob_fadd774a-717d-11ed-91cf-0242ac150003;
+  :hasSignatures :sig_7e034050-722d-11ed-bf1e-0242ac150003;
+  :hasTerms :term_fa17c9c8-717d-11ed-a449-0242ac150003 .
+
+:contb2c_2e472030-7189-11ed-8a76-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_2e472030-7189-11ed-8a76-0242ac150003";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003;
+  :hasObligations :ob_3061c6b8-7189-11ed-a366-0242ac150003;
+  :hasSignatures :sig_2f06b206-7189-11ed-b1b2-0242ac150003;
+  :hasTerms :term_2f9174ea-7189-11ed-8ad6-0242ac150003;
+  :hasContractStatus :statusFulfilled .
+
+:contb2c_946cf65e-722f-11ed-aa0e-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_946cf65e-722f-11ed-aa0e-0242ac150003";
+  :hasContractors :c_84af0486-56ba-11ed-ad5b-0242ac150003, :c_46643de4-60e3-11ed-b4c5-0242ac150003;
+  :hasObligations :ob_95f9261e-722f-11ed-a8b0-0242ac150003;
+  :hasSignatures :sig_c450201c-722f-11ed-8cdd-0242ac150003, :sig_08c4e5e8-7230-11ed-9a56-0242ac150003;
+  :hasTerms :term_952d0868-722f-11ed-a1ef-0242ac150003, :term_952e2626-722f-11ed-a715-0242ac150003;
+  :hasContractStatus :statusViolated, :statusFulfilled .
+
+:contb2c_570045be-7248-11ed-b6c2-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-03T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_570045be-7248-11ed-b6c2-0242ac150003";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003,
+    :c_95f33746-7247-11ed-9610-0242ac150003;
+  :hasObligations :ob_5891312c-7248-11ed-a60a-0242ac150003;
+  :hasTerms :term_57c83cea-7248-11ed-a958-0242ac150003;
+  :hasContractStatus :statusPending .
+
+:contb2c_7d95e6aa-724a-11ed-b527-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_7d95e6aa-724a-11ed-b527-0242ac150003";
+  :hasContractors :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :c_87697442-722e-11ed-83cb-0242ac150003;
+  :hasObligations :ob_7f10e2d2-724a-11ed-b092-0242ac150003;
+  :hasSignatures :sig_89bdbf84-724a-11ed-86f5-0242ac150003, :sig_beeac080-724a-11ed-91fd-0242ac150003,
+    :sig_b853605c-7253-11ed-bc79-0242ac150003;
+  :hasTerms :term_7e4e661c-724a-11ed-85e7-0242ac150003;
+  :hasContractStatus :statusViolated .
+
+:contb2c_0e7e6174-7255-11ed-89c5-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-02T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_0e7e6174-7255-11ed-89c5-0242ac150003";
+  :hasContractors :c_87697442-722e-11ed-83cb-0242ac150003, :c_95f33746-7247-11ed-9610-0242ac150003;
+  :hasObligations :ob_0ff49640-7255-11ed-9bb5-0242ac150003;
+  :hasSignatures :sig_4d9d1148-7255-11ed-b2f1-0242ac150003, :sig_85b0f4fa-7255-11ed-ac79-0242ac150003;
+  :hasTerms :term_0f3534ee-7255-11ed-a2b4-0242ac150003 .
+
+:contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-05T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_ee9a0b5c-74c4-11ed-8d5e-0242ac150003";
+  :hasContractors :c_af45d8e2-5371-11ed-9a79-0242ac150003, :c_30fa965c-5372-11ed-af4a-0242ac150003;
+  :hasObligations :ob_f021142a-74c4-11ed-912b-0242ac150003;
+  :hasTerms :term_ef5b79ae-74c4-11ed-952c-0242ac150003, :term_ef647162-74c4-11ed-ae37-0242ac150003;
+  :hasContractStatus :statusViolated .
+
+:contb2c_96e2103a-77a8-11ed-8786-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-11T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_96e2103a-77a8-11ed-8786-0242ac150003";
+  :hasContractors :c_af45d8e2-5371-11ed-9a79-0242ac150003, :c_1b0b8c9e-77a7-11ed-9134-0242ac150003;
+  :hasObligations :ob_98ceb1fa-77a8-11ed-b6de-0242ac150003;
+  :hasSignatures :sig_979490b6-77a8-11ed-af6f-0242ac150003;
+  :hasTerms :term_98113238-77a8-11ed-b108-0242ac150003;
+  :hasContractStatus :statusFulfilled, :statusPending .
+
+:contb2c_cf34301e-77ab-11ed-b55d-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-10T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_cf34301e-77ab-11ed-b55d-0242ac150003";
+  :hasContractors :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :c_7b3f0682-77ab-11ed-b0d6-0242ac150003;
+  :hasObligations :ob_d1323172-77ab-11ed-ba79-0242ac150003;
+  :hasSignatures :sig_cfeacd9c-77ab-11ed-afdd-0242ac150003;
+  :hasTerms :term_d06dbb4e-77ab-11ed-8eae-0242ac150003;
+  :hasContractStatus :statusFulfilled .
+
+:contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2022-12-20T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_2fd1f646-7fbc-11ed-9506-0242ac150003";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasObligations :ob_31488e04-7fbc-11ed-bcfb-0242ac150003;
+  :hasTerms :term_3086e1b4-7fbc-11ed-961a-0242ac150003;
+  :hasContractStatus :statusPending .
+
+:contb2c_81fddd0c-e021-11ed-b65a-0242ac150004 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2023-04-22T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_81fddd0c-e021-11ed-b65a-0242ac150004";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasObligations :ob_83782890-e021-11ed-8b5d-0242ac150004, :ob_837fb1fa-e021-11ed-a600-0242ac150004;
+  :hasSignatures :sig_826ddd14-e021-11ed-acc4-0242ac150004;
+  :hasTerms :term_82cd959c-e021-11ed-aedb-0242ac150004;
+  :hasContractStatus :statusFulfilled, :statusPending .
+
+:contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2023-04-26T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_ae968bd8-e2cf-11ed-935d-0242ac150004";
+  :hasContractors :c_38d5d658-4e35-11ed-bb4b-0242ac150003, :c_8438a364-7a04-11ed-8755-0242ac150003;
+  :hasObligations :ob_b0237eac-e2cf-11ed-a642-0242ac150004, :ob_b0247500-e2cf-11ed-afa0-0242ac150004;
+  :hasSignatures :sig_af05df88-e2cf-11ed-8ea1-0242ac150004;
+  :hasTerms :term_af7079f6-e2cf-11ed-a705-0242ac150004 .
+
+:contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004 :inMedium "App Based";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2023-05-19T00:00:00^^xsd:dateTime";
+  :contractID "contb2c_27fd3754-ec41-11ed-9cb9-0242ac150004";
+  :hasContractors :c_cf0cc3c2-5f59-11ed-9b9c-0242ac150003, :c_8b18c018-79fc-11ed-a617-0242ac150003;
+  :hasObligations :ob_290b85d8-ec41-11ed-ad76-0242ac150004, :ob_29143200-ec41-11ed-bd52-0242ac150004;
+  :hasTerms :term_286f1568-ec41-11ed-b9a3-0242ac150004;
+  :hasContractStatus :statusCreated .
+
+:contb2b_6d36ca8a-3820-11ee-b1f4-0242ac150002 :inMedium "online";
+  fibo-fnd-agr-ctr:hasEffectiveDate "2023-08-11T08:20:52.663000+00:00^^xsd:dateTime";
+  :contractID "contb2b_6d36ca8a-3820-11ee-b1f4-0242ac150002";
+  :hasContractors :c_370c40d4-4e1a-11ed-9fb9-0242ac150003, :c_af45d8e2-5371-11ed-9a79-0242ac150003;
+  :hasObligations :ob_d4d1d70c-545a-11ed-bc75-0242ac150003;
+  :hasSignatures :sig_d3f99eb4-545a-11ed-9f53-0242ac150003, :sig_cfbd8c18-6cd6-11ed-b369-0242ac150003;
+  :hasTerms :term_d44750aa-545a-11ed-8015-0242ac150003 .
+
+:c_370c40d4-4e1a-11ed-9fb9-0242ac150003 :contractorID "c_370c40d4-4e1a-11ed-9fb9-0242ac150003";
+  :hasCompany :companyid123;
+  :hasVATIN "fazZySbDm9yWHc0UWEGaubM+fgOmn7sZEElG/AqTaFo=" .
+
+:c_38d5d658-4e35-11ed-bb4b-0242ac150003 :contractorID "c_38d5d658-4e35-11ed-bb4b-0242ac150003";
+  :hasCompany :cm_86ff4c94-fc62-11ec-93f2-b5bccd42b8bf;
+  :hasVATIN "moGyh5qBryzBNdBh6cEYWi5zQ5P97G8biQAk85yK7/o=" .
+
+:c_af45d8e2-5371-11ed-9a79-0242ac150003 :contractorID "c_af45d8e2-5371-11ed-9a79-0242ac150003";
+  :hasCompany :string;
+  :hasVATIN "zF9oyUNh5x7GPs7F5Q/dKqTwc7tafYVbKxlJu57k9+o=" .
+
+:c_30fa965c-5372-11ed-af4a-0242ac150003 :contractorID "c_30fa965c-5372-11ed-af4a-0242ac150003";
+  :hasCompany :string2;
+  :hasVATIN "M3y8g7cycZK6D5IXhtNA3YBl0KwYlVvChk9UfH7Fp0g=" .
+
+:sig_d3f99eb4-545a-11ed-9f53-0242ac150003 :hasSignature "W0YdK06q9py6jwFTmFyPn4cHasvV93Pp7Ed+AJBbjmE=";
+  :signatureID "sig_d3f99eb4-545a-11ed-9f53-0242ac150003" .
+
+:sig_056cbb80-545f-11ed-980e-0242ac150003 :hasSignature "0VaGclZdB46FNkY+/56C0jj4CU7G38yWmatNRsg67BY=";
+  :signatureID "sig_056cbb80-545f-11ed-980e-0242ac150003" .
+
+:sig_63228eb8-6c23-11ed-897f-0242ac150003 :hasSignature "Nl2QuZmbiB9/jU8PgvwlibQxuzvM/KSA+Oz0uHxRwEw=";
+  :signatureID "sig_63228eb8-6c23-11ed-897f-0242ac150003" .
+
+:sig_a074b1ec-6c23-11ed-8bae-0242ac150003 :hasSignature "mws8v8k8lNOLUzAzMbZhMKW0TlTVCi6pnGcJuQYVDPo=";
+  :signatureID "sig_a074b1ec-6c23-11ed-8bae-0242ac150003" .
+
+:sig_de7ea22c-6c23-11ed-8b01-0242ac150003 :hasSignature "6GSa1m8Gt3Ec1UKD5bAZFRHMlaOEQvuUrCNMGiyKZt8=";
+  :signatureID "sig_de7ea22c-6c23-11ed-8b01-0242ac150003" .
+
+:sig_6aa2b464-6c24-11ed-9340-0242ac150003 :hasSignature "MbOSPqkPf1CWV03SKXMjMY9nVg2dpBlr70okkQc+5K0=";
+  :signatureID "sig_6aa2b464-6c24-11ed-9340-0242ac150003" .
+
+:sig_b132aab0-6c24-11ed-b8aa-0242ac150003 :hasSignature "G+YKmeG43fYeu2wXfsq5VrG+qb9sLXbkFG7vNOROK4A=";
+  :signatureID "sig_b132aab0-6c24-11ed-b8aa-0242ac150003" .
+
+:sig_02800cba-6ca6-11ed-a1ec-0242ac150003 :hasSignature "sR38tkNc/nu4m37UsSdRNHpsUlIZhABdegFNvwDU4Tk=";
+  :signatureID "sig_02800cba-6ca6-11ed-a1ec-0242ac150003" .
+
+:sig_7394ae62-6cbd-11ed-9ffc-0242ac150003 :hasSignature "qf0VReDyUrWT3QOnoLMHEK91XiIW/pWNKGDA4jgTLGA=";
+  :signatureID "sig_7394ae62-6cbd-11ed-9ffc-0242ac150003" .
+
+:sig_95d205da-6cc0-11ed-b7b2-0242ac150003 :hasSignature "+7bQMQ51aNjuarldmIC9D5//871OiPOQwDaQEXtMK9s=";
+  :signatureID "sig_95d205da-6cc0-11ed-b7b2-0242ac150003" .
+
+:sig_b2af5ffa-6cc4-11ed-ac2a-0242ac150003 :hasSignature "SD+DDJJrasBLQ0MHDxsGenPqHiizwTac8jTl3ATtur8=";
+  :signatureID "sig_b2af5ffa-6cc4-11ed-ac2a-0242ac150003" .
+
+:sig_7240465e-6cc5-11ed-b6dc-0242ac150003 :hasSignature "IGyNf8i5gmfmSDO8EWRuJCMGz69erTxEKoopUanqDc0=";
+  :signatureID "sig_7240465e-6cc5-11ed-b6dc-0242ac150003" .
+
+:sig_f1fad27e-6cc5-11ed-a698-0242ac150003 :hasSignature "2cNHch3PNsnV0ovmuFuGAIaI1hahwJzC3IK2csXuzqk=";
+  :signatureID "sig_f1fad27e-6cc5-11ed-a698-0242ac150003" .
+
+:sig_086eb886-6cc6-11ed-8154-0242ac150003 :hasSignature "85xHah3gGOV11Pbh2OprMnzqAfE2ymMMO6t0vdhfqD8=";
+  :signatureID "sig_086eb886-6cc6-11ed-8154-0242ac150003" .
+
+:sig_3760f924-6cc6-11ed-bbf7-0242ac150003 :hasSignature "XGhLih/XjadWwAD/L1JVCUnsg41kISsvUda9tT3FCnw=";
+  :signatureID "sig_3760f924-6cc6-11ed-bbf7-0242ac150003" .
+
+:sig_8302f650-6cc8-11ed-9017-0242ac150003 :hasSignature "aDeAjh3mGMghvbzYdFlDK49DDRlaor6uhKts8k0qrWI=";
+  :signatureID "sig_8302f650-6cc8-11ed-9017-0242ac150003" .
+
+:sig_1a856bac-6cc9-11ed-ae7a-0242ac150003 :hasSignature "H0NJ+VbMHLWL+PAtZyxcvgylo3nc24WExYkW6FCh1GA=";
+  :signatureID "sig_1a856bac-6cc9-11ed-ae7a-0242ac150003" .
+
+:sig_e741fb32-6cca-11ed-af1b-0242ac150003 :hasSignature "KKR2cag4obcY2YmT6UJPgduoZxlfxHGgcfM11Zc5Mdc=";
+  :signatureID "sig_e741fb32-6cca-11ed-af1b-0242ac150003" .
+
+:sig_535fba84-6ccb-11ed-94ef-0242ac150003 :hasSignature "A97AegQdsQyoXzo5uUGuDbsXrFly1/ek4LNhUqtkkH0=";
+  :signatureID "sig_535fba84-6ccb-11ed-94ef-0242ac150003" .
+
+:sig_e2fd1438-6ccc-11ed-bbe5-0242ac150003 :hasSignature "oM6GX2FgnyaAvz/mfXICDKM7Pol6Dn6JQsFC29vUN9k=";
+  :signatureID "sig_e2fd1438-6ccc-11ed-bbe5-0242ac150003" .
+
+:sig_391b20f8-6ccd-11ed-b8af-0242ac150003 :hasSignature "aUsGdl9+O+E1QkIIPnmcPju8/NAnnoG+MR3OO6F//kQ=";
+  :signatureID "sig_391b20f8-6ccd-11ed-b8af-0242ac150003" .
+
+:sig_3f014728-6cd1-11ed-a397-0242ac150003 :hasSignature "KuFsZEwlM6iUwkp+KlBhRyp1Jk+WHTqbKIgXrOiEpiA=";
+  :signatureID "sig_3f014728-6cd1-11ed-a397-0242ac150003" .
+
+:sig_36dd2280-6cd4-11ed-bbe8-0242ac150003 :hasSignature "8m0JcJnLKmX6iYkPwozmU13GfE+ViDxOYNQYeXzmRR8=";
+  :signatureID "sig_36dd2280-6cd4-11ed-bbe8-0242ac150003" .
+
+:sig_cfbd8c18-6cd6-11ed-b369-0242ac150003 :hasSignature "YAdMDx1zXD4hcGOdDPfpp+mpQczzkpV/yHnF3q04ODI=";
+  :signatureID "sig_cfbd8c18-6cd6-11ed-b369-0242ac150003" .
+
+:sig_2f06b206-7189-11ed-b1b2-0242ac150003 :hasSignature "cE0tRT+ihliVH+X/2BFdbkwScKm3/LuZ7e91p27ujb0=";
+  :signatureID "sig_2f06b206-7189-11ed-b1b2-0242ac150003" .
+
+:sig_e2c27192-722c-11ed-a571-0242ac150003 :hasSignature "+bYxs9KVqk6Y9f5IKYdDlQStR1TkcE4PWpCPg9iwHSA=";
+  :signatureID "sig_e2c27192-722c-11ed-a571-0242ac150003" .
+
+:sig_05743784-722d-11ed-ad63-0242ac150003 :hasSignature "+fy4xjxotl6Jdt+BB7NONR8NyP369hxuCzCpQW6tGIE=";
+  :signatureID "sig_05743784-722d-11ed-ad63-0242ac150003" .
+
+:sig_7e034050-722d-11ed-bf1e-0242ac150003 :hasSignature "oX4BUU6eEeCwFQbxizSkRvaHnIoVBJxTZJXJjXTGih0=";
+  :signatureID "sig_7e034050-722d-11ed-bf1e-0242ac150003" .
+
+:sig_c450201c-722f-11ed-8cdd-0242ac150003 :hasSignature "/VukV87Kvmw0pZavIgcV8f2isWc0hMgoiN7TvJkV/Yg=";
+  :signatureID "sig_c450201c-722f-11ed-8cdd-0242ac150003" .
+
+:sig_08c4e5e8-7230-11ed-9a56-0242ac150003 :hasSignature "sL2V6ySgVZSuvAD0ghriFgCzzy4gLwLna7nB9YVu1rI=";
+  :signatureID "sig_08c4e5e8-7230-11ed-9a56-0242ac150003" .
+
+:sig_89bdbf84-724a-11ed-86f5-0242ac150003 :hasSignature "uO9CPc1dUqKNM40rdVpeu1Td5g146tqv7UwpZxh+U4Q=";
+  :signatureID "sig_89bdbf84-724a-11ed-86f5-0242ac150003" .
+
+:sig_beeac080-724a-11ed-91fd-0242ac150003 :hasSignature "thmkt7moZZszGoIESoOfz2MzueZJuIY4m4yqvSfnKxs=";
+  :signatureID "sig_beeac080-724a-11ed-91fd-0242ac150003" .
+
+:sig_b853605c-7253-11ed-bc79-0242ac150003 :hasSignature "Bwp+/MKmBDwX1VduR+wzhM0x/X4UL7wln2DVHG+d1TE=";
+  :signatureID "sig_b853605c-7253-11ed-bc79-0242ac150003" .
+
+:sig_4d9d1148-7255-11ed-b2f1-0242ac150003 :hasSignature "vHzi4xk5nPDkqgGA1j12vhEtX/0weBdR/DTBqsRUEQU=";
+  :signatureID "sig_4d9d1148-7255-11ed-b2f1-0242ac150003" .
+
+:sig_85b0f4fa-7255-11ed-ac79-0242ac150003 :hasSignature "rDjUHi8m+76YMJXXy0FHVoC1PICVzJjb35oaCXwmdsU=";
+  :signatureID "sig_85b0f4fa-7255-11ed-ac79-0242ac150003" .
+
+:sig_979490b6-77a8-11ed-af6f-0242ac150003 :hasSignature "NXaj3G/J0kQfKlfi8KpcZLNnj1TfvOFIKSE4d8dAlUrCa72sgp836f53HW3fIm2a";
+  :signatureID "sig_979490b6-77a8-11ed-af6f-0242ac150003" .
+
+:sig_cfeacd9c-77ab-11ed-afdd-0242ac150003 :hasSignature "dDfOpZK4foIDpdPuYBeZc1acBVQOSy2uIQivXEF84ys=";
+  :signatureID "sig_cfeacd9c-77ab-11ed-afdd-0242ac150003" .
+
+:sig_826ddd14-e021-11ed-acc4-0242ac150004 :hasSignature "2XrrErojk/ZhmyE/ILFpEFmWAZTY5m7YgQPTbuUZj6E=";
+  :signatureID "sig_826ddd14-e021-11ed-acc4-0242ac150004" .
+
+:sig_af05df88-e2cf-11ed-8ea1-0242ac150004 :hasSignature "cfKLh5qpqCIgrpygV1I+PohVU0eh/6r5o/Fmlh17bpi1ran1AQbKOO0eeKn553jo";
+  :signatureID "sig_af05df88-e2cf-11ed-8ea1-0242ac150004" .
+
+:ob_d4d1d70c-545a-11ed-bc75-0242ac150003 :obligationID "ob_d4d1d70c-545a-11ed-bc75-0242ac150003" .
+
+:ob_06367f7e-545f-11ed-8eb2-0242ac150003 :obligationID "ob_06367f7e-545f-11ed-8eb2-0242ac150003";
+  :hasState :ViolatedState .
+
+:ob_85e7ae2a-6c22-11ed-ae1e-0242ac150003 :obligationID "ob_85e7ae2a-6c22-11ed-ae1e-0242ac150003";
+  :hasEndDate "2024-09-13T14:08:52.630+02:00"^^xsd:dateTime .
+
+:ob_3009ae4e-6c23-11ed-9d94-0242ac150003 :obligationID "ob_3009ae4e-6c23-11ed-9d94-0242ac150003";
+  :hasEndDate "2033-09-11T14:08:52.629+02:00"^^xsd:dateTime .
+
+:ob_e8f2e8d0-6efd-11ed-9e59-0242ac150003 :obligationID "ob_e8f2e8d0-6efd-11ed-9e59-0242ac150003";
+  :hasState :ViolatedState, :FulfilledState;
+  :hasEndDate "2015-09-16T14:08:52.630+02:00"^^xsd:dateTime .
+
+:ob_fadd774a-717d-11ed-91cf-0242ac150003 :obligationID "ob_fadd774a-717d-11ed-91cf-0242ac150003";
+  :hasState :FulfilledState, :ViolatedState .
+
+:ob_3061c6b8-7189-11ed-a366-0242ac150003 :obligationID "ob_3061c6b8-7189-11ed-a366-0242ac150003";
+  :hasEndDate "2034-09-11T14:08:52.629+02:00"^^xsd:dateTime .
+
+:ob_95f9261e-722f-11ed-a8b0-0242ac150003 :obligationID "ob_95f9261e-722f-11ed-a8b0-0242ac150003";
+  :hasState :CreatedState .
+
+:ob_5891312c-7248-11ed-a60a-0242ac150003 :obligationID "ob_5891312c-7248-11ed-a60a-0242ac150003";
+  :hasState :CreatedState .
+
+:ob_7f10e2d2-724a-11ed-b092-0242ac150003 :obligationID "ob_7f10e2d2-724a-11ed-b092-0242ac150003";
+  :hasState :ViolatedState;
+  :hasEndDate "2021-09-14T14:08:52.629+02:00"^^xsd:dateTime .
+
+:ob_0ff49640-7255-11ed-9bb5-0242ac150003 :obligationID "ob_0ff49640-7255-11ed-9bb5-0242ac150003";
+  :hasState :ViolatedState;
+  :hasEndDate "2028-09-12T14:08:52.630+02:00"^^xsd:dateTime, "2029-09-12T14:08:52.630+02:00"^^xsd:dateTime,
+    "2016-09-15T14:08:52.630+02:00"^^xsd:dateTime .
+
+:ob_f021142a-74c4-11ed-912b-0242ac150003 :obligationID "ob_f021142a-74c4-11ed-912b-0242ac150003" .
+
+:ob_98ceb1fa-77a8-11ed-b6de-0242ac150003 :obligationID "ob_98ceb1fa-77a8-11ed-b6de-0242ac150003";
+  :hasState :CreatedState, :FulfilledState .
+
+:ob_d1323172-77ab-11ed-ba79-0242ac150003 :obligationID "ob_d1323172-77ab-11ed-ba79-0242ac150003";
+  :hasState :FulfilledState, :ViolatedState;
+  :hasEndDate "2026-09-13T14:08:52.630+02:00"^^xsd:dateTime, "2022-09-14T14:08:52.630+02:00"^^xsd:dateTime .
+
+:ob_31488e04-7fbc-11ed-bcfb-0242ac150003 :obligationID "ob_31488e04-7fbc-11ed-bcfb-0242ac150003";
+  :hasState :FulfilledState .
+
+:ob_83782890-e021-11ed-8b5d-0242ac150004 :obligationID "ob_83782890-e021-11ed-8b5d-0242ac150004";
+  :hasState :FulfilledState, :CreatedState .
+
+:ob_837fb1fa-e021-11ed-a600-0242ac150004 :obligationID "ob_837fb1fa-e021-11ed-a600-0242ac150004";
+  :hasState :FulfilledState .
+
+:ob_b0237eac-e2cf-11ed-a642-0242ac150004 :obligationID "ob_b0237eac-e2cf-11ed-a642-0242ac150004" .
+
+:ob_b0247500-e2cf-11ed-afa0-0242ac150004 :obligationID "ob_b0247500-e2cf-11ed-afa0-0242ac150004";
+  :hasState :PendingState, :CreatedState;
+  :hasEndDate "2028-09-12T14:08:52.629+02:00"^^xsd:dateTime, "2030-09-12T14:08:52.629+02:00"^^xsd:dateTime .
+
+:ob_290b85d8-ec41-11ed-ad76-0242ac150004 :obligationID "ob_290b85d8-ec41-11ed-ad76-0242ac150004";
+  :hasState :CreatedState, :ViolatedState;
+  :hasEndDate "2021-09-14T14:08:52.630+02:00"^^xsd:dateTime .
+
+:ob_29143200-ec41-11ed-bd52-0242ac150004 :obligationID "ob_29143200-ec41-11ed-bd52-0242ac150004";
+  :hasState :FulfilledState;
+  :hasEndDate "2034-09-11T14:08:52.629+02:00"^^xsd:dateTime .
+
+:term_2741b7d8-5388-11ed-8cd9-0242ac150003 :termID "term_2741b7d8-5388-11ed-8cd9-0242ac150003" .
+
+:term_d44750aa-545a-11ed-8015-0242ac150003 :termID "term_d44750aa-545a-11ed-8015-0242ac150003" .
+
+:term_05b39b40-545f-11ed-9284-0242ac150003 :termID "term_05b39b40-545f-11ed-9284-0242ac150003" .
+
+:term_854091d0-6c22-11ed-bdbf-0242ac150003 :termID "term_854091d0-6c22-11ed-bdbf-0242ac150003" .
+
+:term_2f6269ea-6c23-11ed-92c7-0242ac150003 :termID "term_2f6269ea-6c23-11ed-92c7-0242ac150003" .
+
+:term_e84275f4-6efd-11ed-a8c8-0242ac150003 :termID "term_e84275f4-6efd-11ed-a8c8-0242ac150003" .
+
+:term_fa17c9c8-717d-11ed-a449-0242ac150003 :termID "term_fa17c9c8-717d-11ed-a449-0242ac150003" .
+
+:term_2f9174ea-7189-11ed-8ad6-0242ac150003 :termID "term_2f9174ea-7189-11ed-8ad6-0242ac150003" .
+
+:term_952d0868-722f-11ed-a1ef-0242ac150003 :termID "term_952d0868-722f-11ed-a1ef-0242ac150003" .
+
+:term_952e2626-722f-11ed-a715-0242ac150003 :termID "term_952e2626-722f-11ed-a715-0242ac150003" .
+
+:term_57c83cea-7248-11ed-a958-0242ac150003 :termID "term_57c83cea-7248-11ed-a958-0242ac150003" .
+
+:term_7e4e661c-724a-11ed-85e7-0242ac150003 :termID "term_7e4e661c-724a-11ed-85e7-0242ac150003" .
+
+:term_0f3534ee-7255-11ed-a2b4-0242ac150003 :termID "term_0f3534ee-7255-11ed-a2b4-0242ac150003" .
+
+:term_ef5b79ae-74c4-11ed-952c-0242ac150003 :termID "term_ef5b79ae-74c4-11ed-952c-0242ac150003" .
+
+:term_ef647162-74c4-11ed-ae37-0242ac150003 :termID "term_ef647162-74c4-11ed-ae37-0242ac150003" .
+
+:term_98113238-77a8-11ed-b108-0242ac150003 :termID "term_98113238-77a8-11ed-b108-0242ac150003" .
+
+:term_d06dbb4e-77ab-11ed-8eae-0242ac150003 :termID "term_d06dbb4e-77ab-11ed-8eae-0242ac150003" .
+
+:term_3086e1b4-7fbc-11ed-961a-0242ac150003 :termID "term_3086e1b4-7fbc-11ed-961a-0242ac150003" .
+
+:term_82cd959c-e021-11ed-aedb-0242ac150004 :termID "term_82cd959c-e021-11ed-aedb-0242ac150004" .
+
+:term_af7079f6-e2cf-11ed-a705-0242ac150004 :termID "term_af7079f6-e2cf-11ed-a705-0242ac150004" .
+
+:term_286f1568-ec41-11ed-b9a3-0242ac150004 :termID "term_286f1568-ec41-11ed-b9a3-0242ac150004" .
+
+:term_type_babeb258-5389-11ed-b0eb-0242ac150003 :hasCreateDate "2022-11-25T15:24:32.164818^^xsd:dateTime" .
+
+:term_type_48deca5c-538d-11ed-9121-0242ac150003 :hasCreateDate "2022-10-24T11:16:19.643878^^xsd:dateTime" .
+
+:term_type_c6d3634a-5929-11ed-9c56-0242ac150003 :hasCreateDate "2022-10-31T14:39:08.278009^^xsd:dateTime" .
+
+:term_type_f110fd22-6ca5-11ed-84ec-0242ac150003 :hasCreateDate "2022-11-25T09:45:48.820290^^xsd:dateTime" .
+
+:term_type_5a2f6634-70ae-11ed-b4a8-0242ac150003 :hasCreateDate "2022-11-30T12:56:05.821801^^xsd:dateTime" .
+
+:term_type_2d74ace8-77ad-11ed-895e-0242ac150003 :hasCreateDate "2022-12-09T10:35:19.411253^^xsd:dateTime" .
+
+:term_type_1ddedaf8-796d-11ed-ad64-0242ac150003 :hasCreateDate "2022-12-12T10:09:40.233930^^xsd:dateTime" .
+
+:term_type_0df4436a-7a05-11ed-8304-0242ac150003 :hasCreateDate "2022-12-12T10:09:24.592965^^xsd:dateTime" .
+
+:term_type_bbd7eba2-7a06-11ed-9bc5-0242ac150003 :hasCreateDate "2022-12-12T10:21:25.826840^^xsd:dateTime" .
+
+:term_type_1c24fd64-7a17-11ed-aa34-0242ac150003 :hasCreateDate "2022-12-12T12:18:39.341144^^xsd:dateTime" .

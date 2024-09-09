@@ -1,15 +1,15 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...tests/test_CCV_05/test_CCV_05_rules.pl
 Solving...
-actualTarget("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",_obligationShape) actualTarget("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",_endDateConsistencyShape) del(_hasEndDate("_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","2023_09_07"))
+actualTarget("d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29",d_ObligationShape) actualTarget("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",d_EndDateConsistencyShape) del(d_hasEndDate("d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29","2023_09_07"))
 
 OPTIMUM FOUND
 
-Models       : 101+
+Models       : 130
   Optimum    : yes
-  Optimal    : 100
-Optimization : 0 1 0 0
+  Optimal    : 128
+Optimization : 0 1 1 0
 Calls        : 1
-Time         : 0.054s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.055s
-Threads      : 3        (Winner: 0)
+Time         : 0.049s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.051s
+Threads      : 3        (Winner: 1)

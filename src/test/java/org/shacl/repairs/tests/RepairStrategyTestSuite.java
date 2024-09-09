@@ -51,9 +51,9 @@ public class RepairStrategyTestSuite {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusFulfilled\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_ContractStatusShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusPending\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusFulfilled\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_01_result.txt", result);
     }
@@ -73,9 +73,9 @@ public class RepairStrategyTestSuite {
 
         //assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusPending\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusUnknown\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_ContractStatusShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusPending\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusUnknown\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_02_result.txt", result);
     }
@@ -95,9 +95,9 @@ public class RepairStrategyTestSuite {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_fulfilledState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",d_ObligationStateShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasState(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"d_PendingState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasState(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"d_FulfilledState\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_03_result.txt", result);
     }
@@ -117,9 +117,9 @@ public class RepairStrategyTestSuite {
 
         //assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationStateShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_pendingState\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasState(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"_unknownState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",d_ObligationStateShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasState(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"d_PendingState\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasState(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"d_UnknownState\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_04_result.txt", result);
     }
@@ -138,9 +138,9 @@ public class RepairStrategyTestSuite {
         String result = r.runProgram(testPath + "/test_CCV_05_rules.pl");
 
         //assertTrue(result.contains("Models       : 6"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_endDateConsistencyShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2023_09_07\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",d_ObligationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_EndDateConsistencyShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasEndDate(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2023_09_07\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_05_result.txt", result);
     }
@@ -159,9 +159,9 @@ public class RepairStrategyTestSuite {
         String result = r.runProgram(testPath + "/test_CCV_06_rules.pl");
 
         //assertTrue(result.contains("Models       : 5"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",_obligationShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_endDateConsistencyShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasEndDate(\"_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2020_09_07\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",d_ObligationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_EndDateConsistencyShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasEndDate(\"d_ob_9e2bb1ce_2ed4_11ed_be7d_3f8589292a29\",\"2020_09_07\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_06_result.txt", result);
     }
@@ -181,10 +181,10 @@ public class RepairStrategyTestSuite {
 
         //assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractStatusShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",_contractViolationShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusViolated\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasContractStatus(\"_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"_statusFulfilled\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_ContractStatusShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",d_ContractViolationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusViolated\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasContractStatus(\"d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29\",\"d_statusFulfilled\"))") == 1);
 
         r.writeResult(testPath + "/test_CCV_07_result.txt", result);
     }
@@ -222,8 +222,8 @@ public class RepairStrategyTestSuite {
         }
 
         int nrOfTests = 10;
-        int nrOfAddedStatusAndState = 1;
-        int nrOfAddedEndDates = 1;
+        int nrOfAddedStatusAndState = 4;
+        int nrOfAddedEndDates = 4;
         Random rng = new Random();
 
         ValueFactory vf = SimpleValueFactory.getInstance();

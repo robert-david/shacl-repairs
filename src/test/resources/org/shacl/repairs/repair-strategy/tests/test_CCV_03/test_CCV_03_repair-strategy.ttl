@@ -4,16 +4,18 @@
 
 :FunctionalStateStrategy
     a shr:RepairStrategy;
-    shr:preference [
+    shr:hasPreference [
         sh:path :hasState;
         shr:action shr:delete;
+        shr:preferenceType shr:read-only;
         shr:values (
             :PendingState :FulfilledState :ViolatedState
         )
     ];
-    shr:preference [
+    shr:hasPreference [
         sh:path :hasState;
         shr:action shr:add;
+        shr:preferenceType shr:change;
         shr:values (
             :PendingState
         )

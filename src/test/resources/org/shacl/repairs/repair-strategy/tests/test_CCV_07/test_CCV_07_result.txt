@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...tests/test_CCV_07/test_CCV_07_rules.pl
 Solving...
-actualTarget("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",_contractStatusShape) actualTarget("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",_contractViolationShape) del(_hasContractStatus("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","_statusFulfilled")) add(_hasContractStatus("_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","_statusViolated"))
+actualTarget("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",d_ContractStatusShape) actualTarget("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29",d_ContractViolationShape) del(d_hasContractStatus("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","d_statusFulfilled")) add(d_hasContractStatus("d_contb2b_bfcff2dc_2ed3_11ed_be7d_3f8589292a29","d_statusViolated"))
 
 OPTIMUM FOUND
 
@@ -10,6 +10,6 @@ Models       : 10
   Optimal    : 8
 Optimization : 0 2 1
 Calls        : 1
-Time         : 0.030s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.027s
-Threads      : 3        (Winner: 1)
+Time         : 0.021s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.022s
+Threads      : 3        (Winner: 0)

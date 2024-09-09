@@ -27,6 +27,12 @@ public class GraphParser {
 
         Set<Namespace> instances_nss = dataModel.getNamespaces();
 
+        for (Namespace instancesNss : instances_nss) {
+            if ("d".equals(instancesNss.getPrefix())) {
+                throw new RuntimeException("d is used as a clingo rule prefix for the default namespace");
+            }
+        }
+
         for (Statement statement : dataModel) {
 
             if (statement.getPredicate().equals(RDF.TYPE)) {
@@ -38,21 +44,37 @@ public class GraphParser {
                 String class1 = ns(instances_nss, statement.getSubject());
                 String class2 = ns(instances_nss, statement.getObject());
                 shaclData.getDataFacts()
-                        .add(class2 + "(X):-" + class1 + "(X) .\n");
+                        .add("rdfs_subClassOf(\"" + class1 + "\",\"" + class2 + "\") .\n");
 
             } else {
 
-                shaclData.getDataFacts()
-                        .add(ns(instances_nss, statement.getPredicate())
-                                + "(\"" + ns(instances_nss, statement.getSubject()) + "\",\""
-                                + ns(instances_nss, statement.getObject()) + "\") .\n");
-
                 if (statement.getObject().isLiteral()) {
+
+                    shaclData.getDataFacts()
+                            .add(ns(instances_nss, statement.getPredicate())
+                                    + "(\"" + ns(instances_nss, statement.getSubject())
+                                    + "\",\"" + ns(instances_nss, statement.getObject())
+                                        .replace("\"","\\\"")
+                                        .replace("(","\\\\(")
+                                        .replace(")","\\\\)")
+                                    //+ "\",\"" + StringEscapeUtils.escapeJava(ns(instances_nss, statement.getObject())
+                                    .replaceAll("\n"," ")
+                                    .replaceAll("\t"," ")
+                            + "\") .\n");
 
                     Literal literal = (Literal) statement.getObject();
                     shaclData.getDataFacts()
                             .add(ns(instances_nss, literal.getDatatype())
-                                    + "(\"" + ns(instances_nss, statement.getObject()) + "\") .\n");
+                                    + "(\"" + ns(instances_nss, statement.getObject()).replace("\"","\\\"")
+                                    .replaceAll("\n"," ")
+                                    .replaceAll("\t"," ")
+                                    + "\") .\n");
+                } else {
+
+                    shaclData.getDataFacts()
+                            .add(ns(instances_nss, statement.getPredicate())
+                                    + "(\"" + ns(instances_nss, statement.getSubject())
+                                    + "\",\"" + ns(instances_nss, statement.getObject()) + "\") .\n");
                 }
             }
         }
