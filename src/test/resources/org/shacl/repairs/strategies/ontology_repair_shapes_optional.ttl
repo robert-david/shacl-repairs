@@ -1,0 +1,89 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:ClassLabelShape a sh:NodeShape ;
+    sh:targetClass rdfs:Class, owl:Class ;
+    sh:targetSubjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:targetObjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:or (
+        [ sh:property [
+            sh:path rdfs:label ;
+            sh:equals skos:prefLabel ;
+        ]]
+        [ sh:property [
+            sh:path rdfs:label ;
+            sh:equals dcterms:title ;
+        ]]
+    ) .
+
+:PropertyLabelShape a sh:NodeShape ;
+    sh:targetClass rdf:Property , owl:ObjectProperty, owl:DatatypeProperty, owl:SymmetricProperty, owl:FunctionalProperty,
+    owl:AnnotationProperty, owl:OntologyProperty ;
+    sh:targetSubjectsOf rdfs:subPropertyOf, rdfs:domain, rdfs:range, owl:inverseOf ;
+    sh:targetObjectsOf rdfs:subPropertyOf , owl:inverseOf ;
+    sh:or (
+        [ sh:property [
+            sh:path rdfs:label ;
+            sh:equals skos:prefLabel ;
+        ]]
+        [ sh:property [
+            sh:path rdfs:label ;
+            sh:equals dcterms:title ;
+        ]]
+    ) .
+
+:ClassDescriptionShape a sh:NodeShape ;
+    sh:targetClass rdfs:Class, owl:Class ;
+    sh:targetSubjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:targetObjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:or (
+        [ sh:property [
+            sh:path rdfs:description ;
+            sh:equals skos:definition ;
+        ]]
+        [ sh:property [
+            sh:path rdfs:description ;
+            sh:equals skos:note ;
+        ]]
+    ) .
+
+:PropertyDescriptionShape a sh:NodeShape ;
+    sh:targetClass rdf:Property , owl:ObjectProperty, owl:DatatypeProperty, owl:SymmetricProperty, owl:FunctionalProperty,
+    owl:AnnotationProperty, owl:OntologyProperty ;
+    sh:targetSubjectsOf rdfs:subPropertyOf, rdfs:domain, rdfs:range, owl:inverseOf ;
+    sh:targetObjectsOf rdfs:subPropertyOf , owl:inverseOf ;
+    sh:or (
+        [ sh:property [
+            sh:path rdfs:description ;
+            sh:equals skos:definition ;
+        ]]
+        [ sh:property [
+            sh:path rdfs:description ;
+            sh:equals skos:note ;
+        ]]
+    ) .
+
+:ClassModificationDateShape a sh:NodeShape ;
+    sh:targetClass rdfs:Class, owl:Class ;
+    sh:targetSubjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:targetObjectsOf rdfs:subClassOf, owl:disjointWith ;
+    sh:property [
+        sh:path dcterms:modified ;
+        sh:maxCount 1 ;
+    ] .
+
+:PropertyModificationDateShape a sh:NodeShape ;
+    sh:targetClass rdf:Property , owl:ObjectProperty, owl:DatatypeProperty, owl:SymmetricProperty, owl:FunctionalProperty,
+    owl:AnnotationProperty, owl:OntologyProperty ;
+    sh:targetSubjectsOf rdfs:subPropertyOf, rdfs:domain, rdfs:range, owl:inverseOf ;
+    sh:targetObjectsOf rdfs:subPropertyOf , owl:inverseOf ;
+    sh:property [
+        sh:path dcterms:modified ;
+        sh:maxCount 1 ;
+    ] .

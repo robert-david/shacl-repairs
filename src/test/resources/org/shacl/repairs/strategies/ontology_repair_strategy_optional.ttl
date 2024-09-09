@@ -1,0 +1,38 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:LabelStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        sh:path rdfs:label ;
+        shr:action shr:add ;
+        shr:preferenceType shr:change ;
+        shr:weight "1"^^xsd:int ;
+    ] .
+
+:DescriptionStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        sh:path rdfs:description ;
+        shr:action shr:add ;
+        shr:preferenceType shr:change ;
+        shr:weight "1"^^xsd:int ;
+    ] .
+
+:ModificationDateStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        sh:path dcterms:modified ;
+        shr:action shr:delete ;
+        shr:preferenceType shr:change ;
+        shr:weight "1"^^xsd:int ;
+        shr:function shr:maxValue ;
+    ] .

@@ -1,0 +1,15 @@
+clingo version 5.7.1
+Reading from ..._optional_02/test_optional_02_rules.pl
+Solving...
+actualTarget("d_p1",d_PropertyLabelShape) actualTarget("d_p1",d_PropertyDescriptionShape) actualTarget("d_p1",d_PropertyModificationDateShape) actualTarget("d_p2",d_PropertyLabelShape) actualTarget("d_p2",d_PropertyDescriptionShape) actualTarget("d_p2",d_PropertyModificationDateShape) actualTarget("d_c1",d_ClassLabelShape) actualTarget("d_c1",d_ClassModificationDateShape) actualTarget("d_c1",d_ClassDescriptionShape) actualTarget("d_c2",d_ClassLabelShape) actualTarget("d_c2",d_ClassModificationDateShape) actualTarget("d_c2",d_ClassDescriptionShape) actualTarget("d_c3",d_ClassLabelShape) actualTarget("d_c3",d_ClassModificationDateShape) actualTarget("d_c3",d_ClassDescriptionShape) add(rdfs_description("d_p2","P2")) add(rdfs_description("d_c1","C1")) add(rdfs_description("d_c2","C2"))
+
+OPTIMUM FOUND
+
+Models       : 10002+
+  Optimum    : yes
+  Optimal    : 10000
+Optimization : 0 -3 3
+Calls        : 1
+Time         : 0.194s (Solving: 0.10s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.223s
+Threads      : 3        (Winner: 0)

@@ -1,0 +1,15 @@
+clingo version 5.7.1
+Reading from ...ference_05/test_preference_05_rules.pl
+Solving...
+actualTarget("d_p1",d_PropertyShape) actualTarget("d_p1",d_DomainConsistencyShape) actualTarget("d_p1",d_RangeConsistencyShape) actualTarget("d_p2",d_PropertyShape) actualTarget("d_p3",d_PropertyShape) actualTarget("d_p4",d_PropertyShape) actualTarget("d_p4",d_DomainConsistencyShape) actualTarget("d_p4",d_RangeConsistencyShape) actualTarget("d_B",d_ClassShape) actualTarget("d_A",d_ClassShape) actualTarget("d_p5",d_PropertyShape) del(rdfs_range("d_p2","d_B")) add(rdfs_range("d_p4","d_A"))
+
+OPTIMUM FOUND
+
+Models       : 9
+  Optimum    : yes
+  Optimal    : 4
+Optimization : 0 2 2
+Calls        : 1
+Time         : 0.257s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.273s
+Threads      : 3        (Winner: 0)

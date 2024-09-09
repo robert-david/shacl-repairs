@@ -1,0 +1,17 @@
+clingo version 5.7.1
+Reading from ...ference_06/test_preference_06_rules.pl
+Solving...
+actualTarget("d_p1",d_PropertyShape) actualTarget("d_p1",d_DomainConsistencyShape) actualTarget("d_p1",d_RangeConsistencyShape) actualTarget("d_p2",d_PropertyShape) actualTarget("d_p3",d_PropertyShape) actualTarget("d_p3",d_DomainConsistencyShape) actualTarget("d_p3",d_RangeConsistencyShape) actualTarget("d_p4",d_PropertyShape) actualTarget("d_B",d_ClassShape) actualTarget("d_A",d_ClassShape) del(rdfs_range("d_p2","d_b1")) del(rdfs_range("d_p3","d_b1")) add(rdfs_range("d_p3","d_B"))
+
+actualTarget("d_p1",d_PropertyShape) actualTarget("d_p1",d_DomainConsistencyShape) actualTarget("d_p1",d_RangeConsistencyShape) actualTarget("d_p2",d_PropertyShape) actualTarget("d_p3",d_PropertyShape) actualTarget("d_p3",d_DomainConsistencyShape) actualTarget("d_p3",d_RangeConsistencyShape) actualTarget("d_p4",d_PropertyShape) actualTarget("d_B",d_ClassShape) actualTarget("d_A",d_ClassShape) del(rdfs_range("d_p2","d_b1")) del(rdfs_range("d_p4","d_B")) add(owl_Class("d_b1"))
+
+OPTIMUM FOUND
+
+Models       : 72
+  Optimum    : yes
+  Optimal    : 68
+Optimization : 0 4 3
+Calls        : 1
+Time         : 0.239s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.259s
+Threads      : 3        (Winner: 0)

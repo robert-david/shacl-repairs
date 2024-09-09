@@ -1,0 +1,36 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+:p1 rdf:type owl:DatatypeProperty ;
+    rdfs:range :CustomDatatype .
+
+obo:BFO_0000057
+    rdf:type owl:DatatypeProperty ;
+#    rdfs:domain obo:BFO_0000015 ;
+    rdfs:range [
+#        rdf:type owl:Class ;
+        owl:unionOf (
+            xsd:string
+            xsd:int
+            [ owl:intersectionOf (
+                xsd:datetime
+                [
+                    rdf:type owl:Class ;
+                    owl:complementOf xsd:double
+                ]) ;
+                rdf:type owl:Class
+            ]
+        )
+    ] ;
+    dc11:identifier "248-BFO" ;
+    rdfs:label "has participant"@en ;
+    skos:definition "p has participant c =Def c participates in p"@en ;
+    skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .

@@ -1,0 +1,15 @@
+clingo version 5.7.1
+Reading from ..._optional_03/test_optional_03_rules.pl
+Solving...
+actualTarget("d_c1",d_ClassLabelShape) actualTarget("d_c1",d_ClassModificationDateShape) actualTarget("d_c1",d_ClassDescriptionShape) actualTarget("d_c2",d_ClassLabelShape) actualTarget("d_c2",d_ClassModificationDateShape) actualTarget("d_c2",d_ClassDescriptionShape) del(dcterms_modified("d_c1","2024_08_08T00:00:02")) del(dcterms_modified("d_c1","2024_09_08T00:00:00"))
+
+OPTIMUM FOUND
+
+Models       : 4098
+  Optimum    : yes
+  Optimal    : 4096
+Optimization : 0 -2 2
+Calls        : 1
+Time         : 0.124s (Solving: 0.04s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.139s
+Threads      : 3        (Winner: 1)

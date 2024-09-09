@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:c1 rdfs:subClassOf :c2 .
+:c1 owl:disjointWith :c3 .
+:c1 skos:definition "C1" .
+:c2 skos:note "C2" .
+
+:p1 rdfs:subPropertyOf :p2 .
+:p1 rdfs:range xsd:string .
+:p2 skos:definition "P2" .

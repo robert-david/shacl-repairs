@@ -1,0 +1,14 @@
+clingo version 5.7.1
+Reading from ...ference_02/test_preference_02_rules.pl
+Solving...
+actualTarget("d_p1",d_PropertyShape) actualTarget("d_p2",d_PropertyShape) add(owl_DatatypeProperty("d_p1")) add(owl_ObjectProperty("d_p2")) del(owl_AnnotationProperty("d_p1"))
+
+OPTIMUM FOUND
+
+Models       : 3
+  Optimum    : yes
+Optimization : 0 -2 3
+Calls        : 1
+Time         : 0.132s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.132s
+Threads      : 3        (Winner: 0)

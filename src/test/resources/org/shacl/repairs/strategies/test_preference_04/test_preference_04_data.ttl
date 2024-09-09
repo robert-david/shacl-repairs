@@ -1,0 +1,29 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+:p1 a owl:ObjectProperty .
+:p2 a owl:ObjectProperty .
+:p3 a owl:ObjectProperty .
+:p4 a owl:ObjectProperty .
+:A a owl:Class .
+:B a owl:Class .
+
+:p1 rdfs:subPropertyOf :p2 .
+:p1 rdfs:domain :A .
+
+:p2 rdfs:domain :b1 .
+:b1 owl:unionOf :b2 .
+:b2 rdf:first :A .
+:b2 rdf:rest :b3 .
+:b3 rdf:first :B .
+:b3 rdf:rest rdf:nil .
+
+:p3 rdfs:subPropertyOf :p4 .
+:p4 rdfs:domain :B .
+
+:p3 rdfs:domain :b1 .

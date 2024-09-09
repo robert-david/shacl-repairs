@@ -1,0 +1,15 @@
+clingo version 5.7.1
+Reading from ...ference_12/test_preference_12_rules.pl
+Solving...
+actualTarget("d_p1",d_PropertyShape) actualTarget("bnode_d010c93c2ea54b54bac743f51ae9ebd16990",d_ClassShape) actualTarget("bnode_d010c93c2ea54b54bac743f51ae9ebd16993",d_ClassShape) actualTarget("obo_BFO_0000057",d_PropertyShape) del(rdfs_range("obo_BFO_0000057","bnode_d010c93c2ea54b54bac743f51ae9ebd16986")) add(rdfs_Datatype("d_CustomDatatype"))
+
+OPTIMUM FOUND
+
+Models       : 258
+  Optimum    : yes
+  Optimal    : 256
+Optimization : 0 2 2
+Calls        : 1
+Time         : 0.143s (Solving: 0.01s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.147s
+Threads      : 3        (Winner: 2)

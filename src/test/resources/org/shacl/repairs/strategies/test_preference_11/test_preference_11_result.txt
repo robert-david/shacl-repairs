@@ -1,0 +1,14 @@
+clingo version 5.7.1
+Reading from ...ference_11/test_preference_11_rules.pl
+Solving...
+actualTarget("bnode_d010c93c2ea54b54bac743f51ae9ebd16407",d_ClassShape) actualTarget("bnode_d010c93c2ea54b54bac743f51ae9ebd16411",d_ClassShape) actualTarget("obo_BFO_0000057",d_PropertyShape) actualTarget("bnode_d010c93c2ea54b54bac743f51ae9ebd16414",d_ClassShape) add(owl_Class("obo_BFO_0000015")) add(owl_Class("obo_BFO_0000031")) add(owl_Class("obo_BFO_0000020"))
+
+OPTIMUM FOUND
+
+Models       : 2
+  Optimum    : yes
+Optimization : 0 0 3
+Calls        : 1
+Time         : 0.121s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.122s
+Threads      : 3        (Winner: 0)

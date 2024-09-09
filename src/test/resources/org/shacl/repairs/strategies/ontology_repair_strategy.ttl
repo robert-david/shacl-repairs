@@ -1,0 +1,108 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shr: <http://www.w3.org/ns/shacl/repairs#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:RdfPropertyStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        shr:condition rdf:Property ;
+        sh:class owl:ObjectProperty ;
+        shr:action shr:add ;
+        shr:preferenceType shr:change ;
+        shr:weight "1"^^xsd:int ;
+    ] .
+
+:AnnotationPropertyStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        shr:condition owl:AnnotationProperty ;
+        sh:class owl:DatatypeProperty ;
+        shr:action shr:add ;
+        shr:preferenceType shr:change ;
+        shr:weight "1"^^xsd:int ;
+    ] .
+
+:SubClassStrategy
+    a shr:RepairStrategy;
+    shr:hasConstraint [
+        sh:path rdfs:subClassOf;
+        shr:action shr:add;
+    ] ;
+    shr:hasPreference [
+        sh:path rdfs:subClassOfD;
+        shr:action shr:delete;
+        shr:preferenceType shr:read-only ;
+        shr:weight "5"^^xsd:int ;
+    ] .
+
+:SubPropertyStrategy
+    a shr:RepairStrategy;
+    shr:hasConstraint [
+        sh:path rdfs:subPropertyOf;
+        shr:action shr:add;
+    ] ;
+    shr:hasPreference [
+        sh:path rdfs:subPropertyOf;
+        shr:action shr:delete;
+        shr:preferenceType shr:read-only ;
+        shr:weight "5"^^xsd:int ;
+    ] .
+
+:DefinedDomainStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        sh:path rdfs:domain;
+        shr:action shr:delete;
+        shr:preferenceType shr:read-only ;
+        shr:weight "2"^^xsd:int ;
+    ] .
+
+:DefinedRangeStrategy
+    a shr:RepairStrategy;
+    shr:hasPreference [
+        sh:path rdfs:range;
+        shr:action shr:delete;
+        shr:preferenceType shr:read-only ;
+        shr:weight "2"^^xsd:int ;
+    ] .
+
+:DenyListStrategy
+    a shr:RepairStrategy;
+    shr:hasConstraint [
+        sh:path owl:unionOf;
+        shr:action shr:add;
+    ] ;
+    shr:hasConstraint [
+        sh:path rdf:first;
+        shr:action shr:add;
+    ] ;
+    shr:hasConstraint [
+        sh:path rdf:rest;
+        shr:action shr:add;
+    ] ;
+    shr:hasConstraint [
+        sh:path owl:unionOf;
+        shr:action shr:delete;
+    ] ;
+    shr:hasConstraint [
+        sh:path rdf:first;
+        shr:action shr:delete;
+    ] ;
+    shr:hasConstraint [
+        sh:path rdf:rest;
+        shr:action shr:delete;
+    ] .
+
+:DatatypeStrategy
+    a shr:RepairStrategy;
+    shr:hasConstraint [
+        sh:class rdfs:Datatype;
+        shr:action shr:delete;
+    ] .
