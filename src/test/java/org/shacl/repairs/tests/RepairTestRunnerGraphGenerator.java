@@ -115,11 +115,9 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
 
     private void generateChangeTriples(String input) {
 
-        String[] lines = input.split("\\) ");
+        String[] lines = input.split("(?<!\\\\)\\) ");
 
         for (String line : lines) {
-            // workaround for splitting clingo atoms
-            line = line + ")";
             if (line.startsWith("add")) {
                 line = line.replace("add", "").replaceFirst("\\(", "");
                 additions.add(processLine(line));
@@ -164,6 +162,7 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
                 }
             }
             object = line.substring(line.indexOf(",\"") + 2, line.indexOf("\")"));
+            object = object.replace("\\\\(","(").replace("\\\\)",")");
             if (object.contains("_") && !object.startsWith("bnode_")) {
                 namespace = object.substring(0, object.indexOf("_"));
                 if (!(Utils.getNsURI(Utils.nss, namespace) == null)) {
@@ -234,12 +233,5 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
         try (FileOutputStream out = new FileOutputStream(targetFile)) {
             Rio.write(dataModel, out, RDFFormat.TURTLE);
         }
-    }
-
-    public void verifyConformance(String result) {
-
-        assertTrue(StringUtils.countMatches(result,"skipTarget(") == 0);
-        assertTrue(StringUtils.countMatches(result,"add(") == 0);
-        assertTrue(StringUtils.countMatches(result,"del(") == 0);
     }
 }

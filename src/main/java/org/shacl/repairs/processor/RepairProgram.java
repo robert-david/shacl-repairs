@@ -7,8 +7,8 @@ import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.BasicParserSettings;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
-import org.shacl.repairs.data.SHACLData;
 import org.shacl.repairs.data.RepairData;
+import org.shacl.repairs.data.SHACLData;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -37,7 +37,7 @@ public class RepairProgram {
 
         if (repairStrategiesFile != null) {
 
-            createRepairStrategyRules(repairStrategiesFile);
+            createRepairStrategyRules(dataFile, repairStrategiesFile);
         }
 
         try(InputStream inputStream = new FileInputStream(shapesFile)) {
@@ -92,7 +92,7 @@ public class RepairProgram {
                 rdfParser.parse(inputStream, SHACLData.getBaseURI());
             }
 
-            RepairStrategyParser.createRepairStrategyRules(repairStrategiesModel, RepairData.get());
+            RepairStrategyParser.createRepairStrategyRules(repairStrategiesModel, dataModel, RepairData.get());
         }
         // repair strategies - end
 
@@ -225,17 +225,28 @@ public class RepairProgram {
         }
     }
 
-    private void createRepairStrategyRules(String path) throws IOException {
+    private void createRepairStrategyRules(String repairStrategiesFile, String dataFile) throws IOException {
 
-        try(InputStream inputStream = new FileInputStream(path)) {
+        try(InputStream inputStream = new FileInputStream(repairStrategiesFile)) {
             Utils.nss = Rio.parse(inputStream, SHACLData.getBaseURI(), RDFFormat.TURTLE).getNamespaces();
         }
 
         RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
+        Model repairStrategiesModel;
+        try (InputStream inputStream = new FileInputStream(repairStrategiesFile)) {
+
+            repairStrategiesModel = new LinkedHashModel();
+            rdfParser.setRDFHandler(new StatementCollector(repairStrategiesModel));
+            rdfParser.parse(inputStream, SHACLData.getBaseURI());
+        }
+
+        rdfParser = Rio.createParser(Rio.getParserFormatForFileName(dataFile).get());
+        rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
+
         Model dataModel;
-        try (InputStream inputStream = new FileInputStream(path)) {
+        try (InputStream inputStream = Files.newInputStream(Paths.get(dataFile))) {
 
             dataModel = new LinkedHashModel();
             rdfParser.setRDFHandler(new StatementCollector(dataModel));
@@ -244,6 +255,7 @@ public class RepairProgram {
 
         RepairStrategyParser.
                 createRepairStrategyRules(
+                        repairStrategiesModel,
                         dataModel,
                         RepairData.get());
     }
