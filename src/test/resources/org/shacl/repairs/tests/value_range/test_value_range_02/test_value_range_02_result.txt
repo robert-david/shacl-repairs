@@ -1,0 +1,14 @@
+clingo version 5.7.1
+Reading from ..._range_02/test_value_range_02_rules.pl
+Solving...
+actualTarget("d_observation",d_OutlierShape) del(d_hasValue("d_observation","2.51"))
+
+OPTIMUM FOUND
+
+Models       : 3
+  Optimum    : yes
+Optimization : 0 1
+Calls        : 1
+Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.004s
+Threads      : 3        (Winner: 1)

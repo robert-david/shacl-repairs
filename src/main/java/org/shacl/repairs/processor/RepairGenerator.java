@@ -499,6 +499,10 @@ public class RepairGenerator {
                         || constraintComponent instanceof EqualsConstraintComponent
                         || constraintComponent instanceof LessThanConstraintComponent
                         || constraintComponent instanceof LessThanOrEqualsConstraintComponent
+                        || constraintComponent instanceof MinInclusiveConstraintComponent
+                        || constraintComponent instanceof MaxInclusiveConstraintComponent
+                        || constraintComponent instanceof MinExclusiveConstraintComponent
+                        || constraintComponent instanceof MaxExclusiveConstraintComponent
                 ) {
                     propertyConstraints.add(constraintComponent);
                 } else if (constraintComponent instanceof QualifiedMinCountConstraintComponent
@@ -618,6 +622,10 @@ public class RepairGenerator {
                 String equalsName = ns(nss, ((EqualsConstraintComponent) constraintComponent).getPredicate());
                 getEqualsRules(s, st, path, equalsName);
 
+            } else if (constraintComponent instanceof LessThanConstraintComponent) {
+
+                    throw new RuntimeException("sh:lessThan not implemented");
+
             } else if (constraintComponent instanceof LessThanOrEqualsConstraintComponent) {
 
                 String s = "s" + shapeCount++;
@@ -627,6 +635,18 @@ public class RepairGenerator {
 
                 String lessThanOrEqualsName = ns(nss, ((LessThanOrEqualsConstraintComponent) constraintComponent).getPredicate());
                 getLessThanOrEqualsRules(shapeName, st, path, lessThanOrEqualsName);
+
+            } else if (constraintComponent instanceof MinInclusiveConstraintComponent ||
+                    constraintComponent instanceof MaxInclusiveConstraintComponent ||
+                    constraintComponent instanceof MinExclusiveConstraintComponent ||
+                    constraintComponent instanceof MaxExclusiveConstraintComponent) {
+
+                String s = "s" + shapeCount++;
+
+                RepairData.get().getRepairRules().add(s + "_(X,\"t*\"):-" + shapeName + "_(X,\"t*\") .\n");
+                notRepair += s + "_(X,\"f\");";
+
+                getValueRangeRules(s, st, path, constraintComponent);
             }
         }
 
@@ -1250,6 +1270,67 @@ public class RepairGenerator {
         RepairData.get().getChangeSetRules().add("del(" + lessThanOrEqualsName + "(X,Y)):-" + lessThanOrEqualsName + "_(X,Y,\"f\")," + lessThanOrEqualsName + "(X,Y) .\n");
 
         RepairData.get().getProgramConstraints().add(":-" + lessThanOrEqualsName + "_(X,Y,\"t\")," + lessThanOrEqualsName + "_(X,Y,\"f\") .\n");
+    }
+
+    private static void getValueRangeRules(String shapeName, String st, Path path, ConstraintComponent constraintComponent) {
+
+        String comparator = switch (constraintComponent) {
+            case MinInclusiveConstraintComponent c ->
+                    "<\"" + c.getMinInclusive().getLabel() + "\"";
+            case MaxInclusiveConstraintComponent c ->
+                    ">\"" + c.getMaxInclusive().getLabel() + "\"";
+            case MinExclusiveConstraintComponent c ->
+                    "<=\"" + c.getMinExclusive().getLabel() + "\"";
+            case MaxExclusiveConstraintComponent c ->
+                    ">=\"" + c.getMaxExclusive().getLabel() + "\"";
+            default -> throw new IllegalStateException("Unexpected value: " + constraintComponent);
+        };
+
+        String notComparator = switch (constraintComponent) {
+            case MinInclusiveConstraintComponent c ->
+                    ">=\"" + c.getMinInclusive().getLabel() + "\"";
+            case MaxInclusiveConstraintComponent c ->
+                    "<=\"" + c.getMaxInclusive().getLabel() + "\"";
+            case MinExclusiveConstraintComponent c ->
+                    ">\"" + c.getMinExclusive().getLabel() + "\"";
+            case MaxExclusiveConstraintComponent c ->
+                    "<\"" + c.getMaxExclusive().getLabel() + "\"";
+            default -> throw new IllegalStateException("Unexpected value: " + constraintComponent);
+        };
+
+        if (path instanceof SequencePath) {
+
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\"),Y" + comparator + " .\n");
+
+            RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\"),Y" + notComparator + " .\n");
+
+        } else if (path instanceof SimplePath) {
+
+            String property = ns(nss, path.getId());
+
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\"),Y" + comparator + " .\n");
+
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\"),Y" + notComparator + " .\n");
+
+        } else if (path instanceof InversePath) {
+
+            String property = ns(nss, path.getId());
+
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\"),X" + comparator + " .\n");
+
+            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\"),X" + notComparator + " .\n");
+
+        } else {
+            throw new RuntimeException("path contains not supported element " + path.getClass().getSimpleName());
+        }
+
+        RepairData.get().getRepairRules().add("\n");
     }
 
     public static void getNodeConstraintRules(String shapeName, Collection<ConstraintComponent> nodeConstraints, boolean universal) {

@@ -1,0 +1,9 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:observation :hasValue "0.7"^^xsd:float .
+:observation :hasValue "1.5"^^xsd:float .
+:observation :hasValue "2"^^xsd:float .
+:observation :hasValue "2.51"^^xsd:float .
+:observation :hasValue "7.000"^^xsd:float .
