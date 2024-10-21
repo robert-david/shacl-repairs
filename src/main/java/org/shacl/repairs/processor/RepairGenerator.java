@@ -1276,55 +1276,43 @@ public class RepairGenerator {
 
         String comparator = switch (constraintComponent) {
             case MinInclusiveConstraintComponent c ->
-                    "<\"" + c.getMinInclusive().getLabel() + "\"";
+                    "@geq(Y,\"" + c.getMinInclusive().getLabel() + "\")";
             case MaxInclusiveConstraintComponent c ->
-                    ">\"" + c.getMaxInclusive().getLabel() + "\"";
+                    "@leq(Y,\"" + c.getMaxInclusive().getLabel() + "\")";
             case MinExclusiveConstraintComponent c ->
-                    "<=\"" + c.getMinExclusive().getLabel() + "\"";
+                    "@gt(Y,\"" + c.getMinExclusive().getLabel() + "\")";
             case MaxExclusiveConstraintComponent c ->
-                    ">=\"" + c.getMaxExclusive().getLabel() + "\"";
-            default -> throw new IllegalStateException("Unexpected value: " + constraintComponent);
-        };
-
-        String notComparator = switch (constraintComponent) {
-            case MinInclusiveConstraintComponent c ->
-                    ">=\"" + c.getMinInclusive().getLabel() + "\"";
-            case MaxInclusiveConstraintComponent c ->
-                    "<=\"" + c.getMaxInclusive().getLabel() + "\"";
-            case MinExclusiveConstraintComponent c ->
-                    ">\"" + c.getMinExclusive().getLabel() + "\"";
-            case MaxExclusiveConstraintComponent c ->
-                    "<\"" + c.getMaxExclusive().getLabel() + "\"";
+                    "@lt(Y,\"" + c.getMaxExclusive().getLabel() + "\")";
             default -> throw new IllegalStateException("Unexpected value: " + constraintComponent);
         };
 
         if (path instanceof SequencePath) {
 
             RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\"),Y" + comparator + " .\n");
+                    shapeName + "_(X,\"t*\")," + st + "_(X,Y,\"t*\")," + comparator + "=\"f\" .\n");
 
             RepairData.get().getRepairRules().add(st + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\"),Y" + notComparator + " .\n");
+                    shapeName + "_(X,\"f\")," + st + "_(X,Y,\"t*\")," + comparator + "=\"t\" .\n");
 
         } else if (path instanceof SimplePath) {
 
             String property = ns(nss, path.getId());
 
             RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\"),Y" + comparator + " .\n");
+                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\")," + comparator + "=\"f\" .\n");
 
             RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\"),Y" + notComparator + " .\n");
+                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\")," + comparator + "=\"t\" .\n");
 
         } else if (path instanceof InversePath) {
 
             String property = ns(nss, path.getId());
 
-            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\"),X" + comparator + " .\n");
+            RepairData.get().getRepairRules().add(property + "_(Y,X,\"f\"):-" +
+                    shapeName + "_(Y,\"t*\")," + property + "_(Y,X,\"t*\")," + comparator + "=\"f\" .\n");
 
-            RepairData.get().getRepairRules().add(property + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"f\")," + property + "_(X,Y,\"t*\"),X" + notComparator + " .\n");
+            RepairData.get().getRepairRules().add(property + "_(Y,X,\"f\"):-" +
+                    shapeName + "_(Y,\"f\")," + property + "_(Y,X,\"t*\"),X" + comparator + "=\"t\" .\n");
 
         } else {
             throw new RuntimeException("path contains not supported element " + path.getClass().getSimpleName());

@@ -191,6 +191,45 @@ public class RepairProgram {
             writer.write("end\n");
             writer.write("#end .\n");
 
+            writer.write("\n\n");
+            writer.write("#script (lua)\n");
+            writer.write("function gt(X,Y)\n");
+            writer.write("local x,y = getNumbers(X,Y)\n");
+            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x>y then return \"t\" else return \"f\" end\n");
+            writer.write("end\n");
+
+            writer.write("\n");
+            writer.write("function lt(X,Y)\n");
+            writer.write("local x,y = getNumbers(X,Y)\n");
+            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x<y then return \"t\" else return \"f\" end\n");
+            writer.write("end\n");
+
+            writer.write("\n");
+            writer.write("function geq(X,Y)\n");
+            writer.write("local x,y = getNumbers(X,Y)\n");
+            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x>=y then return \"t\" else return \"f\" end\n");
+            writer.write("end\n");
+
+            writer.write("\n");
+            writer.write("function leq(X,Y)\n");
+            writer.write("local x,y = getNumbers(X,Y)\n");
+            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x<=y then return \"t\" else return \"f\" end\n");
+            writer.write("end\n");
+
+            writer.write("\n");
+            writer.write("function getNumbers(X,Y)\n");
+            writer.write("local x,_ = string.gsub(tostring(X),\"\\\"\",\"\")\n");
+            writer.write("local y,_ = string.gsub(tostring(Y),\"\\\"\",\"\")\n");
+            writer.write("local xn = tonumber(x)\n");
+            writer.write("local yn = tonumber(y)\n");
+            writer.write("return xn,yn\n");
+            writer.write("end\n");
+            writer.write("#end .\n");
+
 //          alternative new function
 //
 //            writer.write("\n\n");

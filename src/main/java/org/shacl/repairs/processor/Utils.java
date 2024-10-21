@@ -41,7 +41,6 @@ public class Utils {
             }
         }
 
-        id = id.replaceAll("-","_");
         return id;
     }
 

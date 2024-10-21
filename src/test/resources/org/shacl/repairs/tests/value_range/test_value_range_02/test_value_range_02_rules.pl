@@ -45,26 +45,26 @@ d_OutlierShape_("d_observation","t*"):-actualTarget("d_observation",d_OutlierSha
 
 d_hasValue_(X,Y,"t*"):-d_hasValue(X,Y) .
 d_hasValue_(X,Y,"t*"):-d_hasValue_(X,Y,"t") .
-bnode_f85a2a82fff0428cb7a00cd5a923d71813_st_(X,Y,"t*"):-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,_),d_hasValue_(X,Y,"t*") .
+bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_st_(X,Y,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,_),d_hasValue_(X,Y,"t*") .
 
 % Repair Rules
 
-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"t*"):-d_OutlierShape_(X,"t*") .
-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"f"):-d_OutlierShape_(X,"f") .
+bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"t*"):-d_OutlierShape_(X,"t*") .
+bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"f"):-d_OutlierShape_(X,"f") .
 
-% sh:minCount 0 for bnode_f85a2a82fff0428cb7a00cd5a923d71813
-s0_(X,"t*"):-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"t*") .
+% sh:minCount 0 for bnode_7f9d9b63cd6e4fd98d80676ce404d35f13
+s0_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"t*") .
 (C-0) {d_hasValue_(X,Y,"f"):d_hasValue_(X,Y,"t*");s1_(Y,"f"):d_hasValue_(X,Y,"t*"),not d_hasValue_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:d_hasValue_(X,Y,"t*")}=C,C>0 .
 d_hasValue_(X,Y,"f"):-d_hasValue_(X,Y,"t*"),d_hasValue_(X,Y,"f") .
 0 {s1_(Y,"t*"):d_hasValue_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
 
-s2_(X,"t*"):-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"t*") .
-d_hasValue_(X,Y,"f"):-s2_(X,"t*"),d_hasValue_(X,Y,"t*"),Y>"2" .
-d_hasValue_(X,Y,"f"):-s2_(X,"f"),d_hasValue_(X,Y,"t*"),Y<="2" .
+s2_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"t*") .
+d_hasValue_(X,Y,"f"):-s2_(X,"t*"),d_hasValue_(X,Y,"t*"),@leq(Y,"2")="f" .
+d_hasValue_(X,Y,"f"):-s2_(X,"f"),d_hasValue_(X,Y,"t*"),@leq(Y,"2")="t" .
 
-% universal for bnode_f85a2a82fff0428cb7a00cd5a923d71813
-s3_(X,"t*"):-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"t*") .
+% universal for bnode_7f9d9b63cd6e4fd98d80676ce404d35f13
+s3_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 d_hasValue_(X,@new(s4,X,d_hasValue,1..1),"t"):-choose(s4,X,d_hasValue,1) .
@@ -75,12 +75,12 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f");s3_(X,"f"):-bnode_f85a2a82fff0428cb7a00cd5a923d71813_(X,"f") .
+s0_(X,"f");s2_(X,"f");s3_(X,"f"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_(X,"f") .
 
 % Interpretation Rules
 
 d_hasValue_(X,Y,"t**"):-d_hasValue_(X,Y,"t*"),not d_hasValue_(X,Y,"f") .
-bnode_f85a2a82fff0428cb7a00cd5a923d71813_st_(X,Y,"t**"):-d_hasValue_(X,Y,"t**"),bnode_f85a2a82fff0428cb7a00cd5a923d71813_st_(X,Y,"t*"),not bnode_f85a2a82fff0428cb7a00cd5a923d71813_st_(X,Y,"f") .
+bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_st_(X,Y,"t**"):-d_hasValue_(X,Y,"t**"),bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_st_(X,Y,"t*"),not bnode_7f9d9b63cd6e4fd98d80676ce404d35f13_st_(X,Y,"f") .
 
 % Program Constraints
 
@@ -113,5 +113,40 @@ for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
 return tostring(result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "nil" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "nil" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "nil" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "nil" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
 end
 #end .
