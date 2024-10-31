@@ -42,7 +42,8 @@ public class Main {
                 rrgg.runProgram(
                         clingoFile,
                         dataFile + ".additions.ttl",
-                        dataFile + ".deletions.ttl");
+                        dataFile + ".deletions.ttl",
+                        dataFile);
 
                 rrgg.repairDataGraph(dataFile,
                         dataFile + ".additions.ttl",
@@ -70,7 +71,8 @@ public class Main {
                 rrgg.runProgram(
                         clingoFile,
                         dataFile + ".additions.ttl",
-                        dataFile + ".deletions.ttl");
+                        dataFile + ".deletions.ttl",
+                        dataFile);
 
                 rrgg.repairDataGraph(dataFile,
                         dataFile + ".additions.ttl",

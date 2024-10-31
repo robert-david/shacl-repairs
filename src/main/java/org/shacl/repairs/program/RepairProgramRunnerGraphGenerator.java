@@ -38,7 +38,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
     public RepairProgramRunnerGraphGenerator() {
     }
 
-    public String runProgram(String rulesFile, String additionsFile, String deletionsFile) throws IOException {
+    public String runProgram(String rulesFile, String additionsFile, String deletionsFile, String dataFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
         String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10000", "-t", "3", "--time-limit=60"};
@@ -70,7 +70,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             result += s1;
             result += System.lineSeparator();
             if (solutions) {
-                generateChangeTriples(s1);
+                generateChangeTriples(s1, dataFile);
                 result = s1;
                 break;
             }
@@ -113,7 +113,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         }
     }
 
-    private void generateChangeTriples(String input) {
+    private void generateChangeTriples(String input, String dataFile) throws IOException {
 
         String[] lines = input.split("(?<!\\\\)\\) ");
 
@@ -124,6 +124,32 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             } else if (line.startsWith("del")) {
                 line = line.replace("del", "").replaceFirst("\\(", "");
                 deletions.add(processLine(line));
+            }
+        }
+
+        RDFParser rdfParser = Rio.createParser(Rio.getParserFormatForFileName(dataFile).get());
+        rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
+
+        Model dataModel;
+        try (InputStream inputStream = Files.newInputStream(Paths.get(dataFile))) {
+            dataModel = new LinkedHashModel();
+            rdfParser.setRDFHandler(new StatementCollector(dataModel));
+            rdfParser.parse(inputStream, "");
+        }
+
+        for (Statement deletion : new ArrayList<>(deletions)) {
+            if (deletion.getObject().isLiteral()) {
+                for (Statement statement : dataModel) {
+
+                    if (deletion.getSubject().equals(statement.getSubject())
+                    && deletion.getPredicate().equals(statement.getPredicate())
+                    && deletion.getObject().stringValue().equals(statement.getObject().stringValue())) {
+
+                        deletions.remove(deletion);
+                        deletions.add(statement);
+                        break;
+                    }
+                }
             }
         }
     }
@@ -188,7 +214,6 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
     public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile) throws IOException {
         repairDataGraph(dataFile, additionsFile, deletionsFile, targetFile, false);
     }
-
     public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile, boolean addXSD) throws IOException {
 
         RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
