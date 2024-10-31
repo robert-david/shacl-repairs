@@ -41,6 +41,7 @@ public class RepairGenerator {
             SHACLData parserData, RepairData repairData
     ) {
         Utils.nss = dataModel.getNamespaces();
+        Utils.nss.addAll(shapesModel.getNamespaces());
 
         shapeCount = 0;
 
