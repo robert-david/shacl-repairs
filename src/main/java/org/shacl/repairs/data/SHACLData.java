@@ -31,6 +31,7 @@ public class SHACLData {
 
     private final Set<String> constantsFacts = new HashSet<>();
     private final Set<String> dataFacts = new LinkedHashSet<>();
+    private final Set<String> datatypes = new HashSet<>();
 
     public static String getBaseURI() {
         return baseURI;
@@ -46,5 +47,9 @@ public class SHACLData {
 
     public Set<String> getDataFacts() {
         return dataFacts;
+    }
+
+    public Set<String> getDatatypes() {
+        return datatypes;
     }
 }

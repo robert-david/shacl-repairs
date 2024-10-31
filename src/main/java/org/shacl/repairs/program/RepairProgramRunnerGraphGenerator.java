@@ -2,20 +2,20 @@ package org.shacl.repairs.program;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
-import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
-import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.RDFWriter;
 import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.BasicParserSettings;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
+import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
 import org.shacl.repairs.processor.Utils;
 
@@ -120,10 +120,16 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         for (String line : lines) {
             if (line.startsWith("add")) {
                 line = line.replace("add", "").replaceFirst("\\(", "");
-                additions.add(processLine(line));
+                Statement st = processLine(line);
+                if (st != null) {
+                    additions.add(st);
+                }
             } else if (line.startsWith("del")) {
                 line = line.replace("del", "").replaceFirst("\\(", "");
-                deletions.add(processLine(line));
+                Statement st = processLine(line);
+                if (st != null) {
+                    deletions.add(st);
+                }
             }
         }
 
@@ -152,6 +158,22 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
                 }
             }
         }
+
+        for (Statement addition : new ArrayList<>(additions)) {
+            if (RepairData.get().getNewDatatypes().keySet().contains(addition.getObject().toString())) {
+
+                IRI datatype = vf.createIRI(RepairData.get().getNewDatatypes().get(addition.getObject().toString()));
+
+                additions.remove(addition);
+                additions.add(vf.createStatement(
+                        addition.getSubject(),
+                        addition.getPredicate(),
+                        vf.createLiteral(
+                                addition.getObject().stringValue().replace("http://",""),
+                                datatype)
+                ));
+            }
+        }
     }
 
     private Statement processLine(String line) {
@@ -167,8 +189,6 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         }
 
         if (!line.contains("\",")) {
-            object = predicate;
-            predicate = RDF.TYPE.stringValue();
 
             subject = line.substring(line.indexOf("(\"") + 2, line.indexOf("\")"));
             if (subject.contains("_") && !subject.startsWith("bnode_")) {
@@ -178,6 +198,17 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
                     subject = Utils.getNsURI(Utils.nss, namespace) + subject;
                 }
             }
+
+            if (SHACLData.get().getDatatypes().contains(predicate)) {
+                RepairData.get().getNewDatatypes().put(
+                        subject.startsWith("new_") ? "http://" + subject : subject,
+                        predicate);
+                return null;
+            }
+
+            object = predicate;
+            predicate = RDF.TYPE.stringValue();
+
         } else {
             subject = line.substring(line.indexOf("(\"") + 2, line.indexOf("\","));
             if (subject.contains("_") && !subject.startsWith("bnode_")) {

@@ -25,6 +25,10 @@ public class ShapesParser {
                     statement.getObject().toString() : "\"" + ns(nss, statement.getObject()) + "\"") + ") .\n");
         }
 
+        for (Statement statement : shapesModel.filter(null, SHACL.DATATYPE, null, (Resource) null)) {
+            parserData.getDatatypes().add(statement.getObject().toString());
+        }
+
         for (Statement statement : shapesModel.filter(null, SHACL.IN, null, (Resource) null)) {
 
             Value rest = statement.getObject();
@@ -37,7 +41,7 @@ public class ShapesParser {
                                 listEl.getObject().toString() : "\"" + ns(nss, listEl.getObject()) + "\"") + ") .\n");
 
                     } else if (RDF.REST.equals(listEl.getPredicate())) {
-                            rest = listEl.getObject();
+                        rest = listEl.getObject();
 
                     } else {
                         throw new RuntimeException("No valid RDF List using predicate: " + listEl.getPredicate());
