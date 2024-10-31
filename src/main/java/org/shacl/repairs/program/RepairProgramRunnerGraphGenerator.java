@@ -255,19 +255,6 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         dataModel.addAll(additions);
 
         logger.info("Deleting " + deletions.size() + " triples");
-
-        // dcterms:modified lietrals are interpreted with datatype xsd:date
-        for (Statement deletion : new ArrayList<>(deletions)) {
-            if (DCTERMS.CREATED.equals(deletion.getPredicate())
-             || DCTERMS.MODIFIED.equals(deletion.getPredicate())) {
-                deletions.add(
-                        vf.createStatement(
-                                deletion.getSubject(),
-                                deletion.getPredicate(),
-                                vf.createLiteral(deletion.getObject().stringValue(), XSD.DATE)));
-                                System.out.println(deletion.getSubject() + " -> " + deletion.getObject().stringValue());
-                            }
-                        }
         dataModel.removeAll(deletions);
 
         logger.info("Repaired data graph size: " + dataModel.size());
