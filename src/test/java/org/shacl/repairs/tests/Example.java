@@ -1,6 +1,8 @@
 package org.shacl.repairs.tests;
 
 import org.junit.jupiter.api.Test;
+import org.shacl.repairs.program.RepairProgramRunner;
+
 import java.io.IOException;
 
 public class Example {
@@ -13,7 +15,7 @@ public class Example {
         String shapesFile = testPath + "example_shapes.ttl";
         String clingoFile = testPath + "example_rules.pl";
 
-        RepairTestRunner r = new RepairTestRunner();
+        RepairProgramRunner r = new RepairProgramRunner();
         r.createRepairProgram(
                 datafile,
                 shapesFile,

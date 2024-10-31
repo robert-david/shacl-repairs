@@ -2,6 +2,7 @@ package org.shacl.repairs.tests;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
+import org.shacl.repairs.program.RepairProgramRunner;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -12,7 +13,7 @@ public class PropertyPathRepairTestSuite2 {
 
     final static String path = PathConfig.path;
 
-    RepairTestRunner r = new RepairTestRunner();
+    RepairProgramRunner r = new RepairProgramRunner();
 
     @Test
     // construct property path

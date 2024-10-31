@@ -2,6 +2,7 @@ package org.shacl.repairs.tests;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
+import org.shacl.repairs.program.RepairProgramRunner;
 
 import java.io.*;
 import java.util.regex.Pattern;
@@ -13,7 +14,7 @@ public class ValueRepairTestSuite {
 
     final static String path = PathConfig.path;
 
-    RepairTestRunner r = new RepairTestRunner();
+    RepairProgramRunner r = new RepairProgramRunner();
 
     @Test
     public void test_value_01() throws IOException {

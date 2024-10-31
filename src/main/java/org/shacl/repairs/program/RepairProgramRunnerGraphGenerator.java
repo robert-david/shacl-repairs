@@ -1,6 +1,5 @@
-package org.shacl.repairs.tests;
+package org.shacl.repairs.program;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.rdf4j.model.Model;
@@ -8,7 +7,9 @@ import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.ValueFactory;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.impl.SimpleValueFactory;
+import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
+import org.eclipse.rdf4j.model.vocabulary.XSD;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
 import org.eclipse.rdf4j.rio.RDFWriter;
@@ -21,12 +22,11 @@ import org.shacl.repairs.processor.Utils;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
+public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -35,7 +35,7 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
     Model additions = new LinkedHashModel();
     Model deletions = new LinkedHashModel();
 
-    public RepairTestRunnerGraphGenerator() {
+    public RepairProgramRunnerGraphGenerator() {
     }
 
     public String runProgram(String rulesFile, String additionsFile, String deletionsFile) throws IOException {
@@ -47,7 +47,7 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(proc.getInputStream()));
 
-        Set<String> reduced = new LinkedHashSet();
+        Set<String> reduced = new LinkedHashSet<>();
 
         additions.clear();
         deletions.clear();
@@ -115,11 +115,9 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
 
     private void generateChangeTriples(String input) {
 
-        String[] lines = input.split("\\) ");
+        String[] lines = input.split("(?<!\\\\)\\) ");
 
         for (String line : lines) {
-            // workaround for splitting clingo atoms
-            line = line + ")";
             if (line.startsWith("add")) {
                 line = line.replace("add", "").replaceFirst("\\(", "");
                 additions.add(processLine(line));
@@ -142,7 +140,7 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
             predicate = Utils.getNsURI(Utils.nss, namespace) + predicate;
         }
 
-        if (line.indexOf("\",") == -1) {
+        if (!line.contains("\",")) {
             object = predicate;
             predicate = RDF.TYPE.stringValue();
 
@@ -164,6 +162,7 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
                 }
             }
             object = line.substring(line.indexOf(",\"") + 2, line.indexOf("\")"));
+            object = object.replace("\\\\(","(").replace("\\\\)",")");
             if (object.contains("_") && !object.startsWith("bnode_")) {
                 namespace = object.substring(0, object.indexOf("_"));
                 if (!(Utils.getNsURI(Utils.nss, namespace) == null)) {
@@ -176,14 +175,18 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
         return vf.createStatement(
                 subject.startsWith("bnode") ?
                         vf.createBNode(subject.replace("bnode_", "")) :
-                        vf.createIRI(subject.startsWith("new") ? "http://" + subject : subject),
+                        vf.createIRI(subject.startsWith("new_") ? "http://" + subject : subject),
                 vf.createIRI(predicate),
                 object.startsWith("http") ?
                         vf.createIRI(object) :
-                        object.startsWith("new") ? vf.createIRI("http://" + object) :
+                        object.startsWith("new_") ? vf.createIRI("http://" + object) :
                         object.startsWith("bnode") ?
                                 vf.createBNode(object.replace("bnode_", "")) :
                                 vf.createLiteral(object));
+    }
+
+    public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile) throws IOException {
+        repairDataGraph(dataFile, additionsFile, deletionsFile, targetFile, false);
     }
 
     public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile, boolean addXSD) throws IOException {
@@ -227,6 +230,19 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
         dataModel.addAll(additions);
 
         logger.info("Deleting " + deletions.size() + " triples");
+
+        // dcterms:modified lietrals are interpreted with datatype xsd:date
+        for (Statement deletion : new ArrayList<>(deletions)) {
+            if (DCTERMS.CREATED.equals(deletion.getPredicate())
+             || DCTERMS.MODIFIED.equals(deletion.getPredicate())) {
+                deletions.add(
+                        vf.createStatement(
+                                deletion.getSubject(),
+                                deletion.getPredicate(),
+                                vf.createLiteral(deletion.getObject().stringValue(), XSD.DATE)));
+                                System.out.println(deletion.getSubject() + " -> " + deletion.getObject().stringValue());
+                            }
+                        }
         dataModel.removeAll(deletions);
 
         logger.info("Repaired data graph size: " + dataModel.size());
@@ -234,12 +250,5 @@ public class RepairTestRunnerGraphGenerator extends RepairTestRunner {
         try (FileOutputStream out = new FileOutputStream(targetFile)) {
             Rio.write(dataModel, out, RDFFormat.TURTLE);
         }
-    }
-
-    public void verifyConformance(String result) {
-
-        assertTrue(StringUtils.countMatches(result,"skipTarget(") == 0);
-        assertTrue(StringUtils.countMatches(result,"add(") == 0);
-        assertTrue(StringUtils.countMatches(result,"del(") == 0);
     }
 }

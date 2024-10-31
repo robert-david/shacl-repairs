@@ -1,4 +1,4 @@
-package org.shacl.repairs.tests;
+package org.shacl.repairs.program;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,23 +8,23 @@ import java.io.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class RepairTestRunner extends RepairProgram {
+public class RepairProgramRunner extends RepairProgram {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    public RepairTestRunner() {
+    public RepairProgramRunner() {
     }
 
     public String runProgram(String rulesFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "100", "-t", "3"};
+        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10000", "-t", "3"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new
                 InputStreamReader(proc.getInputStream()));
 
-        Set<String> reduced = new LinkedHashSet();
+        Set<String> reduced = new LinkedHashSet<>();
 
         String s;
         String result = "";
