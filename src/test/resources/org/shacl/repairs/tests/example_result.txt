@@ -1,21 +1,63 @@
-clingo version 5.6.2
-Reading from .../shacl/repairs/tests//example_rules.pl
+clingo version 5.7.1
+Reading from ...g/shacl/repairs/tests/example_rules.pl
+src/test/resources/org/shacl/repairs/tests/example_rules.pl:131:24-50: info: atom does not occur in any rule head:
+  d_CourseLimitShape_(X,"f")
+
 Solving...
-actualTarget("_course1",_courseLimitShape) del(_hasStudentID("_ben","1716110")) add(_participantID("_course1","9427084"))
-
-actualTarget("_course1",_courseLimitShape) del(_enrolledIn("_ben","_course1")) add(_participantID("_course1","9427084"))
-
-actualTarget("_course1",_courseLimitShape) del(_enrolledIn("_bob","_course1")) add(_participantID("_course1","1716110"))
-
-actualTarget("_course1",_courseLimitShape) del(_hasStudentID("_bob","9427084")) add(_participantID("_course1","1716110"))
-
+Answer: 1
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Bob","9427084")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 2
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Bob","9427084")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 3
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Bob","9427084")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 4
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Bob","9427084")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 5
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Bob","d_Course1")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 6
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Bob","d_Course1")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 7
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Bob","d_Course1")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 8
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Bob","d_Course1")) add(d_participantID("d_Course1","1716110"))
+Optimization: 0 2
+Answer: 9
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Ben","1716110")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 10
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Ben","1716110")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 11
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Ben","1716110")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 12
+actualTarget("d_Course1",d_CourseLimitShape) del(d_hasStudentID("d_Ben","1716110")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 13
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Ben","d_Course1")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 14
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Ben","d_Course1")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 15
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Ben","d_Course1")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
+Answer: 16
+actualTarget("d_Course1",d_CourseLimitShape) del(d_enrolledIn("d_Ben","d_Course1")) add(d_participantID("d_Course1","9427084"))
+Optimization: 0 2
 OPTIMUM FOUND
 
-Models       : 20
+Models       : 21
   Optimum    : yes
   Optimal    : 16
 Optimization : 0 2
 Calls        : 1
-Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.014s
-Threads      : 3        (Winner: 0)
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s

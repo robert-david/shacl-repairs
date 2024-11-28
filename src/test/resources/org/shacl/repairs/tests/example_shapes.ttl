@@ -5,47 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 
-#:TeacherShape a sh:NodeShape ;
-#    sh:targetNode :Ben ;
-#    sh:property [
-#        sh:path :teaches ;
-#        sh:minCount 1 ;
-#    ] ;
-#    sh:not [
-#        sh:node :StudentShape ;
-#    ] .
-
-#:StudentShape a sh:NodeShape ;
-#    sh:targetNode :Ben ;
-#    sh:property [
-#        sh:path :enrolledIn ;
-#        sh:minCount 1 ;
-#        sh:class :Course ;
-#    ] .
-
-#:StudentShape a sh:NodeShape ;
-#    sh:targetNode :Ben ;
-#    sh:not [
-#    sh:property [
-#        sh:path ( :enrolledIn :hasID ) ;
-#        sh:path :enrolledIn ;
-#        sh:equals :p1 ;
-#    ]
-#    ] .
-
-:ReviewedPublicationShape a sh:NodeShape ;
-#    sh:targetNode :Pub1 ;
-    sh:property [
-        sh:path [ sh:inversePath :reviews ] ;
-        sh:minCount 3 ;
-#        sh:maxCount 3 ;
-    ] ;
-    sh:property [
-        sh:path ([ sh:inversePath :reviews ] :worksFor ) ;
-        sh:minCount 3 ;
-#        sh:maxCount 3 ;
-    ] .
-
 :CourseLimitShape a sh:NodeShape ;
     sh:targetNode :Course1 ;
     sh:property [

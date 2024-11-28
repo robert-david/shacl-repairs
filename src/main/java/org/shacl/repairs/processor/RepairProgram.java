@@ -59,8 +59,7 @@ public class RepairProgram {
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         if (xsd) {
-            try (InputStream inputStream =
-                         Files.newInputStream(Paths.get("src/main/resources/org/shacl/repairs/xsd-datatypes.ttl"))) {
+            try (InputStream inputStream = getClass().getResourceAsStream("xsd-datatypes.ttl")) {
 
                 rdfParser.setRDFHandler(new StatementCollector(dataModel));
                 rdfParser.parse(inputStream, SHACLData.getBaseURI());

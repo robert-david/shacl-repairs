@@ -65,6 +65,9 @@ public class RepairGenerator {
             shapes.addAll(shape.getShapes());
         }
 
+        shapesRepo.shutDown();
+        shaclSail.shutDown();
+
         processTargets(shapes, dataModel);
 
         processShapes(shapes);

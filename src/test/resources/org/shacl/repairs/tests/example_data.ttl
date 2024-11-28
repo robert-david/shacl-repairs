@@ -5,20 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://org.shacl.repairs.tests/> .
 
-#:Ben :enrolledIn :C1 .
-#:C1 :hasID "1" .
-#:Ben :p1 "1" .
-
-#:Ben :p1 "2" .
-
-#:Rev1 :reviews :Pub1 .
-#:Rev2 :reviews :Pub1 .
-#:Rev3 :reviews :Pub1 .
-
-#:Rev1 :worksFor "WUWien" .
-#:Rev2 :worksFor "TUWien" .
-#:Rev3 :worksFor "TUWien" .
-
 :Ann :enrolledIn :Course1 .
 :Ben :enrolledIn :Course1 .
 :Bob :enrolledIn :Course1 .
