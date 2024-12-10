@@ -1,6 +1,9 @@
 package org.shacl.repairs.processor;
 
-import org.eclipse.rdf4j.model.*;
+import org.eclipse.rdf4j.model.Literal;
+import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.Namespace;
+import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
 import org.eclipse.rdf4j.rio.RDFFormat;
@@ -47,21 +50,34 @@ public class GraphParser {
 
                 if (statement.getObject().isLiteral()) {
 
+                    String escapedObject = ns(instances_nss, statement.getObject())
+                            .replace("\"","\\\"")
+                            .replace("(","\\\\(")
+                            .replace(")","\\\\)")
+                            .replaceAll("\n"," ")
+                            .replaceAll("\t"," ");
+
+                    escapedObject = escapedObject
+                            .replace("\\\\\"","\\\"");
+
                     shaclData.getDataFacts()
                             .add(ns(instances_nss, statement.getPredicate())
                                     + "(\"" + ns(instances_nss, statement.getSubject())
-                                    + "\",\"" + ns(instances_nss, statement.getObject()).replace("\"","\\\"")
-                                    //+ "\",\"" + StringEscapeUtils.escapeJava(ns(instances_nss, statement.getObject())
-                                    .replaceAll("\n"," ")
-                                    .replaceAll("\t"," ")
+                                    + "\",\"" + escapedObject
                             + "\") .\n");
+
+                    String escapedDatatype = ns(instances_nss, statement.getObject())
+                            .replace("\"","\\\"")
+                            .replaceAll("\n"," ")
+                            .replaceAll("\t"," ");
+
+                    escapedDatatype = escapedDatatype
+                            .replace("\\\\\"","\\\"");
 
                     Literal literal = (Literal) statement.getObject();
                     shaclData.getDataFacts()
                             .add(ns(instances_nss, literal.getDatatype())
-                                    + "(\"" + ns(instances_nss, statement.getObject()).replace("\"","\\\"")
-                                    .replaceAll("\n"," ")
-                                    .replaceAll("\t"," ")
+                                    + "(\"" + escapedDatatype
                                     + "\") .\n");
                 } else {
 
