@@ -195,7 +195,10 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
                 namespace = subject.substring(0, subject.indexOf("_"));
                 if (!(Utils.getNsURI(Utils.nss, namespace) == null)) {
                     subject = subject.replace(namespace + "_", "");
-                    subject = Utils.getNsURI(Utils.nss, namespace) + subject;
+                    // if the subject is not exactly the namespace
+                    if (!Utils.getNsURI(Utils.nss, namespace).equals(subject)) {
+                        subject = Utils.getNsURI(Utils.nss, namespace) + subject;
+                    }
                 }
             }
 
@@ -215,7 +218,10 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
                 namespace = subject.substring(0, subject.indexOf("_"));
                 if (!(Utils.getNsURI(Utils.nss, namespace) == null)) {
                     subject = subject.replace(namespace + "_", "");
-                    subject = Utils.getNsURI(Utils.nss, namespace) + subject;
+                    // if the subject is not exactly the namespace
+                    if (!Utils.getNsURI(Utils.nss, namespace).equals(subject)) {
+                        subject = Utils.getNsURI(Utils.nss, namespace) + subject;
+                    }
                 }
             }
             object = line.substring(line.indexOf(",\"") + 2, line.indexOf("\")"));
@@ -245,9 +251,10 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
     public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile) throws IOException {
         repairDataGraph(dataFile, additionsFile, deletionsFile, targetFile, false);
     }
+
     public void repairDataGraph(String dataFile, String additionsFile, String deletionsFile, String targetFile, boolean addXSD) throws IOException {
 
-        RDFParser rdfParser = Rio.createParser(RDFFormat.TURTLE);
+        RDFParser rdfParser = Rio.createParser(Rio.getParserFormatForFileName(dataFile).get());
         rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         Model dataModel;
@@ -256,6 +263,9 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             rdfParser.setRDFHandler(new StatementCollector(dataModel));
             rdfParser.parse(inputStream, "");
         }
+
+        rdfParser = Rio.createParser(RDFFormat.TURTLE);
+        rdfParser.getParserConfig().set(BasicParserSettings.PRESERVE_BNODE_IDS, true);
 
         Model additions;
         try (InputStream inputStream = Files.newInputStream(Paths.get(additionsFile))) {
@@ -271,17 +281,8 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             rdfParser.parse(inputStream, "");
         }
 
-        if (addXSD) {
-            Model xsd = new LinkedHashModel();
-            try (InputStream inputStream =
-                         Files.newInputStream(Paths.get("src/main/resources/org/shacl/repairs/xsd-datatypes.ttl"))) {
-                rdfParser.setRDFHandler(new StatementCollector(xsd));
-                rdfParser.parse(inputStream, SHACLData.getBaseURI());
-                dataModel.addAll(xsd);
-            }
-        }
-
         logger.info("Initial data graph size: " + dataModel.size());
+
         logger.info("Adding " + additions.size() + " triples");
         dataModel.addAll(additions);
 
@@ -289,6 +290,26 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         dataModel.removeAll(deletions);
 
         logger.info("Repaired data graph size: " + dataModel.size());
+
+        if (addXSD) {
+            Model xsd = new LinkedHashModel();
+            try (InputStream inputStream =
+                         Files.newInputStream(Paths.get("src/main/resources/org/shacl/repairs/xsd-datatypes.ttl"))) {
+                rdfParser.setRDFHandler(new StatementCollector(xsd));
+                rdfParser.parse(inputStream, SHACLData.getBaseURI());
+                //dataModel.addAll(xsd);
+
+                for (Statement statement : xsd) {
+                    if (new LinkedHashModel(dataModel)
+                            .getStatements(null, null, statement.getSubject())
+                            .iterator().hasNext()) {
+                        dataModel.add(statement);
+                    }
+                }
+            }
+        }
+
+        logger.info("Repaired graph data with XSD datatypes: " + dataModel.size());
 
         try (FileOutputStream out = new FileOutputStream(targetFile)) {
             Rio.write(dataModel, out, RDFFormat.TURTLE);
