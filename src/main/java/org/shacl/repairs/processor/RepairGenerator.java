@@ -82,7 +82,7 @@ public class RepairGenerator {
         repairData.getChangeSetRules().add("% Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3\n");
         repairData.getChangeSetRules().add("% Change the scores of add and del to prioritize additions or deletions\n");
         repairData.getChangeSetRules().add("#minimize { 1@2,A: add(A); 1@2,D: del(D) } .\n");
-        repairData.getChangeSetRules().add("#minimize { 1@3,X,S: skipTarget(X,S) } .\n");
+        repairData.getChangeSetRules().add("#minimize { 1@4,X,S: skipTarget(X,S) } .\n");
 
         if (relaxed) {
             repairData.getRepairTargetRules().add("actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .\n");
