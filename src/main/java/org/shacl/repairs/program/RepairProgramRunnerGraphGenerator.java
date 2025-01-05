@@ -17,6 +17,7 @@ import org.eclipse.rdf4j.rio.helpers.BasicParserSettings;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
 import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
+import org.shacl.repairs.processor.RepairProgram;
 import org.shacl.repairs.processor.Utils;
 
 import java.io.*;
@@ -293,11 +294,10 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
 
         if (addXSD) {
             Model xsd = new LinkedHashModel();
-            try (InputStream inputStream =
-                         Files.newInputStream(Paths.get("src/main/resources/org/shacl/repairs/xsd-datatypes.ttl"))) {
+            try (InputStream inputStream = RepairProgram.class.getResourceAsStream("xsd-datatypes.ttl")) {
+
                 rdfParser.setRDFHandler(new StatementCollector(xsd));
                 rdfParser.parse(inputStream, SHACLData.getBaseURI());
-                //dataModel.addAll(xsd);
 
                 for (Statement statement : xsd) {
                     if (new LinkedHashModel(dataModel)
