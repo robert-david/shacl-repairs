@@ -186,7 +186,7 @@ public class RepairProgram {
             writer.write("for i = 1, string.len(x) do\n");
             writer.write("result = result + string.byte(x,i)\n");
             writer.write("end\n");
-            writer.write("return tostring(result)\n");
+            writer.write("return tostring('new_' .. result)\n");
             writer.write("end\n");
             writer.write("#end .\n");
 
