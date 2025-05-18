@@ -28,10 +28,10 @@ public class PropertyPathRepairTestSuite2 {
         String result = r.runProgram(testPath + "/test_property_path_2_01_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasLecture\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasLecture\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_property_path_2_01_result.txt", result);
     }
@@ -49,9 +49,9 @@ public class PropertyPathRepairTestSuite2 {
         String result = r.runProgram(testPath + "/test_property_path_2_02_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_hasLecture\\(\"_bn1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_hasLecture\\(\"d_bn1\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_property_path_2_02_result.txt", result);
     }
@@ -70,7 +70,7 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_03_result.txt", result);
     }
@@ -89,8 +89,8 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 9"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 2);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"_bn2\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 2);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"d_bn2\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_property_path_2_04_result.txt", result);
     }
@@ -108,10 +108,10 @@ public class PropertyPathRepairTestSuite2 {
         String result = r.runProgram(testPath + "/test_property_path_2_05_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_isLectureOf\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_isLectureOf\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_property_path_2_05_result.txt", result);
     }
@@ -130,10 +130,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_isLectureOf(\"_bn2\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasId(\"_bn2\",\"Math 1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_isLectureOf(\"d_bn2\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasId(\"d_bn2\",\"Math 1\"))") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_06_result.txt", result);
     }
@@ -151,10 +151,10 @@ public class PropertyPathRepairTestSuite2 {
         String result = r.runProgram(testPath + "/test_property_path_2_07_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasLecture\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_isIdOf\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasLecture\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_isIdOf\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_property_path_2_07_result.txt", result);
     }
@@ -173,10 +173,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasLecture(\"_bn1\",\"_bn2\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_isIdOf(\"_value\",\"_bn2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasLecture(\"d_bn1\",\"d_bn2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_isIdOf(\"d_value\",\"d_bn2\"))") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_08_result.txt", result);
     }
@@ -195,11 +195,11 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 31"));
         assertTrue(result.contains("Optimal    : 27"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
-        assertTrue(Pattern.compile("add\\(_hasLecture\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"\\d+\",\"Math 1\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("add\\(d_hasLecture\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"new_\\d+\",\"Math 1\"\\)\\)").matcher(result).results().count() == 3);
 
         r.writeResult(testPath + "/test_property_path_2_09_result.txt", result);
     }
@@ -218,10 +218,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 8"));
         assertTrue(result.contains("Optimal    : 6"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasLecture(\"_bn1\",\"_bn2\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasId(\"_bn2\",\"Math 1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasLecture(\"d_bn1\",\"d_bn2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasId(\"d_bn2\",\"Math 1\"))") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_10_result.txt", result);
     }
@@ -240,10 +240,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_hasLecture\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_isIdOf\\(\"_value\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasLecture\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_isIdOf\\(\"d_value\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_property_path_2_11_result.txt", result);
     }
@@ -262,10 +262,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 8"));
         assertTrue(result.contains("Optimal    : 6"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_isLectureOf(\"_bn2\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasId(\"_bn2\",\"Math 1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_isLectureOf(\"d_bn2\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasId(\"d_bn2\",\"Math 1\"))") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_12_result.txt", result);
     }
@@ -284,10 +284,10 @@ public class PropertyPathRepairTestSuite2 {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasLecture(\"_bn1\",\"_bn2\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_isIdOf(\"_value1\",\"_bn2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasLecture(\"d_bn1\",\"d_bn2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_isIdOf(\"d_value1\",\"d_bn2\"))") == 1);
 
         r.writeResult(testPath + "/test_property_path_2_13_result.txt", result);
     }

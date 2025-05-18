@@ -26,7 +26,7 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_01_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_01_result.txt", result);
     }
@@ -43,7 +43,7 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_02_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_02_result.txt", result);
     }
@@ -60,8 +60,8 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_03_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_notPersonShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_NotPersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_03_result.txt", result);
     }
@@ -78,8 +78,8 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_04_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_notPersonShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_NotPersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_04_result.txt", result);
     }
@@ -96,7 +96,7 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_05_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_05_result.txt", result);
     }
@@ -113,7 +113,7 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_06_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_06_result.txt", result);
     }
@@ -130,8 +130,8 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_07_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShapeB)") == 1);
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShapeA)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShapeB)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShapeA)") == 1);
 
         r.writeResult(testPath + "/test_conflict_07_result.txt", result);
     }
@@ -148,9 +148,9 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_08_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_vegetarian)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_steak\",_meat)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_eats(\"_ann\",\"_steak\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_Vegetarian)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_steak\",d_Meat)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_eats(\"d_ann\",\"d_steak\"))") == 1);
 
         r.writeResult(testPath + "/test_conflict_08_result.txt", result);
     }
@@ -167,10 +167,10 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_09_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_unemployedShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_company1\",_organizationShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_worksFor(\"_ann\",\"_company1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"_company1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_UnemployedShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_company1\",d_OrganizationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_worksFor(\"d_ann\",\"d_company1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Organization(\"d_company1\"))") == 1);
 
         r.writeResult(testPath + "/test_conflict_09_result.txt", result);
     }
@@ -187,8 +187,8 @@ public class ConflictRepairTestSuite {
         String result = r.runProgram(testPath + "/test_conflict_10_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_notPersonShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_NotPersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_conflict_10_result.txt", result);
     }

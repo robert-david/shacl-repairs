@@ -28,13 +28,13 @@ public class EqualsRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 4);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_studentShape)") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_StudentShape)") == 4);
 
-        assertTrue(StringUtils.countMatches(result,"add(_hasCourse(\"_ben\",\"Math 1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"Math 1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_enrolledIn(\"_ann\",\"Math 2\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_hasCourse(\"_ann\",\"Math 2\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasCourse(\"d_ben\",\"Math 1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"Math 1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_enrolledIn(\"d_ann\",\"Math 2\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasCourse(\"d_ann\",\"Math 2\"))") == 2);
 
         r.writeResult(testPath + "/test_equals_01_result.txt", result);
     }
@@ -52,15 +52,15 @@ public class EqualsRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 6);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_studentShape)") == 6);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 6);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_StudentShape)") == 6);
 
-        assertTrue(StringUtils.countMatches(result,"add(_hasCourse(\"_ben\",\"Math 1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_bn1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_hasId(\"_bn1\",\"Math 1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasCourse(\"d_ben\",\"Math 1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_bn1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasId(\"d_bn1\",\"Math 1\"))") == 2);
 
-        assertTrue(StringUtils.countMatches(result,"add(_hasId(\"_bn2\",\"Math 2\"))") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_hasCourse(\"_ann\",\"Math 2\"))") == 3);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasId(\"d_bn2\",\"Math 2\"))") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasCourse(\"d_ann\",\"Math 2\"))") == 3);
 
         r.writeResult(testPath + "/test_equals_02_result.txt", result);
     }
@@ -77,9 +77,9 @@ public class EqualsRepairTestSuite {
         String result = r.runProgram(testPath + "/test_equals_03_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_studentShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_StudentShape)") == 1);
 
-        assertTrue(StringUtils.countMatches(result,"del(_hasCourse(\"_ann\",\"Math 1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasCourse(\"d_ann\",\"Math 1\"))") == 1);
 
         r.writeResult(testPath + "/test_equals_03_result.txt", result);
     }
@@ -97,12 +97,12 @@ public class EqualsRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 6"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 4);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 4);
 
-        assertTrue(Pattern.compile("add\\(_enrolledIn\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_n1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasCourse(\"_ben\",\"_n1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_course(\"_n1\"))") == 1);
+        assertTrue(Pattern.compile("add\\(d_enrolledIn\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_n1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasCourse(\"d_ben\",\"d_n1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_Course(\"d_n1\"))") == 1);
 
         r.writeResult(testPath + "/test_equals_04_result.txt", result);
     }
@@ -120,13 +120,13 @@ public class EqualsRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 12"));
         assertTrue(result.contains("Optimal    : 9"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 5);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 5);
 
-        assertTrue(StringUtils.countMatches(result,"del(_enrolledIn(\"_ben\",\"_b1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasId(\"_b1\",\"_n1\"))") == 1);
-        assertTrue(Pattern.compile("add\\(_hasId\\(\"_b1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_hasCourse(\"_ben\",\"_n1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_course(\"_n1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_enrolledIn(\"d_ben\",\"d_b1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasId(\"d_b1\",\"d_n1\"))") == 1);
+        assertTrue(Pattern.compile("add\\(d_hasId\\(\"d_b1\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasCourse(\"d_ben\",\"d_n1\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_Course(\"d_n1\"))") == 1);
 
         r.writeResult(testPath + "/test_equals_05_result.txt", result);
     }
@@ -143,10 +143,10 @@ public class EqualsRepairTestSuite {
         String result = r.runProgram(testPath + "/test_equals_06_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_studentShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ben\",_scheduledCourseShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_StudentShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ben\",d_ScheduledCourseShape)") == 1);
 
-        assertTrue(Pattern.compile("add\\(_hasCourse\\(\"_ben\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_hasCourse\\(\"d_ben\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_equals_06_result.txt", result);
     }

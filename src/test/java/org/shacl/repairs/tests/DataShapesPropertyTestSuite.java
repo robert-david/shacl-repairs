@@ -329,11 +329,12 @@ public class DataShapesPropertyTestSuite {
         String result = r.runProgram(testPath + "/qualifiedValueShape-001-rules.pl");
 
         //assertTrue(result.contains("Models       : 39+"));
-        assertTrue(result.contains("Optimal    : 100"));
+        assertTrue(result.contains("Optimal    : 36096"));
 
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_Observation1\",ex_APGARObservationShape)") == 2);
 
-        assertTrue(Pattern.compile("add\\(ex_related\\(\"ex_Observation1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_related\\(\"ex_Observation1\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("del\\(ex_related_target\\(\"bnode_[a-z0-9]+\",\"bnode_[a-z0-9]+\"\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "//qualifiedValueShape-001-result.txt", result);
     }

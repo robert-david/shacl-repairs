@@ -25,10 +25,10 @@ public class ClassRepairTestSuite {
                 testPath + "/test_class_01_rules.pl");
 
         String result = r.runProgram(testPath + "/test_class_01_rules.pl");
-
+System.out.println(result);
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_class_01_result.txt", result);
     }
@@ -45,7 +45,7 @@ public class ClassRepairTestSuite {
         String result = r.runProgram(testPath + "/test_class_02_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_class_02_result.txt", result);
     }
@@ -62,9 +62,9 @@ public class ClassRepairTestSuite {
         String result = r.runProgram(testPath + "/test_class_03_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_organization\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_worksFor\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_Organization\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_03_result.txt", result);
     }
@@ -81,9 +81,9 @@ public class ClassRepairTestSuite {
         String result = r.runProgram(testPath + "/test_class_04_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_organization(\"_company1\"))") == 1);
-        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_Organization(\"d_company1\"))") == 1);
+        assertTrue(Pattern.compile("add\\(d_worksFor\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_04_result.txt", result);
     }
@@ -100,9 +100,9 @@ public class ClassRepairTestSuite {
         String result = r.runProgram(testPath + "/test_class_05_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"_ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"d_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Organization(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_class_05_result.txt", result);
     }
@@ -119,11 +119,11 @@ public class ClassRepairTestSuite {
         String result = r.runProgram(testPath + "/test_class_06_rules.pl");
 
         //assertTrue(result.contains("Models       : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"_company1\"))") == 1);
-        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_organization\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_worksFor\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"d_company1\"))") == 1);
+        assertTrue(Pattern.compile("add\\(d_Person\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_Organization\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_06_result.txt", result);
     }
@@ -141,9 +141,9 @@ public class ClassRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"_ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_organization(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"d_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Organization(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_class_07_result.txt", result);
     }
@@ -161,10 +161,10 @@ public class ClassRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(Pattern.compile("add\\(_worksFor\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
-        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(_organization\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(Pattern.compile("add\\(d_worksFor\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(Pattern.compile("add\\(d_Person\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(d_Organization\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_class_08_result.txt", result);
     }

@@ -57,7 +57,7 @@ public class DataShapesPathTestSuite {
         assertTrue(StringUtils.countMatches(result,"del(ex_child(\"ex_Parent1\",\"ex_InvalidResource2\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(ex_child(\"ex_Parent2\",\"ex_InvalidResource2\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(ex_child(\"ex_Parent3\",\"ex_InvalidResource2\"))") == 1);
-        assertTrue(Pattern.compile("add\\(ex_child\\(\"\\d+\"\\,\"ex_InvalidResource1\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("add\\(ex_child\\(\"new_\\d+\"\\,\"ex_InvalidResource1\"\\)\\)").matcher(result).results().count() == 3);
 
         r.writeResult(testPath + "/path-inverse-001-result.txt", result);
     }
@@ -80,9 +80,9 @@ public class DataShapesPathTestSuite {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource1\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_ValidResource2\",ex_TestShape)") == 1);
 
-        assertTrue(Pattern.compile("add\\(ex_property1\\(\"ex_InvalidResource2\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(ex_property2\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(ex_property2\\(\"ex_Node3\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property1\\(\"ex_InvalidResource2\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property2\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property2\\(\"ex_Node3\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/path-sequence-001-result.txt", result);
     }
@@ -105,10 +105,10 @@ public class DataShapesPathTestSuite {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource1\",ex_TestShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidResource2\",ex_TestShape)") == 1);
 
-        assertTrue(Pattern.compile("add\\(ex_property1\\(\"ex_InvalidResource2\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(ex_property2\\(\"ex_Node3\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(ex_property2\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(Pattern.compile("add\\(ex_property3\\(\"\\d+\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(Pattern.compile("add\\(ex_property1\\(\"ex_InvalidResource2\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property2\\(\"ex_Node3\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property2\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(Pattern.compile("add\\(ex_property3\\(\"new_\\d+\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/path-sequence-002-result.txt", result);
     }

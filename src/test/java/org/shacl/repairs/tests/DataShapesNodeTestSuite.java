@@ -56,7 +56,7 @@ public class DataShapesNodeTestSuite {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidInstance1\",ex_AndShape)") == 2);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"ex_InvalidInstance2\",ex_AndShape)") == 2);
 
-        assertTrue(Pattern.compile("add\\(ex_property\\(\"ex_InvalidInstance1\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(Pattern.compile("add\\(ex_property\\(\"ex_InvalidInstance1\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
         assertTrue(StringUtils.countMatches(result,"del(ex_property(\"ex_InvalidInstance2\",\"One\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(ex_property(\"ex_InvalidInstance2\",\"Two\"))") == 1);
 

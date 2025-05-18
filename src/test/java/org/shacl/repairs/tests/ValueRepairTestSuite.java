@@ -29,9 +29,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 7"));
         assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 2);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 2);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_value_01_result.txt", result);
     }
@@ -48,8 +48,8 @@ public class ValueRepairTestSuite {
         String result = r.runProgram(testPath + "/test_value_02_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_value_02_result.txt", result);
     }
@@ -67,9 +67,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
-        assertTrue(Pattern.compile("del\\(_name\\(\"_ann\",\"ANN\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("del\\(d_name\\(\"d_ann\",\"ANN\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_value_03_result.txt", result);
     }
@@ -86,10 +86,10 @@ public class ValueRepairTestSuite {
         String result = r.runProgram(testPath + "/test_value_04_rules.pl");
 
         //assertTrue(result.contains("Models       : 103+"));
-        assertTrue(result.contains("Optimal    : 100"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 3);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(result.contains("Optimal    : 147"));
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 3);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
 
         r.writeResult(testPath + "/test_value_04_result.txt", result);
     }
@@ -107,10 +107,10 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 34"));
         assertTrue(result.contains("Optimal    : 32"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 2);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"ANN\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 2);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"ANN\"))") == 2);
 
         r.writeResult(testPath + "/test_value_05_result.txt", result);
     }
@@ -128,8 +128,8 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 34"));
         assertTrue(result.contains("Optimal    : 32"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_value_06_result.txt", result);
     }
@@ -147,12 +147,12 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 34"));
         assertTrue(result.contains("Optimal    : 32"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 2);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"ANN\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"Ann\"))") == 2);
-        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 2);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"ANN\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"Ann\"))") == 2);
+        assertTrue(Pattern.compile("add\\(d_Person\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_value_07_result.txt", result);
     }
@@ -170,10 +170,10 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 11"));
         assertTrue(result.contains("Optimal    : 9"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"ANN\"))") == 1);
-        assertTrue(Pattern.compile("add\\(_person\\(\"\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"ANN\"))") == 1);
+        assertTrue(Pattern.compile("add\\(d_Person\\(\"new_\\d+\"\\)\\)").matcher(result).results().count() == 2);
 
         r.writeResult(testPath + "/test_value_08_result.txt", result);
     }
@@ -191,10 +191,10 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"ANN\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"ANN\"))") == 2);
 
         r.writeResult(testPath + "/test_value_09_result.txt", result);
     }
@@ -211,7 +211,7 @@ public class ValueRepairTestSuite {
         String result = r.runProgram(testPath + "/test_value_10_rules.pl");
 
         //assertTrue(result.contains("Models       : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_value_10_result.txt", result);
     }
@@ -228,7 +228,7 @@ public class ValueRepairTestSuite {
         String result = r.runProgram(testPath + "/test_value_11_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_value_11_result.txt", result);
     }
@@ -245,7 +245,7 @@ public class ValueRepairTestSuite {
         String result = r.runProgram(testPath + "/test_value_12_rules.pl");
 
         //assertTrue(result.contains("Models       : 2"));
-        assertTrue(StringUtils.countMatches(result,"skipTarget(\"_ann\",_personShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"skipTarget(\"d_ann\",d_PersonShape)") == 1);
 
         r.writeResult(testPath + "/test_value_12_result.txt", result);
     }
@@ -263,9 +263,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 10"));
         assertTrue(result.contains("Optimal    : 7"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"ANN\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"ANN\"))") == 1);
 
         r.writeResult(testPath + "/test_value_13_result.txt", result);
     }
@@ -283,8 +283,8 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 14"));
         assertTrue(result.contains("Optimal    : 12"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_value_14_result.txt", result);
     }
@@ -302,8 +302,8 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 10"));
         assertTrue(result.contains("Optimal    : 8"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
 
         r.writeResult(testPath + "/test_value_15_result.txt", result);
     }
@@ -321,9 +321,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_person(\"ANN\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Person(\"ANN\"))") == 1);
 
         r.writeResult(testPath + "/test_value_16_result.txt", result);
     }
@@ -341,9 +341,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"ANN\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"ANN\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 1);
 
         r.writeResult(testPath + "/test_value_17_result.txt", result);
     }
@@ -361,9 +361,9 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 1);
-        assertTrue(Pattern.compile("add\\(_name\\(\"_ann\",\"\\d+\"\\)\\)").matcher(result).results().count() == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"ANN\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 1);
+        assertTrue(Pattern.compile("add\\(d_name\\(\"d_ann\",\"new_\\d+\"\\)\\)").matcher(result).results().count() == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"ANN\"))") == 1);
 
         r.writeResult(testPath + "/test_value_18_result.txt", result);
     }
@@ -381,10 +381,10 @@ public class ValueRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 6"));
         assertTrue(result.contains("Optimal    : 4"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"ANN\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_name(\"_ann\",\"Ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"Ben\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"ANN\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_name(\"d_ann\",\"Ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"Ben\"))") == 2);
 
         r.writeResult(testPath + "/test_value_19_result.txt", result);
     }

@@ -27,9 +27,9 @@ public class LogicalRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_student(\"_ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(_teacher(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Student(\"d_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_Teacher(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_logical_01_result.txt", result);
     }
@@ -47,9 +47,9 @@ public class LogicalRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"del(_student(\"_ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_teacher(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"del(d_Student(\"d_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_Teacher(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_logical_02_result.txt", result);
     }
@@ -67,10 +67,10 @@ public class LogicalRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 5"));
         assertTrue(result.contains("Optimal    : 3"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 3);
-        assertTrue(StringUtils.countMatches(result,"del(_name(\"_ann\",\"Ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_lastName(\"_ann\",\"Doe\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_firstName(\"_ann\",\"Ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 3);
+        assertTrue(StringUtils.countMatches(result,"del(d_name(\"d_ann\",\"Ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_lastName(\"d_ann\",\"Doe\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_firstName(\"d_ann\",\"Ann\"))") == 1);
 
         r.writeResult(testPath + "/test_logical_03_result.txt", result);
     }
@@ -88,9 +88,9 @@ public class LogicalRepairTestSuite {
 
         //assertTrue(result.contains("Models       : 4"));
         assertTrue(result.contains("Optimal    : 2"));
-        assertTrue(StringUtils.countMatches(result,"actualTarget(\"_ann\",_personShape)") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(_teacher(\"_ann\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"del(_student(\"_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_ann\",d_PersonShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Teacher(\"d_ann\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_Student(\"d_ann\"))") == 1);
 
         r.writeResult(testPath + "/test_logical_04_result.txt", result);
     }
