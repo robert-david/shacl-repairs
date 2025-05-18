@@ -18,7 +18,7 @@ public class RepairProgramRunner extends RepairProgram {
     public String runProgram(String rulesFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10000", "-t", "3"};
+        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "0", "-t", "3"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new

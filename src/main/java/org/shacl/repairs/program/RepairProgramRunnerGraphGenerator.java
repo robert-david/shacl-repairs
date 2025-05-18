@@ -42,7 +42,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
     public String runProgram(String rulesFile, String additionsFile, String deletionsFile, String dataFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "10000", "-t", "3", "--time-limit=60"};
+        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "0", "-t", "3", "--time-limit=60"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new
