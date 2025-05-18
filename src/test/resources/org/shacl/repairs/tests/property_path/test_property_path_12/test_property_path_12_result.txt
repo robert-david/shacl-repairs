@@ -1,21 +1,21 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_12/test_property_path_12_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) del(_hasLecture("_study1","_c1"))
+actualTarget("d_ben",d_StudentShape) del(d_hasLecture("d_study1","d_c1"))
 
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_c1"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_c1"))
 
-actualTarget("_ben",_studentShape) del(_hasLecture("_study2","_c2"))
+actualTarget("d_ben",d_StudentShape) del(d_hasLecture("d_study2","d_c2"))
 
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_c2"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_c2"))
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 5
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 0)
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+Threads      : 3        (Winner: 2)

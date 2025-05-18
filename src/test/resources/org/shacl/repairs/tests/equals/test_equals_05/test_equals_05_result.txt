@@ -1,15 +1,15 @@
 clingo version 5.7.1
 Reading from ...test_equals_05/test_equals_05_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) del(_course("_n1"))
+actualTarget("d_ben",d_StudentShape) del(d_Course("d_n1"))
 
-actualTarget("_ben",_studentShape) del(_hasId("_b1","_n1"))
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_b1","d_n1"))
 
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_b1"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_b1"))
 
-actualTarget("_ben",_studentShape) del(_hasCourse("_ben","_n1"))
+actualTarget("d_ben",d_StudentShape) del(d_hasCourse("d_ben","d_n1"))
 
-actualTarget("_ben",_studentShape) add(_hasId("_b1","4062"))
+actualTarget("d_ben",d_StudentShape) add(d_hasId("d_b1","new_4110"))
 
 OPTIMUM FOUND
 
@@ -18,6 +18,6 @@ Models       : 10
   Optimal    : 9
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.008s
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
 Threads      : 3        (Winner: 2)

@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._property_03/test_property_03_rules.pl
 Solving...
-actualTarget("_ann",_personShape) add(_worksFor("_ann","1649")) add(_worksFor("_ann","1650")) add(_worksFor("_ann","1651")) add(_organization("1649")) add(_organization("1650")) add(_organization("1651"))
+actualTarget("d_ann",d_PersonShape) add(d_worksFor("d_ann","new_1849")) add(d_worksFor("d_ann","new_1850")) add(d_worksFor("d_ann","new_1851")) add(d_Organization("new_1849")) add(d_Organization("new_1850")) add(d_Organization("new_1851"))
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 3
   Optimum    : yes
 Optimization : 0 6
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 1)
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+Threads      : 3        (Winner: 0)

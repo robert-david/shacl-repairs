@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._2_05/test_property_path_2_05_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4879")) add(_isLectureOf("5307","4879")) add(_hasId("5307","3911"))
+actualTarget("d_ben",d_StudentShape) add(d_enrolledIn("d_ben","new_4810")) add(d_isLectureOf("new_5548","new_4810")) add(d_hasId("new_5548","new_3742"))
 
 OPTIMUM FOUND
 
@@ -9,6 +9,6 @@ Models       : 3
   Optimum    : yes
 Optimization : 0 3
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 2)
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+Threads      : 3        (Winner: 0)

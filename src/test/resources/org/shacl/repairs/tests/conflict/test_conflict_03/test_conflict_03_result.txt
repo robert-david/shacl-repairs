@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._conflict_03/test_conflict_03_rules.pl
 Solving...
-actualTarget("_ann",_notPersonShape) skipTarget("_ann",_personShape)
+actualTarget("d_ann",d_NotPersonShape) skipTarget("d_ann",d_PersonShape)
 
 OPTIMUM FOUND
 

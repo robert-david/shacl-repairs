@@ -1,17 +1,17 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._2_04/test_property_path_2_04_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_hasId("_bn2","3915"))
+actualTarget("d_ben",d_StudentShape) add(d_hasId("d_bn2","new_3746"))
 
-actualTarget("_ben",_studentShape) add(_hasId("_bn2","3914"))
+actualTarget("d_ben",d_StudentShape) add(d_hasId("d_bn2","new_3745"))
 
 OPTIMUM FOUND
 
-Models       : 4
+Models       : 5
   Optimum    : yes
   Optimal    : 3
 Optimization : 0 1
 Calls        : 1
-Time         : 0.009s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
-Threads      : 3        (Winner: 2)
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
+Threads      : 3        (Winner: 1)

@@ -1,13 +1,13 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_04/test_property_path_04_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn2")) add(_course("_math1"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) add(d_Course("d_Math1"))
 
-actualTarget("_ben",_studentShape) del(_hasId("_bn2","_math2")) add(_course("_math1"))
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","d_Math2")) add(d_Course("d_Math1"))
 
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1")) add(_course("_math2"))
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn1","d_Math1")) add(d_Course("d_Math2"))
 
-actualTarget("_ben",_studentShape) del(_hasId("_bn1","_math1")) add(_course("_math2"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) add(d_Course("d_Math2"))
 
 OPTIMUM FOUND
 
@@ -16,6 +16,6 @@ Models       : 6
   Optimal    : 4
 Optimization : 0 2
 Calls        : 1
-Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.008s
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.005s
 Threads      : 3        (Winner: 0)

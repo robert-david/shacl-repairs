@@ -20,13 +20,13 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
-targetNode("_ann",_notPersonShape) .
-targetNode("_ann",_personShape) .
+targetNode("d_ann",d_NotPersonShape) .
+targetNode("d_ann",d_PersonShape) .
 
 % Constants
 
@@ -34,39 +34,39 @@ targetNode("_ann",_personShape) .
 % Repair Targets
 
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
-_notPersonShape_("_ann","t*"):-actualTarget("_ann",_notPersonShape) .
-_personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
+d_NotPersonShape_("d_ann","t*"):-actualTarget("d_ann",d_NotPersonShape) .
+d_PersonShape_("d_ann","t*"):-actualTarget("d_ann",d_PersonShape) .
 
 % Annotation Rules
 
-_person_(X,"t*"):-_person(X) .
-_person_(X,"t*"):-_person_(X,"t") .
+d_Person_(X,"t*"):-d_Person(X) .
+d_Person_(X,"t*"):-d_Person_(X,"t") .
 
 % Repair Rules
 
-bnode_739032e6a88c4a928a47e6812206fa6219_(X,"f"):-_notPersonShape_(X,"t*") .
-bnode_739032e6a88c4a928a47e6812206fa6219_(X,"t*"):-_notPersonShape_(X,"f") .
-_person_(X,"t"):-bnode_739032e6a88c4a928a47e6812206fa6219_(X,"t*") .
-_person_(X,"f"):-bnode_739032e6a88c4a928a47e6812206fa6219_(X,"f") .
-_person_(X,"t"):-_personShape_(X,"t*") .
-_person_(X,"f"):-_personShape_(X,"f") .
+bnode_a662fb303d9b442282b5343d5a95798919_(X,"f"):-d_NotPersonShape_(X,"t*") .
+bnode_a662fb303d9b442282b5343d5a95798919_(X,"t*"):-d_NotPersonShape_(X,"f") .
+d_Person_(X,"t"):-bnode_a662fb303d9b442282b5343d5a95798919_(X,"t*") .
+d_Person_(X,"f"):-bnode_a662fb303d9b442282b5343d5a95798919_(X,"f") .
+d_Person_(X,"t"):-d_PersonShape_(X,"t*") .
+d_Person_(X,"f"):-d_PersonShape_(X,"f") .
 
 % Interpretation Rules
 
-_person_(X,"t**"):-_person_(X,"t*"),not _person_(X,"f") .
+d_Person_(X,"t**"):-d_Person_(X,"t*"),not d_Person_(X,"f") .
 
 % Program Constraints
 
-:-_person_(X,"t"),_person_(X,"f") .
+:-d_Person_(X,"t"),d_Person_(X,"f") .
 
 % Change Set Rules
 
-add(_person(X)):-_person_(X,"t**"),not _person(X) .
-del(_person(X)):-_person_(X,"f"),_person(X) .
+add(d_Person(X)):-d_Person_(X,"t**"),not d_Person(X) .
+del(d_Person(X)):-d_Person_(X,"f"),d_Person(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -83,6 +83,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

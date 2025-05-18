@@ -20,12 +20,12 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
-targetNode("_ann",_personShape) .
+targetNode("d_ann",d_PersonShape) .
 
 % Constants
 
@@ -33,63 +33,63 @@ targetNode("_ann",_personShape) .
 % Repair Targets
 
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
-_personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
+d_PersonShape_("d_ann","t*"):-actualTarget("d_ann",d_PersonShape) .
 
 % Annotation Rules
 
-_student_(X,"t*"):-_student(X) .
-_student_(X,"t*"):-_student_(X,"t") .
-_teacher_(X,"t*"):-_teacher(X) .
-_teacher_(X,"t*"):-_teacher_(X,"t") .
+d_Teacher_(X,"t*"):-d_Teacher(X) .
+d_Teacher_(X,"t*"):-d_Teacher_(X,"t") .
+d_Student_(X,"t*"):-d_Student(X) .
+d_Student_(X,"t*"):-d_Student_(X,"t") .
 
 % Repair Rules
 
-s0_(X,"f"):-_personShape_(X,"f") .
+s0_(X,"f"):-d_PersonShape_(X,"f") .
 s1_(X,"t*"):-s0_(X,"t*") .
-_student_(X,"t"):-s1_(X,"t*") .
-_student_(X,"f"):-s1_(X,"f") .
-s2_(X,"t*"):-s0_(X,"t*") .
-s3_(X,"f"):-s2_(X,"t*") .
-s3_(X,"t*"):-s2_(X,"f") .
-s4_(X,"f"):-s3_(X,"f") .
-_teacher_(X,"t"):-s4_(X,"t*") .
-_teacher_(X,"f"):-s4_(X,"f") .
-s4_(X,"t*"):-s3_(X,"t*") .
-s1_(X,"f");s2_(X,"f"):-s0_(X,"f") .
-s5_(X,"f"):-_personShape_(X,"f") .
+s2_(X,"f"):-s1_(X,"t*") .
+s2_(X,"t*"):-s1_(X,"f") .
+s3_(X,"f"):-s2_(X,"f") .
+d_Teacher_(X,"t"):-s3_(X,"t*") .
+d_Teacher_(X,"f"):-s3_(X,"f") .
+s3_(X,"t*"):-s2_(X,"t*") .
+s4_(X,"t*"):-s0_(X,"t*") .
+d_Student_(X,"t"):-s4_(X,"t*") .
+d_Student_(X,"f"):-s4_(X,"f") .
+s1_(X,"f");s4_(X,"f"):-s0_(X,"f") .
+s5_(X,"f"):-d_PersonShape_(X,"f") .
 s6_(X,"t*"):-s5_(X,"t*") .
 s7_(X,"f"):-s6_(X,"t*") .
 s7_(X,"t*"):-s6_(X,"f") .
 s8_(X,"f"):-s7_(X,"f") .
-_student_(X,"t"):-s8_(X,"t*") .
-_student_(X,"f"):-s8_(X,"f") .
+d_Student_(X,"t"):-s8_(X,"t*") .
+d_Student_(X,"f"):-s8_(X,"f") .
 s8_(X,"t*"):-s7_(X,"t*") .
 s9_(X,"t*"):-s5_(X,"t*") .
-_teacher_(X,"t"):-s9_(X,"t*") .
-_teacher_(X,"f"):-s9_(X,"f") .
+d_Teacher_(X,"t"):-s9_(X,"t*") .
+d_Teacher_(X,"f"):-s9_(X,"f") .
 s6_(X,"f");s9_(X,"f"):-s5_(X,"f") .
-s0_(X,"t*");s5_(X,"t*"):-_personShape_(X,"t*") .
+s0_(X,"t*");s5_(X,"t*"):-d_PersonShape_(X,"t*") .
 
 % Interpretation Rules
 
-_student_(X,"t**"):-_student_(X,"t*"),not _student_(X,"f") .
-_teacher_(X,"t**"):-_teacher_(X,"t*"),not _teacher_(X,"f") .
+d_Teacher_(X,"t**"):-d_Teacher_(X,"t*"),not d_Teacher_(X,"f") .
+d_Student_(X,"t**"):-d_Student_(X,"t*"),not d_Student_(X,"f") .
 
 % Program Constraints
 
-:-_student_(X,"t"),_student_(X,"f") .
-:-_teacher_(X,"t"),_teacher_(X,"f") .
+:-d_Teacher_(X,"t"),d_Teacher_(X,"f") .
+:-d_Student_(X,"t"),d_Student_(X,"f") .
 
 % Change Set Rules
 
-add(_student(X)):-_student_(X,"t**"),not _student(X) .
-del(_student(X)):-_student_(X,"f"),_student(X) .
-add(_teacher(X)):-_teacher_(X,"t**"),not _teacher(X) .
-del(_teacher(X)):-_teacher_(X,"f"),_teacher(X) .
+add(d_Teacher(X)):-d_Teacher_(X,"t**"),not d_Teacher(X) .
+del(d_Teacher(X)):-d_Teacher_(X,"f"),d_Teacher(X) .
+add(d_Student(X)):-d_Student_(X,"t**"),not d_Student(X) .
+del(d_Student(X)):-d_Student_(X,"f"),d_Student(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -106,6 +106,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

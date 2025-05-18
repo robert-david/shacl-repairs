@@ -1,21 +1,21 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_02/test_property_path_02_rules.pl
 Solving...
-actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_hasId("_bn1","Math 1")) del(_hasId("_bn2","Math 1"))
+actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn1","Math 1")) del(d_hasId("d_bn2","Math 1"))
 
-actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1")) del(_hasId("_bn2","Math 1"))
+actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_hasId("d_bn2","Math 1"))
 
-actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn2")) del(_hasId("_bn1","Math 1"))
+actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_hasId("d_bn1","Math 1"))
 
-actualTarget("_ann",_studentShape) actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn1")) del(_enrolledIn("_ben","_bn2"))
+actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_enrolledIn("d_ben","d_bn2"))
 
 OPTIMUM FOUND
 
-Models       : 7
+Models       : 5
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 2
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
+Time         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.004s
 Threads      : 3        (Winner: 1)

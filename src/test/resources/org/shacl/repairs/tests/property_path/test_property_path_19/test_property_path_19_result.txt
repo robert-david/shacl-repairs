@@ -1,17 +1,17 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_19/test_property_path_19_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) del(_hasId("_bn2","ID"))
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","ID"))
 
-actualTarget("_ben",_studentShape) del(_enrolledIn("_ben","_bn2"))
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2"))
 
 OPTIMUM FOUND
 
-Models       : 9
+Models       : 10
   Optimum    : yes
   Optimal    : 8
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.015s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
 Threads      : 3        (Winner: 1)

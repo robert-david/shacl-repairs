@@ -1,19 +1,19 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._property_06/test_property_06_rules.pl
 Solving...
-actualTarget("_ann",_employeeShape) add(_organization("_company1")) add(_organization("_company2"))
+actualTarget("d_ann",d_EmployeeShape) del(d_worksFor("d_ann","d_company1")) add(d_Organization("d_company2"))
 
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company1")) add(_organization("_company2"))
+actualTarget("d_ann",d_EmployeeShape) add(d_Organization("d_company1")) add(d_Organization("d_company2"))
 
-actualTarget("_ann",_employeeShape) del(_worksFor("_ann","_company2")) add(_organization("_company1"))
+actualTarget("d_ann",d_EmployeeShape) del(d_worksFor("d_ann","d_company2")) add(d_Organization("d_company1"))
 
 OPTIMUM FOUND
 
-Models       : 12
+Models       : 11
   Optimum    : yes
   Optimal    : 10
 Optimization : 0 2
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
 Threads      : 3        (Winner: 1)

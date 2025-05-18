@@ -1,9 +1,9 @@
 
 % Graph Data
 
-_enrolledIn("_ben","_bn1") .
-_hasLecture("_bn1","_bn2") .
-_isIdOf("_value","_bn2") .
+d_enrolledIn("d_ben","d_bn1") .
+d_hasLecture("d_bn1","d_bn2") .
+d_isIdOf("d_value","d_bn2") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -23,12 +23,12 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
-targetNode("_ben",_studentShape) .
+targetNode("d_ben",d_StudentShape) .
 
 % Constants
 
@@ -36,96 +36,96 @@ targetNode("_ben",_studentShape) .
 % Repair Targets
 
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
-_studentShape_("_ben","t*"):-actualTarget("_ben",_studentShape) .
+d_StudentShape_("d_ben","t*"):-actualTarget("d_ben",d_StudentShape) .
 
 % Annotation Rules
 
-_enrolledIn_(X,Y,"t*"):-_enrolledIn(X,Y) .
-_enrolledIn_(X,Y,"t*"):-_enrolledIn_(X,Y,"t") .
-_hasLecture_(X,Y,"t*"):-_hasLecture(X,Y) .
-_hasLecture_(X,Y,"t*"):-_hasLecture_(X,Y,"t") .
-_isIdOf_(X,Y,"t*"):-_isIdOf(X,Y) .
-_isIdOf_(X,Y,"t*"):-_isIdOf_(X,Y,"t") .
-_isIdOf_(Y,X,"t"):-_isIdOf_inv_(X,Y,"t") .
-_isIdOf_inv_(X,Y,"t*"):-_isIdOf_(Y,X,"t*") .
-_isIdOf_(Y,X,"f"):-_isIdOf_inv_(X,Y,"f") .
-_isIdOf_inv_(X,Y,"f"):-_isIdOf_(Y,X,"f") .
-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,X2,"t*"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,_),_enrolledIn_(X,X0,"t*"),_hasLecture_(X0,X1,"t*"),_isIdOf_inv_(X1,X2,"t*") .
+d_enrolledIn_(X,Y,"t*"):-d_enrolledIn(X,Y) .
+d_enrolledIn_(X,Y,"t*"):-d_enrolledIn_(X,Y,"t") .
+d_hasLecture_(X,Y,"t*"):-d_hasLecture(X,Y) .
+d_hasLecture_(X,Y,"t*"):-d_hasLecture_(X,Y,"t") .
+d_isIdOf_(X,Y,"t*"):-d_isIdOf(X,Y) .
+d_isIdOf_(X,Y,"t*"):-d_isIdOf_(X,Y,"t") .
+d_isIdOf_(Y,X,"t"):-d_isIdOf_inv_(X,Y,"t") .
+d_isIdOf_inv_(X,Y,"t*"):-d_isIdOf_(Y,X,"t*") .
+d_isIdOf_(Y,X,"f"):-d_isIdOf_inv_(X,Y,"f") .
+d_isIdOf_inv_(X,Y,"f"):-d_isIdOf_(Y,X,"f") .
+bnode_b45a1581ee3949048208391692d75602121_st_(X,X2,"t*"):-bnode_b45a1581ee3949048208391692d75602121_(X,_),d_enrolledIn_(X,X0,"t*"),d_hasLecture_(X0,X1,"t*"),d_isIdOf_inv_(X1,X2,"t*") .
 
 % Repair Rules
 
-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"t*"):-_studentShape_(X,"t*") .
-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"f"):-_studentShape_(X,"f") .
+bnode_b45a1581ee3949048208391692d75602121_(X,"t*"):-d_StudentShape_(X,"t*") .
+bnode_b45a1581ee3949048208391692d75602121_(X,"f"):-d_StudentShape_(X,"f") .
 
 
 
-% sh:minCount 0 for bnode_6c865a142fb14333a12a9e945e4fbe20121
-s0_(X,"t*"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"t*") .
-choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X,_enrolledIn,1);choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X,_enrolledIn,0):-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t") .
-_enrolledIn_(X,@new(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X,_enrolledIn,1),"t"):-choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X,_enrolledIn,1),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t") .
-choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X0,_hasLecture,1);choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X0,_hasLecture,0):-_enrolledIn_(X,X0,"t**"),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t") .
-_hasLecture_(X0,@new(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X0,_hasLecture,1),"t"):-choose(bnode_6c865a142fb14333a12a9e945e4fbe20121_st,X0,_hasLecture,1),_enrolledIn_(X,X0,"t**"),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t") .
-0 {_isIdOf_inv_(X1,Y,"t")} 1:-_enrolledIn_(X,X0,"t**"),_hasLecture_(X0,X1,"t**"),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t") .
-(C-0) {bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*");s1_(Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*"),not bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*")}=C,C>0 .
-_enrolledIn_(X,X0,"f");_hasLecture_(X0,X1,"f");_isIdOf_inv_(X1,X2,"f"):-_enrolledIn_(X,X0,"t*"),_hasLecture_(X0,X1,"t*"),_isIdOf_inv_(X1,X2,"t*"),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,X2,"f") .
-0 {s1_(Y,"t*"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t**")} 0:-s0_(X,"t*") .
+% sh:maxCount 0 for bnode_b45a1581ee3949048208391692d75602121
+s0_(X,"t*"):-bnode_b45a1581ee3949048208391692d75602121_(X,"t*") .
+s1_(X,"f"):-s0_(X,"t*") .
+s1_(X,"t*"):-s0_(X,"f") .
+bnode_b45a1581ee3949048208391692d75602121_st_(X,@new(s1,X,bnode_b45a1581ee3949048208391692d75602121_st,1..1),"t"):-choose(s1,X,bnode_b45a1581ee3949048208391692d75602121_st,1) .
+choose(s1,X,bnode_b45a1581ee3949048208391692d75602121_st,1);choose(s1,X,bnode_b45a1581ee3949048208391692d75602121_st,0):-s1_(X,"t*") .
+choose(bnode_b45a1581ee3949048208391692d75602121_st,X,d_enrolledIn,1);choose(bnode_b45a1581ee3949048208391692d75602121_st,X,d_enrolledIn,0):-bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t") .
+d_enrolledIn_(X,@new(bnode_b45a1581ee3949048208391692d75602121_st,X,d_enrolledIn,1),"t"):-choose(bnode_b45a1581ee3949048208391692d75602121_st,X,d_enrolledIn,1),bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t") .
+choose(bnode_b45a1581ee3949048208391692d75602121_st,X0,d_hasLecture,1);choose(bnode_b45a1581ee3949048208391692d75602121_st,X0,d_hasLecture,0):-d_enrolledIn_(X,X0,"t**"),bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t") .
+d_hasLecture_(X0,@new(bnode_b45a1581ee3949048208391692d75602121_st,X0,d_hasLecture,1),"t"):-choose(bnode_b45a1581ee3949048208391692d75602121_st,X0,d_hasLecture,1),d_enrolledIn_(X,X0,"t**"),bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t") .
+0 {d_isIdOf_inv_(X1,Y,"t")} 1:-d_enrolledIn_(X,X0,"t**"),d_hasLecture_(X0,X1,"t**"),bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t") .
+(C-0) {bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*");s2_(Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*"),not bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f")} (C-0):-s1_(X,"f"),#count {Y:bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*")}=C,C>0 .
+d_enrolledIn_(X,X0,"f");d_hasLecture_(X0,X1,"f");d_isIdOf_inv_(X1,X2,"f"):-d_enrolledIn_(X,X0,"t*"),d_hasLecture_(X0,X1,"t*"),d_isIdOf_inv_(X1,X2,"t*"),bnode_b45a1581ee3949048208391692d75602121_st_(X,X2,"f") .
+1 {s2_(Y,"t*"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t**")} 1:-s1_(X,"t*") .
 
 
-% sh:maxCount 0 for bnode_6c865a142fb14333a12a9e945e4fbe20121
-s2_(X,"t*"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"t*") .
-s3_(X,"f"):-s2_(X,"t*") .
-s3_(X,"t*"):-s2_(X,"f") .
-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,@new(s3,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1..1),"t"):-choose(s3,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1) .
-choose(s3,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1);choose(s3,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,0):-s3_(X,"t*") .
-(C-0) {bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*");s4_(Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*"),not bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
+% sh:minCount 0 for bnode_b45a1581ee3949048208391692d75602121
+s3_(X,"t*"):-bnode_b45a1581ee3949048208391692d75602121_(X,"t*") .
+(C-0) {bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*");s4_(Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*"),not bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*")}=C,C>0 .
+0 {s4_(Y,"t*"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t**")} 0:-s3_(X,"t*") .
 
 
-% universal for bnode_6c865a142fb14333a12a9e945e4fbe20121
-s5_(X,"t*"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"t*") .
+% universal for bnode_b45a1581ee3949048208391692d75602121
+s5_(X,"t*"):-bnode_b45a1581ee3949048208391692d75602121_(X,"t*") .
 s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,@new(s6,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1..1),"t"):-choose(s6,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1) .
-choose(s6,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,1);choose(s6,X,bnode_6c865a142fb14333a12a9e945e4fbe20121_st,0):-s6_(X,"t*") .
-(C-0) {bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*");s7_(Y,"f"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*"),not bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t*")}=C,C>0 .
-1 {s7_(Y,"t*"):bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t**")} 1:-s6_(X,"t*") .
+bnode_b45a1581ee3949048208391692d75602121_st_(X,@new(s6,X,bnode_b45a1581ee3949048208391692d75602121_st,1..1),"t"):-choose(s6,X,bnode_b45a1581ee3949048208391692d75602121_st,1) .
+choose(s6,X,bnode_b45a1581ee3949048208391692d75602121_st,1);choose(s6,X,bnode_b45a1581ee3949048208391692d75602121_st,0):-s6_(X,"t*") .
+(C-0) {bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*");s7_(Y,"f"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*"),not bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t*")}=C,C>0 .
+1 {s7_(Y,"t*"):bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t**")} 1:-s6_(X,"t*") .
 s8_(X,"f"):-s7_(X,"t*") .
 s8_(X,"t*"):-s7_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f");s5_(X,"f"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_(X,"f") .
+s0_(X,"f");s3_(X,"f");s5_(X,"f"):-bnode_b45a1581ee3949048208391692d75602121_(X,"f") .
 
 % Interpretation Rules
 
-_enrolledIn_(X,Y,"t**"):-_enrolledIn_(X,Y,"t*"),not _enrolledIn_(X,Y,"f") .
-_hasLecture_(X,Y,"t**"):-_hasLecture_(X,Y,"t*"),not _hasLecture_(X,Y,"f") .
-_isIdOf_(X,Y,"t**"):-_isIdOf_(X,Y,"t*"),not _isIdOf_(X,Y,"f") .
-_isIdOf_inv_(X,Y,"t**"):-_isIdOf_inv_(X,Y,"t*"),not _isIdOf_inv_(X,Y,"f") .
-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,X2,"t**"):-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,X2,"t*"),not bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,X2,"f"),_enrolledIn_(X,X0,"t**"),_hasLecture_(X0,X1,"t**"),_isIdOf_inv_(X1,X2,"t**") .
+d_enrolledIn_(X,Y,"t**"):-d_enrolledIn_(X,Y,"t*"),not d_enrolledIn_(X,Y,"f") .
+d_hasLecture_(X,Y,"t**"):-d_hasLecture_(X,Y,"t*"),not d_hasLecture_(X,Y,"f") .
+d_isIdOf_(X,Y,"t**"):-d_isIdOf_(X,Y,"t*"),not d_isIdOf_(X,Y,"f") .
+d_isIdOf_inv_(X,Y,"t**"):-d_isIdOf_inv_(X,Y,"t*"),not d_isIdOf_inv_(X,Y,"f") .
+bnode_b45a1581ee3949048208391692d75602121_st_(X,X2,"t**"):-bnode_b45a1581ee3949048208391692d75602121_st_(X,X2,"t*"),not bnode_b45a1581ee3949048208391692d75602121_st_(X,X2,"f"),d_enrolledIn_(X,X0,"t**"),d_hasLecture_(X0,X1,"t**"),d_isIdOf_inv_(X1,X2,"t**") .
 
 % Program Constraints
 
-:-_enrolledIn_(X,Y,"t"),_enrolledIn_(X,Y,"f") .
-:-_hasLecture_(X,Y,"t"),_hasLecture_(X,Y,"f") .
-:-_isIdOf_(X,Y,"t"),_isIdOf_(X,Y,"f") .
-:-_isIdOf_inv_(X,Y,"t"),_isIdOf_inv_(X,Y,"f") .
-:-bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"t"),bnode_6c865a142fb14333a12a9e945e4fbe20121_st_(X,Y,"f") .
-:-s1_(X,"f") .
+:-d_enrolledIn_(X,Y,"t"),d_enrolledIn_(X,Y,"f") .
+:-d_hasLecture_(X,Y,"t"),d_hasLecture_(X,Y,"f") .
+:-d_isIdOf_(X,Y,"t"),d_isIdOf_(X,Y,"f") .
+:-d_isIdOf_inv_(X,Y,"t"),d_isIdOf_inv_(X,Y,"f") .
+:-bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"t"),bnode_b45a1581ee3949048208391692d75602121_st_(X,Y,"f") .
+:-s2_(X,"f") .
 :-s4_(X,"f") .
 :-s8_(X,"f") .
 
 % Change Set Rules
 
-add(_enrolledIn(X,Y)):-_enrolledIn_(X,Y,"t**"),not _enrolledIn(X,Y) .
-del(_enrolledIn(X,Y)):-_enrolledIn_(X,Y,"f"),_enrolledIn(X,Y) .
-add(_hasLecture(X,Y)):-_hasLecture_(X,Y,"t**"),not _hasLecture(X,Y) .
-del(_hasLecture(X,Y)):-_hasLecture_(X,Y,"f"),_hasLecture(X,Y) .
-add(_isIdOf(X,Y)):-_isIdOf_(X,Y,"t**"),not _isIdOf(X,Y) .
-del(_isIdOf(X,Y)):-_isIdOf_(X,Y,"f"),_isIdOf(X,Y) .
+add(d_enrolledIn(X,Y)):-d_enrolledIn_(X,Y,"t**"),not d_enrolledIn(X,Y) .
+del(d_enrolledIn(X,Y)):-d_enrolledIn_(X,Y,"f"),d_enrolledIn(X,Y) .
+add(d_hasLecture(X,Y)):-d_hasLecture_(X,Y,"t**"),not d_hasLecture(X,Y) .
+del(d_hasLecture(X,Y)):-d_hasLecture_(X,Y,"f"),d_hasLecture(X,Y) .
+add(d_isIdOf(X,Y)):-d_isIdOf_(X,Y,"t**"),not d_isIdOf(X,Y) .
+del(d_isIdOf(X,Y)):-d_isIdOf_(X,Y,"f"),d_isIdOf(X,Y) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -142,6 +142,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

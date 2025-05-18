@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._2_11/test_property_path_2_11_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4935")) add(_hasLecture("4935","4748")) add(_isIdOf("_value","4748"))
+actualTarget("d_ben",d_StudentShape) add(d_enrolledIn("d_ben","new_4866")) add(d_hasLecture("new_4866","new_5007")) add(d_isIdOf("d_value","new_5007"))
 
 OPTIMUM FOUND
 
@@ -10,6 +10,6 @@ Models       : 11
   Optimal    : 8
 Optimization : 0 3 1
 Calls        : 1
-Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.018s
-Threads      : 3        (Winner: 1)
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
+Threads      : 3        (Winner: 2)

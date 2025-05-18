@@ -1,9 +1,9 @@
 
 % Graph Data
 
-_worksFor("_ann","_company1") .
-_worksFor("_ann","_company2") .
-_worksFor("_ann","_company3") .
+d_worksFor("d_ann","d_company1") .
+d_worksFor("d_ann","d_company2") .
+d_worksFor("d_ann","d_company3") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -23,12 +23,12 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
-targetNode("_ann",_personShape) .
+targetNode("d_ann",d_PersonShape) .
 
 % Constants
 
@@ -36,72 +36,72 @@ targetNode("_ann",_personShape) .
 % Repair Targets
 
 actualTarget(X,S);skipTarget(X,S):-targetNode(X,S) .
-_personShape_("_ann","t*"):-actualTarget("_ann",_personShape) .
+d_PersonShape_("d_ann","t*"):-actualTarget("d_ann",d_PersonShape) .
 
 % Annotation Rules
 
-_worksFor_(X,Y,"t*"):-_worksFor(X,Y) .
-_worksFor_(X,Y,"t*"):-_worksFor_(X,Y,"t") .
-bnode_b242a503fea049a39d669f579c8f837f59_st_(X,Y,"t*"):-bnode_b242a503fea049a39d669f579c8f837f59_(X,_),_worksFor_(X,Y,"t*") .
-_organization_(X,"t*"):-_organization(X) .
-_organization_(X,"t*"):-_organization_(X,"t") .
+d_worksFor_(X,Y,"t*"):-d_worksFor(X,Y) .
+d_worksFor_(X,Y,"t*"):-d_worksFor_(X,Y,"t") .
+bnode_2fd914312f0649d499c395963ae8b2a559_st_(X,Y,"t*"):-bnode_2fd914312f0649d499c395963ae8b2a559_(X,_),d_worksFor_(X,Y,"t*") .
+d_Organization_(X,"t*"):-d_Organization(X) .
+d_Organization_(X,"t*"):-d_Organization_(X,"t") .
 
 % Repair Rules
 
-bnode_b242a503fea049a39d669f579c8f837f58_(X,"f"):-_personShape_(X,"t*") .
-bnode_b242a503fea049a39d669f579c8f837f58_(X,"t*"):-_personShape_(X,"f") .
-bnode_b242a503fea049a39d669f579c8f837f59_(X,"t*"):-bnode_b242a503fea049a39d669f579c8f837f58_(X,"t*") .
-bnode_b242a503fea049a39d669f579c8f837f59_(X,"f"):-bnode_b242a503fea049a39d669f579c8f837f58_(X,"f") .
+bnode_2fd914312f0649d499c395963ae8b2a558_(X,"f"):-d_PersonShape_(X,"t*") .
+bnode_2fd914312f0649d499c395963ae8b2a558_(X,"t*"):-d_PersonShape_(X,"f") .
+bnode_2fd914312f0649d499c395963ae8b2a559_(X,"t*"):-bnode_2fd914312f0649d499c395963ae8b2a558_(X,"t*") .
+bnode_2fd914312f0649d499c395963ae8b2a559_(X,"f"):-bnode_2fd914312f0649d499c395963ae8b2a558_(X,"f") .
 
-% sh:minCount 2 for bnode_b242a503fea049a39d669f579c8f837f59
-s0_(X,"t*"):-bnode_b242a503fea049a39d669f579c8f837f59_(X,"t*") .
-_worksFor_(X,@new(s0,X,_worksFor,1..1),"t"):-choose(s0,X,_worksFor,1) .
-_worksFor_(X,@new(s0,X,_worksFor,1..2),"t"):-choose(s0,X,_worksFor,2) .
-choose(s0,X,_worksFor,2);choose(s0,X,_worksFor,1);choose(s0,X,_worksFor,0):-s0_(X,"t*") .
-(C-1) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s1_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-1):-s0_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>1 .
-_worksFor_(X,Y,"f"):-_worksFor_(X,Y,"t*"),_worksFor_(X,Y,"f") .
-2 {s1_(Y,"t*"):_worksFor_(X,Y,"t**")} 2:-s0_(X,"t*") .
+% sh:minCount 2 for bnode_2fd914312f0649d499c395963ae8b2a559
+s0_(X,"t*"):-bnode_2fd914312f0649d499c395963ae8b2a559_(X,"t*") .
+d_worksFor_(X,@new(s0,X,d_worksFor,1..1),"t"):-choose(s0,X,d_worksFor,1) .
+d_worksFor_(X,@new(s0,X,d_worksFor,1..2),"t"):-choose(s0,X,d_worksFor,2) .
+choose(s0,X,d_worksFor,2);choose(s0,X,d_worksFor,1);choose(s0,X,d_worksFor,0):-s0_(X,"t*") .
+(C-1) {d_worksFor_(X,Y,"f"):d_worksFor_(X,Y,"t*");s1_(Y,"f"):d_worksFor_(X,Y,"t*"),not d_worksFor_(X,Y,"f")} (C-1):-s0_(X,"f"),#count {Y:d_worksFor_(X,Y,"t*")}=C,C>1 .
+d_worksFor_(X,Y,"f"):-d_worksFor_(X,Y,"t*"),d_worksFor_(X,Y,"f") .
+2 {s1_(Y,"t*"):d_worksFor_(X,Y,"t**")} 2:-s0_(X,"t*") .
 
-_organization_(X,"t"):-s1_(X,"t*") .
-_organization_(X,"f"):-s1_(X,"f") .
+d_Organization_(X,"t"):-s1_(X,"t*") .
+d_Organization_(X,"f"):-s1_(X,"f") .
 
-% universal for bnode_b242a503fea049a39d669f579c8f837f59
-s2_(X,"t*"):-bnode_b242a503fea049a39d669f579c8f837f59_(X,"t*") .
+% universal for bnode_2fd914312f0649d499c395963ae8b2a559
+s2_(X,"t*"):-bnode_2fd914312f0649d499c395963ae8b2a559_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
-_worksFor_(X,@new(s3,X,_worksFor,1..1),"t"):-choose(s3,X,_worksFor,1) .
-choose(s3,X,_worksFor,1);choose(s3,X,_worksFor,0):-s3_(X,"t*") .
-(C-0) {_worksFor_(X,Y,"f"):_worksFor_(X,Y,"t*");s4_(Y,"f"):_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:_worksFor_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):_worksFor_(X,Y,"t**")} 1:-s3_(X,"t*") .
+d_worksFor_(X,@new(s3,X,d_worksFor,1..1),"t"):-choose(s3,X,d_worksFor,1) .
+choose(s3,X,d_worksFor,1);choose(s3,X,d_worksFor,0):-s3_(X,"t*") .
+(C-0) {d_worksFor_(X,Y,"f"):d_worksFor_(X,Y,"t*");s4_(Y,"f"):d_worksFor_(X,Y,"t*"),not d_worksFor_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:d_worksFor_(X,Y,"t*")}=C,C>0 .
+1 {s4_(Y,"t*"):d_worksFor_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
-_organization_(X,"t"):-s5_(X,"t*") .
-_organization_(X,"f"):-s5_(X,"f") .
+d_Organization_(X,"t"):-s5_(X,"t*") .
+d_Organization_(X,"f"):-s5_(X,"f") .
 
-s0_(X,"f");s2_(X,"f"):-bnode_b242a503fea049a39d669f579c8f837f59_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-bnode_2fd914312f0649d499c395963ae8b2a559_(X,"f") .
 
 % Interpretation Rules
 
-_worksFor_(X,Y,"t**"):-_worksFor_(X,Y,"t*"),not _worksFor_(X,Y,"f") .
-bnode_b242a503fea049a39d669f579c8f837f59_st_(X,Y,"t**"):-_worksFor_(X,Y,"t**"),bnode_b242a503fea049a39d669f579c8f837f59_st_(X,Y,"t*"),not bnode_b242a503fea049a39d669f579c8f837f59_st_(X,Y,"f") .
-_organization_(X,"t**"):-_organization_(X,"t*"),not _organization_(X,"f") .
+d_worksFor_(X,Y,"t**"):-d_worksFor_(X,Y,"t*"),not d_worksFor_(X,Y,"f") .
+bnode_2fd914312f0649d499c395963ae8b2a559_st_(X,Y,"t**"):-d_worksFor_(X,Y,"t**"),bnode_2fd914312f0649d499c395963ae8b2a559_st_(X,Y,"t*"),not bnode_2fd914312f0649d499c395963ae8b2a559_st_(X,Y,"f") .
+d_Organization_(X,"t**"):-d_Organization_(X,"t*"),not d_Organization_(X,"f") .
 
 % Program Constraints
 
-:-_worksFor_(X,Y,"t"),_worksFor_(X,Y,"f") .
-:-_organization_(X,"t"),_organization_(X,"f") .
+:-d_worksFor_(X,Y,"t"),d_worksFor_(X,Y,"f") .
+:-d_Organization_(X,"t"),d_Organization_(X,"f") .
 
 % Change Set Rules
 
-add(_worksFor(X,Y)):-_worksFor_(X,Y,"t**"),not _worksFor(X,Y) .
-del(_worksFor(X,Y)):-_worksFor_(X,Y,"f"),_worksFor(X,Y) .
-add(_organization(X)):-_organization_(X,"t**"),not _organization(X) .
-del(_organization(X)):-_organization_(X,"f"),_organization(X) .
+add(d_worksFor(X,Y)):-d_worksFor_(X,Y,"t**"),not d_worksFor(X,Y) .
+del(d_worksFor(X,Y)):-d_worksFor_(X,Y,"f"),d_worksFor(X,Y) .
+add(d_Organization(X)):-d_Organization_(X,"t**"),not d_Organization(X) .
+del(d_Organization(X)):-d_Organization_(X,"f"),d_Organization(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -118,6 +118,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

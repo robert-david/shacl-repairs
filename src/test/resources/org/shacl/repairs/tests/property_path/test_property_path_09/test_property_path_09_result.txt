@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_09/test_property_path_09_rules.pl
 Solving...
-actualTarget("_x",_cutShape) actualTarget("_ben",_studentShape) del(_p0("_x","_bn1"))
+actualTarget("d_X",d_CutShape) actualTarget("d_ben",d_StudentShape) del(d_p0("d_X","d_bn1"))
 
 OPTIMUM FOUND
 
@@ -10,6 +10,6 @@ Models       : 3
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
-Threads      : 3        (Winner: 1)
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
+Threads      : 3        (Winner: 2)

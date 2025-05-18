@@ -1,15 +1,15 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...e/test_value_13/test_value_13_rules.pl
 Solving...
-actualTarget("_ann",_personShape) del(_name("_ann","ANN")) add(_name("_ann","1205")) add(_name("_ann","1206")) add(_name("_ann","1207"))
+actualTarget("d_ann",d_PersonShape) del(d_name("d_ann","ANN")) add(d_name("d_ann","new_1405")) add(d_name("d_ann","new_1406")) add(d_name("d_ann","new_1407"))
 
 OPTIMUM FOUND
 
-Models       : 9
+Models       : 10
   Optimum    : yes
   Optimal    : 7
 Optimization : 0 4 0
 Calls        : 1
-Time         : 0.015s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.014s
-Threads      : 3        (Winner: 2)
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
+Threads      : 3        (Winner: 0)

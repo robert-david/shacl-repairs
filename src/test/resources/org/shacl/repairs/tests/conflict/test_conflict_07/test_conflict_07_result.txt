@@ -1,7 +1,7 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._conflict_07/test_conflict_07_rules.pl
 Solving...
-actualTarget("_ann",_personShapeB) skipTarget("_ann",_personShapeA)
+actualTarget("d_ann",d_PersonShapeB) skipTarget("d_ann",d_PersonShapeA)
 
 OPTIMUM FOUND
 
@@ -9,6 +9,6 @@ Models       : 3
   Optimum    : yes
 Optimization : 1 0
 Calls        : 1
-Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.010s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
 Threads      : 3        (Winner: 0)

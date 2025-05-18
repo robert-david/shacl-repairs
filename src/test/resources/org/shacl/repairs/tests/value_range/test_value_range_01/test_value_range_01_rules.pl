@@ -26,8 +26,8 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -45,26 +45,26 @@ d_OutlierShape_("d_observation","t*"):-actualTarget("d_observation",d_OutlierSha
 
 d_hasValue_(X,Y,"t*"):-d_hasValue(X,Y) .
 d_hasValue_(X,Y,"t*"):-d_hasValue_(X,Y,"t") .
-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_st_(X,Y,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,_),d_hasValue_(X,Y,"t*") .
+bnode_bb0cf4d496474c7ba4585a519faa989c2_st_(X,Y,"t*"):-bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,_),d_hasValue_(X,Y,"t*") .
 
 % Repair Rules
 
-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"t*"):-d_OutlierShape_(X,"t*") .
-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"f"):-d_OutlierShape_(X,"f") .
+bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"t*"):-d_OutlierShape_(X,"t*") .
+bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"f"):-d_OutlierShape_(X,"f") .
 
-% sh:minCount 0 for bnode_7f9d9b63cd6e4fd98d80676ce404d35f2
-s0_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"t*") .
+% sh:minCount 0 for bnode_bb0cf4d496474c7ba4585a519faa989c2
+s0_(X,"t*"):-bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"t*") .
 (C-0) {d_hasValue_(X,Y,"f"):d_hasValue_(X,Y,"t*");s1_(Y,"f"):d_hasValue_(X,Y,"t*"),not d_hasValue_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:d_hasValue_(X,Y,"t*")}=C,C>0 .
 d_hasValue_(X,Y,"f"):-d_hasValue_(X,Y,"t*"),d_hasValue_(X,Y,"f") .
 0 {s1_(Y,"t*"):d_hasValue_(X,Y,"t**")} 0:-s0_(X,"t*") .
 
 
-s2_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"t*") .
+s2_(X,"t*"):-bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"t*") .
 d_hasValue_(X,Y,"f"):-s2_(X,"t*"),d_hasValue_(X,Y,"t*"),@geq(Y,"2")="f" .
 d_hasValue_(X,Y,"f"):-s2_(X,"f"),d_hasValue_(X,Y,"t*"),@geq(Y,"2")="t" .
 
-% universal for bnode_7f9d9b63cd6e4fd98d80676ce404d35f2
-s3_(X,"t*"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"t*") .
+% universal for bnode_bb0cf4d496474c7ba4585a519faa989c2
+s3_(X,"t*"):-bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"t*") .
 s4_(X,"f"):-s3_(X,"t*") .
 s4_(X,"t*"):-s3_(X,"f") .
 d_hasValue_(X,@new(s4,X,d_hasValue,1..1),"t"):-choose(s4,X,d_hasValue,1) .
@@ -75,12 +75,12 @@ s6_(X,"f"):-s5_(X,"t*") .
 s6_(X,"t*"):-s5_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f");s3_(X,"f"):-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_(X,"f") .
+s0_(X,"f");s2_(X,"f");s3_(X,"f"):-bnode_bb0cf4d496474c7ba4585a519faa989c2_(X,"f") .
 
 % Interpretation Rules
 
 d_hasValue_(X,Y,"t**"):-d_hasValue_(X,Y,"t*"),not d_hasValue_(X,Y,"f") .
-bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_st_(X,Y,"t**"):-d_hasValue_(X,Y,"t**"),bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_st_(X,Y,"t*"),not bnode_7f9d9b63cd6e4fd98d80676ce404d35f2_st_(X,Y,"f") .
+bnode_bb0cf4d496474c7ba4585a519faa989c2_st_(X,Y,"t**"):-d_hasValue_(X,Y,"t**"),bnode_bb0cf4d496474c7ba4585a519faa989c2_st_(X,Y,"t*"),not bnode_bb0cf4d496474c7ba4585a519faa989c2_st_(X,Y,"f") .
 
 % Program Constraints
 
@@ -95,7 +95,7 @@ del(d_hasValue(X,Y)):-d_hasValue_(X,Y,"f"),d_hasValue(X,Y) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@3,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -112,33 +112,37 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
 end
 #end .
 
 
 #script (lua)
 function gt(X,Y)
+if isNew(X) then return "new" end
 local x,y = getNumbers(X,Y)
-if x==nil or y==nil then return "nil" end
+if x==nil or y==nil then return "f" end
 if x>y then return "t" else return "f" end
 end
 
 function lt(X,Y)
+if isNew(X) then return "new" end
 local x,y = getNumbers(X,Y)
-if x==nil or y==nil then return "nil" end
+if x==nil or y==nil then return "f" end
 if x<y then return "t" else return "f" end
 end
 
 function geq(X,Y)
+if isNew(X) then return "new" end
 local x,y = getNumbers(X,Y)
-if x==nil or y==nil then return "nil" end
+if x==nil or y==nil then return "f" end
 if x>=y then return "t" else return "f" end
 end
 
 function leq(X,Y)
+if isNew(X) then return "new" end
 local x,y = getNumbers(X,Y)
-if x==nil or y==nil then return "nil" end
+if x==nil or y==nil then return "f" end
 if x<=y then return "t" else return "f" end
 end
 
@@ -148,5 +152,9 @@ local y,_ = string.gsub(tostring(Y),"\"","")
 local xn = tonumber(x)
 local yn = tonumber(y)
 return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

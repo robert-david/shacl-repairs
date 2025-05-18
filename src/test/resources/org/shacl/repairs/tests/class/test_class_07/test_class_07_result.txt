@@ -1,17 +1,17 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...s/test_class_07/test_class_07_rules.pl
 Solving...
-actualTarget("_ann",_personShape) add(_person("_ann"))
+actualTarget("d_ann",d_PersonShape) add(d_Person("d_ann"))
 
-actualTarget("_ann",_personShape) add(_organization("_ann"))
+actualTarget("d_ann",d_PersonShape) add(d_Organization("d_ann"))
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 4
   Optimum    : yes
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
-Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.004s
-Threads      : 3        (Winner: 0)
+Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.002s
+Threads      : 3        (Winner: 2)

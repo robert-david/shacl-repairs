@@ -1,19 +1,19 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...path_07/test_property_path_07_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) skipTarget("_ben",_cutShape) del(_hasId("_bn1","Math 1"))
+skipTarget("d_ben",d_StudentShape) actualTarget("d_ben",d_CutShape) del(d_enrolledIn("d_ben","d_bn1"))
 
-actualTarget("_ben",_studentShape) skipTarget("_ben",_cutShape) del(_hasId("_bn1","Math 2"))
+actualTarget("d_ben",d_StudentShape) skipTarget("d_ben",d_CutShape) del(d_hasId("d_bn1","Math 2"))
 
-skipTarget("_ben",_studentShape) actualTarget("_ben",_cutShape) del(_enrolledIn("_ben","_bn1"))
+actualTarget("d_ben",d_StudentShape) skipTarget("d_ben",d_CutShape) del(d_hasId("d_bn1","Math 1"))
 
 OPTIMUM FOUND
 
-Models       : 8
+Models       : 7
   Optimum    : yes
   Optimal    : 5
 Optimization : 1 1
 Calls        : 1
-Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.012s
-Threads      : 3        (Winner: 1)
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
+Threads      : 3        (Winner: 0)

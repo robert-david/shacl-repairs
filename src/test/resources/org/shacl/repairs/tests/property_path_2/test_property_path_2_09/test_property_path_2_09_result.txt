@@ -1,11 +1,11 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ..._2_09/test_property_path_2_09_rules.pl
 Solving...
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","4013")) add(_hasId("4740","Math 1"))
+actualTarget("d_ben",d_StudentShape) add(d_enrolledIn("d_ben","new_4862")) add(d_hasLecture("new_4862","new_4999")) add(d_hasId("new_4999","new_3795")) add(d_hasId("new_4999","Math 1"))
 
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","4012")) add(_hasId("4740","Math 1"))
+actualTarget("d_ben",d_StudentShape) add(d_enrolledIn("d_ben","new_4862")) add(d_hasLecture("new_4862","new_4999")) add(d_hasId("new_4999","new_3802")) add(d_hasId("new_4999","Math 1"))
 
-actualTarget("_ben",_studentShape) add(_enrolledIn("_ben","4931")) add(_hasLecture("4931","4740")) add(_hasId("4740","3964")) add(_hasId("4740","Math 1"))
+actualTarget("d_ben",d_StudentShape) add(d_enrolledIn("d_ben","new_4862")) add(d_hasLecture("new_4862","new_4999")) add(d_hasId("new_4999","new_3796")) add(d_hasId("new_4999","Math 1"))
 
 OPTIMUM FOUND
 
@@ -14,6 +14,6 @@ Models       : 30
   Optimal    : 27
 Optimization : 0 4 1
 Calls        : 1
-Time         : 0.016s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.017s
-Threads      : 3        (Winner: 1)
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
+Threads      : 3        (Winner: 0)
