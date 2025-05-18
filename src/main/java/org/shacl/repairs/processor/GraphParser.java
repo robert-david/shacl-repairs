@@ -1,6 +1,5 @@
 package org.shacl.repairs.processor;
 
-import jdk.jshell.execution.Util;
 import org.eclipse.rdf4j.model.Literal;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Namespace;
@@ -13,7 +12,6 @@ import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.BasicParserSettings;
 import org.shacl.repairs.data.SHACLData;
 
-import java.io.IOException;
 import java.util.Set;
 
 import static org.shacl.repairs.processor.Utils.ns;

@@ -5,6 +5,9 @@ import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
 import org.eclipse.rdf4j.model.vocabulary.RDF4J;
 import org.eclipse.rdf4j.model.vocabulary.RDFS;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.sail.SailRepository;
 import org.eclipse.rdf4j.rio.RDFFormat;
@@ -105,11 +108,20 @@ public class RepairGenerator {
         for (Shape shape : shapes) {
             for (Target target : shape.getTarget()) {
 
-                // sh:targetClass
+                // sh:targetClass, incl. rdfs:subClassOf
                 if (target instanceof TargetClass) {
                     for (Resource targetClass : ((TargetClass) target).getTargetClass()) {
-                        for (Statement statement : dataModel.getStatements(null, RDF.TYPE, targetClass)) {
-                            addShapeAssignment(shape, statement.getSubject());
+                        Repository repo = new SailRepository(new MemoryStore());
+                        try (RepositoryConnection connection = repo.getConnection()) {
+                            connection.add(dataModel);
+                            TupleQuery query = connection.prepareTupleQuery(
+                                    "SELECT DISTINCT ?this WHERE {" +
+                                        "?this rdf:type/rdfs:subClassOf* ?targetClass ." +
+                                    "}");
+                            query.setBinding("targetClass",targetClass);
+                            for (BindingSet bindings : query.evaluate()) {
+                                addShapeAssignment(shape, bindings.getBinding("this").getValue());
+                            }
                         }
                     }
                 }
@@ -183,7 +195,8 @@ public class RepairGenerator {
 
         for (Resource shapeId : shapeMap.keySet()) {
 
-            String shapeName = ns(nss, shapeId);
+            String shapeName = ns(nss, shapeId)
+                    .replace("-", "__");
 
             if (shapeMap.get(shapeId).size() == 1) {
 
@@ -1187,11 +1200,6 @@ public class RepairGenerator {
             RepairData.get().getRepairRules().add(property + "_(Y,X,\"t\"):-" +
                     shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .\n");
 
-            System.out.println(equalsName + "_(Y,X,\"t\");" + property + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .");
-            System.out.println(property + "_(Y,X,\"t\");" + equalsName + "_(X,Y,\"f\"):-" +
-                    shapeName + "_(X,\"t*\")," + equalsName + "_(X,Y,\"t*\") .");
-
             RepairData.get().getRepairRules().add(equalsName + "_(Y,X,\"t\");" + property + "_(X,Y,\"f\"):-" +
                     shapeName + "_(X,\"t*\")," + property + "_(X,Y,\"t*\") .\n");
             RepairData.get().getRepairRules().add(property + "_(Y,X,\"t\");" + equalsName + "_(X,Y,\"f\"):-" +
@@ -1344,21 +1352,25 @@ public class RepairGenerator {
 
         } else if (constraintComponent instanceof PropertyShape) {
 
-            RepairData.get().getRepairRules().add(
-                    ns(nss, ((PropertyShape) constraintComponent).getId()) + "_(X,\"t*\"):-" +
-                            shapeName + "_(X,\"t*\") .\n");
+            String propertyName =
+                    ns(nss, ((PropertyShape) constraintComponent).getId())
+                            .replace("-", "__");
 
             RepairData.get().getRepairRules().add(
-                    ns(nss, ((PropertyShape) constraintComponent).getId()) + "_(X,\"f\"):-" +
-                            shapeName + "_(X,\"f\") .\n");
+                    propertyName + "_(X,\"t*\"):-" + shapeName + "_(X,\"t*\") .\n");
+
+            RepairData.get().getRepairRules().add(
+                    propertyName + "_(X,\"f\"):-" + shapeName + "_(X,\"f\") .\n");
 
             processPropertyShape(
-                    ns(nss, ((PropertyShape) constraintComponent).getId()),
+                    propertyName,
                     Collections.singletonList((PropertyShape) constraintComponent));
 
         } else if (constraintComponent instanceof ClassConstraintComponent) {
 
-            String className = ns(nss, ((ClassConstraintComponent) constraintComponent).getConstraintClass());
+            String className =
+                    ns(nss, ((ClassConstraintComponent) constraintComponent).getConstraintClass())
+                            .replace("-", "__");
 
             RepairData.get().getAnnotationRules().add(className + "_(X,\"t*\"):-" + className + "(X) .\n");
             RepairData.get().getAnnotationRules().add(className + "_(X,\"t*\"):-" + className + "_(X,\"t\") .\n");
