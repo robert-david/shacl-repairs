@@ -52,6 +52,7 @@ public class RepairProgram {
 
             dataModel = new LinkedHashModel();
             rdfParser.setRDFHandler(new StatementCollector(dataModel));
+            rdfParser.getParserConfig().set(BasicParserSettings.VERIFY_URI_SYNTAX, false);
             rdfParser.parse(inputStream, SHACLData.getBaseURI());
         }
 
@@ -193,29 +194,33 @@ public class RepairProgram {
             writer.write("\n\n");
             writer.write("#script (lua)\n");
             writer.write("function gt(X,Y)\n");
+            writer.write("if isNew(X) then return \"new\" end\n");
             writer.write("local x,y = getNumbers(X,Y)\n");
-            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x==nil or y==nil then return \"f\" end\n");
             writer.write("if x>y then return \"t\" else return \"f\" end\n");
             writer.write("end\n");
 
             writer.write("\n");
             writer.write("function lt(X,Y)\n");
+            writer.write("if isNew(X) then return \"new\" end\n");
             writer.write("local x,y = getNumbers(X,Y)\n");
-            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x==nil or y==nil then return \"f\" end\n");
             writer.write("if x<y then return \"t\" else return \"f\" end\n");
             writer.write("end\n");
 
             writer.write("\n");
             writer.write("function geq(X,Y)\n");
+            writer.write("if isNew(X) then return \"new\" end\n");
             writer.write("local x,y = getNumbers(X,Y)\n");
-            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x==nil or y==nil then return \"f\" end\n");
             writer.write("if x>=y then return \"t\" else return \"f\" end\n");
             writer.write("end\n");
 
             writer.write("\n");
             writer.write("function leq(X,Y)\n");
+            writer.write("if isNew(X) then return \"new\" end\n");
             writer.write("local x,y = getNumbers(X,Y)\n");
-            writer.write("if x==nil or y==nil then return \"nil\" end\n");
+            writer.write("if x==nil or y==nil then return \"f\" end\n");
             writer.write("if x<=y then return \"t\" else return \"f\" end\n");
             writer.write("end\n");
 
@@ -227,6 +232,12 @@ public class RepairProgram {
             writer.write("local yn = tonumber(y)\n");
             writer.write("return xn,yn\n");
             writer.write("end\n");
+
+            writer.write("\n");
+            writer.write("function isNew(X)\n");
+            writer.write("return string.match(tostring(X), '^\"new')\n");
+            writer.write("end\n");
+
             writer.write("#end .\n");
 
 //          alternative new function
