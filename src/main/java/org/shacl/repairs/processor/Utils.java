@@ -30,20 +30,24 @@ public class Utils {
 
     public static String ns(Set<Namespace> ns, String id) {
 
+        String shortest = null;
         for (Namespace n : ns) {
-            if (id.contains(n.getName())) {
-                id = id.replaceAll(n.getName(), "");
+            if (id.startsWith(n.getName())) {
+                String tmp = id;
+                tmp = tmp.replaceFirst(n.getName(), "");
                 if (n.getPrefix().equals("")) {
-                    if (id.length() == 0) {
-                        id = n.getName();
+                    if (tmp.length() == 0) {
+                        tmp = n.getName();
                     }
-                    id = id.replaceFirst("" + id.charAt(0), "" + ("" + id.charAt(0)).charAt(0));
-                    id = "d_" + id;
+                    tmp = tmp.replaceFirst("" + tmp.charAt(0), "" + ("" + tmp.charAt(0)).charAt(0));
+                    tmp = "d_" + tmp;
                 } else {
-                    id = n.getPrefix() + "_" + id;
+                    tmp = n.getPrefix() + "_" + tmp;
                 }
+                shortest = shortest == null || tmp.length() < shortest.length() ? tmp : shortest;
             }
         }
+        id = shortest == null ? id : shortest;
 
         for (Namespace n : ns) {
             if (id.startsWith(n.getPrefix() + ":")) {
