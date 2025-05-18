@@ -1,4 +1,4 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...sts/core/node/not-002/not-002-rules.pl
 Solving...
 actualTarget("ex_InvalidInstance1",ex_NotExampleShape) actualTarget("ex_ValidInstance1",ex_NotExampleShape) del(ex_property("ex_InvalidInstance1","Some value"))
@@ -9,6 +9,6 @@ Models       : 3
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
-Threads      : 3        (Winner: 1)
+Time         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.004s
+Threads      : 3        (Winner: 2)

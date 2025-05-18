@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...tests/core/node/in-001/in-001-rules.pl
 Solving...
 skipTarget("ex_InvalidInstance",ex_TestShape) actualTarget("ex_Green",ex_TestShape) actualTarget("ex_Red",ex_TestShape) actualTarget("ex_Yellow",ex_TestShape)
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 2
   Optimum    : yes
 Optimization : 1
 Calls        : 1
-Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
+Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.003s
 Threads      : 3        (Winner: 1)

@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...core/node/class-002/class-002-rules.pl
 Solving...
-actualTarget("ex_NamedInstance",ex_TestShape) actualTarget("bnode_b9751",ex_TestShape) actualTarget("bnode_6e957a6331f648adaec55884eab70e68140",ex_TestShape) actualTarget("String",ex_TestShape) add(ex_TestClass("bnode_b9751")) add(ex_TestClass("String"))
+actualTarget("ex_NamedInstance",ex_TestShape) actualTarget("bnode_b9751",ex_TestShape) actualTarget("bnode_0465bff3129e4f3db89e6d0321ce7388140",ex_TestShape) actualTarget("String",ex_TestShape) add(ex_TestClass("bnode_b9751")) add(ex_TestClass("String"))
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 3
   Optimum    : yes
 Optimization : 0 2
 Calls        : 1
-Time         : 0.003s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.003s
-Threads      : 3        (Winner: 1)
+Time         : 0.002s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.002s
+Threads      : 3        (Winner: 2)

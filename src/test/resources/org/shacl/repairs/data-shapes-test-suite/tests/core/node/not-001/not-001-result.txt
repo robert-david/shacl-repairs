@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...sts/core/node/not-001/not-001-rules.pl
 Solving...
 actualTarget("ex_ValidResource1",ex_TestShape) actualTarget("ex_InvalidResource1",ex_TestShape) del(ex_property("ex_InvalidResource1","some value"))
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 3
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.007s
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.006s
 Threads      : 3        (Winner: 0)

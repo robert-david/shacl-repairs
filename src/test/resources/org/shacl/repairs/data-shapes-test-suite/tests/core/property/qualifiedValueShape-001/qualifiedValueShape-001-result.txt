@@ -1,15 +1,17 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...e-001/qualifiedValueShape-001-rules.pl
 Solving...
-actualTarget("ex_Observation1",ex_APGARObservationShape) add(ex_related("ex_Observation1","2863"))
+actualTarget("ex_Observation1",ex_APGARObservationShape) add(ex_related("ex_Observation1","new_2863"))
+
+actualTarget("ex_Observation1",ex_APGARObservationShape) del(ex_related_target("bnode_0465bff3129e4f3db89e6d0321ce7388450","bnode_0465bff3129e4f3db89e6d0321ce7388451"))
 
 OPTIMUM FOUND
 
-Models       : 103+
+Models       : 36102
   Optimum    : yes
-  Optimal    : 100
+  Optimal    : 36096
 Optimization : 0 1 0
 Calls        : 1
-Time         : 0.397s (Solving: 0.02s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.421s
-Threads      : 3        (Winner: 1)
+Time         : 0.444s (Solving: 0.31s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.904s
+Threads      : 3        (Winner: 0)

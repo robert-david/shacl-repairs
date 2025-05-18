@@ -7,13 +7,13 @@ ex_property2("ex_Node1","ex_Node2") .
 ex_property3("ex_Node2","Value") .
 xsd_string("Value") .
 sh_PropertyShape("ex_TestShape") .
-sh_path("ex_TestShape","bnode_3192f5e3ab9a46dfac026bfecdcd7453120") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453120","ex_property1") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453120","bnode_3192f5e3ab9a46dfac026bfecdcd7453121") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453121","ex_property2") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453121","bnode_3192f5e3ab9a46dfac026bfecdcd7453122") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453122","ex_property3") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453122","rdf_nil") .
+sh_path("ex_TestShape","bnode_91a4704ebeb745f4bbe38af286fa4e48120") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48120","ex_property1") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48120","bnode_91a4704ebeb745f4bbe38af286fa4e48121") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48121","ex_property2") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48121","bnode_91a4704ebeb745f4bbe38af286fa4e48122") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48122","ex_property3") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48122","rdf_nil") .
 sh_minCount("ex_TestShape","1") .
 xsd_integer("1") .
 sh_targetNode("ex_TestShape","ex_InvalidResource1") .
@@ -24,46 +24,46 @@ ex_property1("ex_ValidResource1","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node1") .
 ex_property1("ex_ValidResource2","ex_Node2") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","bnode_3192f5e3ab9a46dfac026bfecdcd7453123") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453123","http://repairs.shacl.org/path_sequence_002") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453123","rdf_nil") .
-sht_Validate("http://repairs.shacl.org/path_sequence_002") .
-rdfs_label("http://repairs.shacl.org/path_sequence_002","Test of path sequence 002") .
+mf_entries("http://repairs.shacl.org","bnode_91a4704ebeb745f4bbe38af286fa4e48123") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48123","http://repairs.shacl.org/path-sequence-002") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48123","rdf_nil") .
+sht_Validate("http://repairs.shacl.org/path-sequence-002") .
+rdfs_label("http://repairs.shacl.org/path-sequence-002","Test of path sequence 002") .
 xsd_string("Test of path sequence 002") .
-mf_action("http://repairs.shacl.org/path_sequence_002","bnode_3192f5e3ab9a46dfac026bfecdcd7453124") .
-sht_dataGraph("bnode_3192f5e3ab9a46dfac026bfecdcd7453124","http://repairs.shacl.org") .
-sht_shapesGraph("bnode_3192f5e3ab9a46dfac026bfecdcd7453124","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_sequence_002","bnode_3192f5e3ab9a46dfac026bfecdcd7453125") .
-sh_ValidationReport("bnode_3192f5e3ab9a46dfac026bfecdcd7453125") .
-sh_conforms("bnode_3192f5e3ab9a46dfac026bfecdcd7453125","false") .
+mf_action("http://repairs.shacl.org/path-sequence-002","bnode_91a4704ebeb745f4bbe38af286fa4e48124") .
+sht_dataGraph("bnode_91a4704ebeb745f4bbe38af286fa4e48124","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_91a4704ebeb745f4bbe38af286fa4e48124","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path-sequence-002","bnode_91a4704ebeb745f4bbe38af286fa4e48125") .
+sh_ValidationReport("bnode_91a4704ebeb745f4bbe38af286fa4e48125") .
+sh_conforms("bnode_91a4704ebeb745f4bbe38af286fa4e48125","false") .
 xsd_boolean("false") .
-sh_result("bnode_3192f5e3ab9a46dfac026bfecdcd7453125","bnode_3192f5e3ab9a46dfac026bfecdcd7453126") .
-sh_ValidationResult("bnode_3192f5e3ab9a46dfac026bfecdcd7453126") .
-sh_focusNode("bnode_3192f5e3ab9a46dfac026bfecdcd7453126","ex_InvalidResource1") .
-sh_resultPath("bnode_3192f5e3ab9a46dfac026bfecdcd7453126","bnode_3192f5e3ab9a46dfac026bfecdcd7453127") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453127","ex_property1") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453127","bnode_3192f5e3ab9a46dfac026bfecdcd7453128") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453128","ex_property2") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453128","bnode_3192f5e3ab9a46dfac026bfecdcd7453129") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453129","ex_property3") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453129","rdf_nil") .
-sh_resultSeverity("bnode_3192f5e3ab9a46dfac026bfecdcd7453126","sh_Violation") .
-sh_sourceConstraintComponent("bnode_3192f5e3ab9a46dfac026bfecdcd7453126","sh_MinCountConstraintComponent") .
-sh_sourceShape("bnode_3192f5e3ab9a46dfac026bfecdcd7453126","ex_TestShape") .
-sh_result("bnode_3192f5e3ab9a46dfac026bfecdcd7453125","bnode_3192f5e3ab9a46dfac026bfecdcd7453130") .
-sh_ValidationResult("bnode_3192f5e3ab9a46dfac026bfecdcd7453130") .
-sh_focusNode("bnode_3192f5e3ab9a46dfac026bfecdcd7453130","ex_InvalidResource2") .
-sh_resultPath("bnode_3192f5e3ab9a46dfac026bfecdcd7453130","bnode_3192f5e3ab9a46dfac026bfecdcd7453131") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453131","ex_property1") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453131","bnode_3192f5e3ab9a46dfac026bfecdcd7453132") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453132","ex_property2") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453132","bnode_3192f5e3ab9a46dfac026bfecdcd7453133") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453133","ex_property3") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453133","rdf_nil") .
-sh_resultSeverity("bnode_3192f5e3ab9a46dfac026bfecdcd7453130","sh_Violation") .
-sh_sourceConstraintComponent("bnode_3192f5e3ab9a46dfac026bfecdcd7453130","sh_MinCountConstraintComponent") .
-sh_sourceShape("bnode_3192f5e3ab9a46dfac026bfecdcd7453130","ex_TestShape") .
-mf_status("http://repairs.shacl.org/path_sequence_002","sht_approved") .
+sh_result("bnode_91a4704ebeb745f4bbe38af286fa4e48125","bnode_91a4704ebeb745f4bbe38af286fa4e48126") .
+sh_ValidationResult("bnode_91a4704ebeb745f4bbe38af286fa4e48126") .
+sh_focusNode("bnode_91a4704ebeb745f4bbe38af286fa4e48126","ex_InvalidResource1") .
+sh_resultPath("bnode_91a4704ebeb745f4bbe38af286fa4e48126","bnode_91a4704ebeb745f4bbe38af286fa4e48127") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48127","ex_property1") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48127","bnode_91a4704ebeb745f4bbe38af286fa4e48128") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48128","ex_property2") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48128","bnode_91a4704ebeb745f4bbe38af286fa4e48129") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48129","ex_property3") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48129","rdf_nil") .
+sh_resultSeverity("bnode_91a4704ebeb745f4bbe38af286fa4e48126","sh_Violation") .
+sh_sourceConstraintComponent("bnode_91a4704ebeb745f4bbe38af286fa4e48126","sh_MinCountConstraintComponent") .
+sh_sourceShape("bnode_91a4704ebeb745f4bbe38af286fa4e48126","ex_TestShape") .
+sh_result("bnode_91a4704ebeb745f4bbe38af286fa4e48125","bnode_91a4704ebeb745f4bbe38af286fa4e48130") .
+sh_ValidationResult("bnode_91a4704ebeb745f4bbe38af286fa4e48130") .
+sh_focusNode("bnode_91a4704ebeb745f4bbe38af286fa4e48130","ex_InvalidResource2") .
+sh_resultPath("bnode_91a4704ebeb745f4bbe38af286fa4e48130","bnode_91a4704ebeb745f4bbe38af286fa4e48131") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48131","ex_property1") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48131","bnode_91a4704ebeb745f4bbe38af286fa4e48132") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48132","ex_property2") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48132","bnode_91a4704ebeb745f4bbe38af286fa4e48133") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48133","ex_property3") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48133","rdf_nil") .
+sh_resultSeverity("bnode_91a4704ebeb745f4bbe38af286fa4e48130","sh_Violation") .
+sh_sourceConstraintComponent("bnode_91a4704ebeb745f4bbe38af286fa4e48130","sh_MinCountConstraintComponent") .
+sh_sourceShape("bnode_91a4704ebeb745f4bbe38af286fa4e48130","ex_TestShape") .
+mf_status("http://repairs.shacl.org/path-sequence-002","sht_approved") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -176,7 +176,7 @@ del(ex_property3(X,Y)):-ex_property3_(X,Y,"f"),ex_property3(X,Y) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -193,6 +193,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

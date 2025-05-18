@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...re/property/node-001/node-001-rules.pl
 Solving...
 actualTarget("ex_Anon",ex_Person) actualTarget("ex_Issue_1",ex_Issue) actualTarget("ex_JohnDoeWithEmail",ex_Person) actualTarget("ex_Issue_2",ex_Issue) del(ex_assignedTo("ex_Issue_1","ex_Anon"))
 
 OPTIMUM FOUND
 
-Models       : 3
+Models       : 7
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
-Time         : 0.048s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.048s
-Threads      : 3        (Winner: 0)
+Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.019s
+Threads      : 3        (Winner: 1)

@@ -9,34 +9,34 @@ sh_NodeShape("ex_TestClass") .
 rdfs_label("ex_TestClass","Test class") .
 xsd_string("Test class") .
 rdfs_subClassOf("ex_TestClass","rdfs_Resource") .
-sh_node("ex_TestClass","bnode_6e957a6331f648adaec55884eab70e686") .
-sh_class("bnode_6e957a6331f648adaec55884eab70e686","ex_OtherClass") .
+sh_node("ex_TestClass","bnode_0465bff3129e4f3db89e6d0321ce73886") .
+sh_class("bnode_0465bff3129e4f3db89e6d0321ce73886","ex_OtherClass") .
 ex_OtherClass("ex_ValidInstance") .
 ex_TestClass("ex_ValidInstance") .
 rdfs_label("ex_ValidInstance","Valid instance") .
 xsd_string("Valid instance") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","bnode_6e957a6331f648adaec55884eab70e687") .
-rdf_first("bnode_6e957a6331f648adaec55884eab70e687","http://repairs.shacl.org/node_001") .
-rdf_rest("bnode_6e957a6331f648adaec55884eab70e687","rdf_nil") .
-sht_Validate("http://repairs.shacl.org/node_001") .
-rdfs_label("http://repairs.shacl.org/node_001","Test of sh:node at node shape 001") .
+mf_entries("http://repairs.shacl.org","bnode_0465bff3129e4f3db89e6d0321ce73887") .
+rdf_first("bnode_0465bff3129e4f3db89e6d0321ce73887","http://repairs.shacl.org/node-001") .
+rdf_rest("bnode_0465bff3129e4f3db89e6d0321ce73887","rdf_nil") .
+sht_Validate("http://repairs.shacl.org/node-001") .
+rdfs_label("http://repairs.shacl.org/node-001","Test of sh:node at node shape 001") .
 xsd_string("Test of sh:node at node shape 001") .
-mf_action("http://repairs.shacl.org/node_001","bnode_6e957a6331f648adaec55884eab70e688") .
-sht_dataGraph("bnode_6e957a6331f648adaec55884eab70e688","http://repairs.shacl.org") .
-sht_shapesGraph("bnode_6e957a6331f648adaec55884eab70e688","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/node_001","bnode_6e957a6331f648adaec55884eab70e689") .
-sh_ValidationReport("bnode_6e957a6331f648adaec55884eab70e689") .
-sh_conforms("bnode_6e957a6331f648adaec55884eab70e689","false") .
+mf_action("http://repairs.shacl.org/node-001","bnode_0465bff3129e4f3db89e6d0321ce73888") .
+sht_dataGraph("bnode_0465bff3129e4f3db89e6d0321ce73888","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_0465bff3129e4f3db89e6d0321ce73888","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/node-001","bnode_0465bff3129e4f3db89e6d0321ce73889") .
+sh_ValidationReport("bnode_0465bff3129e4f3db89e6d0321ce73889") .
+sh_conforms("bnode_0465bff3129e4f3db89e6d0321ce73889","false") .
 xsd_boolean("false") .
-sh_result("bnode_6e957a6331f648adaec55884eab70e689","bnode_6e957a6331f648adaec55884eab70e6810") .
-sh_ValidationResult("bnode_6e957a6331f648adaec55884eab70e6810") .
-sh_focusNode("bnode_6e957a6331f648adaec55884eab70e6810","ex_InvalidInstance") .
-sh_resultSeverity("bnode_6e957a6331f648adaec55884eab70e6810","sh_Violation") .
-sh_sourceConstraintComponent("bnode_6e957a6331f648adaec55884eab70e6810","sh_NodeConstraintComponent") .
-sh_sourceShape("bnode_6e957a6331f648adaec55884eab70e6810","ex_TestClass") .
-sh_value("bnode_6e957a6331f648adaec55884eab70e6810","ex_InvalidInstance") .
-mf_status("http://repairs.shacl.org/node_001","sht_approved") .
+sh_result("bnode_0465bff3129e4f3db89e6d0321ce73889","bnode_0465bff3129e4f3db89e6d0321ce738810") .
+sh_ValidationResult("bnode_0465bff3129e4f3db89e6d0321ce738810") .
+sh_focusNode("bnode_0465bff3129e4f3db89e6d0321ce738810","ex_InvalidInstance") .
+sh_resultSeverity("bnode_0465bff3129e4f3db89e6d0321ce738810","sh_Violation") .
+sh_sourceConstraintComponent("bnode_0465bff3129e4f3db89e6d0321ce738810","sh_NodeConstraintComponent") .
+sh_sourceShape("bnode_0465bff3129e4f3db89e6d0321ce738810","ex_TestClass") .
+sh_value("bnode_0465bff3129e4f3db89e6d0321ce738810","ex_InvalidInstance") .
+mf_status("http://repairs.shacl.org/node-001","sht_approved") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -98,7 +98,7 @@ del(ex_OtherClass(X)):-ex_OtherClass_(X,"f"),ex_OtherClass(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -115,6 +115,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

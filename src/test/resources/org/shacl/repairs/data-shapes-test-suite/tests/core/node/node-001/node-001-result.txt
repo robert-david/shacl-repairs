@@ -1,14 +1,14 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...s/core/node/node-001/node-001-rules.pl
 Solving...
 actualTarget("ex_ValidInstance",ex_TestClass) actualTarget("ex_InvalidInstance",ex_TestClass) add(ex_OtherClass("ex_InvalidInstance"))
 
 OPTIMUM FOUND
 
-Models       : 2
+Models       : 3
   Optimum    : yes
 Optimization : 0 1
 Calls        : 1
 Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.004s
-Threads      : 3        (Winner: 2)
+CPU Time     : 0.003s
+Threads      : 3        (Winner: 0)

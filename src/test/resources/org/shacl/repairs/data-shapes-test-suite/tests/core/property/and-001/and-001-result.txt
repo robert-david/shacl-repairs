@@ -1,31 +1,31 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...core/property/and-001/and-001-rules.pl
 Solving...
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660")) add(ex_suburb("bnode_b61065","2275"))
-
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612")) add(ex_suburb("bnode_b61065","2275"))
-
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","2275"))
-
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660")) add(ex_suburb("bnode_b61065","2284"))
-
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612")) add(ex_suburb("bnode_b61065","2284"))
-
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","2284"))
-
 actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2612"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","new_2667"))
 
-actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","2660"))
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource1","bnode_b61065")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_postalCode("bnode_b31477","new_2658"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2277"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource2","bnode_b31477")) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2229"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2277")) add(ex_postalCode("bnode_b31477","new_2667"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2229")) add(ex_postalCode("bnode_b31477","new_2667"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2277")) add(ex_postalCode("bnode_b31477","new_2658"))
+
+actualTarget("ex_InvalidResource1",ex_AddressShape) actualTarget("ex_ValidResource1",ex_AddressShape) actualTarget("ex_InvalidResource3",ex_AddressShape) actualTarget("ex_InvalidResource2",ex_AddressShape) del(ex_address("ex_InvalidResource3","bnode_b94057")) add(ex_suburb("bnode_b61065","new_2229")) add(ex_postalCode("bnode_b31477","new_2658"))
 
 OPTIMUM FOUND
 
-Models       : 11
+Models       : 12
   Optimum    : yes
   Optimal    : 9
 Optimization : 0 3
 Calls        : 1
-Time         : 0.020s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.021s
-Threads      : 3        (Winner: 0)
+Time         : 0.010s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.011s
+Threads      : 3        (Winner: 2)

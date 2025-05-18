@@ -11,42 +11,42 @@ ex_p("ex_j","ex_jp") .
 ex_q("ex_jp","ex_jpq") .
 sh_PropertyShape("ex_s1") .
 sh_targetClass("ex_s1","ex_C") .
-sh_path("ex_s1","bnode_3192f5e3ab9a46dfac026bfecdcd7453206") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453206","ex_p") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453206","bnode_3192f5e3ab9a46dfac026bfecdcd7453207") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453207","ex_q") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453207","rdf_nil") .
-sh_inversePath("bnode_3192f5e3ab9a46dfac026bfecdcd7453206","bnode_3192f5e3ab9a46dfac026bfecdcd7453208") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453208","ex_p") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453208","rdf_nil") .
+sh_path("ex_s1","bnode_91a4704ebeb745f4bbe38af286fa4e48206") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48206","ex_p") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48206","bnode_91a4704ebeb745f4bbe38af286fa4e48207") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48207","ex_q") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48207","rdf_nil") .
+sh_inversePath("bnode_91a4704ebeb745f4bbe38af286fa4e48206","bnode_91a4704ebeb745f4bbe38af286fa4e48208") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48208","ex_p") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48208","rdf_nil") .
 sh_class("ex_s1","ex_C") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","bnode_3192f5e3ab9a46dfac026bfecdcd7453209") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453209","http://repairs.shacl.org/path_strange_002") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453209","rdf_nil") .
-sht_Validate("http://repairs.shacl.org/path_strange_002") .
-rdfs_label("http://repairs.shacl.org/path_strange_002","Test of strange path 002 valid and invalid paths together") .
+mf_entries("http://repairs.shacl.org","bnode_91a4704ebeb745f4bbe38af286fa4e48209") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48209","http://repairs.shacl.org/path-strange-002") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48209","rdf_nil") .
+sht_Validate("http://repairs.shacl.org/path-strange-002") .
+rdfs_label("http://repairs.shacl.org/path-strange-002","Test of strange path 002 valid and invalid paths together") .
 xsd_string("Test of strange path 002 valid and invalid paths together") .
-mf_action("http://repairs.shacl.org/path_strange_002","bnode_3192f5e3ab9a46dfac026bfecdcd7453210") .
-sht_dataGraph("bnode_3192f5e3ab9a46dfac026bfecdcd7453210","http://repairs.shacl.org") .
-sht_shapesGraph("bnode_3192f5e3ab9a46dfac026bfecdcd7453210","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/path_strange_002","bnode_3192f5e3ab9a46dfac026bfecdcd7453211") .
-sh_ValidationReport("bnode_3192f5e3ab9a46dfac026bfecdcd7453211") .
-sh_conforms("bnode_3192f5e3ab9a46dfac026bfecdcd7453211","false") .
+mf_action("http://repairs.shacl.org/path-strange-002","bnode_91a4704ebeb745f4bbe38af286fa4e48210") .
+sht_dataGraph("bnode_91a4704ebeb745f4bbe38af286fa4e48210","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_91a4704ebeb745f4bbe38af286fa4e48210","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/path-strange-002","bnode_91a4704ebeb745f4bbe38af286fa4e48211") .
+sh_ValidationReport("bnode_91a4704ebeb745f4bbe38af286fa4e48211") .
+sh_conforms("bnode_91a4704ebeb745f4bbe38af286fa4e48211","false") .
 xsd_boolean("false") .
-sh_result("bnode_3192f5e3ab9a46dfac026bfecdcd7453211","bnode_3192f5e3ab9a46dfac026bfecdcd7453212") .
-sh_ValidationResult("bnode_3192f5e3ab9a46dfac026bfecdcd7453212") .
-sh_focusNode("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","ex_j") .
-sh_value("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","ex_jpq") .
-sh_resultPath("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","bnode_3192f5e3ab9a46dfac026bfecdcd7453213") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453213","ex_p") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453213","bnode_3192f5e3ab9a46dfac026bfecdcd7453214") .
-rdf_first("bnode_3192f5e3ab9a46dfac026bfecdcd7453214","ex_q") .
-rdf_rest("bnode_3192f5e3ab9a46dfac026bfecdcd7453214","rdf_nil") .
-sh_resultSeverity("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","sh_Violation") .
-sh_sourceConstraintComponent("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","sh_ClassConstraintComponent") .
-sh_sourceShape("bnode_3192f5e3ab9a46dfac026bfecdcd7453212","ex_s1") .
-mf_status("http://repairs.shacl.org/path_strange_002","sht_approved") .
+sh_result("bnode_91a4704ebeb745f4bbe38af286fa4e48211","bnode_91a4704ebeb745f4bbe38af286fa4e48212") .
+sh_ValidationResult("bnode_91a4704ebeb745f4bbe38af286fa4e48212") .
+sh_focusNode("bnode_91a4704ebeb745f4bbe38af286fa4e48212","ex_j") .
+sh_value("bnode_91a4704ebeb745f4bbe38af286fa4e48212","ex_jpq") .
+sh_resultPath("bnode_91a4704ebeb745f4bbe38af286fa4e48212","bnode_91a4704ebeb745f4bbe38af286fa4e48213") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48213","ex_p") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48213","bnode_91a4704ebeb745f4bbe38af286fa4e48214") .
+rdf_first("bnode_91a4704ebeb745f4bbe38af286fa4e48214","ex_q") .
+rdf_rest("bnode_91a4704ebeb745f4bbe38af286fa4e48214","rdf_nil") .
+sh_resultSeverity("bnode_91a4704ebeb745f4bbe38af286fa4e48212","sh_Violation") .
+sh_sourceConstraintComponent("bnode_91a4704ebeb745f4bbe38af286fa4e48212","sh_ClassConstraintComponent") .
+sh_sourceShape("bnode_91a4704ebeb745f4bbe38af286fa4e48212","ex_s1") .
+mf_status("http://repairs.shacl.org/path-strange-002","sht_approved") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -66,8 +66,8 @@ rdfs_Datatype("xsd_unsignedByte") .
 rdfs_Datatype("xsd_unsignedInt") .
 rdfs_Datatype("xsd_unsignedLong") .
 rdfs_Datatype("xsd_unsignedShort") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#rational") .
-rdfs_Datatype("http://www.w3.org/2002/07/owl#real") .
+rdfs_Datatype("owl_rational") .
+rdfs_Datatype("owl_real") .
 
 % Shape Targets
 
@@ -154,7 +154,7 @@ del(ex_C(X)):-ex_C_(X,"f"),ex_C(X) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -171,6 +171,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .

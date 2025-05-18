@@ -1,4 +1,4 @@
-clingo version 5.6.2
+clingo version 5.7.1
 Reading from ...rty/maxCount-001/maxCount-001-rules.pl
 Solving...
 actualTarget("ex_InvalidPerson",ex_PersonShape) actualTarget("ex_ValidResource",ex_PersonShape) del(ex_firstName("ex_InvalidPerson","George"))
@@ -12,6 +12,6 @@ Models       : 3
   Optimal    : 2
 Optimization : 0 1
 Calls        : 1
-Time         : 0.014s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.015s
+Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.007s
 Threads      : 3        (Winner: 0)

@@ -4,36 +4,36 @@
 ex_property("ex_InvalidInstance1","Some value") .
 xsd_string("Some value") .
 sh_NodeShape("ex_NotExampleShape") .
-sh_not("ex_NotExampleShape","bnode_6e957a6331f648adaec55884eab70e6891") .
-sh_NodeShape("bnode_6e957a6331f648adaec55884eab70e6891") .
-sh_property("bnode_6e957a6331f648adaec55884eab70e6891","bnode_6e957a6331f648adaec55884eab70e6892") .
-sh_path("bnode_6e957a6331f648adaec55884eab70e6892","ex_property") .
-sh_minCount("bnode_6e957a6331f648adaec55884eab70e6892","1") .
+sh_not("ex_NotExampleShape","bnode_0465bff3129e4f3db89e6d0321ce738891") .
+sh_NodeShape("bnode_0465bff3129e4f3db89e6d0321ce738891") .
+sh_property("bnode_0465bff3129e4f3db89e6d0321ce738891","bnode_0465bff3129e4f3db89e6d0321ce738892") .
+sh_path("bnode_0465bff3129e4f3db89e6d0321ce738892","ex_property") .
+sh_minCount("bnode_0465bff3129e4f3db89e6d0321ce738892","1") .
 xsd_integer("1") .
 sh_targetNode("ex_NotExampleShape","ex_InvalidInstance1") .
 sh_targetNode("ex_NotExampleShape","ex_ValidInstance1") .
 mf_Manifest("http://repairs.shacl.org") .
-mf_entries("http://repairs.shacl.org","bnode_6e957a6331f648adaec55884eab70e6893") .
-rdf_first("bnode_6e957a6331f648adaec55884eab70e6893","http://repairs.shacl.org/not_002") .
-rdf_rest("bnode_6e957a6331f648adaec55884eab70e6893","rdf_nil") .
-sht_Validate("http://repairs.shacl.org/not_002") .
-rdfs_label("http://repairs.shacl.org/not_002","Test of sh:not at node shape 002") .
+mf_entries("http://repairs.shacl.org","bnode_0465bff3129e4f3db89e6d0321ce738893") .
+rdf_first("bnode_0465bff3129e4f3db89e6d0321ce738893","http://repairs.shacl.org/not-002") .
+rdf_rest("bnode_0465bff3129e4f3db89e6d0321ce738893","rdf_nil") .
+sht_Validate("http://repairs.shacl.org/not-002") .
+rdfs_label("http://repairs.shacl.org/not-002","Test of sh:not at node shape 002") .
 xsd_string("Test of sh:not at node shape 002") .
-mf_action("http://repairs.shacl.org/not_002","bnode_6e957a6331f648adaec55884eab70e6894") .
-sht_dataGraph("bnode_6e957a6331f648adaec55884eab70e6894","http://repairs.shacl.org") .
-sht_shapesGraph("bnode_6e957a6331f648adaec55884eab70e6894","http://repairs.shacl.org") .
-mf_result("http://repairs.shacl.org/not_002","bnode_6e957a6331f648adaec55884eab70e6895") .
-sh_ValidationReport("bnode_6e957a6331f648adaec55884eab70e6895") .
-sh_conforms("bnode_6e957a6331f648adaec55884eab70e6895","false") .
+mf_action("http://repairs.shacl.org/not-002","bnode_0465bff3129e4f3db89e6d0321ce738894") .
+sht_dataGraph("bnode_0465bff3129e4f3db89e6d0321ce738894","http://repairs.shacl.org") .
+sht_shapesGraph("bnode_0465bff3129e4f3db89e6d0321ce738894","http://repairs.shacl.org") .
+mf_result("http://repairs.shacl.org/not-002","bnode_0465bff3129e4f3db89e6d0321ce738895") .
+sh_ValidationReport("bnode_0465bff3129e4f3db89e6d0321ce738895") .
+sh_conforms("bnode_0465bff3129e4f3db89e6d0321ce738895","false") .
 xsd_boolean("false") .
-sh_result("bnode_6e957a6331f648adaec55884eab70e6895","bnode_6e957a6331f648adaec55884eab70e6896") .
-sh_ValidationResult("bnode_6e957a6331f648adaec55884eab70e6896") .
-sh_focusNode("bnode_6e957a6331f648adaec55884eab70e6896","ex_InvalidInstance1") .
-sh_resultSeverity("bnode_6e957a6331f648adaec55884eab70e6896","sh_Violation") .
-sh_sourceConstraintComponent("bnode_6e957a6331f648adaec55884eab70e6896","sh_NotConstraintComponent") .
-sh_sourceShape("bnode_6e957a6331f648adaec55884eab70e6896","ex_NotExampleShape") .
-sh_value("bnode_6e957a6331f648adaec55884eab70e6896","ex_InvalidInstance1") .
-mf_status("http://repairs.shacl.org/not_002","sht_approved") .
+sh_result("bnode_0465bff3129e4f3db89e6d0321ce738895","bnode_0465bff3129e4f3db89e6d0321ce738896") .
+sh_ValidationResult("bnode_0465bff3129e4f3db89e6d0321ce738896") .
+sh_focusNode("bnode_0465bff3129e4f3db89e6d0321ce738896","ex_InvalidInstance1") .
+sh_resultSeverity("bnode_0465bff3129e4f3db89e6d0321ce738896","sh_Violation") .
+sh_sourceConstraintComponent("bnode_0465bff3129e4f3db89e6d0321ce738896","sh_NotConstraintComponent") .
+sh_sourceShape("bnode_0465bff3129e4f3db89e6d0321ce738896","ex_NotExampleShape") .
+sh_value("bnode_0465bff3129e4f3db89e6d0321ce738896","ex_InvalidInstance1") .
+mf_status("http://repairs.shacl.org/not-002","sht_approved") .
 rdfs_Datatype("xsd_byte") .
 rdfs_Datatype("xsd_date") .
 rdfs_Datatype("xsd_decimal") .
@@ -74,17 +74,17 @@ ex_NotExampleShape_("ex_ValidInstance1","t*"):-actualTarget("ex_ValidInstance1",
 
 ex_property_(X,Y,"t*"):-ex_property(X,Y) .
 ex_property_(X,Y,"t*"):-ex_property_(X,Y,"t") .
-bnode_6e957a6331f648adaec55884eab70e6898_st_(X,Y,"t*"):-bnode_6e957a6331f648adaec55884eab70e6898_(X,_),ex_property_(X,Y,"t*") .
+bnode_0465bff3129e4f3db89e6d0321ce738898_st_(X,Y,"t*"):-bnode_0465bff3129e4f3db89e6d0321ce738898_(X,_),ex_property_(X,Y,"t*") .
 
 % Repair Rules
 
-bnode_6e957a6331f648adaec55884eab70e6897_(X,"f"):-ex_NotExampleShape_(X,"t*") .
-bnode_6e957a6331f648adaec55884eab70e6897_(X,"t*"):-ex_NotExampleShape_(X,"f") .
-bnode_6e957a6331f648adaec55884eab70e6898_(X,"t*"):-bnode_6e957a6331f648adaec55884eab70e6897_(X,"t*") .
-bnode_6e957a6331f648adaec55884eab70e6898_(X,"f"):-bnode_6e957a6331f648adaec55884eab70e6897_(X,"f") .
+bnode_0465bff3129e4f3db89e6d0321ce738897_(X,"f"):-ex_NotExampleShape_(X,"t*") .
+bnode_0465bff3129e4f3db89e6d0321ce738897_(X,"t*"):-ex_NotExampleShape_(X,"f") .
+bnode_0465bff3129e4f3db89e6d0321ce738898_(X,"t*"):-bnode_0465bff3129e4f3db89e6d0321ce738897_(X,"t*") .
+bnode_0465bff3129e4f3db89e6d0321ce738898_(X,"f"):-bnode_0465bff3129e4f3db89e6d0321ce738897_(X,"f") .
 
-% sh:minCount 1 for bnode_6e957a6331f648adaec55884eab70e6898
-s0_(X,"t*"):-bnode_6e957a6331f648adaec55884eab70e6898_(X,"t*") .
+% sh:minCount 1 for bnode_0465bff3129e4f3db89e6d0321ce738898
+s0_(X,"t*"):-bnode_0465bff3129e4f3db89e6d0321ce738898_(X,"t*") .
 ex_property_(X,@new(s0,X,ex_property,1..1),"t"):-choose(s0,X,ex_property,1) .
 choose(s0,X,ex_property,1);choose(s0,X,ex_property,0):-s0_(X,"t*") .
 (C-0) {ex_property_(X,Y,"f"):ex_property_(X,Y,"t*");s1_(Y,"f"):ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:ex_property_(X,Y,"t*")}=C,C>0 .
@@ -92,8 +92,8 @@ ex_property_(X,Y,"f"):-ex_property_(X,Y,"t*"),ex_property_(X,Y,"f") .
 1 {s1_(Y,"t*"):ex_property_(X,Y,"t**")} 1:-s0_(X,"t*") .
 
 
-% universal for bnode_6e957a6331f648adaec55884eab70e6898
-s2_(X,"t*"):-bnode_6e957a6331f648adaec55884eab70e6898_(X,"t*") .
+% universal for bnode_0465bff3129e4f3db89e6d0321ce738898
+s2_(X,"t*"):-bnode_0465bff3129e4f3db89e6d0321ce738898_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
 ex_property_(X,@new(s3,X,ex_property,1..1),"t"):-choose(s3,X,ex_property,1) .
@@ -104,12 +104,12 @@ s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-bnode_6e957a6331f648adaec55884eab70e6898_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-bnode_0465bff3129e4f3db89e6d0321ce738898_(X,"f") .
 
 % Interpretation Rules
 
 ex_property_(X,Y,"t**"):-ex_property_(X,Y,"t*"),not ex_property_(X,Y,"f") .
-bnode_6e957a6331f648adaec55884eab70e6898_st_(X,Y,"t**"):-ex_property_(X,Y,"t**"),bnode_6e957a6331f648adaec55884eab70e6898_st_(X,Y,"t*"),not bnode_6e957a6331f648adaec55884eab70e6898_st_(X,Y,"f") .
+bnode_0465bff3129e4f3db89e6d0321ce738898_st_(X,Y,"t**"):-ex_property_(X,Y,"t**"),bnode_0465bff3129e4f3db89e6d0321ce738898_st_(X,Y,"t*"),not bnode_0465bff3129e4f3db89e6d0321ce738898_st_(X,Y,"f") .
 
 % Program Constraints
 
@@ -124,7 +124,7 @@ del(ex_property(X,Y)):-ex_property_(X,Y,"f"),ex_property(X,Y) .
 % Get optimal models: --opt-mode=optN -n 100 --quiet=1 -t 3
 % Change the scores of add and del to prioritize additions or deletions
 #minimize { 1@2,A: add(A); 1@2,D: del(D) } .
-#minimize { 1@5,X,S: skipTarget(X,S) } .
+#minimize { 1@4,X,S: skipTarget(X,S) } .
 
 % Program Functions
 
@@ -141,6 +141,49 @@ local result = 0
 for i = 1, string.len(x) do
 result = result + string.byte(x,i)
 end
-return tostring(result)
+return tostring('new_' .. result)
+end
+#end .
+
+
+#script (lua)
+function gt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>y then return "t" else return "f" end
+end
+
+function lt(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<y then return "t" else return "f" end
+end
+
+function geq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x>=y then return "t" else return "f" end
+end
+
+function leq(X,Y)
+if isNew(X) then return "new" end
+local x,y = getNumbers(X,Y)
+if x==nil or y==nil then return "f" end
+if x<=y then return "t" else return "f" end
+end
+
+function getNumbers(X,Y)
+local x,_ = string.gsub(tostring(X),"\"","")
+local y,_ = string.gsub(tostring(Y),"\"","")
+local xn = tonumber(x)
+local yn = tonumber(y)
+return xn,yn
+end
+
+function isNew(X)
+return string.match(tostring(X), '^"new')
 end
 #end .
