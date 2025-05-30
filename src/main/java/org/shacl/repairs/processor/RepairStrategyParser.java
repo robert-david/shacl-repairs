@@ -117,7 +117,7 @@ public class RepairStrategyParser {
                 if (repair.action == null) {
                     throw new RuntimeException("Missing shr:action for shr:hasConstraint");
                 }
-                if (repair.values != null || repair.function != null) {
+                if (repair.values != null && repair.function != null) {
                     throw new RuntimeException("Cannot define shr:values and shr:function at the same time");
                 }
             }
