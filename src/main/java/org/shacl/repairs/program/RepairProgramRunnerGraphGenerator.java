@@ -1,5 +1,6 @@
 package org.shacl.repairs.program;
 
+import com.google.common.collect.Lists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.rdf4j.model.IRI;
@@ -289,6 +290,22 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
 
         logger.info("Deleting " + deletions.size() + " triples");
         dataModel.removeAll(deletions);
+
+        // Additional bnode deletion check, because bnodes don't preserve across data models
+        for (Statement deletion : deletions) {
+            if (deletion.getObject().isBNode()) {
+                int nrOfStatements =
+                        Lists.newArrayList(
+                                        dataModel.getStatements(deletion.getSubject(), deletion.getPredicate(), null))
+                                .size();
+                if (nrOfStatements == 1) {
+                    dataModel.remove(deletion.getSubject(), deletion.getPredicate(), null);
+                    System.out.println("Deleted " + deletion);
+                } else if (nrOfStatements > 1) {
+                    throw new RuntimeException("Ambiguous triple with bnode object in deletion: " + deletion);
+                }
+            }
+        }
 
         logger.info("Repaired data graph size: " + dataModel.size());
 
