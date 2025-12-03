@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        if (args.length == 0) {
+        if (args.length == 1) {
             System.out.println("Usage: java -jar ./shacl-repairs-1.2.0-SNAPSHOT.jar org.shacl.repairs.Main <dataFile.ttl> <shapesFile.ttl> [repairStrategiesFile.ttl] <clingoFile.pl>");
             System.out.println("The program will read <dataFile.ttl> and <shapesFile.ttl>, create the Clingo repair program from the RDF and write it to <clingoFile.pl>. Optionally, a [repairStrategiesFile.ttl] can be provided.");
 
