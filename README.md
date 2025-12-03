@@ -5,7 +5,7 @@ BUILD
 -----
 To build the repair application, please follow the steps: 
 
-- The SHACL repair program is using clingo for ASP solving. Please install clingo as described on https://potassco.org/clingo/.
+- The SHACL repair program is using clingo for ASP solving. Please install clingo (v5.8.0) as described on https://potassco.org/clingo/.
 - The SHACL repair program needs a modified version of the Eclipse RDF4J framework (https://rdf4j.org/). This modified version is available at https://github.com/robert-david/rdf4j.
 - From the project folder of the cloned RDF4J framework, 
   - switch to the shacl-repairs branch: git checkout shacl-repairs
