@@ -1,5 +1,5 @@
-This is a proof of concept prototype implementation of the ASP repair program described in the paper "Repairing SHACL Constraint Violations using Answer Set Programming".
-In addition, we added support for property path repairs.
+This is a proof of concept prototype implementation of the ASP repair program described in the paper "Repairing SHACL Constraint Violations using Answer Set Programming" and "A Logic Programming Approach to Repairing SHACL Constraint Violations".
+The repair program also supports repair strategies, which are preferences and (additional) constraints, as described in "https://arxiv.org/abs/2507.15420". 
 
 BUILD
 -----
