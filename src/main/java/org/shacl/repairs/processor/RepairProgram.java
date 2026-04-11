@@ -11,6 +11,7 @@ import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
@@ -179,17 +180,14 @@ public class RepairProgram {
             writer.write("#show add/1 .\n");
             writer.write("#show del/1 .\n");
 
-            writer.write("\n\n");
-            writer.write("#script (lua)\n");
-            writer.write("function new(S, X, E, C)\n");
-            writer.write("local x = tostring(S) .. tostring(X) .. tostring(E) .. tostring(C)\n");
-            writer.write("local result = 0\n");
-            writer.write("for i = 1, string.len(x) do\n");
-            writer.write("result = result + string.byte(x,i)\n");
-            writer.write("end\n");
-            writer.write("return tostring('new_' .. result)\n");
-            writer.write("end\n");
-            writer.write("#end .\n");
+            try (InputStream inputStream = RepairProgram.class.getResourceAsStream("new_function.lua")) {
+                String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+
+                writer.write("\n");
+                writer.write("#script (lua)\n");
+                writer.write(content + "\n");
+                writer.write("#end .\n");
+            }
 
             writer.write("\n\n");
             writer.write("#script (lua)\n");
@@ -239,31 +237,6 @@ public class RepairProgram {
             writer.write("end\n");
 
             writer.write("#end .\n");
-
-//          alternative new function
-//
-//            writer.write("\n\n");
-//            writer.write("#script (lua)\n");
-//            writer.write("function new(S, X, E, C)\n");
-//            writer.write("local x = tostring(S) .. tostring(X) .. tostring(E) .. tostring(C)\n");
-//            writer.write("return enc(x)\n");
-//            writer.write("end\n");
-//
-//            writer.write("local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'");
-//            writer.write("function enc(data)");
-//            writer.write("return ((data:gsub('.', function(x)");
-//            writer.write("local r,b='',x:byte()");
-//            writer.write("for i=8,1,-1 do r=r..(b%2^i-b%2^(i-1)>0 and '1' or '0') end");
-//            writer.write("return r;");
-//            writer.write("end)..'0000'):gsub('%d%d%d?%d?%d?%d?', function(x)");
-//            writer.write("if (#x < 6) then return '' end!");
-//            writer.write("local c=0");
-//            writer.write("for i=1,6 do c=c+(x:sub(i,i)=='1' and 2^(6-i) or 0) end");
-//            writer.write("return b:sub(c+1,c+1)");
-//            writer.write("end)..({ '', '==', '=' })[#data%3+1])");
-//            writer.write("end");
-//
-//            writer.write("#end .\n");
         }
     }
 
