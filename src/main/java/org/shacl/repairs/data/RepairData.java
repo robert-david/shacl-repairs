@@ -22,7 +22,9 @@ public class RepairData {
 
     public static void init() {
 
+        int finiteLimit = singleton.finiteLimit;
         singleton = new RepairData();
+        singleton.finiteLimit = finiteLimit;
     }
 
     private final List<String> repairTargetRules = new ArrayList<>();
@@ -39,6 +41,8 @@ public class RepairData {
     private final List<String> repairStrategyRules = new ArrayList<>();
 
     private final Map<String,String> newDatatypes = new HashMap<>();
+
+    private int finiteLimit;
 
     public List<String> getRepairTargetRules() {
         return repairTargetRules;
@@ -74,5 +78,13 @@ public class RepairData {
 
     public Map<String, String> getNewDatatypes() {
         return newDatatypes;
+    }
+
+    public int getFiniteLimit() {
+        return finiteLimit;
+    }
+
+    public void setFiniteLimit(int finiteLimit) {
+        this.finiteLimit = finiteLimit;
     }
 }

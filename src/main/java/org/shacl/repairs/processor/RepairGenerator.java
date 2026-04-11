@@ -780,8 +780,14 @@ public class RepairGenerator {
                     repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + i + ")" + repairChoices;
 
                     RepairData.get().getRepairRules().add(
-                            firstPath + "_(X,@new(" + shapeName + ",X," + firstPath + ",1.." + i + "),\"t\")" +
-                                    ":-choose(" + shapeName + ",X," + firstPath + "," + i + ") .\n");
+                            "new(" + firstPath + "(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
+
+                    RepairData.get().getRepairRules().add(
+                            "0 {" + firstPath + "_(X," + firstPath + "(Y),\"t\")} " + i +
+                                    ":-choose(" + shapeName + ",X," + firstPath + "," + i + "),new(" + firstPath + "(Y)) .\n");
+
+                    RepairData.get().getProgramConstraints().add(
+                            ":-" + firstPath + "_(X,Y,\"t\")," + firstPath + "_(Z,Y,\"t\"),new(Y),X!=Z .\n");
                 }
 
                 if (!repairChoices.startsWith(";")) {
@@ -819,8 +825,14 @@ public class RepairGenerator {
                     repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + i + ")" + repairChoices;
 
                     RepairData.get().getRepairRules().add(
-                            firstPath + "_inv_(X,@new(" + shapeName + ",X," + firstPath + "_inv_,1.." + i + "),\"t\")" +
-                                    ":-choose(" + shapeName + ",X," + firstPath + "," + i + ") .\n");
+                            "new(" + firstPath + "_inv(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
+
+                    RepairData.get().getRepairRules().add(
+                            "0 {" + firstPath + "_inv_(X," + firstPath + "_inv(Y),\"t\")} " + i +
+                                    ":-choose(" + shapeName + ",X," + firstPath + "," + i + "),new(" + firstPath + "_inv(Y)) .\n");
+
+                    RepairData.get().getProgramConstraints().add(
+                            ":-" + firstPath + "_inv_(X,Y,\"t\")," + firstPath + "_inv_(Z,Y,\"t\"),new(Y),X!=Z .\n");
                 }
 
                 if (!repairChoices.startsWith(";")) {
@@ -894,8 +906,14 @@ public class RepairGenerator {
             repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + 1 + ")" + repairChoices;
 
             RepairData.get().getRepairRules().add(
-                    firstPath + "_(X,@new(" + shapeName + ",X," + firstPath + ",1.." + 1 + "),\"t\")" +
-                            ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
+                    "new(" + firstPath + "(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
+
+            RepairData.get().getRepairRules().add(
+                    "0 {" + firstPath + "_(X," + firstPath + "(Y),\"t\")} " + 1 +
+                            ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + "),new(" + firstPath + "(Y)) .\n");
+
+            RepairData.get().getProgramConstraints().add(
+                    ":-" + firstPath + "_(X,Y,\"t\")," + firstPath + "_(Z,Y,\"t\"),new(Y),X!=Z .\n");
 
             if (!repairChoices.startsWith(";")) {
                 throw new RuntimeException("error processing choose options for " + shapeName);
@@ -927,8 +945,14 @@ public class RepairGenerator {
             repairChoices = ";choose(" + shapeName + ",X," + firstPath + "," + 1 + ")" + repairChoices;
 
             RepairData.get().getRepairRules().add(
-                    firstPath + "_inv_(X,@new(" + shapeName + ",X," + firstPath + "_inv_,1.." + 1 + "),\"t\")" +
-                            ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + ") .\n");
+                    "new(" + firstPath + "_inv(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
+
+            RepairData.get().getRepairRules().add(
+                    "0 {" + firstPath + "_inv_(X," + firstPath + "_inv(Y),\"t\")} " + 1 +
+                            ":-choose(" + shapeName + ",X," + firstPath + "," + 1 + "),new(" + firstPath + "_inv(Y)) .\n");
+
+            RepairData.get().getProgramConstraints().add(
+                    ":-" + firstPath + "_inv_(X,Y,\"t\")," + firstPath + "_inv_(Z,Y,\"t\"),new(Y),X!=Z .\n");
 
             if (!repairChoices.startsWith(";")) {
                 throw new RuntimeException("error processing choose options for " + shapeName);
@@ -1045,11 +1069,15 @@ public class RepairGenerator {
                             "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + ",0):-" + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoices);
 
-                    String repairChoice = nextPath + "_(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
-                            + "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + "),"
-                            + ruleBody;
+                    RepairData.get().getRepairRules().add(
+                            "new(" + nextPath + "(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
 
-                    RepairData.get().getRepairRules().add(repairChoice);
+                    RepairData.get().getRepairRules().add(
+                            "0 {" + nextPath + "_(X" + currentPathIndex + "," + nextPath + "(Y),\"t\")} " + 1 +
+                                    ":-choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "," + 1 + "),new(" + nextPath + "(Y)) .\n");
+
+                    RepairData.get().getProgramConstraints().add(
+                            ":-" + nextPath + "_(X,Y,\"t\")," + nextPath + "_(Z,Y,\"t\"),new(Y),X!=Z .\n");
 
                 } else if (seq.getSequence().get(pI) instanceof InversePath) {
 
@@ -1059,11 +1087,15 @@ public class RepairGenerator {
                             "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_,0):-" + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoices);
 
-                    String repairChoice = nextPath + "_inv_(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
-                            + "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_," + 1 + "),"
-                            + ruleBody;
+                    RepairData.get().getRepairRules().add(
+                            "new(" + nextPath + "_inv(1.." + RepairData.get().getFiniteLimit() + ")) .\n");
 
-                    RepairData.get().getRepairRules().add(repairChoice);
+                    RepairData.get().getRepairRules().add(
+                            "0 {" + nextPath + "_inv_(X" + currentPathIndex + "," + nextPath + "_inv(Y),\"t\")} " + 1 +
+                                    ":-choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + "_inv_," + 1 + "),new(" + nextPath + "_inv(Y)) .\n");
+
+                    RepairData.get().getProgramConstraints().add(
+                            ":-" + nextPath + "_inv_(X,Y,\"t\")," + nextPath + "_inv_(Z,Y,\"t\"),new(Y),X!=Z .\n");
 
                 } else if (seq.getSequence().get(pI) instanceof ZeroOrMorePath) {
 
