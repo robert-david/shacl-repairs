@@ -115,12 +115,17 @@ public class RepairGenerator {
                         try (RepositoryConnection connection = repo.getConnection()) {
                             connection.add(dataModel);
                             TupleQuery query = connection.prepareTupleQuery(
-                                    "SELECT DISTINCT ?this WHERE {" +
-                                        "?this rdf:type/rdfs:subClassOf* ?targetClass ." +
+                                    "SELECT DISTINCT ?subClass WHERE {" +
+                                        "?subClass rdfs:subClassOf* ?targetClass ." +
                                     "}");
                             query.setBinding("targetClass",targetClass);
                             for (BindingSet bindings : query.evaluate()) {
-                                addShapeAssignment(shape, bindings.getBinding("this").getValue());
+                                String targetSubClass = ns(nss,bindings.getBinding("subClass").getValue().stringValue());
+
+                                RepairData.get().getShapeTargetRules().add(
+                                        "targetNode(X," + ns(nss,shape.getId()) + "):-" + ns(nss,targetSubClass) + "_(X,\"t**\") .\n");
+                                RepairData.get().getRepairTargetRules().add(
+                                        ns(nss,shape.getId()) + "_(X,\"t*\"):-actualTarget(X," + ns(nss,shape.getId()) + ") .\n");
                             }
                         }
                     }
