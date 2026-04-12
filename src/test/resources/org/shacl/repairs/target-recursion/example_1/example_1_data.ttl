@@ -1,0 +1,3 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+
+:Ben :enrolledIn :C1 .

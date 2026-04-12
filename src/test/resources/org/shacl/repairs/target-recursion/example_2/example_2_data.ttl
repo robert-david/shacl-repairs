@@ -1,0 +1,5 @@
+@prefix : <http://org.shacl.repairs.tests/> .
+
+:Ben :enrolledIn :C1 .
+:C2 a :Course;
+    :courseID "1", "2" .
