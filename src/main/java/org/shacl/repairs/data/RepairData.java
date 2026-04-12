@@ -22,7 +22,7 @@ public class RepairData {
 
     public static void init() {
 
-        int finiteLimit = singleton.finiteLimit;
+        int finiteLimit = singleton != null ? singleton.finiteLimit : 0;
         singleton = new RepairData();
         singleton.finiteLimit = finiteLimit;
     }
