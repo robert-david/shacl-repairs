@@ -1,5 +1,11 @@
-This is a proof of concept prototype implementation of the ASP repair program described in the paper "Repairing SHACL Constraint Violations using Answer Set Programming" and "A Logic Programming Approach to Repairing SHACL Constraint Violations".
-The repair program also supports repair strategies, which are preferences and (additional) constraints, as described in "https://arxiv.org/abs/2507.15420". 
+This is an experimental branch implementing a proof of concept for an **infinite target recursion guard** based on the publication **'A two-layered Approach to cope with Recursion in SHACL
+Repairs'** published at 
+QKG@ESWC 2026 — Evaluating, Improving, and Sustaining Knowledge Graph Quality. 
+Co-located with the Extended Semantic Web Conference, May 10 -- 14, 2026, Dubrovnik, Croatia.
+
+The initial implementation of the ASP repair program described in the paper "Repairing SHACL Constraint Violations using Answer Set Programming" and "A Logic Programming Approach to Repairing SHACL Constraint Violations" was adapted to support a finite domain of new values, which limits target recursion based on a defined maximum number of additions with new values for each property.
+
+The examples from the publication are added to the test cases in the *target-recursion* folder as *example_1*, *example_2* and *example_3*.
 
 BUILD
 -----
