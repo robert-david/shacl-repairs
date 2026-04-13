@@ -31,7 +31,7 @@ public class RecursionExamples {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_Ben\",d_StudentShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_C1\",d_CourseShape)") == 1);
         assertTrue(StringUtils.countMatches(result,"add(d_Course(\"d_C1\"))") == 1);
-        assertTrue(StringUtils.countMatches(result,"add(d_courseID(\"d_C1\",d_courseID(1)))") == 1);
+        assertTrue(StringUtils.countMatches(result,"add(d_courseID(\"d_C1\",1))") == 1);
 
         r.writeResult(testPath + "/example_1_result.txt", result);
     }
@@ -53,7 +53,7 @@ public class RecursionExamples {
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_C1\",d_CourseShape)") == 2);
         assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_C2\",d_CourseShape)") == 2);
         assertTrue(StringUtils.countMatches(result,"add(d_Course(\"d_C1\"))") == 2);
-        assertTrue(StringUtils.countMatches(result,"add(d_courseID(\"d_C1\",d_courseID(1)))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_courseID(\"d_C1\",1))") == 2);
         assertTrue(StringUtils.countMatches(result,"del(d_courseID(\"d_C2\",\"1\"))") == 1);
         assertTrue(StringUtils.countMatches(result,"del(d_courseID(\"d_C2\",\"2\"))") == 1);
 
