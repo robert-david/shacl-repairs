@@ -1070,11 +1070,13 @@ public class RepairGenerator {
 
             } else if (pI == (seq.getSequence().size() - 1)) {
 
+                String currentPathIndex = seq.getSequence().size() > 1 ? (seq.getSequence().size() - 2) + "" : "";
+
                 if (seq.getSequence().get(pI) instanceof SimplePath) {
 
                     nextObject = "Y";
 
-                    String repairChoice = "0 {" + nextPath + "_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")} 1:-"
+                    String repairChoice = "0 {" + nextPath + "_(X" + currentPathIndex + "," + nextObject + ",\"t\")} 1:-"
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
@@ -1082,7 +1084,7 @@ public class RepairGenerator {
 
                     nextObject = "Y";
 
-                    String repairChoice = "0 {" + nextPath + "_inv_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")} 1:-"
+                    String repairChoice = "0 {" + nextPath + "_inv_(X" + currentPathIndex + "," + nextObject + ",\"t\")} 1:-"
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
@@ -1090,7 +1092,7 @@ public class RepairGenerator {
 
                     nextObject = "Y";
 
-                    String repairChoice = "0 {" + nextPath + "_(X" + (seq.getSequence().size() - 2) + "," + nextObject + ",\"t\")} 1:-"
+                    String repairChoice = "0 {" + nextPath + "_(X" + currentPathIndex + "," + nextObject + ",\"t\")} 1:-"
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
