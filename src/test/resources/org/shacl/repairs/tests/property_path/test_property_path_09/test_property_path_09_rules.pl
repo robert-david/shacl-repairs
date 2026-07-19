@@ -50,103 +50,103 @@ d_p1_(X,Y,"t*"):-d_p1(X,Y) .
 d_p1_(X,Y,"t*"):-d_p1_(X,Y,"t") .
 d_hasId_(X,Y,"t*"):-d_hasId(X,Y) .
 d_hasId_(X,Y,"t*"):-d_hasId_(X,Y,"t") .
-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,X2,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca112_(X,_),d_enrolledIn_(X,X0,"t*"),d_p1_(X0,X1,"t*"),d_hasId_(X1,X2,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,X2,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,_),d_enrolledIn_(X,X0,"t*"),d_p1_(X0,X1,"t*"),d_hasId_(X1,X2,"t*") .
 d_p0_(X,Y,"t*"):-d_p0(X,Y) .
 d_p0_(X,Y,"t*"):-d_p0_(X,Y,"t") .
-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,X1,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca116_(X,_),d_p0_(X,X0,"t*"),d_p1_(X0,X1,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,X1,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,_),d_p0_(X,X0,"t*"),d_p1_(X0,X1,"t*") .
 
 % Repair Rules
 
-bnode_4e59e9881712447ba2228764412ec6ca112_(X,"t*"):-d_StudentShape_(X,"t*") .
-bnode_4e59e9881712447ba2228764412ec6ca112_(X,"f"):-d_StudentShape_(X,"f") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,"t*"):-d_StudentShape_(X,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,"f"):-d_StudentShape_(X,"f") .
 
 
 
-% sh:minCount 1 for bnode_4e59e9881712447ba2228764412ec6ca112
-s0_(X,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca112_(X,"t*") .
-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,@new(s0,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1..1),"t"):-choose(s0,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1) .
-choose(s0,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1);choose(s0,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,0):-s0_(X,"t*") .
-choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X,d_enrolledIn,1);choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X,d_enrolledIn,0):-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t") .
-d_enrolledIn_(X,@new(bnode_4e59e9881712447ba2228764412ec6ca112_st,X,d_enrolledIn,1),"t"):-choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X,d_enrolledIn,1),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t") .
-choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X0,d_p1,1);choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X0,d_p1,0):-d_enrolledIn_(X,X0,"t**"),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t") .
-d_p1_(X0,@new(bnode_4e59e9881712447ba2228764412ec6ca112_st,X0,d_p1,1),"t"):-choose(bnode_4e59e9881712447ba2228764412ec6ca112_st,X0,d_p1,1),d_enrolledIn_(X,X0,"t**"),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t") .
-0 {d_hasId_(X1,Y,"t")} 1:-d_enrolledIn_(X,X0,"t**"),d_p1_(X0,X1,"t**"),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t") .
-(C-0) {bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*");s1_(Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*")}=C,C>0 .
-d_enrolledIn_(X,X0,"f");d_p1_(X0,X1,"f");d_hasId_(X1,X2,"f"):-d_enrolledIn_(X,X0,"t*"),d_p1_(X0,X1,"t*"),d_hasId_(X1,X2,"t*"),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,X2,"f") .
-1 {s1_(Y,"t*"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
+% sh:minCount 1 for bnode_4bd575412daa4bdebe574c6d60ecb43f112
+s0_(X,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,@new(s0,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1..1),"t"):-choose(s0,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1) .
+choose(s0,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1);choose(s0,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,0):-s0_(X,"t*") .
+choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X,d_enrolledIn_,1);choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X,d_enrolledIn_,0):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t") .
+d_enrolledIn__(X,@new(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X,d_enrolledIn_,1),"t"):-choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X,d_enrolledIn_,1),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t") .
+choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X0,d_p1_,1);choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X0,d_p1_,0):-d_enrolledIn_(X,X0,"t**"),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t") .
+d_p1__(X0,@new(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X0,d_p1_,1),"t"):-choose(bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,X0,d_p1_,1),d_enrolledIn_(X,X0,"t**"),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t") .
+0 {d_hasId_(X1,Y,"t")} 1:-d_enrolledIn_(X,X0,"t**"),d_p1_(X0,X1,"t**"),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t") .
+(C-0) {bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*");s1_(Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"f")} (C-0):-s0_(X,"f"),#count {Y:bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*")}=C,C>0 .
+d_enrolledIn_(X,X0,"f");d_p1_(X0,X1,"f");d_hasId_(X1,X2,"f"):-d_enrolledIn_(X,X0,"t*"),d_p1_(X0,X1,"t*"),d_hasId_(X1,X2,"t*"),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,X2,"f") .
+1 {s1_(Y,"t*"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t**")} 1:-s0_(X,"t*") .
 
 
-% universal for bnode_4e59e9881712447ba2228764412ec6ca112
-s2_(X,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca112_(X,"t*") .
+% universal for bnode_4bd575412daa4bdebe574c6d60ecb43f112
+s2_(X,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,"t*") .
 s3_(X,"f"):-s2_(X,"t*") .
 s3_(X,"t*"):-s2_(X,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,@new(s3,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1..1),"t"):-choose(s3,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1) .
-choose(s3,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,1);choose(s3,X,bnode_4e59e9881712447ba2228764412ec6ca112_st,0):-s3_(X,"t*") .
-(C-0) {bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*");s4_(Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t*")}=C,C>0 .
-1 {s4_(Y,"t*"):bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,@new(s3,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1..1),"t"):-choose(s3,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1) .
+choose(s3,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,1);choose(s3,X,bnode_4bd575412daa4bdebe574c6d60ecb43f112_st,0):-s3_(X,"t*") .
+(C-0) {bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*");s4_(Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"f")} (C-0):-s3_(X,"f"),#count {Y:bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t*")}=C,C>0 .
+1 {s4_(Y,"t*"):bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t**")} 1:-s3_(X,"t*") .
 s5_(X,"f"):-s4_(X,"t*") .
 s5_(X,"t*"):-s4_(X,"f") .
 
 
-s0_(X,"f");s2_(X,"f"):-bnode_4e59e9881712447ba2228764412ec6ca112_(X,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"t*"):-d_CutShape_(X,"t*") .
-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"f"):-d_CutShape_(X,"f") .
+s0_(X,"f");s2_(X,"f"):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_(X,"f") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"t*"):-d_CutShape_(X,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"f"):-d_CutShape_(X,"f") .
 
 
-% sh:maxCount 0 for bnode_4e59e9881712447ba2228764412ec6ca116
-s6_(X,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"t*") .
-s7_(X,"f"):-s6_(X,"t*") .
-s7_(X,"t*"):-s6_(X,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,@new(s7,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1..1),"t"):-choose(s7,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1) .
-choose(s7,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1);choose(s7,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,0):-s7_(X,"t*") .
-choose(bnode_4e59e9881712447ba2228764412ec6ca116_st,X,d_p0,1);choose(bnode_4e59e9881712447ba2228764412ec6ca116_st,X,d_p0,0):-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t") .
-d_p0_(X,@new(bnode_4e59e9881712447ba2228764412ec6ca116_st,X,d_p0,1),"t"):-choose(bnode_4e59e9881712447ba2228764412ec6ca116_st,X,d_p0,1),bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t") .
-0 {d_p1_(X0,Y,"t")} 1:-d_p0_(X,X0,"t**"),bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t") .
-(C-0) {bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*");s8_(Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f")} (C-0):-s7_(X,"f"),#count {Y:bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*")}=C,C>0 .
-d_p0_(X,X0,"f");d_p1_(X0,X1,"f"):-d_p0_(X,X0,"t*"),d_p1_(X0,X1,"t*"),bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,X1,"f") .
-1 {s8_(Y,"t*"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t**")} 1:-s7_(X,"t*") .
+% sh:minCount 0 for bnode_4bd575412daa4bdebe574c6d60ecb43f116
+s6_(X,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"t*") .
+choose(bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,X,d_p0_,1);choose(bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,X,d_p0_,0):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t") .
+d_p0__(X,@new(bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,X,d_p0_,1),"t"):-choose(bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,X,d_p0_,1),bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t") .
+0 {d_p1_(X0,Y,"t")} 1:-d_p0_(X,X0,"t**"),bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t") .
+(C-0) {bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*");s7_(Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f")} (C-0):-s6_(X,"f"),#count {Y:bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*")}=C,C>0 .
+d_p0_(X,X0,"f");d_p1_(X0,X1,"f"):-d_p0_(X,X0,"t*"),d_p1_(X0,X1,"t*"),bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,X1,"f") .
+0 {s7_(Y,"t*"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t**")} 0:-s6_(X,"t*") .
 
 
-% sh:minCount 0 for bnode_4e59e9881712447ba2228764412ec6ca116
-s9_(X,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"t*") .
-(C-0) {bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*");s10_(Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f")} (C-0):-s9_(X,"f"),#count {Y:bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*")}=C,C>0 .
-0 {s10_(Y,"t*"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t**")} 0:-s9_(X,"t*") .
+% sh:maxCount 0 for bnode_4bd575412daa4bdebe574c6d60ecb43f116
+s8_(X,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"t*") .
+s9_(X,"f"):-s8_(X,"t*") .
+s9_(X,"t*"):-s8_(X,"f") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,@new(s9,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1..1),"t"):-choose(s9,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1) .
+choose(s9,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1);choose(s9,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,0):-s9_(X,"t*") .
+(C-0) {bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*");s10_(Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f")} (C-0):-s9_(X,"f"),#count {Y:bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*")}=C,C>0 .
+1 {s10_(Y,"t*"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t**")} 1:-s9_(X,"t*") .
 
 
-% universal for bnode_4e59e9881712447ba2228764412ec6ca116
-s11_(X,"t*"):-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"t*") .
+% universal for bnode_4bd575412daa4bdebe574c6d60ecb43f116
+s11_(X,"t*"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"t*") .
 s12_(X,"f"):-s11_(X,"t*") .
 s12_(X,"t*"):-s11_(X,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,@new(s12,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1..1),"t"):-choose(s12,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1) .
-choose(s12,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,1);choose(s12,X,bnode_4e59e9881712447ba2228764412ec6ca116_st,0):-s12_(X,"t*") .
-(C-0) {bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*");s13_(Y,"f"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f")} (C-0):-s12_(X,"f"),#count {Y:bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t*")}=C,C>0 .
-1 {s13_(Y,"t*"):bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t**")} 1:-s12_(X,"t*") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,@new(s12,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1..1),"t"):-choose(s12,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1) .
+choose(s12,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,1);choose(s12,X,bnode_4bd575412daa4bdebe574c6d60ecb43f116_st,0):-s12_(X,"t*") .
+(C-0) {bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*");s13_(Y,"f"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f")} (C-0):-s12_(X,"f"),#count {Y:bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t*")}=C,C>0 .
+1 {s13_(Y,"t*"):bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t**")} 1:-s12_(X,"t*") .
 s14_(X,"f"):-s13_(X,"t*") .
 s14_(X,"t*"):-s13_(X,"f") .
 
 
-s6_(X,"f");s9_(X,"f");s11_(X,"f"):-bnode_4e59e9881712447ba2228764412ec6ca116_(X,"f") .
+s6_(X,"f");s8_(X,"f");s11_(X,"f"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_(X,"f") .
 
 % Interpretation Rules
 
 d_enrolledIn_(X,Y,"t**"):-d_enrolledIn_(X,Y,"t*"),not d_enrolledIn_(X,Y,"f") .
 d_p1_(X,Y,"t**"):-d_p1_(X,Y,"t*"),not d_p1_(X,Y,"f") .
 d_hasId_(X,Y,"t**"):-d_hasId_(X,Y,"t*"),not d_hasId_(X,Y,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,X2,"t**"):-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,X2,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,X2,"f"),d_enrolledIn_(X,X0,"t**"),d_p1_(X0,X1,"t**"),d_hasId_(X1,X2,"t**") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,X2,"t**"):-bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,X2,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,X2,"f"),d_enrolledIn_(X,X0,"t**"),d_p1_(X0,X1,"t**"),d_hasId_(X1,X2,"t**") .
 d_p0_(X,Y,"t**"):-d_p0_(X,Y,"t*"),not d_p0_(X,Y,"f") .
-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,X1,"t**"):-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,X1,"t*"),not bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,X1,"f"),d_p0_(X,X0,"t**"),d_p1_(X0,X1,"t**") .
+bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,X1,"t**"):-bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,X1,"t*"),not bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,X1,"f"),d_p0_(X,X0,"t**"),d_p1_(X0,X1,"t**") .
 
 % Program Constraints
 
 :-d_enrolledIn_(X,Y,"t"),d_enrolledIn_(X,Y,"f") .
 :-d_p1_(X,Y,"t"),d_p1_(X,Y,"f") .
 :-d_hasId_(X,Y,"t"),d_hasId_(X,Y,"f") .
-:-bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"t"),bnode_4e59e9881712447ba2228764412ec6ca112_st_(X,Y,"f") .
+:-bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"t"),bnode_4bd575412daa4bdebe574c6d60ecb43f112_st_(X,Y,"f") .
 :-s1_(X,"f") .
 :-s5_(X,"f") .
 :-d_p0_(X,Y,"t"),d_p0_(X,Y,"f") .
-:-bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"t"),bnode_4e59e9881712447ba2228764412ec6ca116_st_(X,Y,"f") .
-:-s8_(X,"f") .
+:-bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"t"),bnode_4bd575412daa4bdebe574c6d60ecb43f116_st_(X,Y,"f") .
+:-s7_(X,"f") .
 :-s10_(X,"f") .
 :-s14_(X,"f") .
 
@@ -172,15 +172,94 @@ del(d_p0(X,Y)):-d_p0_(X,Y,"f"),d_p0(X,Y) .
 #show add/1 .
 #show del/1 .
 
-
 #script (lua)
-function new(S, X, E, C)
-local x = tostring(S) .. tostring(X) .. tostring(E) .. tostring(C)
-local result = 0
-for i = 1, string.len(x) do
-result = result + string.byte(x,i)
+-- Pure Lua SHA-256 implementation (Lua 5.3+ required)
+
+local function rrotate(x, n)
+    return ((x >> n) | (x << (32 - n))) & 0xffffffff
 end
-return tostring('new_' .. result)
+
+local function sha256(msg)
+
+    local k = {
+        0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+        0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+        0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+        0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+        0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+        0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+        0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+        0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2
+    }
+
+    local h = {
+        0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,
+        0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19
+    }
+
+    local ml = #msg * 8
+    msg = msg .. string.char(0x80)
+
+    while (#msg % 64) ~= 56 do
+        msg = msg .. string.char(0)
+    end
+
+    for i = 7, 0, -1 do
+        msg = msg .. string.char((ml >> (i*8)) & 0xff)
+    end
+
+    for chunk = 1, #msg, 64 do
+        local w = {}
+
+        for i = 0, 15 do
+            local a,b,c,d = string.byte(msg, chunk+i*4, chunk+i*4+3)
+            w[i] = ((a<<24)|(b<<16)|(c<<8)|d) & 0xffffffff
+        end
+
+        for i = 16, 63 do
+            local s0 = rrotate(w[i-15],7) ~ rrotate(w[i-15],18) ~ (w[i-15] >> 3)
+            local s1 = rrotate(w[i-2],17) ~ rrotate(w[i-2],19) ~ (w[i-2] >> 10)
+            w[i] = (w[i-16] + s0 + w[i-7] + s1) & 0xffffffff
+        end
+
+        local a,b,c,d,e,f,g,hv = table.unpack(h)
+
+        for i = 0, 63 do
+            local S1 = rrotate(e,6) ~ rrotate(e,11) ~ rrotate(e,25)
+            local ch = (e & f) ~ ((~e) & g)
+            local temp1 = (hv + S1 + ch + k[i+1] + w[i]) & 0xffffffff
+            local S0 = rrotate(a,2) ~ rrotate(a,13) ~ rrotate(a,22)
+            local maj = (a & b) ~ (a & c) ~ (b & c)
+            local temp2 = (S0 + maj) & 0xffffffff
+
+            hv = g
+            g = f
+            f = e
+            e = (d + temp1) & 0xffffffff
+            d = c
+            c = b
+            b = a
+            a = (temp1 + temp2) & 0xffffffff
+        end
+
+        h[1] = (h[1] + a) & 0xffffffff
+        h[2] = (h[2] + b) & 0xffffffff
+        h[3] = (h[3] + c) & 0xffffffff
+        h[4] = (h[4] + d) & 0xffffffff
+        h[5] = (h[5] + e) & 0xffffffff
+        h[6] = (h[6] + f) & 0xffffffff
+        h[7] = (h[7] + g) & 0xffffffff
+        h[8] = (h[8] + hv) & 0xffffffff
+    end
+
+    return string.format("%08x%08x%08x%08x%08x%08x%08x%08x",
+        h[1],h[2],h[3],h[4],h[5],h[6],h[7],h[8])
+end
+
+-- UID generator
+function new(a,b,c,d)
+    local combined = table.concat({tostring(a),tostring(b),tostring(c),tostring(d)}, "|")
+    return tostring('new_' .. tostring(sha256(combined)))
 end
 #end .
 

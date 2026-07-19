@@ -1,9 +1,9 @@
-clingo version 5.7.1
+clingo version 5.8.0
 Reading from ...path_01/test_property_path_01_rules.pl
 Solving...
-actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","Math 2"))
-
 actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2"))
+
+actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","Math 2"))
 
 actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1"))
 
@@ -11,11 +11,11 @@ actualTarget("d_ann",d_StudentShape) actualTarget("d_ben",d_StudentShape) del(d_
 
 OPTIMUM FOUND
 
-Models       : 6
+Models       : 7
   Optimum    : yes
   Optimal    : 4
 Optimization : 0 1
 Calls        : 1
-Time         : 0.015s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.005s
-Threads      : 3        (Winner: 0)
+Time         : 0.018s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s
+Threads      : 3        (Winner: 2)

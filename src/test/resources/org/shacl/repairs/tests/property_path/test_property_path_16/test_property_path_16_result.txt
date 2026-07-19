@@ -1,4 +1,4 @@
-clingo version 5.7.1
+clingo version 5.8.0
 Reading from ...path_16/test_property_path_16_rules.pl
 Solving...
 actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_hasId("d_bn1","Math 1")) add(d_hasId("d_bn1","ID"))
@@ -16,6 +16,6 @@ Models       : 35
   Optimal    : 32
 Optimization : 0 3 1
 Calls        : 1
-Time         : 0.007s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.008s
-Threads      : 3        (Winner: 2)
+Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.012s
+Threads      : 3        (Winner: 1)

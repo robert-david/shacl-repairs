@@ -1,6 +1,14 @@
-clingo version 5.7.1
+clingo version 5.8.0
 Reading from ...path_22/test_property_path_22_rules.pl
 Solving...
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_hasId("d_bn2","Math 2"))
+
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn3")) del(d_hasId("d_bn2","Math 2"))
+
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","Math 2")) del(d_hasId("d_bn3","Math 3"))
+
+actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn1","Math 1")) del(d_hasId("d_bn2","Math 2"))
+
 actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn1","Math 1")) del(d_hasId("d_bn3","Math 3"))
 
 actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn3")) del(d_hasId("d_bn1","Math 1"))
@@ -11,27 +19,19 @@ actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_en
 
 actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_enrolledIn("d_ben","d_bn2"))
 
-actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn1")) del(d_hasId("d_bn2","Math 2"))
-
 actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_hasId("d_bn1","Math 1"))
-
-actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn1","Math 1")) del(d_hasId("d_bn2","Math 2"))
-
-actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_enrolledIn("d_ben","d_bn3"))
-
-actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn3")) del(d_hasId("d_bn2","Math 2"))
-
-actualTarget("d_ben",d_StudentShape) del(d_hasId("d_bn2","Math 2")) del(d_hasId("d_bn3","Math 3"))
 
 actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_hasId("d_bn3","Math 3"))
 
+actualTarget("d_ben",d_StudentShape) del(d_enrolledIn("d_ben","d_bn2")) del(d_enrolledIn("d_ben","d_bn3"))
+
 OPTIMUM FOUND
 
-Models       : 13
+Models       : 14
   Optimum    : yes
   Optimal    : 12
 Optimization : 0 2
 Calls        : 1
-Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
-CPU Time     : 0.006s
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.008s
 Threads      : 3        (Winner: 0)

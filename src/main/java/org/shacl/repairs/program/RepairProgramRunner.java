@@ -51,7 +51,7 @@ public class RepairProgramRunner extends RepairProgram {
                 solutions = true;
             }
         }
-
+System.out.println(result);
         logger.info(result);
         return result;
     }
