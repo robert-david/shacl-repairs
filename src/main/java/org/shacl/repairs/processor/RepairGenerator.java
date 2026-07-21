@@ -38,7 +38,7 @@ public class RepairGenerator {
 
     static int shapeCount = 0;
     static boolean relaxed = true;
-    static int maxPathLength = 10;
+    static int maxPathLength = 2;
 
     public static void processRepairs(
             Model dataModel, Model shapesModel,
@@ -830,11 +830,11 @@ public class RepairGenerator {
             firstPath = getPathName(path);
 
             if (minCount > 0) {
-                String repairChoices = "choose(" + shapeName + ",X," + firstPath + ",0):-" + shapeName + "_(X,\"t*\") .\n";
+                String repairChoices = "choose(" + shapeName + ",X," + firstPath + "_inv_,0):-" + shapeName + "_(X,\"t*\") .\n";
 
                 for (int i = 1; i <= minCount; i++) {
 
-                    repairChoices = "choose(" + shapeName + ",X," + firstPath + "," + i + ");" + repairChoices;
+                    repairChoices = "choose(" + shapeName + ",X," + firstPath + "_inv_," + i + ");" + repairChoices;
 
                     RepairData.get().getRepairRules().add(
                             firstPath + "_inv_(X,@new(" + shapeName + ",X," + firstPath + "_inv_,1.." + i + "),\"t\")" +
@@ -861,15 +861,18 @@ public class RepairGenerator {
             firstPath = getPathName(path);
 
             if (minCount > 0) {
-                String repairChoices = "choose(" + shapeName + ",X," + firstPath + ",0):-" + shapeName + "_(X,\"t*\") .\n";
+                String repairChoices = "choose(" + shapeName + ",X," + firstPath + "_plus_,0):-" + shapeName + "_(X,\"t*\") .\n";
 
                 for (int i = 1; i <= minCount; i++) {
 
-                    repairChoices = "choose(" + shapeName + ",X," + firstPath + "," + i + ");" + repairChoices;
+                    repairChoices = "choose(" + shapeName + ",X," + firstPath + "_plus_," + i + ");" + repairChoices;
 
+                    // add a p_plus 1 option to generate nodes on the p+ path
+                    // todo: check if better (aligned with abstract rules) way
                     RepairData.get().getRepairRules().add(
+//                            (i>1 ? firstPath + "_plus_(X,@new(" + shapeName + ",X," + firstPath + "_plus_,1),\"t\");" : "") +
                             firstPath + "_plus_(X,@new(" + shapeName + ",X," + firstPath + "_plus_,1.." + i + "),\"t\")" +
-                                    ":-choose(" + shapeName + ",X," + firstPath + "," + i + ") .\n");
+                                    ":-choose(" + shapeName + ",X," + firstPath + "_plus_," + i + ") .\n");
                 }
 
                 RepairData.get().getRepairRules().add(repairChoices);
@@ -877,7 +880,7 @@ public class RepairGenerator {
 
             if (SHACLData.get().getConstantsFacts().size() > 0) {
                 RepairData.get().getRepairRules().add(
-                        "0 {" + firstPath + "_(Y,X,\"t\"):const(Y)} " +
+                        "0 {" + firstPath + "_plus_(X,Y,\"t\"):const(Y)} " +
                                 SHACLData.get().getConstantsFacts().size() +
                                 ":-" + shapeName + "_(X,\"t*\") .\n"
                 );
@@ -1003,7 +1006,7 @@ public class RepairGenerator {
 
             if (SHACLData.get().getConstantsFacts().size() > 0) {
                 RepairData.get().getRepairRules().add(
-                        "0 {" + firstPath + "_plus_(Y,X,\"t*\"):const(Y)} " +
+                        "0 {" + firstPath + "_plus_(X,Y,\"t*\"):const(Y)} " +
                                 SHACLData.get().getConstantsFacts().size() +
                                 ":-" + shapeName + "_(X,\"t*\") .\n"
                 );
@@ -1119,7 +1122,7 @@ public class RepairGenerator {
                         "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + postfix + ",0):-" + ruleBody;
                 RepairData.get().getRepairRules().add(repairChoices);
 
-                String repairChoice = nextPath + postfix + "_(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
+                String repairChoice = nextPath + postfix + "(X" + currentPathIndex + "," + nextObject + ",\"t\"):-"
                         + "choose(" + propertyPathName + ",X" + currentPathIndex + "," + nextPath + postfix + "," + 1 + "),"
                         + ruleBody;
 
@@ -1158,26 +1161,69 @@ public class RepairGenerator {
     }
 
     private static void createOneOrMorePathRules(String shapeName, String pathName) {
+System.out.println("----------------------------------------------------");
 
-        RepairData.get().getRepairRules().add(
-                pathName + "_(X,@new(" + pathName + ",X," + pathName + ",1),\"t\")" +
-                        ":-chooseOneOrMore(" + pathName + ",X," + pathName + ",CP,C,Y),CP>C .\n");
+        String rule;
+
+//        rule = pathName + "_(X,Y,\"t\")" +
+//                ":-chooseOneOrMore(" + pathName + ",X,1,1,Y) .\n";
+//System.out.println("rule gen: "+ rule);
+//        RepairData.get().getRepairRules().add(rule);
+//
+//        rule = pathName + "_(X,@new(" + pathName + ",X," + pathName + ",1),\"t\")" +
+//                ":-chooseOneOrMore(" + pathName + ",X," + "CP,1,Y),CP>1 .\n";
+//System.out.println("rule gen: "+ rule);
+//        RepairData.get().getRepairRules().add(rule);
+//
+//        rule = pathName + "_(@new(" + pathName + ",X," + pathName + ",C-1),@new(" + pathName + ",X," + pathName + ",C),\"t\")" +
+//                ":-chooseOneOrMore(" + pathName + ",X," + "CP,C,Y),CP>C>1 .\n";
+//System.out.println("rule gen: "+ rule);
+//        RepairData.get().getRepairRules().add(rule);
+//
+//        rule = pathName + "_(@new(" + pathName + ",X," + pathName + ",C-1),Y,\"t\")" +
+//                ":-chooseOneOrMore(" + pathName + ",X," + "CP,C,Y),CP=C>1 .\n";
+//System.out.println("rule gen: "+ rule);
+//        RepairData.get().getRepairRules().add(rule);
+
+
+//        d_hasParent_(X,@new(d_hasParent,X,d_hasParent,C),"t"):-chooseOneOrMore(d_hasParent,X,CP,C,Y),CP>C .
+//        d_hasParent_(X,Y,"t"):-chooseOneOrMore(d_hasParent,X,CP,C,Y),CP=C .
+
+        rule = pathName + "_(X,@new(" + pathName + ",X," + pathName + ",C),\"t\")" +
+                ":-chooseOneOrMore(" + pathName + ",X," + "CP,C,Y),CP>C .\n";
+System.out.println("rule gen: "+ rule);
+        RepairData.get().getRepairRules().add(rule);
 
         RepairData.get().getRepairRules().add(
                 pathName + "_(X,Y,\"t\")" +
-                        ":-chooseOneOrMore(" + pathName + ",X," + pathName + ",CP,C,Y),CP=C .\n");
+                        ":-chooseOneOrMore(" + pathName + ",X,CP,C,Y),CP=C .\n");
+System.out.println("rule gen: " + pathName + "_(X,Y,\"t\")" + ":-chooseOneOrMore(" + pathName + ",X,CP,C,Y),CP=C .");
 
-        String repairChoices = ":-" + pathName + "_plus_(X,Y,\"t\") .\n";
+// ********* rec rule(s)
+
+        RepairData.get().getRepairRules().add(
+                    "chooseOneOrMore(" + pathName + ",@new(" + pathName + ",X," + pathName + ",C),CP,C+1,Y)" +
+                            ":-chooseOneOrMore(" + pathName + ",X,CP,C,Y),CP>C .\n");
+System.out.println("rule rec: " + "chooseOneOrMore(" + pathName + ",@new(" + pathName + ",X," + pathName + ",1),CP,C+1,Y)" +
+        ":-chooseOneOrMore(" + pathName + ",X,CP,C,Y),CP>C .\n");
+
+
+
+                String repairChoices = ":-" + pathName + "_plus_(X,Y,\"t\") .\n";
+
         for (int i = 1; i <= maxPathLength; i++) {
 
-            repairChoices = "chooseOneOrMore(" + pathName + ",X," + pathName + "," + i + ",1,Y)" + repairChoices;
+            repairChoices = "chooseOneOrMore(" + pathName + ",X," + i + ",1,Y)" + repairChoices;
             if (i < maxPathLength) {
                 repairChoices = ";" + repairChoices;
             }
 
-            RepairData.get().getRepairRules().add(
-                    "chooseOneOrMore(" + pathName + ",@new(" + pathName + ",X," + pathName + ",1)," + pathName + "," + i + ",C+1,Y)" +
-                            ":-chooseOneOrMore(" + pathName + ",X," + pathName + "," + i + ",C,Y)," + i + ">C .\n");
+//            RepairData.get().getRepairRules().add(
+//                    "chooseOneOrMore(" + pathName + ",@new(" + pathName + ",X," + pathName + ",1)," + pathName + "," + i + ",C+1,Y)" +
+//                            ":-chooseOneOrMore(" + pathName + ",X," + pathName + "," + i + ",C,Y)," + i + ">C .\n");
+//
+//System.out.println("rule 2: " + "chooseOneOrMore(" + pathName + ",@new(" + pathName + ",X," + pathName + ",1)," + pathName + "," + i + ",C+1,Y)" +
+//        ":-chooseOneOrMore(" + pathName + ",X," + pathName + "," + i + ",C,Y)," + i + ">C .\n");
 
             String annotationRule = pathName + "_plus_(X,Y,\"t*\"):-";
             String interpretationRule = pathName + "_plus_(X,Y,\"t**\"):-" + pathName + "_plus_(X,Y,\"t*\"),not " + pathName + "_plus_(X,Y,\"f\")";
@@ -1191,20 +1237,24 @@ public class RepairGenerator {
 
             RepairData.get().getAnnotationRules().add(annotationRule);
             RepairData.get().getInterpretationRules().add(interpretationRule);
-        }
 
+System.out.println("ann: " + annotationRule);
+System.out.println("int: " + interpretationRule);
+        }
+System.out.println("s->choices: " + repairChoices);
         RepairData.get().getRepairRules().add(repairChoices);
 
-        String rule = pathName + "_(X1,Y,\"f\");" + pathName + "_plus_(X,X1,\"f\"):-" +
+        rule = pathName + "_(X1,Y,\"f\");" + pathName + "_plus_(X,X1,\"f\"):-" +
                 pathName + "_plus_(X,Y,\"f\")," + pathName + "_(X1,Y,\"t*\")," + pathName + "_plus_(X,X1,\"t*\") .\n";
         RepairData.get().getRepairRules().add(rule);
-
+System.out.println("rule f: " + rule);
         rule = pathName + "_(X,Y,\"f\"):-" +
                 pathName + "_plus_(X,Y,\"f\")," + pathName + "_(X,Y,\"t*\") .\n";
         RepairData.get().getRepairRules().add(rule);
-
+System.out.println("rule f: " + rule);
         RepairData.get().getProgramConstraints().add(
                 ":-" + pathName + "_plus_(X,Y,\"t\")," + pathName + "_plus_(X,Y,\"f\") .\n");
+System.out.println("----------------------------------------------------");
     }
 
     private static void getEqualsRules(String shapeName, String st, Path path, String equalsName) {

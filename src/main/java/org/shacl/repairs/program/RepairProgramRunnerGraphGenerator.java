@@ -43,7 +43,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
     public String runProgram(String rulesFile, String additionsFile, String deletionsFile, String dataFile) throws IOException {
 
         Runtime rt = Runtime.getRuntime();
-        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "0", "-t", "3", "--time-limit=60"};
+        String[] commands = {"clingo", rulesFile, "--opt-mode=optN", "--quiet=1", "-n", "1", "-t", "3", "--time-limit=60"};
         Process proc = rt.exec(commands);
 
         BufferedReader stdInput = new BufferedReader(new
@@ -283,12 +283,12 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             rdfParser.parse(inputStream, "");
         }
 
-        logger.info("Initial data graph size: " + dataModel.size());
+        System.out.println("Initial data graph size: " + dataModel.size());
 
-        logger.info("Adding " + additions.size() + " triples");
+        System.out.println("Adding " + additions.size() + " triples");
         dataModel.addAll(additions);
 
-        logger.info("Deleting " + deletions.size() + " triples");
+        System.out.println("Deleting " + deletions.size() + " triples");
         dataModel.removeAll(deletions);
 
         // Additional bnode deletion check, because bnodes don't preserve across data models
@@ -300,14 +300,13 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
                                 .size();
                 if (nrOfStatements == 1) {
                     dataModel.remove(deletion.getSubject(), deletion.getPredicate(), null);
-                    System.out.println("Deleted " + deletion);
                 } else if (nrOfStatements > 1) {
                     throw new RuntimeException("Ambiguous triple with bnode object in deletion: " + deletion);
                 }
             }
         }
 
-        logger.info("Repaired data graph size: " + dataModel.size());
+        System.out.println("Repaired data graph size: " + dataModel.size());
 
         if (addXSD) {
             Model xsd = new LinkedHashModel();
@@ -327,6 +326,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         }
 
         logger.info("Repaired graph data with XSD datatypes: " + dataModel.size());
+        System.out.println("Repaired graph data with XSD datatypes: " + dataModel.size());
 
         try (FileOutputStream out = new FileOutputStream(targetFile)) {
             Rio.write(dataModel, out, RDFFormat.TURTLE);

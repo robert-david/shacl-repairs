@@ -194,4 +194,49 @@ public class OneOrMorePathTestSuite {
 
         r.writeResult(testPath + "/test_oneOrMorePath_08_result.txt", result);
     }
+
+    @Test
+    public void test_oneOrMorePath_09() throws IOException {
+
+        String testPath = path + "/tests/oneOrMorePath/test_oneOrMorePath_09";
+
+        String sourceFile = testPath + "/test_oneOrMorePath_09_data.ttl";
+
+        r.createRepairProgram(
+                sourceFile,
+                testPath + "/test_oneOrMorePath_09_shapes.ttl",
+                testPath + "/test_oneOrMorePath_09_rules.pl");
+
+        String result = r.runProgram(
+                testPath + "/test_oneOrMorePath_09_rules.pl");
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_Ben\",d_ParentShape)") == 2);
+        assertTrue(Pattern.compile("add\\(d_hasParent\\(\"d_Ben\",\"new_[a-z0-9]+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(Pattern.compile("add\\(d_hasParent\\(\"new_[a-z0-9]+\",\"new_[a-z0-9]+\"\\)\\)").matcher(result).results().count() == 1);
+
+        r.writeResult(testPath + "/test_oneOrMorePath_09_result.txt", result);
+    }
+
+    @Test
+    public void test_oneOrMorePath_10() throws IOException {
+
+        String testPath = path + "/tests/oneOrMorePath/test_oneOrMorePath_10";
+
+        String sourceFile = testPath + "/test_oneOrMorePath_10_data.ttl";
+
+        r.createRepairProgram(
+                sourceFile,
+                testPath + "/test_oneOrMorePath_10_shapes.ttl",
+                testPath + "/test_oneOrMorePath_10_rules.pl");
+
+        String result = r.runProgram(
+                testPath + "/test_oneOrMorePath_10_rules.pl");
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_Ben\",d_ParentShape)") == 3);
+        assertTrue(Pattern.compile("add\\(d_hasParent\\(\"d_Ben\",\"new_[a-z0-9]+\"\\)\\)").matcher(result).results().count() == 3);
+        assertTrue(StringUtils.countMatches(result,"add(d_hasParent(\"d_Ben\",\"d_Ancestor\"))") == 2);
+        assertTrue(Pattern.compile("add\\(d_hasParent\\(\"new_[a-z0-9]+\",\"d_Ancestor\"\\)\\)").matcher(result).results().count() == 1);
+
+        r.writeResult(testPath + "/test_oneOrMorePath_10_result.txt", result);
+    }
 }
