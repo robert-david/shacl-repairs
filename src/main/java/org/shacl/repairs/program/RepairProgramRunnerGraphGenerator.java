@@ -283,12 +283,12 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             rdfParser.parse(inputStream, "");
         }
 
-        System.out.println("Initial data graph size: " + dataModel.size());
+        logger.info("Initial data graph size: " + dataModel.size());
 
-        System.out.println("Adding " + additions.size() + " triples");
+        logger.info("Adding " + additions.size() + " triples");
         dataModel.addAll(additions);
 
-        System.out.println("Deleting " + deletions.size() + " triples");
+        logger.info("Deleting " + deletions.size() + " triples");
         dataModel.removeAll(deletions);
 
         // Additional bnode deletion check, because bnodes don't preserve across data models
@@ -306,7 +306,7 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
             }
         }
 
-        System.out.println("Repaired data graph size: " + dataModel.size());
+        logger.info("Repaired data graph size: " + dataModel.size());
 
         if (addXSD) {
             Model xsd = new LinkedHashModel();
@@ -326,7 +326,6 @@ public class RepairProgramRunnerGraphGenerator extends RepairProgramRunner {
         }
 
         logger.info("Repaired graph data with XSD datatypes: " + dataModel.size());
-        System.out.println("Repaired graph data with XSD datatypes: " + dataModel.size());
 
         try (FileOutputStream out = new FileOutputStream(targetFile)) {
             Rio.write(dataModel, out, RDFFormat.TURTLE);
