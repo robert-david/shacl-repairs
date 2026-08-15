@@ -239,4 +239,26 @@ public class OneOrMorePathTestSuite {
 
         r.writeResult(testPath + "/test_oneOrMorePath_10_result.txt", result);
     }
+
+    @Test
+    public void test_oneOrMorePath_11() throws IOException {
+
+        String testPath = path + "/tests/oneOrMorePath/test_oneOrMorePath_11";
+
+        String sourceFile = testPath + "/test_oneOrMorePath_11_data.ttl";
+
+        r.createRepairProgram(
+                sourceFile,
+                testPath + "/test_oneOrMorePath_11_shapes.ttl",
+                testPath + "/test_oneOrMorePath_11_rules.pl");
+
+        String result = r.runProgram(
+                testPath + "/test_oneOrMorePath_11_rules.pl");
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_Ben\",d_ParentShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Ancestor(\"d_Ann\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Ancestor(\"d_Bob\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasParent(\"d_Ann\",\"d_Bob\"))") == 1);
+        r.writeResult(testPath + "/test_oneOrMorePath_11_result.txt", result);
+    }
 }
