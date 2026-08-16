@@ -846,7 +846,7 @@ public class RepairGenerator {
                         st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
-                        "} (C-" + allowed + "):-"
+                        "} C:-"
                         + shapeName + "_(X,\"f\")," +
                         "#count {Y:" + st + "_(X,Y,\"t*\")}=C," +
                         "C>" + allowed +
@@ -952,7 +952,7 @@ public class RepairGenerator {
                         st + "_(X,Y,\"f\"):" + st + "_(X,Y,\"t*\")" +
                         ";" +
                         s + "_(Y,\"f\"):" + st + "_(X,Y,\"t*\"),not " + st + "_(X,Y,\"f\")" +
-                        "} (C-" + allowed + "):-"
+                        "} C:-"
                         + shapeName + "_(X,\"f\")," +
                         "#count {Y:" + st + "_(X,Y,\"t*\")}=C," +
                         "C>" + allowed +
