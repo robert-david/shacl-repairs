@@ -21,7 +21,10 @@ import org.eclipse.rdf4j.sail.shacl.ast.NodeShape;
 import org.eclipse.rdf4j.sail.shacl.ast.PropertyShape;
 import org.eclipse.rdf4j.sail.shacl.ast.Shape;
 import org.eclipse.rdf4j.sail.shacl.ast.constraintcomponents.*;
-import org.eclipse.rdf4j.sail.shacl.ast.paths.*;
+import org.eclipse.rdf4j.sail.shacl.ast.paths.InversePath;
+import org.eclipse.rdf4j.sail.shacl.ast.paths.Path;
+import org.eclipse.rdf4j.sail.shacl.ast.paths.SequencePath;
+import org.eclipse.rdf4j.sail.shacl.ast.paths.SimplePath;
 import org.eclipse.rdf4j.sail.shacl.ast.targets.*;
 import org.shacl.repairs.data.RepairData;
 import org.shacl.repairs.data.SHACLData;
@@ -396,8 +399,7 @@ public class RepairGenerator {
 
             SequencePath seq = (SequencePath) path;
             for (Path pathEl : seq.getSequence()) {
-                if (pathEl instanceof SimplePath || pathEl instanceof InversePath
-                        || pathEl instanceof ZeroOrMorePath) {
+                if (pathEl instanceof SimplePath || pathEl instanceof InversePath) {
 
                     createPropertyRules(getPathName(pathEl));
                 } else {
@@ -406,13 +408,6 @@ public class RepairGenerator {
 
                 if (pathEl instanceof InversePath) {
                     createInversePropertyRules(getPathName(pathEl));
-                }
-
-                if (pathEl instanceof ZeroOrMorePath) {
-                    if (!(((ZeroOrMorePath) pathEl).getPath() instanceof SimplePath)) {
-                        throw new RuntimeException("zero or more path contains not supported element " + pathEl.getClass().getSimpleName());
-                    }
-                    createZeroOrMorePathRules(getPathName(pathEl));
                 }
             }
 
@@ -426,15 +421,6 @@ public class RepairGenerator {
                     String pathName = getPathName(pathEl);
                     rule += "," + pathName +
                             "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\")";
-                } else if (pathEl instanceof ZeroOrMorePath) {
-                    String pathName = getPathName(pathEl);
-
-                    String repairChoice =
-                            pathName + "_star_(X" + (count >= 0 ? count : "") + ",X" + (count >= 0 ? count : "") + ",\"t*\"):-" + rule + " .\n";
-                    RepairData.get().getRepairRules().add(repairChoice);
-
-                    rule += "," + pathName +
-                            "_star_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\")";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
@@ -455,9 +441,6 @@ public class RepairGenerator {
                     String pathName = getPathName(pathEl);
                     rule += "," + pathName +
                             "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t**\")";
-                } else if (pathEl instanceof ZeroOrMorePath) {
-                    rule += "," + getPathName(pathEl) +
-                            "_star_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t**\")";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
@@ -727,11 +710,6 @@ public class RepairGenerator {
                             "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\"),";
                     head += getPathName(pathEl) +
                             "_inv_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"f\");";
-                } else if (pathEl instanceof ZeroOrMorePath) {
-                    body += getPathName(pathEl) +
-                            "_star_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"t*\"),";
-                    head += getPathName(pathEl) +
-                            "_star_(X" + (count >= 0 ? count : "") + ",X" + (count + 1) + ",\"f\");";
                 } else {
                     throw new RuntimeException("sequence path contains not supported element " + pathEl.getClass().getSimpleName());
                 }
@@ -753,8 +731,6 @@ public class RepairGenerator {
             return ns(nss, path.getId());
         } else if (path instanceof InversePath) {
             return ns(nss, ((InversePath) path).getInversePath().getId());
-        } else if (path instanceof ZeroOrMorePath) {
-            return ns(nss, ((ZeroOrMorePath) path).getPath().getId());
         } else {
             throw new RuntimeException("path represents not supported element " + path.getClass().getSimpleName());
         }
@@ -1000,11 +976,6 @@ public class RepairGenerator {
                         currentPathName + "_inv_(X" +
                                 ((spI-1) >= 0 ? (spI-1) : "") +
                                 ",X" + spI + ",\"t**\"),";
-            } else if (seq.getSequence().get(spI) instanceof ZeroOrMorePath) {
-                ruleBody +=
-                        currentPathName + "_star_(X" +
-                                ((spI-1) >= 0 ? (spI-1) : "") +
-                                ",X" + spI + ",\"t**\"),";
             } else {
                 throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
             }
@@ -1060,10 +1031,6 @@ public class RepairGenerator {
 
                     RepairData.get().getRepairRules().add(repairChoice);
 
-                } else if (seq.getSequence().get(pI) instanceof ZeroOrMorePath) {
-
-                    // shifted to annotations rules for st properties, because universal rules do not generate this rule here
-
                 } else {
                     throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
                 }
@@ -1088,14 +1055,6 @@ public class RepairGenerator {
                             + ruleBody;
                     RepairData.get().getRepairRules().add(repairChoice);
 
-                } else if (seq.getSequence().get(pI) instanceof ZeroOrMorePath) {
-
-                    nextObject = "Y";
-
-                    String repairChoice = "0 {" + nextPath + "_(X" + currentPathIndex + "," + nextObject + ",\"t\")} 1:-"
-                            + ruleBody;
-                    RepairData.get().getRepairRules().add(repairChoice);
-
                 } else {
                     throw new RuntimeException("path represents not supported element " + seq.getSequence().get(pI).getClass().getSimpleName());
                 }
@@ -1103,29 +1062,6 @@ public class RepairGenerator {
                 throw new RuntimeException("error processing choose options for " + propertyPathName);
             }
         }
-    }
-
-    private static void createZeroOrMorePathRules(String pathName) {
-
-        RepairData.get().getAnnotationRules().add(pathName + "_star_(X,Y,\"t*\"):-" + pathName + "_(X,Y,\"t*\") .\n");
-        RepairData.get().getAnnotationRules().add(
-                pathName + "_star_(X,Z,\"t*\"):-" + pathName + "_star_(X,Y,\"t*\")," + pathName + "_(Y,Z,\"t*\") .\n");
-
-        RepairData.get().getRepairRules().add(
-                pathName + "_star_(X,Y,\"f\");" + pathName + "_(Y,Z,\"f\"):-" +
-                        pathName + "_star_(X,Z,\"f\")," + pathName + "_star_(X,Y,\"t*\")," + pathName + "_(Y,Z,\"t*\"),X!=Y .\n");
-        RepairData.get().getRepairRules().add(
-                pathName + "_(X,Y,\"f\"):-" +
-                        pathName + "_star_(X,Y,\"f\")," + pathName + "_(X,Y,\"t*\") .\n");
-
-        RepairData.get().getInterpretationRules().add(
-                pathName + "_star_(X,Y,\"t**\"):-" +
-                        pathName + "_star_(X,Y,\"t*\"),not " + pathName + "_star_(X,Y,\"f\") .\n");
-
-        RepairData.get().getProgramConstraints().add(
-                ":-" + pathName + "_star_(X,Y,\"t\")," + pathName + "_star_(X,Y,\"f\") .\n");
-        RepairData.get().getProgramConstraints().add(
-                ":-" + pathName + "_star_(X,X,\"f\") .\n");
     }
 
     private static void createInversePropertyRules(String pathName) {
