@@ -9,7 +9,6 @@
     sh:targetNode :Ben;
     sh:property [
         sh:path ( :hasSibling [ sh:zeroOrMorePath :hasParent ] );
-#        sh:path ( :hasSibling :hasParent );
         sh:class :Ancestor;
         sh:maxCount 1;
     ] .

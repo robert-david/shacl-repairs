@@ -6,4 +6,3 @@
 @prefix : <http://org.shacl.repairs.tests/> .
 
 :Ben :hasParent :Ann .
-#:Ben :hasParent :Bob .

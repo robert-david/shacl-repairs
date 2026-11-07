@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.shacl.repairs.program.RepairProgramRunner;
 
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -182,5 +181,49 @@ public class ZeroOrMorePathTestSuite {
         assertTrue(StringUtils.countMatches(result,"del(owl_unionOf(\"d_range\",\"d_union\"))") == 1);
 
         r.writeResult(testPath + "/test_zeroOrMorePath_08_result.txt", result);
+    }
+
+    @Test
+    public void test_zeroOrMorePath_09() throws IOException {
+
+        String testPath = path + "/tests/zeroOrMorePath/test_zeroOrMorePath_09";
+
+        String sourceFile = testPath + "/test_zeroOrMorePath_09_data.ttl";
+
+        r.createRepairProgram(
+                sourceFile,
+                testPath + "/test_zeroOrMorePath_09_shapes.ttl",
+                testPath + "/test_zeroOrMorePath_09_rules.pl");
+
+        String result = r.runProgram(
+                testPath + "/test_zeroOrMorePath_09_rules.pl");
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_Ben\",d_ParentShape)") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasParent(\"d_Ben\",\"d_Ann\"))") == 1);
+
+        r.writeResult(testPath + "/test_zeroOrMorePath_09_result.txt", result);
+    }
+
+    @Test
+    public void test_zeroOrMorePath_10() throws IOException {
+
+        String testPath = path + "/tests/zeroOrMorePath/test_zeroOrMorePath_10";
+
+        String sourceFile = testPath + "/test_zeroOrMorePath_10_data.ttl";
+
+        r.createRepairProgram(
+                sourceFile,
+                testPath + "/test_zeroOrMorePath_10_shapes.ttl",
+                testPath + "/test_zeroOrMorePath_10_rules.pl");
+
+        String result = r.runProgram(
+                testPath + "/test_zeroOrMorePath_10_rules.pl");
+
+        assertTrue(StringUtils.countMatches(result,"actualTarget(\"d_C1\",d_CourseShape)") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Course(\"d_C1\"))") == 2);
+        assertTrue(StringUtils.countMatches(result,"add(d_Course(\"d_C2\"))") == 1);
+        assertTrue(StringUtils.countMatches(result,"del(d_hasSubCourse(\"d_C1\",\"d_C2\"))") == 1);
+
+        r.writeResult(testPath + "/test_zeroOrMorePath_10_result.txt", result);
     }
 }
